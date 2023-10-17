@@ -18,7 +18,8 @@ import {HttpClientModule} from "@angular/common/http";
     FontAwesomeModule,
     NgbModule,
     NoopAnimationsModule,
-    HttpClientModule
+    HttpClientModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent]
