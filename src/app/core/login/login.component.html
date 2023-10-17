@@ -1,0 +1,17 @@
+<div style="display: flex;justify-content: center;align-content: center;flex-direction: column">
+  <form [formGroup]="loginForm">
+    <div style="justify-content: center;display: flex;padding: 20px">
+      <mat-form-field appearance="outline">
+        <mat-label>Choose User Type</mat-label>
+        <mat-select formControlName="userType">
+          <mat-option value="CUSTOMER">Customer</mat-option>
+          <mat-option value="EMPLOYEE">Employee</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+  </form>
+  <div style="justify-content: center;display: flex">
+    <button mat-raised-button color="primary" (click)="login()">Login</button>
+  </div>
+</div>
+
