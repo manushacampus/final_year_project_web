@@ -1,0 +1,43 @@
+<mat-toolbar class="top-bar">
+  <div class="left">
+    <app-client></app-client>
+    <button (click)="sendNavState()" class="menu-button" disableRipple mat-button style="color: #d7d7d7">
+      <mat-icon>{{ isMenuOpen ? 'menu' : 'menu_open' }}</mat-icon>
+    </button>
+  </div>
+
+  <div>
+    <input type="text">
+    <button mat-button> <mat-icon style="color: #d7d7d7">search</mat-icon></button>
+  </div>
+
+  <div [matMenuTriggerFor]="sam">
+    <mat-icon matBadge="17" matBadgeColor="warn" matBadgeSize="small"  [matBadgeHidden]="hidden" (click)="toggleBadgeVisibility()" style="color: white">notifications</mat-icon>
+    <mat-menu #sam="matMenu">
+      <div style="display: flex;flex-direction: column">
+        <div style="padding: 5px">notification 01</div>
+        <div style="padding: 5px">notification 02</div>
+      </div>
+    </mat-menu>
+  </div>
+
+  <div [matMenuTriggerFor]="menu">
+
+    <mat-icon style="color: #d7d7d7">account_circle</mat-icon>
+
+    <mat-menu #menu="matMenu">
+      <div class="user-card">
+        <div class="reset-btn">
+          <button matTooltip="Reset Password" mat-stroked-button (click)="resetPassword()">
+            <mat-icon fontIcon="lock_reset"></mat-icon>
+          </button>
+        </div>
+        <img src="assets/img/user.png">
+        <span class="label-name">Manusha Silva</span>
+        <div class="btn-bar button-row">
+          <button mat-stroked-button (click)="logout()" > LogOut <mat-icon fontIcon="logout"></mat-icon></button>
+        </div>
+      </div>
+    </mat-menu>
+  </div>
+</mat-toolbar>

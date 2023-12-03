@@ -1,0 +1,84 @@
+.left {
+  display: flex;
+}
+
+.top-bar {
+  background-color: #101828;
+  height: 7%;
+  display: flex;
+  justify-content: space-between;
+
+  div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+.mat-card-sm-image {
+  width: 80px;
+  height: 80px;
+  position: relative;
+  left: 25%;
+  padding-bottom: 13px;
+}
+
+.mat-raised-button {
+  margin-right: 12px;
+}
+
+
+.user-card {
+  width: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  .reset-btn{
+    position: absolute;
+    top: 5px;
+    right: 5px;
+  }
+
+  .label-name{
+    font-weight: 900;
+  }
+
+  img {
+    max-width: 40%;
+    margin-bottom: 5px;
+  }
+
+  .btn-bar {
+    margin-top: 10px;
+    width: 95%;
+    display: flex;
+    // padding: 5px;
+    justify-content: center;
+    border-top: 1px solid #eeeee4;
+    padding-top: 5px;
+  }
+
+  .info {
+    flex-direction: row !important;
+  }
+
+  span {
+    font-size: 12px;
+    font-weight: 500;
+    margin-bottom: 5px;
+  }
+
+  span:nth-child(4) {
+    font-size: 12px;
+  }
+}
+
+::ng-deep.cdk-overlay-pane {
+  margin-top: 10px !important;
+}
+
+::ng-deep.mat-menu-panel {
+  max-width: 260px !important;
+}

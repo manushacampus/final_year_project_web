@@ -1,0 +1,13 @@
+.containers{
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 100%;
+  //justify-content: space-around;
+  justify-content: flex-start;
+  height:auto;
+}
+.example-card {
+  max-width: 200px;
+  margin: 10px;
+}

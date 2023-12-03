@@ -1,17 +1,47 @@
-<div style="display: flex;justify-content: center;align-content: center;flex-direction: column">
-  <form [formGroup]="loginForm">
-    <div style="justify-content: center;display: flex;padding: 20px">
-      <mat-form-field appearance="outline">
-        <mat-label>Choose User Type</mat-label>
-        <mat-select formControlName="userType">
-          <mat-option value="CUSTOMER">Customer</mat-option>
-          <mat-option value="EMPLOYEE">Employee</mat-option>
-        </mat-select>
-      </mat-form-field>
-    </div>
-  </form>
-  <div style="justify-content: center;display: flex">
-    <button mat-raised-button color="primary" (click)="login()">Login</button>
+
+<div class="" style="display: flex">
+  <div class="left">
+    <img src="../../../../../../../assets/login.svg" alt="" style="width: 70%;padding: 20px;margin: 100px">
   </div>
+  <div class="right" style="align-items: center;margin-top: 50px">
+
+        <img src="../../../../../../../assets/logo _ash.svg" alt="" style="width: 40%;display: flex;justify-content: center;align-items: center">
+
+      <div style="display: flex;justify-content: center;align-items: center">
+        <span style="font-weight: bold;font-size: 20px;color: #101828">Log in to your account</span>
+      </div>
+      <div style="display: flex;flex-direction: column;align-items: center;height: 80%;width: 100%;padding-top: 50px">
+        <form action="" style="display: flex;flex-direction: column;width: 70%" [formGroup]="loginForm">
+
+          <div class="form-control" style="">
+            <label for="">User name</label>
+            <mat-form-field appearance="outline" style="">
+              <mat-select formControlName="userType">
+                <mat-option value="CUSTOMER">Customer</mat-option>
+                <mat-option value="EMPLOYEE">Employee</mat-option>
+              </mat-select>
+              <mat-icon aria-hidden="false"  fontIcon="account_circle" matSuffix></mat-icon>
+            </mat-form-field>
+          </div>
+
+          <div class="form-control" style="">
+            <label for="">Password</label>
+            <mat-form-field class="example-full-width" appearance="outline">
+              <input matInput placeholder="enter password" value="">
+              <mat-icon aria-hidden="false"  fontIcon="lock_reset" matSuffix></mat-icon>
+            </mat-form-field>
+          </div>
+
+        </form>
+        <div class="form-control" style="align-items: end;padding-right:100px">
+          <div style="color: #3182CE;"><a href="">forget password</a></div>
+        </div>
+        <div class="form-control" style="align-items: center">
+          <button mat-raised-button style="background: #3182CE;color: white;width: 70%" (click)="login()">Sign in</button>
+        </div>
+      </div>
+      </div>
+
+
 </div>
 

@@ -1,0 +1,46 @@
+<div class="main">
+
+  <div class="sub-menu" style="justify-content: flex-end">
+    <button mat-raised-button color="primary" routerLink="../form">+ Add New Section</button>
+  </div>
+  <div class="sub-menu" style="display: flex">
+    <div>
+      <button mat-button >windows</button>
+      <button mat-button >door</button>
+    </div>
+
+  </div>
+
+  <div>
+    <mat-expansion-panel (opened)="panelOpenState = true"
+                         (closed)="panelOpenState = false">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Advanced Search
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <p>I'm visible because I am open</p>
+    </mat-expansion-panel>
+  </div>
+
+  <div class="sub-menu" style="justify-content: center;align-items: center">
+    <div style="font-size: 20px;font-weight: bold">
+      100mm Sliding Door
+    </div>
+  </div>
+
+  <div class="containers">
+    <ng-container *ngFor="let item of cardList">
+      <mat-card class="example-card">
+        <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
+        <mat-card-content>
+          <div>Section No:{{item.sectionNo}}</div>
+          <div>Weight</div>
+        </mat-card-content>
+      </mat-card>
+    </ng-container>
+
+
+
+  </div>
+</div>

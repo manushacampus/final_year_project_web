@@ -45,6 +45,6 @@ $final_project_web-theme: mat.define-light-theme((
 @import '@fortawesome/fontawesome-free/scss/brands.scss';
 
 @import 'mdb-angular-ui-kit/assets/scss/mdb.scss';
-
+@import "assets/styles/common.scss";
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

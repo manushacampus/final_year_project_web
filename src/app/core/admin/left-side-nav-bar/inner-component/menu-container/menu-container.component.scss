@@ -1,0 +1,57 @@
+.main-menu{
+  width: 100%;
+  //box-shadow: rgba(0, 0, 0, 0.1) 0px 3px 0px -5px, rgba(0, 0, 0, 0.14) 0px 0px 1px 0px, rgba(0, 0, 0, 0.12) 0px 1px 1px 0px;
+}
+
+.nav-btn {
+  //width: auto;
+  //display: flex;
+  ////padding-top: 10px;
+  ////padding-bottom: 10px;
+  //padding-left: 24px ;
+  //padding-right: 24px ;
+  //justify-content: flex-start;
+  //font-family: Roboto, "Helvetica Neue", sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+  color: #fdfdfd !important;
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  height: 48px;
+  cursor: pointer;
+
+}
+
+.nav-btn:hover {
+  background-color: rgba(147, 209, 241, 0.82);
+}
+
+.nav-btn-multilevel {
+  width: 100%;
+}
+
+.nav-btn-icon {
+  //font-size: 1.1rem;
+  //margin-right: 8px;
+  //padding-right: 7px!important;
+  margin-right: 7px;
+}
+
+.mat-expansion-panel {
+  border-radius: 0!important;
+  //width: 100%;
+}
+.mat-expansion-panel:hover {
+  background-color: rgba(147, 209, 241, 0.62);
+}
+
+.multi-level {
+  color: #484848;
+  font-weight: 500;
+  font-size: 14px;
+}
+.mat-expansion-panel-body{
+  padding-left: 15px!important;
+  padding-right: 0!important;
+}
