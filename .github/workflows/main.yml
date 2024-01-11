@@ -43,3 +43,15 @@ jobs:
             -Dsonar.projectKey=manushacampus_final_year_project_web
             -Dsonar.organization=manushacampus
             -Dsonar.sources=src
+      - name: Run OWASP Dependency-Check
+        uses: dependency-check/dependency-check-action@v3
+        with:
+          format: 'ALL'  # You can adjust the format based on your needs
+          outputDirectory: 'dependency-check-report'
+
+      - name: Upload OWASP Dependency-Check results
+        uses: actions/upload-artifact@v2
+        with:
+          name: dependency-check-report
+          path: dependency-check-report
+       
