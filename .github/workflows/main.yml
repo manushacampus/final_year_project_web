@@ -30,7 +30,7 @@ jobs:
           npm install -force
           npm install -g @angular/cli
       - name: Build Angular app
-        run: ng build payroll_ui --configuration=production
+        run: ng build --configuration=production
 
       - name: Analyze with SonarCloud
         if: ${{ github.event_name != 'pull_request' }}
