@@ -1,0 +1,11 @@
+<div class="cat-container">
+  <ng-container *ngFor="let item of category">
+    <a style="text-decoration: none;padding: 10px" [routerLink]='item.url' *ngIf="isVisibleByMode==item.mode || isVisibleByMode=='ALL'">
+      <div class="btn cat-button" style="">
+        <mat-icon class="secondary-color">dns</mat-icon>
+        <div>{{item.name}}</div>
+      </div>
+    </a>
+</ng-container>
+</div>
+

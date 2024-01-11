@@ -1,0 +1,68 @@
+<div class="main" style="">
+  <div class="sub-menu" style="justify-content: space-between">
+    <div style="display: flex;justify-content: center">
+      <mat-icon style="color: #3182CE;margin-right: 5px">public</mat-icon>
+      <div style="font-weight: bold">
+        Inventory
+      </div>
+    </div>
+    <div>
+
+    </div>
+  </div>
+
+  <div style="display: flex;justify-content: space-between;padding-bottom: 25px">
+    <div class="summery-card shadow">
+      <mat-icon class="secondary-color">dns</mat-icon>
+      <div class="topic" style="">Bar</div>
+      <div class="desc">Category Count : 25</div>
+      <div class="desc">Total Qty : 533</div>
+      <div class="desc">Total Price : Rs. 5330</div>
+    </div>
+    <div class="summery-card shadow">
+      <mat-icon class="secondary-color">dns</mat-icon>
+      <div class="topic" style="">Board</div>
+      <div class="desc">Category Count : 25</div>
+      <div class="desc">Total Qty : 533</div>
+      <div class="desc">Total Price : Rs. 5330</div>
+    </div>
+    <div class="summery-card shadow">
+      <mat-icon class="secondary-color">dns</mat-icon>
+      <div class="topic" style="">Other</div>
+      <div class="desc">Category Count : 25</div>
+      <div class="desc">Total Qty : 533</div>
+      <div class="desc">Total Price : Rs. 5330</div>
+    </div>
+  </div>
+  <div style="border-radius: 30px">
+    <table class="table table-custom" style="">
+      <thead class="table-head" style="">
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Code</th>
+        <th scope="col">Name</th>
+        <th scope="col">Type</th>
+        <th scope="col">qty</th>
+        <th scope="col">Unit Price</th>
+        <th scope="col">Total Price</th>
+        <th scope="col" style="width: 10%">Action</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let item of inventoryList">
+        <th scope="row">{{item.id}}</th>
+        <td>{{item.code}}</td>
+        <td>{{item.name}}</td>
+        <td>{{item.type}}</td>
+        <td>{{item.qty}}</td>
+        <td>{{item.price}}</td>
+        <td>{{item.price*item.qty}}</td>
+        <td><mat-icon>more_vert</mat-icon></td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+
+
+</div>
+
