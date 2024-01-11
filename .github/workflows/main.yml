@@ -32,6 +32,9 @@ jobs:
       - name: Build Angular app
         run: ng build --configuration=production
 
+      - name: Run Angular Unit Tests
+        run: ng test --watch=false --browsers=ChromeHeadless
+
       - name: Analyze with SonarCloud
         if: ${{ github.event_name != 'pull_request' }}
         uses: SonarSource/sonarcloud-github-action@de2e56b42aa84d0b1c5b622644ac17e505c9a049
