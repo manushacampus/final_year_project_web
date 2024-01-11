@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import {Router} from "@angular/router";
+import {CategoryFilterService} from "../../../../../core/services/utils/category-filter.service";
 
 @Component({
   selector: 'app-bar-section',
@@ -7,21 +8,18 @@ import {Router} from "@angular/router";
   styleUrls: ['./bar-section.component.scss']
 })
 export class BarSectionComponent {
-  constructor(private router: Router) {
+  constructor(private router: Router,private filterSection:CategoryFilterService) {
   }
-  cardList:any=[{name:'name',sectionNo:'SF23',weight:8.9},
-    {name:'name',sectionNo:'SF43',weight:8.9},
-    {name:'name',sectionNo:'TF23',weight:8.9},
-    {name:'name',sectionNo:'GH423',weight:8.9},
-    {name:'name',sectionNo:'HH532',weight:8.9},
-    {name:'name',sectionNo:'ST342',weight:8.9},
-    {name:'name',sectionNo:'GH434',weight:8.9},
-    {name:'name',sectionNo:'HG32',weight:8.9}]
+
 
   panelOpenState:boolean=false;
 
   addNew() {
     console.log("ddddd")
     this.router.navigate(['../form']);
+  }
+
+  setMode(mode:any) {
+    this.filterSection.setFilterMode(mode)
   }
 }

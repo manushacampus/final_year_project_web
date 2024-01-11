@@ -1,0 +1,19 @@
+[
+  {"name":"Sliding Windows","url":"../all","mode":"WINDOW","category":"Sliding"},
+
+  {"name":"Casement Windows","url":"../all","mode":"WINDOW","category":"Casement"},
+
+  {"name":"'C' Groove System","url":"../all","mode":"WINDOW","category":"'C' Groove System"},
+
+  {"name":"Casement Door","url":"../all","mode":"DOOR","category":"Sliding"},
+
+  {"name":"Sliding Flooding Door","url":"../all","mode":"DOOR","category":"Sliding Flooding"},
+
+  {"name":"Normal","url":"../all","mode":"DOOR","category":"Normal"},
+
+  {"name":"ShopFront","url":"../all","mode":"OTHER","category":"ShopFront"},
+
+  {"name":"'C' Groove System","url":"../all","mode":"OTHER","category":"'C' Groove System"},
+
+  {"name":"Partition","url":"../all","mode":"OTHER","category":"Partition"}
+]

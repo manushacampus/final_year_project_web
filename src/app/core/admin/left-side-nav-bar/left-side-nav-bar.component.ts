@@ -16,18 +16,27 @@ export class LeftSideNavBarComponent implements OnInit{
 
   ngOnInit(): void {
     this.currentMenus=[
-      {"menuName":"Dashboard","url":"dashboard"},
-      {"menuName":"Product Manage","url":"dashboard","list":[
-          {"menuName":"Door","url":"doors"},
-          {"menuName":"Windows","url":"windows"},
-          {"menuName":"Pantry Cupboard","url":"dashboard"}
+      {"menuName":"Dashboard","url":"dashboard","icon":"work_outline"},
+      {"menuName":"Product Management","url":"dashboard","icon":"swap_calls","list":[
+          {"menuName":"Door","url":"doors","icon":"folder_open"},
+          {"menuName":"Windows","url":"windows","icon":"folder_open"},
+          {"menuName":"Pantry Cupboard","url":"dashboard","icon":"folder_open"}
         ]},
-      {"menuName":"Material","url":"raw-material","list":[
-          {"menuName":"Sections","url":"bar-section/all"},
-          {"menuName":"Bar","url":"bar"},
-          {"menuName":"Board","url":"board"},
-          {"menuName":"Other","url":"other"}
+      {"menuName":"Sections","url":"bar-section/all/cat","icon":"work_outline"},
+      {"menuName":"Inventory","url":"raw-material","icon":"folder_open","list":[
+          {"menuName":"All","url":"inventory/all","icon":"work_outline"},
+          {"menuName":"Bar","url":"inventory/bar","icon":"work_outline"},
+          {"menuName":"Board","url":"inventory/board","icon":"work_outline"},
+          {"menuName":"Other","url":"inventory/other","icon":"work_outline"}
         ]},
+      {"menuName":"Purchase Request","url":"bar-section/all/cat","icon":"work_outline"},
+      {"menuName":"Job","url":"bar-section/all/cat","icon":"work_outline"},
+      {"menuName":"Delivery","url":"bar-section/all/cat","icon":"work_outline"},
+      {"menuName":"Employee Management","url":"bar-section/all/cat","icon":"work_outline"},
+      {"menuName":"Customer Management","url":"bar-section/all/cat","icon":"work_outline"},
+      {"menuName":"Web Site Management","url":"bar-section/all/cat","icon":"work_outline"},
+      {"menuName":"Utility Management","url":"bar-section/all/cat","icon":"work_outline"},
+      {"menuName":"Reports","url":"bar-section/all/cat","icon":"work_outline"},
 
     ]
   }

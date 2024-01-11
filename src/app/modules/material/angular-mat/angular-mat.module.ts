@@ -8,6 +8,8 @@ import {MatIconModule} from "@angular/material/icon";
 import {MatCardModule} from "@angular/material/card";
 import {MatExpansionModule} from "@angular/material/expansion";
 import {MatBadgeModule} from "@angular/material/badge";
+import {MatPaginatorModule} from "@angular/material/paginator";
+import {FormsModule} from "@angular/forms";
 
 
 const angularMatModules=[
@@ -19,7 +21,12 @@ const angularMatModules=[
   MatIconModule,
   MatCardModule,
   MatExpansionModule,
-  MatBadgeModule
+  MatBadgeModule,
+  MatPaginatorModule,
+  FormsModule,
+  MatCardModule,
+  MatInputModule,
+  MatIconModule,
 ]
 @NgModule({
   exports: angularMatModules,

@@ -1,13 +1,22 @@
-.containers{
-  width: 100%;
-  display: flex;
-  flex-wrap: wrap;
-  max-width: 100%;
-  //justify-content: space-around;
-  justify-content: flex-start;
-  height:auto;
+//.containers{
+//  width: 100%;
+//  display: flex;
+//  flex-wrap: wrap;
+//  max-width: 100%;
+//  //justify-content: space-around;
+//  justify-content: flex-start;
+//  height:auto;
+//}
+//.example-card {
+//  max-width: 200px;
+//  margin: 10px;
+//}
+.mat-mdc-raised-button:hover {
+  //background-color: orange;
 }
-.example-card {
-  max-width: 200px;
+.btn-color{
+  background: white;
   margin: 10px;
+  width: 100px;
+  color: #2D3748;
 }

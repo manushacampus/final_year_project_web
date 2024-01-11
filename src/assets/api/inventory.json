@@ -1,0 +1,37 @@
+[
+  {
+    "id": "01",
+    "code": "T001",
+    "name": "Section01",
+    "type": "Bar",
+    "qty": 12,
+    "price": 1000,
+    "bar_id": "01",
+    "board_id": "",
+    "other_id": ""
+
+  },
+  { "id": "02",
+    "code": "T002",
+    "name": "Section02",
+    "type": "Board",
+    "qty": 12,
+    "price": 1000,
+    "bar_id": "",
+    "board_id": "01",
+    "other_id": ""
+
+  },
+  {
+    "id": "03",
+    "code": "T003",
+    "name": "Section03",
+    "type": "Other",
+    "qty": 12,
+    "price": 1000,
+    "bar_id": "",
+    "board_id": "",
+    "other_id": "01"
+
+  }
+]

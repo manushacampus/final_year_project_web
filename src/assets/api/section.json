@@ -1,0 +1,102 @@
+[
+  {
+    "id": "01",
+    "name": "s",
+    "section_no": "70S-1001-1",
+    "thickness": "70mm",
+    "weight": "0.664 KG./M.",
+    "image": "./assets/item01.png",
+    "category": "Sliding",
+    "type": "Window"
+  },
+  {
+    "id": "02",
+    "name": "s",
+    "section_no": "70S-1001-1",
+    "thickness": "70mm",
+    "weight": "0.664 KG./M.",
+    "image": "./assets/item01.png",
+    "category": "Sliding",
+    "type": "Window"
+  },
+  {
+    "id": "03",
+    "name": "s",
+    "section_no": "70S-1001-1",
+    "thickness": "70mm",
+    "weight": "0.664 KG./M.",
+    "image": "./assets/item01.png",
+    "category": "Sliding",
+    "type": "Window"
+  },
+  {
+    "id": "04",
+    "name": "s",
+    "section_no": "70S-1001-1",
+    "thickness": "70mm",
+    "weight": "0.664 KG./M.",
+    "image": "./assets/item01.png",
+    "category": "Sliding",
+    "type": "Window"
+  },
+  {
+    "id": "05",
+    "name": "s",
+    "section_no": "70S-1001-1",
+    "thickness": "70mm",
+    "weight": "0.664 KG./M.",
+    "image": "./assets/item02.png",
+    "category": "Sliding",
+    "type": "Window"
+  },
+  {
+    "id": "06",
+    "name": "s",
+    "section_no": "70S-1001-1",
+    "thickness": "70mm",
+    "weight": "0.664 KG./M.",
+    "image": "./assets/item01.png",
+    "category": "Sliding",
+    "type": "Window"
+  },
+  {
+    "id": "07",
+    "name": "s",
+    "section_no": "70S-1001-1",
+    "thickness": "70mm",
+    "weight": "0.664 KG./M.",
+    "image": "./assets/item01.png",
+    "category": "Sliding",
+    "type": "Window"
+  },
+  {
+    "id": "08",
+    "name": "s",
+    "section_no": "70S-1001-1",
+    "thickness": "70mm",
+    "weight": "0.664 KG./M.",
+    "image": "./assets/item02.png",
+    "category": "Sliding",
+    "type": "Window"
+  },
+  {
+    "id": "09",
+    "name": "s",
+    "section_no": "70S-1001-1",
+    "thickness": "70mm",
+    "weight": "0.664 KG./M.",
+    "image": "./assets/item01.png",
+    "category": "Sliding",
+    "type": "Window"
+  },
+  {
+    "id": "10",
+    "name": "s",
+    "section_no": "70S-1001-1",
+    "thickness": "70mm",
+    "weight": "0.664 KG./M.",
+    "image": "./assets/item02.png",
+    "category": "Sliding",
+    "type": "Window"
+  }
+]

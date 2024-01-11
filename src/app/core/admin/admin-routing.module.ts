@@ -11,6 +11,7 @@ const routes:Routes =[
       { path: 'raw-material', loadChildren: () => import('../../modules/admin/raw-material/raw-material.module').then(m => m.RawMaterialModule) },
       { path: 'bar', loadChildren: () => import('../../modules/admin/bar/bar.module').then(m => m.BarModule) },
       { path: 'bar-section', loadChildren: () => import('../../modules/admin/bar-sections/bar-sections.module').then(m => m.BarSectionsModule) },
+      { path: 'inventory', loadChildren: () => import('../../modules/admin/inventory/inventory.module').then(m => m.InventoryModule) },
     ]
 }
 ];

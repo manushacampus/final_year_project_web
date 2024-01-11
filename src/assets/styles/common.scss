@@ -1,5 +1,7 @@
 .main{
   padding: 10px;
+  background: #f3f3f3;
+  height: 100%;
 }
 .sub-menu{
   padding: 10px;
@@ -8,4 +10,49 @@
   border-radius: 5px;
   margin: 10px;
   align-items: center;
+  height: 57px;
+  background: #FFFFFF;
+}
+.shadow{
+  box-shadow: 0 1px 9px 0 rgba(0,0,0,0.1),0px 6px 5px 0px rgba(0,0,0,0.03);
+}
+.primary-color{
+  //color: ;
+}
+.secondary-color{
+  color: #3182CE;
+  background: #FFFFFF;
+}
+//-------------button----------------------------
+
+.btn{
+  text-transform: unset !important;
+}
+.btn-custom{
+  background: #3182CE !important;
+  color: #FFFFFF !important;
+
+}
+
+//-------------table----------------
+.table-custom{
+  > :not(:first-child) {
+    border-top-width: 0;
+  }
+}
+.table-head{
+  background:#3182CE;
+  color: #FFFFFF;
+  border-radius: 5px;
+}
+//------------summery card------------
+
+.summery-card{
+  background: #ffffff;
+  //background: linear-gradient(113deg, #385388 0%, #67A8E3 110.84%);
+  width: 350px;
+  height: 150px;
+  border-radius: 5px;
+  color: #5b5858;
+  text-align: center;
 }

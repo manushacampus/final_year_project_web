@@ -1,17 +1,20 @@
 <mat-toolbar class="top-bar">
+
   <div class="left">
     <app-client></app-client>
     <button (click)="sendNavState()" class="menu-button" disableRipple mat-button style="color: #d7d7d7">
-      <mat-icon>{{ isMenuOpen ? 'menu' : 'menu_open' }}</mat-icon>
+      <mat-icon class="menu-icon">{{ isMenuOpen ? 'menu' : 'menu_open' }}</mat-icon>
     </button>
   </div>
 
+<div class="right">
+
   <div>
-    <input type="text">
+    <input type="text" class="form-control" style="" placeholder="Search">
     <button mat-button> <mat-icon style="color: #d7d7d7">search</mat-icon></button>
   </div>
 
-  <div [matMenuTriggerFor]="sam">
+  <div [matMenuTriggerFor]="sam" style="padding-left: 15px">
     <mat-icon matBadge="17" matBadgeColor="warn" matBadgeSize="small"  [matBadgeHidden]="hidden" (click)="toggleBadgeVisibility()" style="color: white">notifications</mat-icon>
     <mat-menu #sam="matMenu">
       <div style="display: flex;flex-direction: column">
@@ -21,10 +24,8 @@
     </mat-menu>
   </div>
 
-  <div [matMenuTriggerFor]="menu">
-
+  <div [matMenuTriggerFor]="menu" style="padding-left: 25px">
     <mat-icon style="color: #d7d7d7">account_circle</mat-icon>
-
     <mat-menu #menu="matMenu">
       <div class="user-card">
         <div class="reset-btn">
@@ -40,4 +41,8 @@
       </div>
     </mat-menu>
   </div>
+
+
+</div>
+
 </mat-toolbar>

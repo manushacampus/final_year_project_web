@@ -24,7 +24,10 @@
 }
 
 .nav-btn:hover {
-  background-color: rgba(147, 209, 241, 0.82);
+  background-color: #3182CE;
+  .nav-btn-icon {
+    color: #ffffff;
+  }
 }
 
 .nav-btn-multilevel {
@@ -36,6 +39,7 @@
   //margin-right: 8px;
   //padding-right: 7px!important;
   margin-right: 7px;
+  color: #3182CE;
 }
 
 .mat-expansion-panel {
@@ -43,7 +47,7 @@
   //width: 100%;
 }
 .mat-expansion-panel:hover {
-  background-color: rgba(147, 209, 241, 0.62);
+  background-color: #3182CE;
 }
 
 .multi-level {

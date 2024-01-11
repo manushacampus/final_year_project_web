@@ -12,7 +12,7 @@ import { BarSectionComponent } from './inner-component/bar-section/bar-section.c
   declarations: [
     BarSectionsComponent,
     BarSectionsFormComponent,
-    BarSectionComponent
+
   ],
   imports: [
     CommonModule,

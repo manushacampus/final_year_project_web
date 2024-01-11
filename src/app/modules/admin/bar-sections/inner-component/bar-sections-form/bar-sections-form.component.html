@@ -1,17 +1,102 @@
 <div class="main">
 
   <div class="sub-menu" style="justify-content: space-between;align-items: center">
-    <div>New Matrial</div>
-    <button mat-button routerLink="../all" style="color: #D31313">X</button>
+    <div style="display: flex;justify-content: center">
+      <mat-icon style="color: #3182CE;margin-right: 5px">public</mat-icon>
+      <div style="font-weight: bold">
+        New Matrial
+      </div>
+    </div>
+    <button mat-button routerLink="../all/cat" style="color: #D31313"><mat-icon style="color: #3182CE">arrow_forward</mat-icon></button>
   </div>
 
-<form style="padding: 10px">
+  <section class="new_material_section layout_padding">
+    <div class="container">
+      <form action="">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form_container">
 
-  <mat-form-field appearance="outline">
-    <mat-label>Section No</mat-label>
-    <input matInput placeholder="Placeholder">
-  </mat-form-field>
+              <div>
+                <label class="form-label">Section No</label>
+                <input type="text" class="form-control" placeholder="Section No" />
+              </div>
 
-</form>
+              <div>
+                <label class="form-label">Code</label>
+                <input type="text" class="form-control" placeholder="Code" />
+              </div>
+
+              <div>
+                <label class="form-label">Weight</label>
+                <input type="text" class="form-control" placeholder="Weight" />
+              </div>
+
+              <div>
+                <label class="form-label">Size</label>
+                <select class="form-control nice-select wide">
+                  <option value="" disabled selected>
+                    Size mm?
+                  </option>
+                  <option value="70mm">
+                    70mm
+                  </option>
+                  <option value="100mm">
+                    100mm
+                  </option>
+                  <option value="40mm">
+                    40mm
+                  </option>
+                  <option value="60mm">
+                   60mm
+                  </option>
+                </select>
+              </div>
+
+              <div>
+                <label class="form-label">Image</label>
+                <input type="file" class="form-control form-control-md">
+              </div>
+
+          </div>
+
+        </div>
+
+        <div class="col-md-6">
+          <div class="form_container">
+
+          <div>
+            <label class="form-label">Name</label>
+            <input type="text" class="form-control" placeholder="Section Name" />
+          </div>
+
+          <div>
+            <label class="form-label">Thickness</label>
+            <input type="text" class="form-control" placeholder="Thickness" />
+          </div>
+
+          <div>
+            <label class="form-label">Category</label>
+            <input type="text" class="form-control" placeholder="Category" />
+          </div>
+
+            <div>
+              <label class="form-label">Type</label>
+              <input type="text" class="form-control" placeholder="Type" />
+            </div>
+
+            <div class="" style="display: flex;justify-content: end">
+              <button class="btn btn-custom">
+                Save
+              </button>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+      </form>
+    </div>
+  </section>
 
 </div>

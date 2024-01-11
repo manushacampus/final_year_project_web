@@ -3,8 +3,10 @@
 }
 
 .top-bar {
-  background-color: #101828;
-  height: 7%;
+  //background-color: #101828;
+  //background: linear-gradient(90deg, #101828 50%, #67A8E3 110.84%);
+  background: #15283c;
+  height: 8%;
   display: flex;
   justify-content: space-between;
 
@@ -81,4 +83,10 @@
 
 ::ng-deep.mat-menu-panel {
   max-width: 260px !important;
+}
+.menu-button{
+  .menu-icon{
+    color: #3182CE;
+  }
+
 }

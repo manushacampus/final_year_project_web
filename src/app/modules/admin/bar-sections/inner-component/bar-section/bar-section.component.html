@@ -1,46 +1,38 @@
 <div class="main">
 
-  <div class="sub-menu" style="justify-content: flex-end">
-    <button mat-raised-button color="primary" routerLink="../form">+ Add New Section</button>
+  <div class="sub-menu" style="justify-content: space-between">
+    <div style="display: flex;justify-content: center">
+      <mat-icon style="color: #3182CE;margin-right: 5px">public</mat-icon>
+      <div style="font-weight: bold">
+        Sections
+      </div>
+    </div>
+    <button class="btn btn-custom" mat-raised-button routerLink="../form">+ Add New Section</button>
   </div>
-  <div class="sub-menu" style="display: flex">
+  <div class="sub-menu" style="display: flex;background: #3182CE;justify-content: space-between">
     <div>
-      <button mat-button >windows</button>
-      <button mat-button >door</button>
+      <button class="btn btn-color btn-sm" routerLink="cat" (click)="setMode('ALL')">All</button>
+      <button class="btn btn-color btn-sm" routerLink="cat" (click)="setMode('WINDOW')" >Windows</button>
+      <button class="btn btn-color btn-sm" routerLink="cat" (click)="setMode('DOOR')" >Door</button>
+      <button class="btn btn-color btn-sm" routerLink="cat" (click)="setMode('OTHER')" >Other</button>
+    </div>
+    <div>
+      <mat-icon style="color: #d7d7d7">dns</mat-icon>
     </div>
 
   </div>
+<!--  <div>-->
+<!--    <mat-expansion-panel (opened)="panelOpenState = true"-->
+<!--                         (closed)="panelOpenState = false">-->
+<!--      <mat-expansion-panel-header>-->
+<!--        <mat-panel-title>-->
+<!--          Advanced Search-->
+<!--        </mat-panel-title>-->
+<!--      </mat-expansion-panel-header>-->
+<!--      <p>I'm visible because I am open</p>-->
+<!--    </mat-expansion-panel>-->
+<!--  </div>-->
 
-  <div>
-    <mat-expansion-panel (opened)="panelOpenState = true"
-                         (closed)="panelOpenState = false">
-      <mat-expansion-panel-header>
-        <mat-panel-title>
-          Advanced Search
-        </mat-panel-title>
-      </mat-expansion-panel-header>
-      <p>I'm visible because I am open</p>
-    </mat-expansion-panel>
-  </div>
+ <router-outlet></router-outlet>
 
-  <div class="sub-menu" style="justify-content: center;align-items: center">
-    <div style="font-size: 20px;font-weight: bold">
-      100mm Sliding Door
-    </div>
-  </div>
-
-  <div class="containers">
-    <ng-container *ngFor="let item of cardList">
-      <mat-card class="example-card">
-        <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
-        <mat-card-content>
-          <div>Section No:{{item.sectionNo}}</div>
-          <div>Weight</div>
-        </mat-card-content>
-      </mat-card>
-    </ng-container>
-
-
-
-  </div>
 </div>
