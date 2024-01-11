@@ -23,12 +23,13 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '18'
+          node-version: '14'  # Adjust the Node.js version as needed
 
       - name: Install Dependencies and Angular CLI
         run: |
           npm install -force
           npm install -g @angular/cli
+
       - name: Build Angular app
         run: ng build --configuration=production
 
@@ -43,15 +44,14 @@ jobs:
             -Dsonar.projectKey=manushacampus_final_year_project_web
             -Dsonar.organization=manushacampus
             -Dsonar.sources=src
-      - name: Run OWASP Dependency-Check
-        uses: dependency-check/dependency-check-action@v3
-        with:
-          format: 'ALL'  # You can adjust the format based on your needs
-          outputDirectory: 'dependency-check-report'
 
-      - name: Upload OWASP Dependency-Check results
+      - name: Run Snyk for Dependency Scanning
+        uses: snyk/actions/node@v1
+        with:
+          command: test
+
+      - name: Upload Snyk Results
         uses: actions/upload-artifact@v2
         with:
-          name: dependency-check-report
-          path: dependency-check-report
-       
+          name: snyk-results
+          path: .snyk
