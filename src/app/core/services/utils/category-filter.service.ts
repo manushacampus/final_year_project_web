@@ -6,7 +6,6 @@ import {SECTION_CATEGORY} from "../../types/SECTION_CATEGORY";
 })
 export class CategoryFilterService {
 private filterMode = new BehaviorSubject<SECTION_CATEGORY>('ALL')
-  constructor() { }
 
   setFilterMode(mode:SECTION_CATEGORY){
   this.filterMode.next(mode)

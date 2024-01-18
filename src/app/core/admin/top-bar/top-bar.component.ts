@@ -6,7 +6,7 @@ import {Router} from "@angular/router";
   templateUrl: './top-bar.component.html',
   styleUrls: ['./top-bar.component.scss']
 })
-export class TopBarComponent implements OnInit {
+export class TopBarComponent {
 
   public isMenuOpen = false;
   hidden = false;
@@ -17,8 +17,6 @@ export class TopBarComponent implements OnInit {
   ) { }
   toggleBadgeVisibility() {
     this.hidden = !this.hidden;
-  }
-  ngOnInit(): void {
   }
   sendNavState(): void {
     this.isMenuOpen = !this.isMenuOpen;

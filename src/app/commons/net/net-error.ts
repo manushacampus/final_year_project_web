@@ -7,7 +7,7 @@ export class NetError extends Error {
 
   static UN_AUTHORISE_ERROR = 401;
   static INTERNAL_SERVER_ERROR = 500;
-  static BAD_GATWAY_ERROR = 502 || 503;
+  static BAD_GATWAY_ERROR = 503 || 502;
 
   static serverErrors = {
     INVALID_CREDENTIAL: 'Invalid login credentials',

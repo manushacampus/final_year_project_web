@@ -5,17 +5,12 @@ import {Component, Input, OnInit} from '@angular/core';
   templateUrl: './menu-container.component.html',
   styleUrls: ['./menu-container.component.scss']
 })
-export class MenuContainerComponent implements OnInit {
+export class MenuContainerComponent {
 
 
   @Input() Menus!: any[] | undefined;
 
   @Input() navState= false;
-  constructor() {
-  }
-
-  ngOnInit(): void {
-  }
   isMultiLevel(menu:any):boolean{
     if (!!menu.list){
       return menu.list.length > 0;

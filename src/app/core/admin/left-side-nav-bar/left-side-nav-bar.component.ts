@@ -11,9 +11,6 @@ export class LeftSideNavBarComponent implements OnInit{
 
   currentMenus:any[]=[];
 
-  constructor() {
-  }
-
   ngOnInit(): void {
     this.currentMenus=[
       {"menuName":"Dashboard","url":"dashboard","icon":"work_outline"},
@@ -23,7 +20,7 @@ export class LeftSideNavBarComponent implements OnInit{
           {"menuName":"Pantry Cupboard","url":"dashboard","icon":"folder_open"}
         ]},
       {"menuName":"Sections","url":"bar-section/all/cat","icon":"work_outline"},
-      {"menuName":"Inventory","url":"raw-material","icon":"folder_open","list":[
+      {"menuName":"Inventory","url":"inventory","icon":"folder_open","list":[
           {"menuName":"All","url":"inventory/all","icon":"work_outline"},
           {"menuName":"Bar","url":"inventory/bar","icon":"work_outline"},
           {"menuName":"Board","url":"inventory/board","icon":"work_outline"},
