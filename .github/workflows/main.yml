@@ -46,4 +46,4 @@ jobs:
             -Dsonar.projectKey=manushacampus_final_year_project_web
             -Dsonar.organization=manushacampus
             -Dsonar.sources=src
-            -Dsonar.java.version=11
+            -Dsonar.java.version=17 
