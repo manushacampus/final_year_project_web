@@ -25,10 +25,6 @@ jobs:
         with:
           node-version: '18'  # Set your desired Node.js version
 
-      - name: Install SonarScanner
-        run: |
-          npm install -g sonarqube-scanner
-
       - name: Install Dependencies and Angular CLI
         run: |
           npm install --force
@@ -37,14 +33,13 @@ jobs:
       - name: Build Angular app
         run: ng build --configuration=production
 
-      - name: Analyze with SonarCloud
-        if: ${{ github.event_name != 'pull_request' }}
-        uses: SonarSource/sonarcloud-github-action@de2e56b42aa84d0b1c5b622644ac17e505c9a049
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN1 }}
-        with:
-          args:
-            -Dsonar.projectKey=manushacampus_final_year_project_web
-            -Dsonar.organization=manushacampus
-            -Dsonar.sources=src
+      - name: Run SonarScanner
+        run: |
+          docker run --rm -e SONAR_TOKEN=${{ secrets.SONAR_TOKEN1 }} \
+            -v "${PWD}:/usr/src" \
+            -w /usr/src \
+            adoptopenjdk:17-jdk \
+            sonar-scanner \
+              -Dsonar.projectKey=manushacampus_final_year_project_web \
+              -Dsonar.organization=manushacampus \
+              -Dsonar.sources=src
