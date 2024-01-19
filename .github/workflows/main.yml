@@ -24,6 +24,7 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: '18'
+          java-version: 'adopt@1.17'
 
       - name: Install Dependencies and Angular CLI
         run: |
