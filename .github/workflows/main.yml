@@ -33,6 +33,10 @@ jobs:
           echo "PATH=$PATH:/usr/lib/jvm/java-17-openjdk-amd64/bin" >> $GITHUB_ENV
           java -version
 
+      - name: Install SonarScanner
+        run: |
+          npm install -g sonarqube-scanner
+
       - name: Install Dependencies and Angular CLI
         run: |
           npm install --force
