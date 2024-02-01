@@ -15,7 +15,7 @@ export class LeftSideNavBarComponent implements OnInit{
     this.currentMenus=[
       {"menuName":"Dashboard","url":"dashboard","icon":"work_outline"},
       {"menuName":"Product Management","url":"dashboard","icon":"swap_calls","list":[
-          {"menuName":"Door","url":"doors","icon":"folder_open"},
+          {"menuName":"Door","url":"product-doors/all","icon":"folder_open"},
           {"menuName":"Windows","url":"windows","icon":"folder_open"},
           {"menuName":"Pantry Cupboard","url":"dashboard","icon":"folder_open"}
         ]},

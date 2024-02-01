@@ -6,7 +6,7 @@ const routes:Routes =[
   {
   path: '', component: AdminComponent, children:[
       { path: 'dashboard', loadChildren: () => import('../../modules/admin/dashboard/dashboard.module').then(m => m.DashboardModule) },
-      { path: 'doors', loadChildren: () => import('../../modules/admin/door/door.module').then(m => m.DoorModule) },
+      { path: 'product-doors', loadChildren: () => import('../../modules/admin/product-door/product-door.module').then(m => m.ProductDoorModule) },
       { path: 'windows', loadChildren: () => import('../../modules/admin/windows/windows.module').then(m => m.WindowsModule) },
       { path: 'bar-section', loadChildren: () => import('../../modules/admin/bar-sections/bar-sections.module').then(m => m.BarSectionsModule) },
       { path: 'inventory', loadChildren: () => import('../../modules/admin/inventory/inventory.module').then(m => m.InventoryModule) },
