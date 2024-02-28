@@ -43,16 +43,5 @@ jobs:
       - name: Build Angular app
         run: ng build --configuration=production
 
-      - name: Analyze with SonarCloud
-        if: ${{ github.event_name != 'pull_request' }}
-        uses: sonarsource/sonarcloud-github-action@master
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN1 }}
-          SONAR_SCANNER_OPTS: -Dsonar.java.version=17 
-        with:
-          args:
-            -Dsonar.projectKey=manushacampus_final_year_project_web
-            -Dsonar.organization=manushacampus
-            -Dsonar.sources=src
+     
           
