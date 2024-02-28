@@ -1,47 +1,48 @@
-name: SonarCloud analysis
+name: Deploy to Server
 
 on:
   push:
     branches:
       - main
-  pull_request:
-    branches:
-      - main
-  workflow_dispatch:
-
-permissions:
-  pull-requests: read
 
 jobs:
-  Analysis:
+  deploy:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
+      - name: Checkout Repository
         uses: actions/checkout@v2
 
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '18'  # Set your desired Node.js version
-
-      - name: Install SonarScanner
-        run: |
-          npm install -g sonarqube-scanner
+          node-version: 18
 
       - name: Install Dependencies and Angular CLI
         run: |
-          npm install --force
+          npm install -force
           npm install -g @angular/cli
 
-      - name: Set up Java
-        uses: actions/setup-java@v2
-        with:
-          distribution: 'adopt'
-          java-version: '17' 
-
-      - name: Build Angular app
+      - name: Build Angular App
         run: ng build --configuration=production
 
-     
-          
+      - name: Debug Angular Build Output
+        run: |
+          ls -la dist
+          ls -la dist/*
+
+      - name: Use SSH private key
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+          ssh-keyscan -H 4.213.119.32 >> ~/.ssh/known_hosts
+
+      - name: Debug SSH Connection
+        run: ssh -i ~/.ssh/id_rsa azureuser@4.213.119.32 "ls /var/www/aluminium-front"
+
+      - name: Copy Build Files to Server
+        run: scp -r -i ~/.ssh/id_rsa dist/payroll_ui/* azureuser@4.213.119.32:/var/www/aluminium-front
+
+      - name: Deploy to Server
+        run: ssh -i ~/.ssh/id_rsa azureuser@4.213.119.32 "echo 'Hello from GitHub Actions!'"
