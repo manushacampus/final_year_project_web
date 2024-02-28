@@ -42,7 +42,7 @@ jobs:
         run: ssh -i ~/.ssh/id_rsa azureuser@4.213.119.32 "ls /var/www/aluminium-front"
 
       - name: Copy Build Files to Server
-        run: scp -r -i ~/.ssh/id_rsa dist/* azureuser@4.213.119.32:/var/www/aluminium-front
+        run: scp -r -i ~/.ssh/id_rsa dist/final_project_web/* azureuser@4.213.119.32:/var/www/aluminium-front
 
       - name: Deploy to Server
         run: ssh -i ~/.ssh/id_rsa azureuser@4.213.119.32 "echo 'Hello from GitHub Actions!'"
