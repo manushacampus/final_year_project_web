@@ -21,7 +21,7 @@ RUN npm run build --configuration=production
 FROM httpd:alpine
 
 # Copy the Angular build output to the Apache web server directory
-COPY --from=build /app/dist/ /var/www/aluminium-front
+ls build /app/dist/
+COPY --from=build /app/dist/ /usr/local/apache2/htdocs/
 
-# Expose port 80
-EXPOSE 80
+
