@@ -18,6 +18,6 @@ jobs:
           DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
           DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
         run: |
-          docker build -t pimesh55/aluminium_frontend .
+          docker build -t pasindu55/aluminium_frontend .
           docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
-          docker push pimesh55/aluminium_frontend
+          docker push pasindu55/aluminium_frontend
