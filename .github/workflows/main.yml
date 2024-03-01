@@ -1,4 +1,4 @@
-name: Deploy to Server
+name: Deploy Angular App
 
 on:
   push:
@@ -6,43 +6,18 @@ on:
       - main
 
 jobs:
-  deploy:
+  build-and-deploy:
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v2
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: 18
-
-      - name: Install Dependencies and Angular CLI
+      - name: Build and Deploy
+        env:
+          DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+          DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
         run: |
-          npm install -force
-          npm install -g @angular/cli
-
-      - name: Build Angular App
-        run: ng build --configuration=production
-
-      - name: Debug Angular Build Output
-        run: |
-          ls -la dist
-          ls -la dist/*
-
-      - name: Use SSH private key
-        run: |
-          mkdir -p ~/.ssh
-          echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
-          chmod 600 ~/.ssh/id_rsa
-          ssh-keyscan -H 4.213.119.32 >> ~/.ssh/known_hosts
-
-      - name: Debug SSH Connection
-        run: ssh -i ~/.ssh/id_rsa azureuser@4.213.119.32 "ls /var/www/aluminium-front"
-
-      - name: Copy Build Files to Server
-        run: scp -r -i ~/.ssh/id_rsa dist/final_project_web/* azureuser@4.213.119.32:/var/www/aluminium-front
-
-      - name: Deploy to Server
-        run: ssh -i ~/.ssh/id_rsa azureuser@4.213.119.32 "echo 'Hello from GitHub Actions!'"
+          docker build -t pimesh55/aluminium_frontend .
+          docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
+          docker push pimesh55/aluminium_frontend
