@@ -21,7 +21,7 @@ RUN npm run build --configuration=production
 FROM httpd:alpine
 
 # Copy the Angular build output to the Apache web server directory
-ls build /app/dist/
+
 COPY --from=build /app/dist/ /usr/local/apache2/htdocs/
 
 
