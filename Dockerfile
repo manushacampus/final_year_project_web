@@ -14,7 +14,7 @@ RUN npm install
 COPY . .
 
 # Build the Angular app
-RUN npm run build --prod
+RUN npm run build --configuration=production
 
 # Use an official Apache image as the final image
 FROM httpd:alpine
