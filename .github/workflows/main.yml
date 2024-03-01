@@ -33,6 +33,7 @@ jobs:
           ssh-keyscan -H 4.213.119.32 >> ~/.ssh/known_hosts
           
       - name: Copy Build Files to Server
-        run:  ssh -o StrictHostKeyChecking=no azureuser@4.213.119.32 "sudo docker pull pasindu55/aluminium_frontend && docker run -d -p 80:80 pasindu55/aluminium_frontend"
-
-        
+        run: |
+           sudo systemctl stop apache2
+           ssh -o StrictHostKeyChecking=no azureuser@4.213.119.32 "sudo docker pull pasindu55/aluminium_frontend && docker run -d -p 80:80 pasindu55/aluminium_frontend"
+           sudo systemctl start apache2
