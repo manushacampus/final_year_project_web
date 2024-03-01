@@ -17,11 +17,11 @@ COPY . .
 # Build the Angular app
 RUN npm run build --configuration=production
 
-# Use an official Apache image as the final image
+# Stage 2: Serve Angular app with Apache
 FROM httpd:alpine
 
 # Copy the Angular build output to the Apache web server directory
-COPY --from=build /app/dist /usr/local/apache2/htdocs/
+COPY --from=build /app/dist/ /var/www/aluminium-front
 
 # Expose port 80
 EXPOSE 80
