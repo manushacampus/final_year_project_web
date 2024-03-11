@@ -38,6 +38,3 @@ jobs:
           ssh -o StrictHostKeyChecking=no azureuser@4.213.119.32 "sudo docker pull pasindu55/aluminium_frontend && sudo docker run -d -p 80:80 pasindu55/aluminium_frontend"
           sudo systemctl start apache2
 
-      - name: View Copied Files on Server
-        run: |
-          ssh -i ~/.ssh/id_rsa azureuser@4.213.119.32 "ls -l /usr/local/apache2/htdocs/ && cat /usr/local/apache2/htdocs/"
