@@ -22,6 +22,7 @@ FROM httpd:alpine
 
 # Copy the Angular build output to the Apache web server directory
 
-COPY --from=build /app/dist/* /var/www/aluminium-front
+COPY --from=build /app/dist/* /usr/local/apache2/htdocs/
+
 
 
