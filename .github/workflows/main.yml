@@ -40,4 +40,4 @@ jobs:
 
       - name: View Copied Files on Server
         run: |
-          ssh -i ~/.ssh/id_rsa azureuser@4.213.119.32 "ls -l /var/www/aluminium-frontend && cat /var/www/aluminium-frontend/*"
+          ssh -i ~/.ssh/id_rsa azureuser@4.213.119.32 "ls -l /usr/local/apache2/htdocs/ && cat /usr/local/apache2/htdocs/"
