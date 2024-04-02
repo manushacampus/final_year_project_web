@@ -50,6 +50,6 @@ jobs:
       # Apply Kubernetes deployment
       - name: Apply Kubernetes deployment
         run: |
-          kubectl apply -f k8service.yaml
+          kubectl apply -fk8cluster.yml
         env:
           KUBE_CONFIG_DATA: ${{ secrets.KUBE_CONFIG_DATA }}
