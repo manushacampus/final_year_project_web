@@ -1,13 +1,32 @@
-# Angular Frontend Service
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: spring-frontend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: spring-frontend
+  template:
+    metadata:
+      labels:
+        app: spring-frontend
+    spec:
+      containers:
+      - name: frontend
+        image: pasindu55/aluminium_frontend
+        ports:
+        - containerPort: 80
+---
 apiVersion: v1
 kind: Service
 metadata:
-  name: angular-frontend-service
+  name: spring-frontend-service
 spec:
   selector:
-    app: angular-frontend
+    app: spring-frontend
+  type: NodePort
   ports:
     - protocol: TCP
       port: 80
       targetPort: 80
-  type: ClusterIP  
