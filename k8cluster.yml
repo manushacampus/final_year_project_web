@@ -17,6 +17,7 @@ spec:
         image: pasindu55/aluminium_frontend
         ports:
         - containerPort: 80
+
 ---
 apiVersion: v1
 kind: Service
