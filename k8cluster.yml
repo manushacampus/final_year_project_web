@@ -6,6 +6,7 @@ spec:
   selector:
     app: spring-frontend
   type: LoadBalancer  # Change type to LoadBalancer
+  loadBalancerIP: 52.140.91.72  # Static IP address
   ports:
     - protocol: TCP
       port: 80
