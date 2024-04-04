@@ -5,6 +5,7 @@ export class Endpoint {
     endpoint!: string;
 
     static LOGIN = 'user/login';
+  static DOOR = 'door';
 
 
 

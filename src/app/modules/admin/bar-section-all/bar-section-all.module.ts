@@ -6,11 +6,14 @@ import {AngularMatModule} from "../../material/angular-mat/angular-mat.module";
 import {BarSectionAllComponent} from "./bar-section-all.component";
 import {ReactiveFormsModule} from "@angular/forms";
 import {NgbPagination} from "@ng-bootstrap/ng-bootstrap";
+import { ExampleDialogComponent } from './inner-component/example-dialog/example-dialog.component';
+import {MatDialogModule} from "@angular/material/dialog";
 
 
 @NgModule({
   declarations: [
-    BarSectionAllComponent
+    BarSectionAllComponent,
+    ExampleDialogComponent
   ],
   imports: [
     CommonModule,
@@ -18,6 +21,7 @@ import {NgbPagination} from "@ng-bootstrap/ng-bootstrap";
     AngularMatModule,
     ReactiveFormsModule,
     NgbPagination,
+    MatDialogModule
   ]
 })
 export class BarSectionAllModule { }

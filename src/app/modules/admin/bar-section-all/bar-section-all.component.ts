@@ -1,5 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {FormControl} from "@angular/forms";
+import {MatDialog} from "@angular/material/dialog";
+import {ExampleDialogComponent} from "./inner-component/example-dialog/example-dialog.component";
 
 @Component({
   selector: 'app-bar-section-all',
@@ -7,6 +9,7 @@ import {FormControl} from "@angular/forms";
   styleUrls: ['./bar-section-all.component.scss']
 })
 export class BarSectionAllComponent implements OnInit{
+  constructor(public dialog: MatDialog) {}
 
   filter:FormControl = new FormControl<String>('')
   ngOnInit(): void {
@@ -43,4 +46,13 @@ export class BarSectionAllComponent implements OnInit{
     console.log("page number=",page);
   }
 
+  openDialog(): void {
+    const dialogRef = this.dialog.open(ExampleDialogComponent, {
+      data: "sss"
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+    });
+  }
 }

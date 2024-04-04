@@ -16,7 +16,7 @@ export class LeftSideNavBarComponent implements OnInit{
       {"menuName":"Dashboard","url":"dashboard","icon":"work_outline"},
       {"menuName":"Product Management","url":"dashboard","icon":"swap_calls","list":[
           {"menuName":"Door","url":"product-doors/all","icon":"folder_open"},
-          {"menuName":"Windows","url":"windows","icon":"folder_open"},
+          {"menuName":"Windows","url":"product-window/all","icon":"folder_open"},
           {"menuName":"Pantry Cupboard","url":"dashboard","icon":"folder_open"}
         ]},
       {"menuName":"Sections","url":"bar-section/all/cat","icon":"work_outline"},
@@ -26,6 +26,7 @@ export class LeftSideNavBarComponent implements OnInit{
           {"menuName":"Board","url":"inventory/board","icon":"work_outline"},
           {"menuName":"Other","url":"inventory/other","icon":"work_outline"}
         ]},
+      {"menuName":"Product Design Management","url":"bar-section/all/cat","icon":"work_outline"},
       {"menuName":"Purchase Request","url":"bar-section/all/cat","icon":"work_outline"},
       {"menuName":"Job","url":"bar-section/all/cat","icon":"work_outline"},
       {"menuName":"Delivery","url":"bar-section/all/cat","icon":"work_outline"},

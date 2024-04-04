@@ -4,8 +4,8 @@ import {InventoryComponent} from "./inventory.component";
 
 const routes: Routes = [
   { path: '', component: InventoryComponent,children:[
-    { path: 'all', loadChildren:()=> import('../inventory-all/inventory-all.module').then(m=>m.InventoryAllModule) },
-      { path: 'bar', loadChildren:()=> import('../inventory-bar/inventory-bar.module').then(m=>m.InventoryBarModule) }
+    { path: 'all', loadChildren:()=> import('./inventory-all/inventory-all.module').then(m=>m.InventoryAllModule) },
+      { path: 'bar', loadChildren:()=> import('./inventory-bar/inventory-bar.module').then(m=>m.InventoryBarModule) }
     ]},
 
 ];

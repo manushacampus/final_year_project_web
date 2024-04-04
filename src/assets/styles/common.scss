@@ -56,3 +56,19 @@
   color: #5b5858;
   text-align: center;
 }
+
+//--------form----------------
+.new_material_section .form_container .form-control {
+  width: 100%;
+  border: none;
+  height: 40px;
+  margin-bottom: 15px;
+  padding-left: 25px;
+  border: 1px solid #999;
+  outline: none;
+  color: #000000;
+  border-radius: 5px;
+  outline: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}

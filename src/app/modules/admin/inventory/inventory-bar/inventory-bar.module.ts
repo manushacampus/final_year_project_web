@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { InventoryBarRoutingModule } from './inventory-bar-routing.module';
 import {InventoryBarComponent} from "./inventory-bar.component";
-import {AngularMatModule} from "../../material/angular-mat/angular-mat.module";
+import {AngularMatModule} from "../../../material/angular-mat/angular-mat.module";
 
 
 @NgModule({
