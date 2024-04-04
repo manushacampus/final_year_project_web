@@ -1,48 +1,56 @@
-name: SonarCloud analysis
+
+name: Deploy Java App with Docker and Kubernetes
 
 on:
   push:
     branches:
       - developer
-  pull_request:
-    branches:
-      - developer
-  workflow_dispatch:
-
-permissions:
-  pull-requests: read
 
 jobs:
-  Analysis:
+  build-and-deploy:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
+      - name: Checkout Repository
         uses: actions/checkout@v2
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: '18'
-
-      - name: Install Dependencies and Angular CLI
+      # Build Docker Image
+      - name: Build Docker Image
         run: |
-          npm install -force
-          npm install -g @angular/cli
-      - name: Build Angular app
-        run: ng build --configuration=production
+           docker build -t pasindu55/aluminium_frontend .
+           docker tag pasindu55/aluminium_frontend:latest pasindu55/aluminium_frontend:${{ github.sha }}
 
-      - name: Run Angular Unit Tests
-        run: ng test --watch=false --browsers=ChromeHeadless
-
-      - name: Analyze with SonarCloud
-        if: ${{ github.event_name != 'pull_request' }}
-        uses: SonarSource/sonarcloud-github-action@de2e56b42aa84d0b1c5b622644ac17e505c9a049
+      # Push Docker Image to Registry (if required)
+      - name: Push Docker Image to Registry
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN1 }}
+          DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+          DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+        run: |
+            echo $DOCKER_PASSWORD | docker login -u $DOCKER_USERNAME --password-stdin
+            docker push pasindu55/aluminium_frontend:${{ github.sha }}
+
+      # Install kubectl
+      - name: Install kubectl
+        uses: azure/k8s-set-context@v1
         with:
-          args:
-            -Dsonar.projectKey=manushacampus_final_year_project_web
-            -Dsonar.organization=manushacampus
-            -Dsonar.sources=src
+          kubeconfig: ${{ secrets.KUBE_CONFIG_DATA }}
+
+      # Debug kubeconfig
+      - name: Debug kubeconfig
+        run: |
+          echo "${{ secrets.KUBE_CONFIG_DATA }}"
+
+      # Deploy to Kubernetes
+      - name: Deploy to Kubernetes
+        uses: steebchen/kubectl@master
+        with:
+           args: set image deployment/my-deployment my-container=pasindu55/aluminium_frontend:${{ github.sha }}
+        env:
+           KUBE_CONFIG_DATA: ${{ secrets.KUBE_CONFIG_DATA }}
+
+      # Apply Kubernetes deployment
+      - name: Apply Kubernetes deployment
+        run: |
+          kubectl apply -fk8cluster.yml
+        env:
+          KUBE_CONFIG_DATA: ${{ secrets.KUBE_CONFIG_DATA }}
