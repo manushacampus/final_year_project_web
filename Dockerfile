@@ -1,5 +1,5 @@
-# Use a specific Node.js version
-FROM node:14 as build
+# Use an official Node runtime as a parent image
+FROM node:18 as build
 
 # Set the working directory in the container
 WORKDIR /app
@@ -7,8 +7,9 @@ WORKDIR /app
 # Copy package.json and package-lock.json to the container
 COPY package*.json ./
 
-# Install dependencies and Angular CLI
-
+# Install dependencies
+RUN npm install --force
+RUN npm install -g @angular/cli
 
 # Copy the rest of the application code
 COPY . .
@@ -20,4 +21,8 @@ RUN npm run build --configuration=production
 FROM httpd:alpine
 
 # Copy the Angular build output to the Apache web server directory
+
 COPY --from=build /app/dist/* /usr/local/apache2/htdocs/
+
+
+
