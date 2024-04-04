@@ -8,7 +8,7 @@ WORKDIR /app
 COPY package*.json ./
 
 # Install dependencies
-RUN npm install -force
+RUN npm install --force
 RUN npm install -g @angular/cli
 
 # Copy the rest of the application code
@@ -23,3 +23,6 @@ FROM httpd:alpine
 # Copy the Angular build output to the Apache web server directory
 
 COPY --from=build /app/dist/* /usr/local/apache2/htdocs/
+
+
+
