@@ -1,36 +1,195 @@
-<div class="modal-body main-modal-body">
+<section class="py-5">
+  <div class="container">
+    <div class="row gx-5">
+      <aside class="col-lg-6">
+        <div class="border rounded-4 mb-3 d-flex justify-content-center">
+          <a data-fslightbox="mygalley" class="rounded-4" target="_blank" data-type="image"
+             href="https://www.alumexstore.com/wp-content/uploads/2023/06/ALumex_Ruler-03-12545-2048x2048.jpg">
+            <img style="max-width: 100%; max-height: 100vh; margin: auto;" class="rounded-4 fit"
+                 src="https://www.alumexstore.com/wp-content/uploads/2023/06/ALumex_Ruler-03-12545-2048x2048.jpg"/>
+          </a>
+        </div>
+        <div class="d-flex justify-content-center mb-3">
+          <a data-fslightbox="mygalley" class="border mx-1 rounded-2" target="_blank" data-type="image"
+             href="https://www.alumexstore.com/wp-content/uploads/2023/06/ALumex_Ruler-02-600x600.png"
+             class="item-thumb">
+            <img width="60" height="60" class="rounded-2"
+                 src="https://www.alumexstore.com/wp-content/uploads/2023/06/ALumex_Ruler-02-600x600.png"/>
+          </a>
+        </div>
+      </aside>
+      <main class="col-lg-6">
+        <div class="ps-lg-3">
+          <h4 class="title text-dark">
+            Alumex <br/>
+            Rulers
+          </h4>
+          <div class="d-flex flex-row my-3">
+            <div class="text-warning mb-1 me-2">
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fas fa-star-half-alt"></i>
+              <span class="ms-1">
+                4.5
+              </span>
+            </div>
+            <span class="text-muted"><i class="fas fa-shopping-basket fa-sm mx-1"></i>154 orders</span>
+            <span class="text-success ms-2">In stock</span>
+          </div>
+          <div class="mb-3">
+            <span class="h5">$75.00</span>
+            <span class="text-muted">/per box</span>
+          </div>
+          <p>
+            Introducing Alumex Ruler from the #1 Most trusted Aluminium Brand. The aluminum alloy ruler is made of
+            high-quality aluminum material, which is not only strong in sustainability, Durable, Accurate and Precise.
+          </p>
+          <div class="row">
+            <dt class="col-3">Weight:</dt>
+            <dd class="col-9">0.01 kg</dd>
+            <dt class="col-3">Dimensions</dt>
+            <dd class="col-9">50 × 600 × 450 cm</dd>
+            <dt class="col-3">Available colours</dt>
+            <dd class="col-9">Blue 12 Inch Alumex Ruler, Blue 6 Inch Alumex Ruler, Dark Bronze Anodizing 12 Inch Alumex
+              Ruler, Dark Bronze Anodizing 6 Inch Alumex Ruler
+            </dd>
+            <dt class="col-3">Brand</dt>
+            <dd class="col-9">Alumex</dd>
+          </div>
+          <hr/>
+          <div class="row mb-4">
+            <div class="col-md-4 col-6">
+              <label class="mb-2">Size</label>
+              <select class="form-select border border-secondary" style="height: 35px;">
+                <option>6 & 12 Inch Blue</option>
+                <option>6 & 12 Inch Dark Bronze Anodizing</option>
+              </select>
+            </div>
+            <div class="col-md-4 col-6 mb-3">
+              <label class="mb-2 d-block">Quantity</label>
+              <div class="input-group mb-3" style="width: 170px;">
+                <button class="btn btn-white border border-secondary px-3" type="button" id="button-addon1"
+                        data-mdb-ripple-color="dark">
+                  <i class="fas fa-minus"></i>
+                </button>
+                <input type="text" class="form-control text-center border border-secondary" placeholder="2"
+                       aria-label="Example text with button addon" aria-describedby="button-addon1"/>
+                <button class="btn btn-white border border-secondary px-3" type="button" data-mdb-ripple-color="dark">
+                  <i class="fas fa-plus"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="product-actions">
+            <a href="#" class="btn btn-warning shadow-0">Buy now</a>
+            <a href="#" class="btn btn-primary shadow-0"><i class="me-1 fa fa-shopping-basket"></i>Add to cart</a>
+          </div>
 
-  <div class="modal-header">
-    <h5 class="modal-title">Product</h5>
-    <button type="button" class="btn-close" aria-label="Close">
-    </button>
-  </div>
-
-  <div class="modal-body">
-    <div *ngIf="selectedImage">
-      <img [src]="selectedImage.image" [alt]="selectedImage.alt" style="max-width: 100px; max-height: 100px;">
+        </div>
+      </main>
     </div>
-    <div class="row">
-      <div class="col">
-        <div style="width: 100%; height: 500px; text-align:center;margin:0; padding:0;">
-          <ng-image-slider #nav
-                           [images]="imageObject"
-                           [infinite]="true"
-                           [autoSlide]="1"
-                           (imageClick)="previewImage($event)"
-                           [imageSize]="{width: '25%', height: auto}"
-                           [imagePopup]="false"
-                           slideImage="1"></ng-image-slider>
+  </div>
+</section>
+
+
+<section class="bg-light border-top py-4">
+  <div class="container">
+    <div class="row gx-4">
+      <div class="col-lg-8 mb-4">
+        <div class="border rounded-2 px-3 py-2 bg-white">
+          <!-- Pills navs -->
+          <ul class="nav nav-pills nav-justified mb-3" id="ex1" role="tablist">
+            <li class="nav-item d-flex" role="presentation">
+              <a class="nav-link d-flex align-items-center justify-content-center w-100 active" id="ex1-tab-1"
+                 data-mdb-toggle="pill" href="#ex1-pills-1" role="tab" aria-controls="ex1-pills-1" aria-selected="true">Specification</a>
+            </li>
+            <li class="nav-item d-flex" role="presentation">
+              <a class="nav-link d-flex align-items-center justify-content-center w-100" id="ex1-tab-2"
+                 data-mdb-toggle="pill" href="#ex1-pills-2" role="tab" aria-controls="ex1-pills-2"
+                 aria-selected="false">Warranty info</a>
+            </li>
+            <li class="nav-item d-flex" role="presentation">
+              <a class="nav-link d-flex align-items-center justify-content-center w-100" id="ex1-tab-3"
+                 data-mdb-toggle="pill" href="#ex1-pills-3" role="tab" aria-controls="ex1-pills-3"
+                 aria-selected="false">Shipping info</a>
+            </li>
+
+          </ul>
+          <div class="tab-content" id="ex1-content">
+            <div class="tab-pane fade show active" id="ex1-pills-1" role="tabpanel" aria-labelledby="ex1-tab-1">
+              <p>
+                Product Features;
+
+                Sustainability – Aluminium is environmental friendly Lightweight Aluminium is known for its impressive
+                lightweight nature
+
+                Accurate and precise – Aluminum’s strength creates a rigid and unbending ruler for accurate measurements
+
+                Versatile – Aluminium rulers excel in architecture, engineering, education, and design applications
+
+                Durability – Aluminium is resistant to rust and corrosion, Markings are long lasting, Less damages (No
+                chop off edges)
+              </p>
+              <div class="row mb-2">
+                <div class="col-12 col-md-6">
+                  <ul class="list-unstyled mb-0">
+                    <li><i class="fas fa-check text-success me-2"></i>Sustainability </li>
+                    <li><i class="fas fa-check text-success me-2"></i>Accurate and precise </li>
+                    <li><i class="fas fa-check text-success me-2"></i>Versatile </li>
+                    <li><i class="fas fa-check text-success me-2"></i>Durability </li>
+                  </ul>
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
         </div>
       </div>
-      <div class="col">s</div>
+      <div class="col-lg-4">
+        <div class="px-0 border rounded-2 shadow-0">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Similar items</h5>
+              <div class="d-flex mb-3">
+                <a href="#" class="me-3">
+                  <img
+                    src="https://www.alumexstore.com/wp-content/uploads/2023/08/WhatsApp-Image-2023-08-11-at-11.57.03-AM-1.jpeg"
+                    style="min-width: 96px; height: 96px;" class="img-md img-thumbnail"/>
+                </a>
+                <div class="info">
+                  <a href="#" class="nav-link mb-1">
+                    Fortune <br/>
+                    Window
+                  </a>
+                  <strong class="text-dark"> $38.90</strong>
+                </div>
+              </div>
+
+              <div class="d-flex mb-3">
+                <a href="#" class="me-3">
+                  <img src="https://www.alumexstore.com/wp-content/uploads/2023/05/Thumbails_NEW-42-2048x2048.jpg"
+                       style="min-width: 96px; height: 96px;" class="img-md img-thumbnail"/>
+                </a>
+                <div class="info">
+                  <a href="#" class="nav-link mb-1">
+                    Multi Functional
+                    <br/>
+                    Re-Al Mobile Phone Stand/Tab Stand
+                  </a>
+                  <strong class="text-dark"> $29.50</strong>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-
   </div>
+</section>
 
-  <div class="modal-footer">
-    <button class="btn btn-secondary">AddToCart</button>
-    <button class="btn btn-primary">Buy</button>
-  </div>
 
-</div>

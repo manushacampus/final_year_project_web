@@ -1,13 +1,20 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {auto} from "@popperjs/core";
+import {MatDialogRef} from "@angular/material/dialog";
 
 @Component({
   selector: 'app-product-view',
   templateUrl: './product-view.component.html',
   styleUrls: ['./product-view.component.scss']
 })
-export class ProductViewComponent {
+export class ProductViewComponent implements OnInit{
   selectedImage: any;
+  constructor(public dialogRef:MatDialogRef<ProductViewComponent>) {
+  }
+
+  ngOnInit(): void {
+     this.selectedImage = this.imageObject[0];
+    }
   name = 'Angular';
   imageObject = [{
     image: 'https://sanjayv.github.io/ng-image-slider/contents/assets/img/slider/5.jpg',

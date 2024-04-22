@@ -20,7 +20,8 @@ import {NgImageSliderModule} from "ng-image-slider";
     ProductRoutingModule,
     MatPaginatorModule,
     MatDialogModule,
-    NgImageSliderModule
+    NgImageSliderModule,
+
   ]
 })
 export class ProductModule { }
