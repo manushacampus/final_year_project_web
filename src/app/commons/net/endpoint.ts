@@ -5,7 +5,8 @@ export class Endpoint {
     endpoint!: string;
 
     static LOGIN = 'user/login';
-  static DOOR = 'door';
+    static CUSTOMER_REGISTER ='user/register'
+    static DOOR = 'door';
 
 
 

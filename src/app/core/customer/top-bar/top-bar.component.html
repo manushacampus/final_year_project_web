@@ -14,10 +14,31 @@
         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" [routerLink]="'home'">About</a></li>
         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" [routerLink]="'home'">Contact</a></li>
         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" [routerLink]="'home'">Notification</a></li>
+        <li class="nav-item mx-0 mx-lg-1" [matMenuTriggerFor]="sam" style="padding-left: 15px;display:flex;justify-content: center;align-items: center">
+          <mat-icon matBadge="17" matBadgeColor="warn" matBadgeSize="small"  [matBadgeHidden]="hidden" (click)="toggleBadgeVisibility()" style="color: white">notifications</mat-icon>
+          <mat-menu #sam="matMenu">
+            <div style="display: flex;flex-direction: column">
+              <div style="padding: 5px">notification 01</div>
+              <div style="padding: 5px">notification 02</div>
+              <div style="padding: 5px"><a href="">view more..</a></div>
+            </div>
+          </mat-menu>
+        </li>
       </ul>
     </div>
   </div>
   <div style="float: right">
-    pro
+    <div [matMenuTriggerFor]="menu" style="padding-left: 25px;">
+      <i class="fa-solid fa-user"></i>
+      <mat-menu #menu="matMenu">
+        <div class="user-card">
+          <span class="label-name">Manusha Silva</span>
+          <div class="btn-bar button-row" style="display: flex;justify-content: center">
+            <button mat-stroked-button  [hidden]="true"> LogOut <mat-icon fontIcon="logout"></mat-icon></button>
+            <button mat-stroked-button  [routerLink]="'/auth/customer/login'"> LogIn <mat-icon fontIcon="login"></mat-icon></button>
+          </div>
+        </div>
+      </mat-menu>
+    </div>
   </div>
 </nav>

@@ -1,14 +1,29 @@
 .main-banner{
   //background: #fdfd0d;
-  background-image: url('../../../../assets/img/banner.jpg');
+  //filter: brightness(50%);
+  background-image: url('/assets/img/banner.jpg');
   min-width: 1500px;
-  height: 300px;
+  height: 670px;
   max-height: 100%;
   //overflow: hidden;
   background-size: cover;
   background-position: center;
   display: flex;
   justify-content: center;
+  flex-direction: column;
+
+}
+img{
+  opacity: 0.5 !important;
 }
 
-
+.txt{
+  position: relative;
+  //z-index: 1; /* Ensure text appears above the overlay */
+  width: 100%;
+  font-size: 5em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white; /* Set text color */
+}

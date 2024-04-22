@@ -25,9 +25,12 @@ export class TopBarComponent {
 
   logout() {
     // this.authenticationService.logout();
-    this.router.navigateByUrl("/")
+    this.router.navigateByUrl("/auth/admin/login")
   }
-
+  login() {
+    // this.authenticationService.logout();
+    this.router.navigateByUrl("/auth/admin/login")
+  }
 
   async resetPassword() {
     // let dialogConfig = new MatDialogConfig();

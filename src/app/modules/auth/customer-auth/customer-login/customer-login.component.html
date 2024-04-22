@@ -1,0 +1,21 @@
+
+<body>
+<section class="wrapper">
+  <div class="form signup">
+    <header>Login</header>
+    <form action="#">
+      <label for="">Full name</label>
+      <input type="text" placeholder="Email address" required />
+      <label for="">Password</label>
+      <input type="password" placeholder="Password" required />
+      <div class="checkbox">
+        <input type="checkbox" id="signupCheck" />
+        <label for="signupCheck">I accept all terms & conditions</label>
+      </div>
+      <input type="submit" value="Login" />
+    </form>
+    <label class="">New member? <a [routerLink]="'/auth/customer/register'" style="text-decoration:chartreuse !important;">Register</a> here.</label>
+  </div>
+
+</section>
+</body>

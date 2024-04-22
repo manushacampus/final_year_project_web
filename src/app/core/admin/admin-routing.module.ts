@@ -10,6 +10,7 @@ const routes:Routes =[
       { path: 'product-window', loadChildren: () => import('../../modules/admin/product-management/product-window/product-window.module').then(m => m.ProductWindowModule) },
       { path: 'bar-section', loadChildren: () => import('../../modules/admin/bar-sections/bar-sections.module').then(m => m.BarSectionsModule) },
       { path: 'inventory', loadChildren: () => import('../../modules/admin/inventory/inventory.module').then(m => m.InventoryModule) },
+      { path: 'job', loadChildren: () => import('../../modules/admin/jobs/jobs.module').then(m => m.JobsModule) },
     ]
 }
 ];
