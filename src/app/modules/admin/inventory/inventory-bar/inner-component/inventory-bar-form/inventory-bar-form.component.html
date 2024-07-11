@@ -1,0 +1,88 @@
+<div class="modal-content" style="padding: 10px;border-radius: 100px">
+  <div class="modal-header">
+    <h5 class="modal-title" id="exampleModalLabel">Enter Bar</h5>
+    <button
+      type="button"
+      class="btn-close"
+      aria-label="Close"
+      (click)="modalRef.close()"
+    ></button>
+
+  </div>
+  <div class="modal-body">
+
+        <form [formGroup]="barInventoryForm" >
+
+          <div class="form-controls">
+            <label >Section Number</label>
+         <div>
+           <mat-form-field class="example-full-width" appearance="outline">
+             <input type="text" matInput formControlName="sectionNo" [matAutocomplete]="auto" (click)="ss()">
+             <mat-autocomplete #auto="matAutocomplete">
+               <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+                 {{ option }}
+               </mat-option>
+             </mat-autocomplete>
+             <mat-error *ngIf="barInventoryForm.get('sectionNo')?.invalid">{{ getErrorMessage() }}</mat-error>
+           </mat-form-field>
+
+         </div>
+
+          </div>
+
+          <div class="c-row">
+
+            <div class="c-col">
+
+              <div class="form_container">
+
+                <div class="form-controls">
+                  <label >Color <span class="requird">*</span></label>
+                  <input style="height: 37px;" type="color" formControlName="color" class="form-control"  aria-describedby="emailHelp" placeholder="Color">
+                </div>
+
+                <div class="form-controls">
+                  <label >Qty <span class="requird">*</span></label>
+                  <input type="number" formControlName="qty" class="form-control"  aria-describedby="emailHelp" placeholder="Color">
+                </div>
+
+
+              </div>
+
+            </div>
+
+            <div class="c-col">
+
+              <div class="form_container">
+
+                <div class="form-controls">
+                  <label>Length <span class="requird">*</span></label>
+                  <input type="text" formControlName="length" class="form-control" aria-describedby="emailHelp" placeholder="Enter code">
+                </div>
+
+                <div class="form-controls">
+                  <label>Unit Price <span class="requird">*</span></label>
+                  <input type="text" formControlName="price" class="form-control" aria-describedby="emailHelp" placeholder="Enter code">
+                </div>
+
+
+              </div>
+
+            </div>
+          </div>
+
+        </form>
+        <div class="form_container" style="display: flex;justify-content: end;margin-top: 34px">
+          <button class="btn bg-warning btn-custom"  (click)="modalRef.close()" >
+            Cancel
+          </button>
+          <button type="button" class="btn btn-primary" style="margin-left: 5px" (click)="saveJobDoor()">
+            Save changes
+          </button>
+        </div>
+
+  </div>
+  <div class="modal-footer">
+
+  </div>
+</div>

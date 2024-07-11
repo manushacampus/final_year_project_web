@@ -2,6 +2,10 @@ import {Component, OnInit} from '@angular/core';
 import {FormControl} from "@angular/forms";
 import {MatDialog} from "@angular/material/dialog";
 import {ExampleDialogComponent} from "./inner-component/example-dialog/example-dialog.component";
+import {ActivatedRoute, Router} from "@angular/router";
+import {EmployeeService} from "../../../core/services/api/admin/employee.service";
+import {ToastrService} from "ngx-toastr";
+import {BarSectionService} from "../../../core/services/api/admin/bar-section.service";
 
 @Component({
   selector: 'app-bar-section-all',
@@ -9,22 +13,42 @@ import {ExampleDialogComponent} from "./inner-component/example-dialog/example-d
   styleUrls: ['./bar-section-all.component.scss']
 })
 export class BarSectionAllComponent implements OnInit{
-  constructor(public dialog: MatDialog) {}
+  constructor(public dialog: MatDialog,
+              private router: Router,
+              private route: ActivatedRoute,
+              private barSectionService:BarSectionService,
+              private toastrService:ToastrService) {}
 
   filter:FormControl = new FormControl<String>('')
+  cat: string="";
   ngOnInit(): void {
-    // this.filter = new FormControl<any>('')
-    this.pageSize=10;
-    this.totalPage=10;
-    this.totalElement=100;
+    this.route.params.subscribe(params => {
+      this.cat = params['param'];
+    });
     this.getSections()
+    this.filter.valueChanges.pipe().subscribe(data=>{
+      console.log("filter",data)
+      if (data=="ALL"){
+        this.barSize = "";
+        this.selectedPageIndex =0
+        this.getSections()
+      }else {
+        this.barSize = data;
+        this.selectedPageIndex =0
+        this.getSections()
+      }
+
+
+    })
   }
 
   sectionList:any=[]
-  page=0;
-  pageSize:any;
-  totalPage:any;
-  totalElement:any;
+  barSize=""
+  totalPage=0
+  pageSize=[4,10,50]
+  selectedPageSize:number=4
+  selectedPageIndex:number=0
+  image:string='./assets/item01.png'
 
   cardList:any=[{name:'name',sectionNo:'SF23',weight:8.9},
     {name:'name',sectionNo:'SF43',weight:8.9,image:'./assets/item01.png'},
@@ -35,15 +59,24 @@ export class BarSectionAllComponent implements OnInit{
     {name:'name',sectionNo:'GH434',weight:8.9,image:'./assets/item01.png'},
     {name:'name',sectionNo:'HG32',weight:8.9,image:'./assets/item01.png'}]
   getSections(){
-    fetch('./assets/api/section.json').then(res=>res.json()).then(
-      json =>{
-        console.log("response=",json)
-        this.sectionList =json
-      }
-    )
+    this.barSectionService.getSectionAll(
+      this.selectedPageIndex,
+      this.selectedPageSize,
+      this.cat,
+      this.barSize,
+      "ACTIVE")
+      .pipe().subscribe(data=>{
+      this.sectionList=data.data['content']
+      console.log("section",this.sectionList)
+      this.totalPage = data.data.totalElements
+    })
+    console.log("ss",this.cat)
   }
-  onPaginationClick(page: number) {
-    console.log("page number=",page);
+  onPageChange(event: any) {
+    console.log("event",event)
+    this.selectedPageIndex = event.pageIndex;
+    this.selectedPageSize = event.pageSize;
+    this.getSections()
   }
 
   openDialog(): void {

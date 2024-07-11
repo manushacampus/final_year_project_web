@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
-import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {FormGroup, FormsModule, ReactiveFormsModule} from "@angular/forms";
 
 
 const angularFormModule=[
   FormsModule,
-  ReactiveFormsModule
+  ReactiveFormsModule,
 ]
 @NgModule({
   exports: angularFormModule,

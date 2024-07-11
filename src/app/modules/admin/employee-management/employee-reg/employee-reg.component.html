@@ -1,0 +1,148 @@
+<div class="main">
+
+  <div class="sub-menu" style="justify-content: space-between">
+    <div style="display: flex;justify-content: center">
+      <mat-icon style="color: #3182CE;margin-right: 5px">public</mat-icon>
+      <div style="font-weight: bold">
+        Sections
+      </div>
+    </div>
+    <div class="btn-sec">
+      <button class="btn btn-custom" mat-raised-button (click)="close()">X</button>
+    </div>
+  </div>
+
+  <div style="">
+    <mat-tab-group [(selectedIndex)]="selectedTabIndex">
+      <mat-tab label="User">
+
+        <form [formGroup]="userForm" >
+          <div class="c-row">
+            <div class="c-col">
+              <div class="form_container">
+
+                <div>
+                  <label class="form-label">First Name <span class="requird">*</span></label>
+                  <input type="text" class="form-control" formControlName="firstName" placeholder="First Name" />
+                </div>
+
+                <div>
+                  <label class="form-label">Email <span class="requird">*</span></label>
+                  <input type="email" class="form-control" formControlName="email" placeholder="Email" />
+                </div>
+
+                <div>
+                  <label class="form-label">Password <span class="requird">*</span></label>
+                  <input type="password" class="form-control" formControlName="password" placeholder="Password" />
+                </div>
+
+
+                <div>
+                  <label class="form-label">Image</label>
+                  <input type="file" class="form-control form-control-md"  (change)="onFileSelected($event)" >
+                </div>
+              </div>
+
+            </div>
+
+            <div class="c-col">
+              <div class="form_container">
+
+                <div>
+                  <label class="form-label">Last Name <span class="requird">*</span></label>
+                  <input type="text" class="form-control" formControlName="lastName" placeholder="Last Name" />
+                </div>
+
+                <div>
+                  <div>
+                    <label class="form-label">Gender <span class="requird">*</span></label>
+                    <select class="form-control nice-select wide" formControlName="gender">
+                      <option value="" disabled selected>
+                        Select
+                      </option>
+                      <option value="Female">
+                        Female
+                      </option>
+                      <option value="Male">
+                        Male
+                      </option>
+                    </select>
+                  </div>
+                </div>
+
+                <div>
+                  <form [formGroup]="cPassword">
+                  <label class="form-label">Confirm Password <span class="requird">*</span></label>
+                  <input type="password" class="form-control" formControlName="cPassword" placeholder="Confirm Password" />
+                  </form>
+                </div>
+
+              </div>
+
+            </div>
+          </div>
+          <div class="form_container" style="display: flex;justify-content: end">
+            <button class="btn btn-custom"  (click)="goToNextTab()" >
+              Next
+            </button>
+          </div>
+        </form>
+
+      </mat-tab>
+      <mat-tab label="Employee">
+
+        <form [formGroup]="employeeForm" style="width: 100%">
+          <div class="c-row" >
+            <div class="c-col">
+              <div class="form_container">
+
+                <div>
+                  <label class="form-label">Designation <span class="requird">*</span></label>
+                  <select class="form-control nice-select wide" formControlName="designation">
+                    <option value="" disabled selected>
+                      Select
+                    </option>
+                    <option value="EMPLOYEE">
+                      EMPLOYEE
+                    </option>
+                    <option value="ADMIN">
+                      ADMIN
+                    </option>
+                    <option value="MANAGER">
+                      MANAGER
+                    </option>
+                  </select>
+                </div>
+
+
+              </div>
+
+            </div>
+
+            <div class="c-col">
+              <div class="form_container">
+
+                <div>
+                  <label class="form-label">ETF/EPF No</label>
+                  <input type="number" class="form-control" placeholder="ETF/EPF No" />
+                </div>
+
+              </div>
+
+            </div>
+          </div>
+          <div class="form_container" style="display: flex;justify-content: end;">
+            <button class="btn btn-custom"  (click)="goToPreviousTab()" >
+              Back
+            </button>
+            <button class="btn btn-custom"  (click)="registerEmployee()" style="margin-left: 10px">
+              Register
+            </button>
+          </div>
+        </form>
+
+      </mat-tab>
+    </mat-tab-group>
+  </div>
+
+</div>

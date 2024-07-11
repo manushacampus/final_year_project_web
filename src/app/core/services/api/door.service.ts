@@ -28,4 +28,16 @@ export class DoorService {
       })
     );
   }
+  getDoorList(){
+    const net = new Net(NetMethod.get, Endpoint.withUrl(Endpoint.DOOR));
+    return this.netService.process(net).pipe(
+      map((response) => {
+        if (response) {
+          console.log("response",response)
+          return response;
+        }
+        return null;
+      })
+    );
+  }
 }

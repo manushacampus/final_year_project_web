@@ -4,6 +4,7 @@ import { BarSectionsComponent } from './bar-sections.component';
 import {BarSectionsRoutingModule} from "./bar-sections-routing.module";
 import {AngularMatModule} from "../../material/angular-mat/angular-mat.module";
 import {BarSectionsFormComponent} from "./inner-component/bar-sections-form/bar-sections-form.component";
+import {AngularFormModule} from "../../material/angular-form/angular-form.module";
 
 
 
@@ -16,7 +17,8 @@ import {BarSectionsFormComponent} from "./inner-component/bar-sections-form/bar-
   imports: [
     CommonModule,
     BarSectionsRoutingModule,
-    AngularMatModule
+    AngularMatModule,
+    AngularFormModule
   ]
 })
 export class BarSectionsModule { }

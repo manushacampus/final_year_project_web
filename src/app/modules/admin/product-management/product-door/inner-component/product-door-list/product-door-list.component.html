@@ -9,34 +9,39 @@
     </div>
     <button class="btn btn-custom" mat-raised-button routerLink="../form">+ Add New Door</button>
   </div>
+  <div class="table-users">
+    <table cellspacing="0">
+      <tr>
+              <th>Pic</th>
+              <th>Code</th>
+              <th>Name</th>
+              <th>Type</th>
+              <th>Qty</th>
+              <th>Status</th>
+              <th>Unit Price</th>
+              <th style="width: 10%">Action</th>
+      </tr>
+      <tr *ngFor="let item of productDoorList">
+              <td><img src="{{item.door.image}}" alt="" /></td>
+              <td>{{item.door.code}}</td>
+              <td>{{item.door.name}}</td>
+              <td>{{item.type}}</td>
+              <td>{{item.qty}}</td>
+              <td>{{item.door.status}}</td>
+              <td>{{item.price}}</td>
+              <td>
+              <div [matMenuTriggerFor]="sam" style="padding-left: 15px">
+                <mat-icon>more_vert</mat-icon>
+                <mat-menu #sam="matMenu">
+                  <div style="display: flex;flex-direction: column;padding: 6px">
+                    <button class="btn btn-custom" mat-raised-button style="padding: 5px;margin-bottom: 5px" (click)="creatProduct(item)">Create New</button>
+                    <button class="btn btn-custom" mat-raised-button style="padding: 5px">Edit</button>
+                  </div>
+                </mat-menu>
+              </div>
+              </td>
+      </tr>
 
-<div style="border-radius: 30px">
-  <table class="table table-custom" style="">
-    <thead class="table-head" style="">
-    <tr>
-      <th scope="col">#</th>
-      <th scope="col">Code</th>
-      <th scope="col">Name</th>
-      <th scope="col">Type</th>
-      <th scope="col">qty</th>
-      <th scope="col">Unit Price</th>
-      <th scope="col">Total Price</th>
-      <th scope="col" style="width: 10%">Action</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr *ngFor="let item of productDoorList">
-      <th scope="row">{{item.id}}</th>
-      <td>{{item.code}}</td>
-      <td>{{item.name}}</td>
-      <td>{{item.type}}</td>
-      <td>{{item.qty}}</td>
-      <td>{{item.price}}</td>
-      <td>{{item.price*item.qty}}</td>
-      <td><mat-icon>more_vert</mat-icon></td>
-    </tr>
-    </tbody>
-  </table>
-</div>
-
+    </table>
+  </div>
 </div>

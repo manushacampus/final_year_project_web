@@ -1,13 +1,13 @@
-import { Injectable } from "@angular/core"; 
+import { Injectable } from "@angular/core";
 
 @Injectable({
     providedIn: 'root',
   })
 export class Storage{
 
-    public static DEFAULT_TOKEN_KEY = 'hr.system.user.token';
+    public static DEFAULT_TOKEN_KEY = 'bit.user.token';
     public static IS_SANDBOX = 'isSandbox';
-    public static USER_KEY = 'hr.system.user.json';
+    public static USER_KEY = 'bit.user.token';
     public static ACTIVE = 'ACTIVE';
     public static INACTIVE = 'INACTIVE';
 

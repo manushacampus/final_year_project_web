@@ -1,0 +1,20 @@
+<div class="modal-body" style="padding: 10px">
+  <div class="modal-header">
+    <h5 class="modal-title">Product Image Upload</h5>
+    <button
+      type="button"
+      class="btn-close"
+      aria-label="Close"
+      (click)="modalRef.close()">
+    </button>
+  </div>
+  <div>
+    <label class="form-label">Image</label>
+    <input type="file" class="form-control form-control-md"  (change)="onFileSelected($event)">
+  </div>
+  <div class="modal-footer"  style="padding: 5px">
+
+    <button class="btn btn-primary" (click)="uploadImage()">Upload</button>
+  </div>
+
+</div>

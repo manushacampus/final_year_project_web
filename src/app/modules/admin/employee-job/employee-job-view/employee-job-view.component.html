@@ -1,0 +1,169 @@
+<div class="modal-body" style="padding: 10px">
+  <div class="modal-header">
+    <h5 class="modal-title">{{data.type}}</h5>
+    <button
+      type="button"
+      class="btn-close"
+      aria-label="Close"
+      (click)="modalRef.close()">
+    </button>
+  </div>
+  <ng-container *ngIf="data.data.stockItem.type=='DOOR'">
+    <div class="modal-body">
+
+      <form [formGroup]="jobForm">
+        <div class="c-row">
+          <div class="c-col">
+            <div class="form_container">
+              <div class="form-controls">
+                <label >Due Date</label>
+                <input type="date" formControlName="dueDate" class="form-control" placeholder="Due Date" >
+              </div>
+
+            </div>
+
+          </div>
+
+          <div class="c-col">
+            <div class="form_container">
+              <div class="form-controls">
+                <label >Qty</label>
+                <input type="number" formControlName="qty" class="form-control" placeholder="Qty">
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <div class="form-controls">
+          <label >Description</label>
+          <textarea rows="3" type="text"  formControlName="description" class="form-control" placeholder="type here.."></textarea>
+        </div>
+      </form>
+
+      <!--    Door section details-->
+      <div class="door">
+        <form  [formGroup]="doorForm">
+          <div class="c-row">
+            <div class="c-col">
+              <div class="form_container">
+
+                <div class="form-controls">
+                  <label>Name</label>
+                  <input type="text" formControlName="name" class="form-control" aria-describedby="emailHelp" placeholder="Enter name">
+                </div>
+
+                <div class="form-controls">
+                  <label >Width (mm)</label>
+                  <input type="number" formControlName="width" class="form-control" placeholder="width">
+
+                </div>
+
+                <div class="form-controls">
+                  <label >Filling Type</label>
+                  <select class="form-select" formControlName="fillingType" aria-label="Default select example">
+                    <option selected disabled value="">Select Type</option>
+                    <option value="FULL_GLASS">Full Glass</option>
+                    <option value="FULL_BOARD">Full Board</option>
+                    <option value="GLASS_BOARD">Glass And Board</option>
+                  </select>
+                </div>
+
+                <div class="form-controls">
+                  <label >Type Of Board</label>
+                  <select class="form-select" formControlName="typeOfBoard" aria-label="Default select example">
+                    <option selected disabled value="">Select Type</option>
+                    <option value="CLADDING">CLADDING</option>
+                    <option value="PVC">PVC</option>
+                    <option value="MDF">MDF</option>
+                  </select>
+                </div>
+
+
+              </div>
+
+            </div>
+
+            <div class="c-col">
+              <div class="form_container">
+
+                <div class="form-controls">
+                  <label>Code</label>
+                  <input type="text" formControlName="code" class="form-control" aria-describedby="emailHelp" placeholder="Enter code">
+                </div>
+
+                <div class="form-controls">
+                  <label >Height (mm)</label>
+                  <input type="number" formControlName="height" class="form-control" placeholder="height">
+                </div>
+
+                <div class="form-controls">
+                  <label >Board Thickness (mm)</label>
+                  <input type="number" formControlName="boardThickness" class="form-control" placeholder="height">
+                </div>
+
+                <div class="form-controls">
+                  <label >Glass Thickness (mm)</label>
+                  <input type="number" formControlName="glassThickness" class="form-control" placeholder="height">
+                </div>
+
+
+
+              </div>
+
+            </div>
+            <div class="c-col">
+
+              <div class="form-controls">
+                <label >Type</label>
+                <select class="form-select" formControlName="type" aria-label="Default select example">
+                  <option selected disabled value="">Select Type</option>
+                  <option value="SLIDING">SLIDING</option>
+                  <option value="CASEMENT">CASEMENT</option>
+                </select>
+              </div>
+
+              <div class="form-controls">
+                <label >Door Color</label>
+                <input style="width: 60px;height: 38px" type="color" formControlName="doorColor" class="form-control"  aria-describedby="emailHelp" placeholder="Color">
+              </div>
+
+              <div class="form-controls">
+                <label >Board Color</label>
+                <input style="width: 60px;height: 38px" type="color" formControlName="boardColor" class="form-control"  aria-describedby="emailHelp" placeholder="Color">
+              </div>
+
+              <div class="form-controls">
+                <label >Glass Color</label>
+                <input style="width: 60px;height: 38px" type="color" formControlName="glassColor" class="form-control"  aria-describedby="emailHelp" placeholder="Color">
+              </div>
+            </div>
+          </div>
+
+        </form>
+
+      </div>
+
+
+    </div>
+  </ng-container>
+
+  <ng-container *ngIf="data.data.stockItem.type=='Window'">
+    <div class="modal-body">
+      Window
+      {{data.windows.id}}
+    </div>
+  </ng-container>
+  <ng-container *ngIf="data.data.stockItem.type=='Other'">
+    <div class="modal-body">
+      Other
+    </div>
+  </ng-container>
+
+  <div class="modal-footer">
+
+    <button class="btn btn-primary" (click)="takeAJob(data.data.id)" *ngIf="data.job.progress=='NEW'">Take a Job</button>
+    <button class="btn btn-primary" (click)="startJob(data.job.id)" *ngIf="data.job.progress=='PENDING'">Start</button>
+    <button class="btn btn-primary" (click)="doneJob(data.job)" *ngIf="data.job.progress=='PROCESSING'">Done</button>
+  </div>
+
+</div>

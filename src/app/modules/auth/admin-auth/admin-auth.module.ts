@@ -11,12 +11,16 @@ import {MatIconModule} from "@angular/material/icon";
 import {MatInputModule} from "@angular/material/input";
 import {MatOptionModule} from "@angular/material/core";
 import {MatSelectModule} from "@angular/material/select";
+import { AdminForgetPasswordComponent } from './admin-forget-password/admin-forget-password.component';
+import {AngularMatModule} from "../../material/angular-mat/angular-mat.module";
+import {AngularFormModule} from "../../material/angular-form/angular-form.module";
 
 
 @NgModule({
   declarations: [
     AdminAuthComponent,
-    AdminLoginComponent
+    AdminLoginComponent,
+    AdminForgetPasswordComponent
   ],
   imports: [
     CommonModule,
@@ -28,7 +32,9 @@ import {MatSelectModule} from "@angular/material/select";
     MatInputModule,
     MatOptionModule,
     MatSelectModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    AngularMatModule,
+    AngularFormModule
   ]
 })
 export class AdminAuthModule { }

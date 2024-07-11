@@ -9,7 +9,17 @@ import {MatCardModule} from "@angular/material/card";
 import {MatExpansionModule} from "@angular/material/expansion";
 import {MatBadgeModule} from "@angular/material/badge";
 import {MatPaginatorModule} from "@angular/material/paginator";
-import {FormsModule} from "@angular/forms";
+import {MatMenuModule} from "@angular/material/menu";
+import {MatSidenavModule} from "@angular/material/sidenav";
+import {MatDialogModule} from "@angular/material/dialog";
+import {MatDatepickerModule} from "@angular/material/datepicker";
+import {MatTableModule} from "@angular/material/table";
+import {MatTabsModule} from "@angular/material/tabs";
+import {MatRadioModule} from "@angular/material/radio";
+import {MatCheckboxModule} from "@angular/material/checkbox";
+import {MatSlideToggleModule} from "@angular/material/slide-toggle";
+import {MatStepperModule} from "@angular/material/stepper";
+import {MatAutocompleteModule} from "@angular/material/autocomplete";
 
 
 const angularMatModules=[
@@ -23,10 +33,17 @@ const angularMatModules=[
   MatExpansionModule,
   MatBadgeModule,
   MatPaginatorModule,
-  FormsModule,
-  MatCardModule,
-  MatInputModule,
-  MatIconModule,
+  MatMenuModule,
+  MatSidenavModule,
+  MatDialogModule,
+  MatDatepickerModule,
+  MatTableModule,
+  MatTabsModule,
+  MatRadioModule,
+  MatCheckboxModule,
+  MatSlideToggleModule,
+  MatStepperModule,
+  MatAutocompleteModule
 ]
 @NgModule({
   exports: angularMatModules,

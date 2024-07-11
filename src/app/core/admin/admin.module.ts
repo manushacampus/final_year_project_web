@@ -29,10 +29,6 @@ import {MatExpansionModule} from "@angular/material/expansion";
         CommonModule,
         AdminRoutingModule,
         AngularMatModule,
-        MatIconModule,
-        MatMenuModule,
-        MatSidenavModule,
-        MatExpansionModule
 
     ]
 })

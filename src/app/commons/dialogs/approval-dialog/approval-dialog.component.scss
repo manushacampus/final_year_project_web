@@ -1,0 +1,127 @@
+//.card-container{
+//  mat-dialog-container{
+//    width: 300px!important;
+//  }
+//}
+
+.alt-main {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding-top: 15px;
+  font-family: Roboto, sans-serif;
+
+  .content {
+
+    .main-content{
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+
+    img {
+      width: 22%;
+      margin-right: 15px;
+      margin-left: 15px;
+    }
+
+    align-items: center;
+  }
+
+  .alt-title {
+    display: flex;
+    font-weight: 500;
+    font-size: 1.0rem;
+    padding-bottom: 10px;
+
+    span{
+      color: var(--primary-black-color);
+    }
+  }
+
+  .massage {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.9rem;
+    word-break: break-word;
+  }
+
+  .buttons {
+    width: 100%;
+    display: flex;
+    margin-bottom: 5px;
+    justify-content: space-around;
+
+    button{
+      width: 45%;
+      height: 40px;
+      font-size: 14px;
+    }
+  }
+}
+.confirm {
+  div {
+    width: 100%;
+  }
+
+  .title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 500;
+    font-size: 1.5rem;
+    padding-bottom: 10px;
+    //text-align: center;
+  }
+
+  .massage {
+    display: flex;
+    justify-content: center;
+    //text-align: center;
+    align-items: center;
+    font-size: 1rem;
+    word-break: break-word;
+    width: 90%;
+
+    span{
+      color: var(--primary-black-color);
+    }
+  }
+
+  .buttons {
+    flex-direction: row-reverse;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    //padding-bottom: 10px;
+    //margin-bottom: 10px;
+    button {
+      margin-left: 5px;
+    }
+
+    #btnYes {
+      //background-color: dodgerblue;
+      background-color: accent;
+      color: white;
+      margin: 5px;
+    }
+
+    #btnNo {
+      margin: 5px;
+
+      background-color: #ff3b3b;
+    }
+  }
+}
+
+.error {
+  #btnYes {
+    background-color: accent;
+    //background-color: dodgerblue;
+    color: white;
+    margin: 5px;
+  }
+}
