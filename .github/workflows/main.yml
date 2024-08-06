@@ -35,10 +35,7 @@ jobs:
         echo "${{ secrets.SSH_PRIVATE_KEY }}" > private_key.pem
         chmod 600 private_key.pem
 
-    - name: Debug SSH Connection
-      run: |
-        ssh -v -o StrictHostKeyChecking=no -i private_key.pem ${{ secrets.SSH_USERNAME }}@${{ secrets.SSH_HOST }} hostname
-
+   
     - name: Deploy to Server
       uses: appleboy/ssh-action@v0.1.5
       with:
