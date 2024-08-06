@@ -32,7 +32,7 @@ process(net: Net): Observable<any> {
         case NetMethod.put:
             return this.put(net);
         default :
-            return this.get(net);;
+            return this.get(net);
     }
 }
 

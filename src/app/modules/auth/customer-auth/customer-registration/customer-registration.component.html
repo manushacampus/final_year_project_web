@@ -1,0 +1,89 @@
+
+<body>
+<div class="container">
+  <header>Registration</header>
+
+  <form [formGroup]="profileForm">
+    <div class="form first">
+      <div class="details personal">
+        <span class="title">Personal Details</span>
+
+        <div class="fields">
+
+          <div class="input-field">
+            <label>First Name</label>
+            <input type="text" formControlName="firstName" placeholder="Enter your name" required>
+          </div>
+
+          <div class="input-field">
+            <label>Last Name</label>
+            <input type="text" formControlName="lastName" placeholder="Enter your name" required>
+          </div>
+
+          <div class="input-field">
+            <label>Gender</label>
+            <select required>
+              <option disabled selected>Select gender</option>
+              <option>Male</option>
+              <option>Female</option>
+              <option>Others</option>
+            </select>
+          </div>
+
+          <div class="input-field">
+            <label>Email</label>
+            <input type="text" placeholder="Enter your email" required>
+          </div>
+
+          <div class="input-field">
+            <label>Password</label>
+            <input type="text" placeholder="Enter mobile number" required>
+          </div>
+
+
+
+          <div class="input-field">
+            <label>Confirm Password</label>
+            <input type="text" placeholder="Enter your ccupation" required>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="details ID">
+
+        <div class="fields">
+          <div class="input-field">
+            <label>ID Number</label>
+            <input type="text" placeholder="Enter ID type" required>
+          </div>
+
+          <div class="input-field">
+            <label>Date Of Birthday</label>
+            <input type="date" placeholder="Enter ID number" required>
+          </div>
+
+          <div class="input-field">
+            <label>Image</label>
+            <input type="file" class="file-input" placeholder="Enter ID number" required>
+          </div>
+
+          <div class="input-field">
+            <label>Address</label>
+            <textarea  type="text" placeholder="Enter issued state" required></textarea>
+          </div>
+
+        </div>
+
+        <button class="nextBtn" (click)="registerUser()">
+          <span class="btnText">Register</span>
+          <i class="uil uil-navigator"></i>
+        </button>
+      </div>
+    </div>
+
+  </form>
+  <label class="">New member? <a [routerLink]="'/auth/customer/login'" style="text-decoration:chartreuse !important;">Login</a> here.</label>
+</div>
+
+</body>

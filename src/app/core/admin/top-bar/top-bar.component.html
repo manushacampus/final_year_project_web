@@ -29,12 +29,12 @@
     <mat-menu #menu="matMenu">
       <div class="user-card">
         <div class="reset-btn">
-          <button matTooltip="Reset Password" mat-stroked-button (click)="resetPassword()">
-            <mat-icon fontIcon="lock_reset"></mat-icon>
-          </button>
+<!--          <button matTooltip="Reset Password" mat-stroked-button (click)="resetPassword()">-->
+<!--            <mat-icon fontIcon="lock_reset"></mat-icon>-->
+<!--          </button>-->
         </div>
-        <img alt="user" src="assets/img/user.png">
-        <span class="label-name">Manusha Silva</span>
+        <img alt="user" src="{{getLoginUser().image}}">
+        <span class="label-name">{{getLoginUser().firstName}} {{getLoginUser().lastName}}</span>
         <div class="btn-bar button-row">
           <button mat-stroked-button (click)="logout()" > LogOut <mat-icon fontIcon="logout"></mat-icon></button>
         </div>

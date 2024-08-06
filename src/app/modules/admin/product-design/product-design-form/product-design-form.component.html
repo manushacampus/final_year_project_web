@@ -1,0 +1,59 @@
+<div class="modal-content">
+  <div class="modal-header">
+    <h5 class="modal-title" id="exampleModalLabel">Create Design</h5>
+
+    <i class="fa-solid fa-xmark" (click)="modalRef.close()"></i>
+
+  </div>
+  <div class="modal-body">
+
+    <form class="form-two-column" [formGroup]="designForm">
+        <div class="c-col">
+
+          <div class="form-controls">
+            <label>Code</label>
+            <input class="form-control" formControlName="code">
+          </div>
+
+          <div class="form-controls">
+            <label>Type</label>
+
+            <select class="form-control nice-select wide" formControlName="type">
+              <option value="" disabled selected>
+                Select Type..
+              </option>
+              <option value="DOOR">
+                Door
+              </option>
+              <option value="WINDOWS">
+                Window
+              </option>
+              <option value="OTHER">
+                Other
+              </option>
+            </select>
+          </div>
+
+
+        </div>
+        <div class="c-col">
+
+          <div class="form-controls">
+            <label>Name</label>
+            <input class="form-control"  formControlName="name">
+          </div>
+
+          <div class="form-controls">
+            <label>Image</label>
+            <input type="file" class="form-control" (change)="onFileSelected($event)">
+          </div>
+
+        </div>
+    </form>
+
+  </div>
+  <div class="modal-footer">
+        <button class="btn btn-cancel" (click)="modalRef.close()">Cancel</button>
+        <button class="btn btn-save-admin" (click)="saveDesign()">Save</button>
+  </div>
+</div>

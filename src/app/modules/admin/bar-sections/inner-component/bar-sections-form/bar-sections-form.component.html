@@ -10,31 +10,31 @@
     <button mat-button routerLink="../all/cat" style="color: #D31313"><mat-icon style="color: #3182CE">arrow_forward</mat-icon></button>
   </div>
 
-  <section class="new_material_section layout_padding">
+  <section class="new_material_section">
     <div class="container">
-      <form action="">
+      <form [formGroup]="sectionForm">
       <div class="row">
         <div class="col-md-6">
           <div class="form_container">
 
               <div>
                 <label class="form-label">Section No</label>
-                <input type="text" class="form-control" placeholder="Section No" />
+                <input type="text" class="form-control" formControlName="sectionNo" placeholder="Section No" />
               </div>
 
               <div>
                 <label class="form-label">Code</label>
-                <input type="text" class="form-control" placeholder="Code" />
+                <input type="text" class="form-control" formControlName="code" placeholder="Code" />
               </div>
 
               <div>
                 <label class="form-label">Weight</label>
-                <input type="text" class="form-control" placeholder="Weight" />
+                <input type="text" class="form-control" formControlName="weight" placeholder="Weight" />
               </div>
 
               <div>
                 <label class="form-label">Size</label>
-                <select class="form-control nice-select wide">
+                <select class="form-control nice-select wide" formControlName="size">
                   <option value="" disabled selected>
                     Size mm?
                   </option>
@@ -55,7 +55,7 @@
 
               <div>
                 <label class="form-label">Image</label>
-                <input type="file" class="form-control form-control-md">
+                <input type="file" class="form-control form-control-md"  (change)="onFileSelected($event)">
               </div>
 
           </div>
@@ -67,26 +67,46 @@
 
           <div>
             <label class="form-label">Name</label>
-            <input type="text" class="form-control" placeholder="Section Name" />
+            <input type="text" class="form-control" formControlName="name" placeholder="Section Name" />
           </div>
 
           <div>
             <label class="form-label">Thickness</label>
-            <input type="text" class="form-control" placeholder="Thickness" />
+            <input type="text" class="form-control" formControlName="thickness" placeholder="Thickness" />
           </div>
 
           <div>
             <label class="form-label">Category</label>
-            <input type="text" class="form-control" placeholder="Category" />
+            <select class="form-control nice-select wide" formControlName="category">
+              <option value="" disabled selected>
+                Category?
+              </option>
+              <option *ngFor="let item of category" value="{{item.category}}">
+                {{item.category}}
+              </option>
+            </select>
           </div>
 
-            <div>
-              <label class="form-label">Type</label>
-              <input type="text" class="form-control" placeholder="Type" />
-            </div>
+<!--            <div>-->
+<!--              <label class="form-label">Type</label>-->
+<!--              <select class="form-control nice-select wide" formControlName="password">-->
+<!--                <option value="" disabled selected>-->
+<!--                  Type..-->
+<!--                </option>-->
+<!--                <option value="DOOR">-->
+<!--                  Door-->
+<!--                </option>-->
+<!--                <option value="WINDOW">-->
+<!--                  Window-->
+<!--                </option>-->
+<!--                <option value="OTHER">-->
+<!--                  Other-->
+<!--                </option>-->
+<!--              </select>-->
+<!--            </div>-->
 
             <div class="" style="display: flex;justify-content: end">
-              <button class="btn btn-custom">
+              <button class="btn btn-custom" (click)="addBarAngles()">
                 Save
               </button>
             </div>

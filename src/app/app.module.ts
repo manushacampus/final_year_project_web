@@ -5,12 +5,17 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule, NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import {HttpClientModule} from "@angular/common/http";
+import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import {ReactiveFormsModule} from "@angular/forms";
+import {ToastrModule} from "ngx-toastr";
+import {ApprovalDialogComponent} from "./commons/dialogs/approval-dialog/approval-dialog.component";
+import {MatButtonModule} from "@angular/material/button";
+import {AuthInterceptor} from "./auth/auth.interceptor";
 
 @NgModule({
   declarations: [
     AppComponent,
+    ApprovalDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -21,9 +26,13 @@ import {ReactiveFormsModule} from "@angular/forms";
     NoopAnimationsModule,
     HttpClientModule,
     ReactiveFormsModule,
+    ToastrModule.forRoot({timeOut: 3000}),
+    MatButtonModule
 
   ],
-  providers: [],
+  providers: [
+    {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true}
+],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

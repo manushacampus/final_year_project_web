@@ -26,7 +26,7 @@ export class LoginComponent implements OnInit{
       this.router.navigateByUrl("/admin")
     }
     if (this.loginForm.value['userType']=="CUSTOMER"){
-      this.router.navigateByUrl("/customer")
+      this.router.navigateByUrl("/customer/home")
     }
 
   }

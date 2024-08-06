@@ -1,0 +1,35 @@
+
+<div class="d-lg-flex half" style="height: 100%">
+  <div class="left">
+    <img src="../../../../../../../assets/login.svg" alt="" style="width: 70%;padding: 20px;margin: 100px">
+  </div>
+  <div class="right" style="align-items: center;margin-top: 50px">
+    <img src="../../../../../../../assets/logo _ash.svg" alt="" style="width: 40%;display: flex;justify-content: center;align-items: center">
+    <div style="display: flex;justify-content: center;align-items: center">
+      <span style="font-weight: bold;font-size: 20px;color: #101828">Log in to your account</span>
+    </div>
+    <div style="display: flex;flex-direction: column;align-items: center;height: 100%;width: 100%;padding-top: 50px">
+      <form action="" style="display: flex;flex-direction: column;width: 70%" [formGroup]="loginForm">
+
+        <div class="form-control" style="">
+          <label for="">Email</label>
+          <input class="form-control" formControlName="email" type="email" placeholder="Email address" required />
+        </div>
+        <div class="form-control" style="">
+          <label for="">Password</label>
+          <input class="form-control" formControlName="password" type="password" placeholder="Password" required />
+        </div>
+        <div class="form-control" style="display:flex; justify-content: space-between;flex-direction: row">
+
+          <div style="color: #3182CE;"><a (click)="openModal()">forget password</a></div>
+        </div>
+      </form>
+      <div class="form-control" style="align-items: center">
+        <button mat-raised-button style="background: #3182CE;color: white;width: 70%" (click)="login()">Sign in</button>
+      </div>
+    </div>
+  </div>
+
+
+</div>
+

@@ -1,0 +1,24 @@
+.btn-sec{
+  button{
+    margin : 10px;
+  }
+}
+$baseColor: #344C64;
+$borderRadius: 5px;
+$imageBig: 100px;
+$imageSmall: 60px;
+$padding: 10px;
+
+
+.example-section {
+  display: flex;
+  align-content: center;
+  align-items: center;
+  height: 20px !important;
+  justify-content: end;
+}
+
+.example-margin {
+  margin: 10px;
+  height: 20px;
+}

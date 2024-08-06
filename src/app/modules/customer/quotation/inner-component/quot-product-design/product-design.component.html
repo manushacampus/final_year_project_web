@@ -1,0 +1,31 @@
+<div style="width: 100%;">
+  <div>Quotation</div>
+  <div style="background: #EEEEEE;display: flex;justify-content: space-between;width: 1500px ">
+    <div class="sub-nav">
+      <button type="button" class="btn btn-cat">All</button>
+      <button type="button" class="btn btn-cat">Windows</button>
+      <button type="button" class="btn btn-cat">Door</button>
+      <button type="button" class="btn btn-cat">Other</button>
+    </div>
+    <div>
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="basic-addon1">
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </span>
+        </div>
+        <input type="text" class="form-control" placeholder="Search..." >
+      </div>
+    </div>
+  </div>
+
+  <div class="row full-content">
+
+    <div class="card" style="" *ngFor="let data of productDesign" (click)="navigatePage(data.id)">
+      <img src="{{data.image}}" alt="">
+    </div>
+
+
+  </div>
+</div>
+

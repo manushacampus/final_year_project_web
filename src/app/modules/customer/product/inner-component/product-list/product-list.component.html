@@ -1,0 +1,51 @@
+<div class="containerdd m-5">
+
+
+  <div class="row" style="justify-content: space-around">
+
+    <div class="c-col" *ngFor="let card of productDoorList" style="">
+      <a (click)="openModal()">
+        <div class="card">
+          <div class="image-container">hk
+            <div class="first">
+              <div class="d-flex justify-content-between align-items-center">
+                <span class="discount">-25%</span>
+              </div>
+            </div>
+            <img [src]="card.door.image ? card.door.image : 'https://i.imgur.com/8JIWpnw.jpg'" class="img-fluid rounded thumbnail-image">
+          </div>
+          <div class="product-detail-container p-2">
+            <div class="d-flex justify-content-between align-items-center">
+              <h5 class="dress-name">{{card.door.name}}</h5>
+<!--              <div class="d-flex flex-column mb-2">-->
+<!--                <span class="new-price">$3.99</span>-->
+<!--                <small class="old-price text-right">$5.99</small>-->
+<!--              </div>-->
+            </div>
+            <div class="d-flex flex-column mb-2">
+              <span class="new-price">Rs. 250000000</span>
+              <small class="old-price text-right">Rs. 5.99</small>
+            </div>
+            <div class="d-flex justify-content-between align-items-center pt-1">
+              <div>
+                <i class="fa fa-star-o rating-star"></i>
+                <span class="rating-number">4.8</span>
+              </div>
+              <span class="buy"> <a href="">BUY +</a></span>
+            </div>
+          </div>
+        </div>
+      </a>
+    </div>
+
+  </div>
+  <mat-paginator #paginator
+                 class="demo-paginator"
+                 (page)="onPageChange($event)"
+                 [length]="totalPage"
+                 [pageSizeOptions]="pageSize"
+                 showFirstLastButtons>
+  </mat-paginator>
+
+</div>
+

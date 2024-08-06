@@ -1,0 +1,143 @@
+<div class="main">
+  <div class="sub-menu" style="justify-content: space-between">
+    <div style="display: flex;justify-content: center">
+      <mat-icon style="color: #3182CE;margin-right: 5px">public</mat-icon>
+      <div style="font-weight: bold">
+        Product Design
+      </div>
+    </div>
+    <div>
+      <button class="btn btn-cancel" (click)="cancel()">Close</button>
+    </div>
+  </div>
+
+  <div class="content-main">
+
+    <div class="design">
+      <div class="image">
+        <img src="http://localhost:8080/api/file/product-design/a2014189f4e54a5fb64fd2fd6179837b.jpg" alt="">
+      </div>
+      <div class="form">
+        <form class="form-two-column" [formGroup]="designForm">
+          <div class="c-col">
+
+            <div class="form-controls">
+              <label>Code</label>
+              <input class="form-control" formControlName="code">
+            </div>
+
+            <div class="form-controls">
+              <label>Type</label>
+
+              <select class="form-control nice-select wide" formControlName="type">
+                <option value="" disabled selected>
+                  Select Type..
+                </option>
+                <option value="DOOR">
+                  Door
+                </option>
+                <option value="WINDOWS">
+                  Window
+                </option>
+                <option value="OTHER">
+                  Other
+                </option>
+              </select>
+            </div>
+
+
+          </div>
+          <div class="c-col">
+
+            <div class="form-controls">
+              <label>Name</label>
+              <input class="form-control"  formControlName="name">
+            </div>
+
+            <div class="form-controls">
+              <label>Image</label>
+              <input type="file" class="form-control" >
+            </div>
+
+          </div>
+        </form>
+
+        <div style="display: flex;
+                    justify-content: end;
+                    width: 100%;">
+          <button class="btn btn-cancel" (click)="cancel()">Cancel</button>
+          <button class="btn btn-save-admin" *ngIf="designForm.get('status')?.value === 'active'">Active</button>
+          <button class="btn btn-save-admin" *ngIf="designForm.get('status')?.value !== 'active'">Inactive</button>
+          <button class="btn btn-save-admin">Save</button>
+        </div>
+
+
+      </div>
+    </div>
+
+    <div class="inventory" style="">
+      <div class="add-table">
+
+        <div class="row mb-3" style="height: 50px;background: #D31313;align-items: center">
+          <div class="col-md-4">
+            <select class="form-control" placeholder="Search by Last Name" (change)="selectType($event)">
+              <option value="" selected disabled> Select Type</option>
+              <option value="BAR"> BAR</option>
+              <option value="BOARD" > BOARD</option>
+              <option value="OTHER" > OTHER</option>
+            </select>
+          </div>
+          <div class="col-md-4">
+            <input type="text" class="form-control" placeholder="Search by Code" >
+          </div>
+        </div>
+
+<div style="height: 200px; /* Set the desired height */
+  overflow-y: auto;">
+  <table class="table table-hover">
+
+    <thead>
+    <tr>
+      <th scope="col">Code</th>
+      <th scope="col">Name</th>
+      <th scope="col">Type</th>
+      <th scope="col">Action</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let data of testTbale">
+      <td>Mark</td>
+      <td>Otto</td>
+      <td>{{data.inventoryType}}</td>
+      <td>
+          <span class="table-icon-btn icon-add">
+              <i class="fa-solid fa-plus" (click)="addInventory(data)"></i>
+          </span>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+
+
+      </div>
+      <div class="fill-table">
+        <div style="height: 50px;background: #1A4534"> Material List</div>
+        <div class="list-group" style="height: 250px; /* Set the desired height */
+  overflow-y: auto;">
+<!--          <a href="#" class="list-group-item list-group-item-action active">-->
+<!--            Material List-->
+<!--          </a>-->
+<!--          <span class="list-group-item list-group-item-action">ddd</span>-->
+          <a href="#" class="list-group-item list-group-item-action" *ngFor="let data of inventoryList">
+            {{data.inventory.inventoryType}}
+          </a>
+
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+
+</div>

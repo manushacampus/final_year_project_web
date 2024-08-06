@@ -1,0 +1,20 @@
+.btn-cat{
+
+}
+.input-group{
+  margin: 10px;
+  width: 200px;
+}
+.full-content{
+  display: flex;
+  //justify-content: space-between;
+
+  .card{
+    flex: 0 0 auto;
+    background: #6C8E1E;
+    width: 150px;
+    height: 200px;
+    margin: 20px;
+  }
+}
+

@@ -8,13 +8,18 @@
   box-shadow: 0 1px 9px 0 rgba(0,0,0,0.1),0px 6px 5px 0px rgba(0,0,0,0.03);
   display: flex;
   border-radius: 5px;
-  margin: 10px;
+  //margin: 10px;
+  margin-bottom: 10px;
   align-items: center;
   height: 57px;
   background: #FFFFFF;
 }
 .shadow{
   box-shadow: 0 1px 9px 0 rgba(0,0,0,0.1),0px 6px 5px 0px rgba(0,0,0,0.03);
+}
+.requird{
+  color: red;
+  font-weight: bold;
 }
 .primary-color{
   //color: ;
@@ -31,8 +36,42 @@
 .btn-custom{
   background: #3182CE !important;
   color: #FFFFFF !important;
-
 }
+.btn-cat{
+  background-color: #1A4534 !important;
+  color: white !important;
+  min-width: 150px !important;
+  margin: 10px !important;
+}
+.btn-cancel{
+  background-color: #723636 !important;
+  color: white !important;
+  min-width: 150px !important;
+  margin: 10px !important;
+}
+
+.btn-cancel{
+  background-color: #d65151 !important;
+  color: white !important;
+  min-width: 100px !important;
+  margin: 10px !important;
+}
+.btn-save-admin{
+  background-color: #3182CE !important;
+  color: white !important;
+  min-width: 100px !important;
+  margin: 10px !important;
+}
+//-------------Icon----------------------------
+
+.icon-add{
+  color: #1A4534;
+}
+.icon-delete{
+  color: #a83333;
+}
+
+//-------------------------------------
 
 //-------------table----------------
 .table-custom{
@@ -45,6 +84,69 @@
   color: #FFFFFF;
   border-radius: 5px;
 }
+
+$baseColor: #344C64;
+$borderRadius: 5px;
+$imageBig: 100px;
+$imageSmall: 40px;
+$padding: 10px;
+
+.table-admin{
+  border-radius:$borderRadius;
+  box-shadow: 3px 3px 0 rgba(0,0,0,0.1);
+  max-width: calc(100% - 2em);
+  margin: 1em auto;
+  overflow: hidden;
+  width: 100%;
+
+  img {
+    border-radius: 50%;
+    height: $imageSmall;
+    width: $imageSmall;
+  }
+
+  td, th {
+    color: darken($baseColor, 10%);
+    padding: $padding;
+    //font-family: "Helvetica Neue";
+  }
+  td {
+    text-align: left;
+    font-size: 0.8em;
+    line-height: 0.03;
+  }
+  th {
+    background-color: lighten($baseColor, 50%);
+    font-weight: 500;
+  }
+  tr {
+    &:nth-child(2n) { background-color: white; }
+    &:nth-child(2n+1) { background-color: lighten($baseColor, 55%) }
+  }
+  .mat-column-action{
+    width: 120px;
+    text-align: center;
+
+  }
+  tr:hover{
+    background-color: lighten($baseColor, 60%);
+    cursor: pointer;
+    transform: scale(1.00, 1.01);
+  }
+  button:hover mat-icon {
+    cursor: pointer;
+    transform: scale(1.2, 1.2);
+  }
+  .table-icon-btn{
+    padding: 5px;
+    font-size: 20px;
+  }
+  .table-icon-btn:hover {
+    text-decoration:none;
+    text-shadow: 0.5px 0.5px 0.5px #7c7c7c;
+  }
+}
+
 //------------summery card------------
 
 .summery-card{
@@ -55,4 +157,57 @@
   border-radius: 5px;
   color: #5b5858;
   text-align: center;
+}
+
+//--------form----------------
+.new_material_section .form_container .form-control {
+  width: 100%;
+  border: none;
+  height: 40px;
+  margin-bottom: 15px;
+  padding-left: 25px;
+  border: 1px solid #999;
+  outline: none;
+  color: #000000;
+  border-radius: 5px;
+  outline: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+a {
+  text-decoration: none !important;
+  color: inherit !important;
+}
+
+
+.c-row{
+  display: flex;
+}
+.c-col{
+  flex: 1;
+}
+//------two column form-------------
+.form-two-column{
+  width: 100%;
+  height: auto;
+  display: flex;
+  .c-col{
+    width: 50%;
+  }
+  .form-controls{
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+  }
+}
+//--------------------
+
+//-----------Modal -----------------
+.modal-content{
+  border-radius: 100px;
+
+  .modal-header{
+    background: #bbccdc;
+    padding: 10px;
+  }
 }

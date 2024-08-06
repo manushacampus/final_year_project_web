@@ -9,9 +9,19 @@
   <div style="display: flex;justify-content: end">
     <label class="form-label form-label-sm" style="margin-right: 10px">Size</label>
     <select class="form-select form-select-sm" style="width: 100px;" [formControl]="filter" matNativeControl required>
-      <option value="100mm">100mm</option>
-      <option value="80mm">80mm</option>
-      <option value="40mm">40mm</option>
+      <option value="">All</option>
+      <option value="40mm">
+        40mm
+      </option>
+      <option value="60mm">
+        60mm
+      </option>
+      <option value="70mm">
+        70mm
+      </option>
+      <option value="100mm">
+        100mm
+      </option>
     </select>
   </div>
 </div>
@@ -19,19 +29,25 @@
 <div class="containers">
   <ng-container *ngFor="let item of sectionList">
     <mat-card class="example-card">
-      <img style="border-radius: 10px" mat-card-image src="{{item.image}}" alt="Photo of a Shiba Inu">
+      <img style="height: 200px;width: 200px;object-fit: cover;border-radius: 10px" mat-card-image [src]="item.image ? item.image : image" alt="Photo of a Shiba Inu">
       <mat-card-content>
-            <div style="font-weight: bold;font-size:15px">{{item.section_no}}</div>
+            <div style="font-weight: bold;font-size:15px">{{item.sectionNo}}</div>
             <div style="font-size:13px">Weight : {{item.weight}}</div>
+           <div style="font-size:13px">Thickness : {{item.thickness}}mm</div>
       </mat-card-content>
       <mat-card-actions style="justify-content: end">
-          <button class="btn btn-custom" style="font-size: 10px;display: flex;justify-content: end;">View More</button>
+          <button class="btn btn-custom" style="font-size: 10px;display: flex;justify-content: end;" (click)="openDialog()">View More</button>
       </mat-card-actions>
     </mat-card>
   </ng-container>
 </div>
 <div class="row">
   <div class="col" style="float: right;  padding-right: 55px;" >
-    <ngb-pagination [collectionSize]="totalElement" [(page)]="page" [maxSize]="2" [rotate]="true" [boundaryLinks]="false" (pageChange)="onPaginationClick(page)" style="float: right;"></ngb-pagination>
+    <mat-paginator
+      [length]="totalPage"
+      [pageSizeOptions]="pageSize"
+      (page)="onPageChange($event)"
+      showFirstLastButtons>
+    </mat-paginator>
   </div>
 </div>

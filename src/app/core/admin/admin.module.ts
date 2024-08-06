@@ -15,22 +15,21 @@ import {MatExpansionModule} from "@angular/material/expansion";
 
 
 @NgModule({
-  declarations: [
-    AdminComponent,
-    TopBarComponent,
-    LeftSideNavBarComponent,
-    ClientComponent,
-    MenuContainerComponent
-  ],
-  imports: [
-    CommonModule,
-    AdminRoutingModule,
-    AngularMatModule,
-    MatIconModule,
-    MatMenuModule,
-    MatSidenavModule,
-    MatExpansionModule
+    declarations: [
+        AdminComponent,
+        TopBarComponent,
+        LeftSideNavBarComponent,
+        ClientComponent,
+        MenuContainerComponent
+    ],
+    exports: [
+        TopBarComponent
+    ],
+    imports: [
+        CommonModule,
+        AdminRoutingModule,
+        AngularMatModule,
 
-  ]
+    ]
 })
 export class AdminModule { }

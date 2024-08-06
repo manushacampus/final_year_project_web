@@ -1,0 +1,25 @@
+<div class="card-container">
+  <div [ngClass]="style" class="alt-main bg-skin-ternary">
+    <div class="content">
+      <div class="main-content">
+
+        <img src='{{image}}' alt="image">
+
+        <div>
+          <div style=""></div>
+          <div  class="alt-title text-skin-primary "  *ngIf="title!==''" >
+            <span>{{title}}</span>
+          </div>
+          <div  class="massage text-skin-primary">
+            <div><span>{{message}}</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div  class="buttons">
+        <button mat-raised-button id="btnNo" style="background-color: #f37070;color: white" (click)="onDismiss() " *ngIf="btnUnaccepted!==''">{{btnUnaccepted}}</button>
+        <button mat-raised-button id="btnYes" color="primary" (click)="onConfirm()" *ngIf="btnAccept!==''">{{btnAccept}}</button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,5 +1,6 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {Router} from "@angular/router";
+import {AuthService} from "../../../auth/auth.service";
 
 @Component({
   selector: 'app-top-bar',
@@ -14,6 +15,7 @@ export class TopBarComponent {
 
   constructor(
     private router: Router,
+    private authService:AuthService
   ) { }
   toggleBadgeVisibility() {
     this.hidden = !this.hidden;
@@ -24,10 +26,16 @@ export class TopBarComponent {
   }
 
   logout() {
-    // this.authenticationService.logout();
-    this.router.navigateByUrl("/")
-  }
+    this.authService.logout()
 
+  }
+  getLoginUser(){
+    return this.authService.getLoginUser();
+  }
+  login() {
+    // this.authenticationService.logout();
+    this.router.navigateByUrl("/auth/admin/login")
+  }
 
   async resetPassword() {
     // let dialogConfig = new MatDialogConfig();

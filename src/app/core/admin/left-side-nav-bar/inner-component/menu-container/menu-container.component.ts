@@ -1,4 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
+import {AuthService} from "../../../../../auth/auth.service";
 
 @Component({
   selector: 'app-menu-container',
@@ -7,7 +8,8 @@ import {Component, Input, OnInit} from '@angular/core';
 })
 export class MenuContainerComponent {
 
-
+constructor(private authService:AuthService) {
+}
   @Input() Menus!: any[] | undefined;
 
   @Input() navState= false;
@@ -16,6 +18,9 @@ export class MenuContainerComponent {
       return menu.list.length > 0;
     }
     return false;
+  }
+  getLoginUser(){
+    return this.authService.getLoginUser()
   }
 
 

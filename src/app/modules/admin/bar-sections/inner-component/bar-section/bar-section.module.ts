@@ -4,6 +4,7 @@ import {BarSectionComponent} from "./bar-section.component";
 import {BarSectionRoutingModule} from "./bar-section-routing.module";
 import {AngularMatModule} from "../../../../material/angular-mat/angular-mat.module";
 import {MatInputModule} from "@angular/material/input";
+import {AngularFormModule} from "../../../../material/angular-form/angular-form.module";
 
 
 
@@ -15,6 +16,7 @@ import {MatInputModule} from "@angular/material/input";
     CommonModule,
     BarSectionRoutingModule,
     AngularMatModule,
+    AngularFormModule
 
   ]
 })
