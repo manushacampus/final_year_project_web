@@ -13,11 +13,11 @@ export class LeftSideNavBarComponent implements OnInit{
 
   ngOnInit(): void {
     this.currentMenus=[
-      {"menuName":"Dashboard","url":"dashboard","icon":"work_outline","designation":"EMPLOYEE"},
-      {"menuName":"Product Management","url":"dashboard","icon":"swap_calls","designation":"EMPLOYEE","list":[
-          {"menuName":"Door","url":"product-doors/all","icon":"folder_open","designation":"EMPLOYEE"},
-          {"menuName":"Windows","url":"product-window/all","icon":"folder_open","designation":"EMPLOYEE"},
-          {"menuName":"Pantry Cupboard","url":"#","icon":"folder_open","designation":"EMPLOYEE"}
+      {"menuName":"Dashboard","url":"dashboard","icon":"work_outline","designation":"ADMIN"},
+      {"menuName":"Product Management","url":"dashboard","icon":"swap_calls","designation":"ADMIN","list":[
+          {"menuName":"Door","url":"product-doors/all","icon":"folder_open","designation":"ADMIN"},
+          {"menuName":"Windows","url":"product-window/all","icon":"folder_open","designation":"ADMIN"},
+          {"menuName":"Pantry Cupboard","url":"#","icon":"folder_open","designation":"ADMIN"}
         ]},
       {"menuName":"Sections","url":"bar-section/all/cat","icon":"work_outline","designation":"ADMIN"},
       {"menuName":"Inventory","url":"inventory","icon":"folder_open","designation":"ADMIN","list":[

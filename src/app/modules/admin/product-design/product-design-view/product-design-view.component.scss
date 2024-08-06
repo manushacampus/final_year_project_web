@@ -1,0 +1,29 @@
+.design{
+  width: 100%;
+  display: flex;
+  .image{
+    background-color: #1A4534;
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    img{
+      width: 25%;
+    }
+  }
+  .form{
+    width: 50%;
+  }
+}
+
+.inventory{
+  width: 100%;
+  display: flex;
+  .add-table{
+    width: 50%;
+    background-color: #6C8E1E;
+  }
+  .fill-table{
+    width: 50%;
+    background-color: #101828;
+  }
+}

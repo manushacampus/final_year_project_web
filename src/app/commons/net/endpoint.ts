@@ -20,6 +20,8 @@ export class Endpoint {
     static CREATE_JOB_BY_STOCK_ITEM ='job/job-by-product/'
     static CREATE_BAR_ANGLES ='bar-angles'
     static INVENTORY='inventory'
+    static PRODUCT_DESIGN='product-design'
+    static C_PRODUCT_DESIGN='customer/product-design'
 
 
 

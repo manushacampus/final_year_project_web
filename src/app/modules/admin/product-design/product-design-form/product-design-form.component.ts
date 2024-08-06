@@ -3,6 +3,7 @@ import {MatDialogRef} from "@angular/material/dialog";
 import {JobService} from "../../../../core/services/api/admin/job.service";
 import {ToastrService} from "ngx-toastr";
 import {FormControl, FormGroup, Validators} from "@angular/forms";
+import {DesignService} from "../../../../core/services/api/admin/design.service";
 
 @Component({
   selector: 'app-product-design-form',
@@ -11,41 +12,26 @@ import {FormControl, FormGroup, Validators} from "@angular/forms";
 })
 export class ProductDesignFormComponent implements OnInit{
   constructor(public modalRef: MatDialogRef<ProductDesignFormComponent>,
-              private jobService:JobService,
+              private designService:DesignService,
               private toastrService:ToastrService) {
   }
-  selectedTabIndex = 0;
-  doorForm!:FormGroup;
-  jobForm!:FormGroup;
+  designImage!:File;
+  designForm!:FormGroup;
+
   ngOnInit(): void {
-    this.jobForm = new FormGroup({
+    this.designForm = new FormGroup({
       id:new FormControl(''),
-      dueDate:new FormControl('',Validators.required),
-      qty:new FormControl(1,Validators.required),
-      description:new FormControl('')
+      name:new FormControl('',Validators.required),
+      code:new FormControl('',Validators.required),
+      type:new FormControl('',Validators.required),
+      image:new FormControl(''),
 
-    });
-
-    this.doorForm = new FormGroup({
-      id:new FormControl(''),
-      name: new FormControl(''),
-      code: new FormControl('',Validators.required),
-      type: new FormControl('',Validators.required),
-      height: new FormControl('',Validators.required),
-      width: new FormControl('',Validators.required),
-      doorColor:new FormControl('',Validators.required),
-      fillingType:new FormControl('',Validators.required),
-      glassThickness: new FormControl(0),
-      boardThickness: new FormControl(0),
-      glassColor:new FormControl(''),
-      boardColor:new FormControl(''),
-      typeOfBoard:new FormControl(''),
     });
   }
 
-  saveJobDoor(){
-    if (this.jobForm.valid && this.doorForm.valid){
-      this.jobService.createDoor(this.jobForm,this.doorForm).pipe().subscribe(data=>{
+  saveDesign(){
+    if (this.designForm.valid){
+      this.designService.addDesign(this.designForm.value,this.designImage).pipe().subscribe(data=>{
         if (data.code==200){
           this.toastrService.success("success")
           this.modalRef.close()
@@ -62,22 +48,8 @@ export class ProductDesignFormComponent implements OnInit{
     }
   }
 
-  datePicker() {
-    console.log("date:",this.doorForm.value.dueDate)
-    // let format = 'dd/MM/YYYY';
-    // let datePipe = new DatePipe('en-US');
-    // let formatDate= datePipe.transform(new Date(this.doorForm.value.dueDate), format) + "";
-    // this.doorForm.get('dueDate')?.setValue(formatDate)
-    console.log("format date:",this.doorForm.value.dueDate)
+  onFileSelected(event: any) {
+    this.designImage = event.target.files[0];
   }
-  goToNextTab() {
-    if (this.selectedTabIndex < 1) { // Assuming there are 3 tabs
-      this.selectedTabIndex++;
-    }
-  }
-  goToPreviousTab() {
-    if (this.selectedTabIndex > 0) {
-      this.selectedTabIndex--;
-    }
-  }
+
 }

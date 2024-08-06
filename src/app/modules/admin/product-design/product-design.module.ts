@@ -12,13 +12,15 @@ import { ProductDesignFormComponent } from './product-design-form/product-design
 import {AngularFormModule} from "../../material/angular-form/angular-form.module";
 import {MatTabsModule} from "@angular/material/tabs";
 import {ReactiveFormsModule} from "@angular/forms";
+import { ProductDesignViewComponent } from './product-design-view/product-design-view.component';
 
 
 @NgModule({
   declarations: [
     ProductDesignComponent,
     ProductDesignAllComponent,
-    ProductDesignFormComponent
+    ProductDesignFormComponent,
+    ProductDesignViewComponent
   ],
     imports: [
         CommonModule,

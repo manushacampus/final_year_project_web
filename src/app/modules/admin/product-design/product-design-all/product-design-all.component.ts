@@ -4,6 +4,8 @@ import {ToastrService} from "ngx-toastr";
 import {InventoryService} from "../../../../core/services/api/admin/inventory.service";
 import {MatTableDataSource} from "@angular/material/table";
 import {ProductDesignFormComponent} from "../product-design-form/product-design-form.component";
+import {DesignService} from "../../../../core/services/api/admin/design.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-product-design-all',
@@ -11,27 +13,42 @@ import {ProductDesignFormComponent} from "../product-design-form/product-design-
   styleUrls: ['./product-design-all.component.scss']
 })
 export class ProductDesignAllComponent implements OnInit {
-  inventoryList: any[] = []
+  designList: any[] = []
 
   constructor(public dialog: MatDialog,
               private toastrService: ToastrService,
-              private inventoryService: InventoryService) {
+              private designService: DesignService,
+              private router:Router) {
   }
 
   dataSource = new MatTableDataSource();
-  displayedColumns = ['image', 'code', 'color', 'type', 'qty', 'action'];
+  displayedColumns = ['image', 'code', 'name', 'type', 'status', 'action'];
   totalPage = 0
   pageSize = [10, 20, 50]
   selectedPageSize: number = 10
   selectedPageIndex: number = 0
 
   ngOnInit(): void {
+    this.getAllDesignPage();
   }
+
+  getAllDesignPage(){
+    this.designService.getDesignByStatusPage(
+      "",
+      "",
+      this.selectedPageIndex,
+      this.selectedPageSize).pipe().subscribe(data=>{
+      console.log("design",data.data)
+      this.dataSource.data = data.data['content']
+      this.totalPage = data.data.totalElements
+    })
+  }
+
   onPageChange(event: any) {
     console.log("event",event)
     this.selectedPageIndex = event.pageIndex;
     this.selectedPageSize = event.pageSize;
-    // this.getAllBar()
+    this.getAllDesignPage()
   }
   onRowClick(row: any) {
 
@@ -41,7 +58,12 @@ export class ProductDesignAllComponent implements OnInit {
     this.dialog.open(ProductDesignFormComponent,{
     });
     this.dialog.afterAllClosed.pipe().subscribe(result => {
-      console.log('The dialog was closed',result);
+      this.getAllDesignPage()
     });
+  }
+
+  view(id:any) {
+    console.log("test work!!")
+    this.router.navigate(['admin/product-design/view', id]);
   }
 }
