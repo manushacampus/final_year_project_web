@@ -35,7 +35,6 @@ jobs:
         echo "${{ secrets.SSH_PRIVATE_KEY }}" > private_key.pem
         chmod 600 private_key.pem
 
-   
     - name: Deploy to Server
       uses: appleboy/ssh-action@v0.1.5
       with:
@@ -48,6 +47,4 @@ jobs:
             docker stop farmer_app
             docker rm farmer_app
           fi &&
-          docker run -d --name alumini -p 80:80 pasindu55/alumini:latest
-    
-        
+          docker run -d --name farmer_app -p 80:80 pasindu55/alumini:latest
