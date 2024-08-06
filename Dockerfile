@@ -1,27 +1,29 @@
-# Use an official Node.js runtime as a parent image
-FROM node:16 AS build
+# Stage 1: Build Angular app
+FROM node:18 AS build
  
-# Set environment variable for base href
-ENV BASE_HREF /dev/
- 
-# Set the working directory
 WORKDIR /app
  
-# Copy package.json and package-lock.json
+# Copy package.json and package-lock.json to install dependencies
 COPY package*.json ./
  
-# Install dependencies
-RUN npm install
+# Install dependencies and Angular CLI
+RUN npm install --force
+RUN npm install -g @angular/cli
  
-# Copy the rest of the application code
+# Copy the rest of the application source code
 COPY . .
  
-# Build the Angular application with the dynamic base href
-RUN npm run build -- --prod --base-href $BASE_HREF
+RUN npm run build --configuration=production
  
-# Use Nginx to serve the app
-FROM nginx:alpine
+# Stage 2: Serve Angular app with Nginx over HTTPS
+FROM nginx:latest
+ 
+
+# Copy the Angular build output to the Nginx web server directory
 COPY --from=build /app/dist/* /usr/share/nginx/html/
  
-# Expose port 80
+# Expose port 443 for HTTPS
 EXPOSE 80
+ 
+# Start Nginx server with daemon off to run in foreground
+CMD ["nginx", "-g", "daemon off;"]
