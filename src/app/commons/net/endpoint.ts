@@ -5,23 +5,28 @@ export class Endpoint {
     endpoint!: string;
 
     static LOGIN = 'user/login';
+    static C_LOGIN = 'user/customer/login';
     static CUSTOMER_REGISTER ='user/register'
     static EMPLOYEE_REGISTER ='employee'
     static EMPLOYEE_GET_ALL ='employee'
     static EMPLOYEE ='employee'
-    static JOB_DOOR ='job/door'
-    static GET_JOB_LIST ='job'
-    static GET_JOB_BY_ID ='job/'
-    static START_JOB ='job/start/'
-    static DONE_JOB ='job/done/'
-    static GET_STOCK_ITEM ='stock/'
-    static DOOR = 'door';
-    static ASSIGN_JOB_EMPLOYEE ='job/assign/'
-    static CREATE_JOB_BY_STOCK_ITEM ='job/job-by-product/'
-    static CREATE_BAR_ANGLES ='bar-angles'
-    static INVENTORY='inventory'
-    static PRODUCT_DESIGN='product-design'
+    static JOB_DOOR ='employee/job/door'
+    static GET_JOB_LIST ='employee/job'
+    static GET_JOB_BY_ID ='employee/job/'
+    static START_JOB ='employee/job/start/'
+    static DONE_JOB ='employee/job/done/'
+    static GET_STOCK_ITEM ='employee/stock/'
+    static DOOR = 'employee/door';
+    static ASSIGN_JOB_EMPLOYEE ='employee/job/assign/'
+    static CREATE_JOB_BY_STOCK_ITEM ='employee/job/job-by-product/'
+    static CREATE_BAR_ANGLES ='employee/bar-angles'
+    static INVENTORY='employee/inventory'
+    static PRODUCT_DESIGN='employee/product-design'
+    static QUOTATION='employee/quotation'
+
+
     static C_PRODUCT_DESIGN='customer/product-design'
+    static C_QUOTATION='customer/quotation'
 
 
 

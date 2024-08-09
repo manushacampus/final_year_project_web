@@ -3,16 +3,17 @@
 <section class="wrapper">
   <div class="form signup">
     <header>Login</header>
-    <form action="#">
-      <label for="">Full name</label>
-      <input type="text" placeholder="Email address" required />
+    <form [formGroup]="detailsForm">
+      <label for="">Email</label>
+      <input type="text" placeholder="Email address" formControlName="email"  required />
       <label for="">Password</label>
-      <input type="password" placeholder="Password" required />
+      <input type="password" placeholder="Password" formControlName="password"  required />
       <div class="checkbox">
         <input type="checkbox" id="signupCheck" />
         <label for="signupCheck">I accept all terms & conditions</label>
       </div>
-      <input type="submit" value="Login" />
+      <input type="submit" value="Login" (click)="login()" />
+
     </form>
     <label class="">New member? <a [routerLink]="'/auth/customer/register'" style="text-decoration:chartreuse !important;">Register</a> here.</label>
   </div>

@@ -21,5 +21,17 @@ export class CustomerService {
     );
 
   }
+  loginCustomer(customer:any){
+    const net = new Net(NetMethod.post, Endpoint.withUrl(Endpoint.CUSTOMER_REGISTER), customer);
+    return this.netService.process(net).pipe(
+      map((response) => {
+        if (response) {
+          return response;
+        }
+        return null;
+      })
+    );
+
+  }
 
 }

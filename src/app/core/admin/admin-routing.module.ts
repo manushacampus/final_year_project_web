@@ -1,7 +1,6 @@
 import {RouterModule, Routes} from "@angular/router";
 import {NgModule} from "@angular/core";
 import {AdminComponent} from "./admin.component";
-import {AuthGuard} from "../../auth/auth.guard";
 import {AdminAuthGuard} from "../../auth/admin-auth.guard";
 
 const routes:Routes =[
@@ -16,6 +15,7 @@ const routes:Routes =[
       { path: 'employee', loadChildren: () => import('../../modules/admin/employee-management/employee-management.module').then(m => m.EmployeeManagementModule) ,canActivateChild: [AdminAuthGuard],data: { expectedSubRole: 'ADMIN' } },
       { path: 'employee-job', loadChildren: () => import('../../modules/admin/employee-job/employee-job.module').then(m => m.EmployeeJobModule),canActivateChild: [AdminAuthGuard],data: { expectedSubRole: 'ADMIN' }  },
       { path: 'product-design', loadChildren: () => import('../../modules/admin/product-design/product-design.module').then(m => m.ProductDesignModule),canActivateChild: [AdminAuthGuard],data: { expectedSubRole: 'ADMIN' }  },
+      { path: 'quotation', loadChildren: () => import('../../modules/admin/quotation-management/quotation-management.module').then(m => m.QuotationManagementModule),canActivateChild: [AdminAuthGuard],data: { expectedSubRole: 'ADMIN' }  },
     ]
 }
 ];

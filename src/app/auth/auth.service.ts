@@ -88,6 +88,20 @@ export class AuthService {
     );
 
   }
+  customerLogin(userCredential:any){
+    const net = new Net(NetMethod.post, Endpoint.withUrl(Endpoint.C_LOGIN),
+      userCredential);
+    return this.netService.process(net).pipe(
+      map((response) => {
+        if (response) {
+          console.log("login response",response)
+          return response;
+        }
+        return null;
+      })
+    );
+
+  }
 
   getLoginUser():any{
     return this.sessionService.getCurrentUser().valueOf();

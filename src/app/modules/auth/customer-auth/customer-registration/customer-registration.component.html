@@ -20,7 +20,7 @@
             <input type="text" formControlName="lastName" placeholder="Enter your name" required>
           </div>
 
-          <div class="input-field">
+          <div class="input-field" formControlName="gender">
             <label>Gender</label>
             <select required>
               <option disabled selected>Select gender</option>
@@ -32,19 +32,19 @@
 
           <div class="input-field">
             <label>Email</label>
-            <input type="text" placeholder="Enter your email" required>
+            <input type="text" placeholder="Enter your email" formControlName="email" required>
           </div>
 
           <div class="input-field">
             <label>Password</label>
-            <input type="text" placeholder="Enter mobile number" required>
+            <input type="text" placeholder="Enter mobile number" formControlName="password" required>
           </div>
 
 
 
           <div class="input-field">
             <label>Confirm Password</label>
-            <input type="text" placeholder="Enter your ccupation" required>
+            <input type="text" placeholder="Enter your ccupation"  required>
           </div>
 
         </div>
@@ -55,12 +55,12 @@
         <div class="fields">
           <div class="input-field">
             <label>ID Number</label>
-            <input type="text" placeholder="Enter ID type" required>
+            <input type="text" placeholder="Enter ID type" formControlName="nic" required>
           </div>
 
           <div class="input-field">
             <label>Date Of Birthday</label>
-            <input type="date" placeholder="Enter ID number" required>
+            <input type="date" placeholder="Enter ID number" formControlName="dob" required>
           </div>
 
           <div class="input-field">
@@ -70,7 +70,7 @@
 
           <div class="input-field">
             <label>Address</label>
-            <textarea  type="text" placeholder="Enter issued state" required></textarea>
+            <textarea  type="text" placeholder="Enter issued state" formControlName="address" required></textarea>
           </div>
 
         </div>

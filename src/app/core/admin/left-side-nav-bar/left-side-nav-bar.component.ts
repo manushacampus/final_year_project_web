@@ -32,6 +32,7 @@ export class LeftSideNavBarComponent implements OnInit{
       {"menuName":"Task","url":"employee-job/task-all","icon":"work_outline","designation":"ADMIN"},
       {"menuName":"Delivery","url":"#","icon":"work_outline","designation":"ADMIN"},
       {"menuName":"Jobs","url":"employee-job/all","icon":"work_outline","designation":"ADMIN"},
+      {"menuName":"Customer Quotation","url":"quotation/all","icon":"work_outline","designation":"ADMIN"},
       {"menuName":"Employee Management","url":"employee/all","icon":"work_outline","designation":"ADMIN"},
       {"menuName":"Customer Management","url":"#","icon":"work_outline","designation":"ADMIN"},
       {"menuName":"Supplier Management","url":"#","icon":"work_outline","designation":"ADMIN"},

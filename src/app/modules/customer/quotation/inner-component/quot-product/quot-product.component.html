@@ -1,20 +1,20 @@
 <div class="row">
   <div class="col" style="display: flex;justify-content: center">
-    <img src="{{this.designObj.image}}" alt="" style="width: 30%">
+    <img src="{{designObj.image}}" alt="" style="width: 30%">
   </div>
   <div class="col">
     <h2>Name</h2>
-    <form>
+    <form [formGroup]="detailsForm">
       <div class="row">
         <div class="col">
-          <input type="text" class="form-control" placeholder="height">
+          <input type="text" class="form-control" placeholder="height"  formControlName="height">
         </div>
         <div class="col">
-          <input type="text" class="form-control" placeholder="width">
+          <input type="text" class="form-control" placeholder="width"  formControlName="width">
         </div>
       </div>
       <button type="button" class="btn btn-cancel" (click)="cancel()">Cancel</button>
-      <button type="button" class="btn btn-cat">Place Order</button>
+      <button type="button" class="btn btn-cat" (click)="placeOrder()">Place Order</button>
 
     </form>
   </div>

@@ -93,4 +93,13 @@ export class ProductDesignViewComponent implements OnInit{
       this.getInventoryByDesign(this.designId);
     })
   }
+
+  changeStatus(status:string) {
+    console.log("design Id",this.designId)
+    console.log("design Status",status)
+    this.designService.changeStatus(this.designId,status).pipe().subscribe(data=>{
+      console.log("response",data)
+      this.getDesignById()
+    })
+  }
 }

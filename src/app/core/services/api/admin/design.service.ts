@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import {Net, NetMethod, NetService} from "../../../../commons/net/net.service";
 import {Endpoint} from "../../../../commons/net/endpoint";
 import {map} from "rxjs";
+import {HttpParams} from "@angular/common/http";
 
 @Injectable({
   providedIn: 'root'
@@ -78,6 +79,21 @@ export class DesignService {
     const net = new Net(NetMethod.get, Endpoint.withUrl(Endpoint.PRODUCT_DESIGN+"/get-inventory"), {
       'designId':designId,
     });
+    return this.netService.process(net).pipe(
+      map((response) => {
+        if (response) {
+          return response;
+        }
+        return null;
+      })
+    );
+
+  }
+  changeStatus(id:string,status:string){
+    const params = new HttpParams()
+      .set('status', status)
+      .set('id', id);
+    const net = new Net(NetMethod.post, Endpoint.withUrl(Endpoint.PRODUCT_DESIGN+"/status"), params);
     return this.netService.process(net).pipe(
       map((response) => {
         if (response) {
