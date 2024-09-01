@@ -1,51 +1,29 @@
-<div class="containerdd m-5">
+<div class="container">
+  <div class="row clearfix">
 
-
-  <div class="row" style="justify-content: space-around">
-
-    <div class="c-col" *ngFor="let card of productDoorList" style="">
-      <a (click)="openModal()">
-        <div class="card">
-          <div class="image-container">hk
-            <div class="first">
-              <div class="d-flex justify-content-between align-items-center">
-                <span class="discount">-25%</span>
-              </div>
+    <ng-container *ngFor="let product of productDoorList">
+    <div class="col-lg-3 col-md-4 col-sm-12">
+      <div class="card product_item">
+        <div class="body">
+          <div class="cp_img">
+            <img style="" src="{{product.door.image}}" alt="Product" class="img-fluid product-image">
+            <div class="hover">
+              <a (click)="openModal()" class="btn btn-primary btn-sm waves-effect m-1"><i class="fa fa-plus" aria-hidden="true" ></i></a>
+              <a (click)="openModal()" class="btn btn-primary btn-sm waves-effect m-1"><i class="fa fa-cart-plus" aria-hidden="true"></i></a>
             </div>
-            <img [src]="card.door.image ? card.door.image : 'https://i.imgur.com/8JIWpnw.jpg'" class="img-fluid rounded thumbnail-image">
           </div>
-          <div class="product-detail-container p-2">
-            <div class="d-flex justify-content-between align-items-center">
-              <h5 class="dress-name">{{card.door.name}}</h5>
-<!--              <div class="d-flex flex-column mb-2">-->
-<!--                <span class="new-price">$3.99</span>-->
-<!--                <small class="old-price text-right">$5.99</small>-->
-<!--              </div>-->
-            </div>
-            <div class="d-flex flex-column mb-2">
-              <span class="new-price">Rs. 250000000</span>
-              <small class="old-price text-right">Rs. 5.99</small>
-            </div>
-            <div class="d-flex justify-content-between align-items-center pt-1">
-              <div>
-                <i class="fa fa-star-o rating-star"></i>
-                <span class="rating-number">4.8</span>
-              </div>
-              <span class="buy"> <a href="">BUY +</a></span>
-            </div>
+          <div class="product_details">
+            <h5><a href="ec-product-detail.html">Simple Black Clock</a></h5>
+            <p>Fortune Bathroom Door – Full Panel (White- 690mm x 1905mm)</p>
+            <ul class="product_price list-unstyled">
+<!--              <li class="old_price">Rs. 16.00</li>-->
+              <li class="new_price">RS. 13.00</li>
+            </ul>
           </div>
         </div>
-      </a>
+      </div>
     </div>
+    </ng-container>
 
   </div>
-  <mat-paginator #paginator
-                 class="demo-paginator"
-                 (page)="onPageChange($event)"
-                 [length]="totalPage"
-                 [pageSizeOptions]="pageSize"
-                 showFirstLastButtons>
-  </mat-paginator>
-
 </div>
-

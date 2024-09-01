@@ -7,7 +7,7 @@
         Sections
       </div>
     </div>
-    <button class="btn btn-custom" mat-raised-button routerLink="../form">+ Add New Door</button>
+<!--    <button class="btn btn-custom" mat-raised-button routerLink="../form">+ Add New Door</button>-->
   </div>
   <div class="table-users">
     <table cellspacing="0">
@@ -28,7 +28,7 @@
               <td>{{item.type}}</td>
               <td>{{item.qty}}</td>
               <td>{{item.door.status}}</td>
-              <td>{{item.price}}</td>
+              <td style="text-align: center">Rs.{{item.price}}</td>
               <td>
               <div [matMenuTriggerFor]="sam" style="padding-left: 15px">
                 <mat-icon>more_vert</mat-icon>

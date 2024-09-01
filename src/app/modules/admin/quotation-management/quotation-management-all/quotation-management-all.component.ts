@@ -28,4 +28,8 @@ export class QuotationManagementAllComponent implements OnInit{
           }
         })
   }
+  view(id:any) {
+    console.log("test work!!")
+    this.router.navigate(['admin/quotation/view', id]);
+  }
 }

@@ -4,7 +4,7 @@ import {InventoryBarComponent} from "./inventory-bar.component";
 import {AdminAuthGuard} from "../../../../auth/admin-auth.guard";
 
 const routes: Routes = [
-  { path: '', component: InventoryBarComponent,canActivateChild: [AdminAuthGuard],data: { expectedSubRole: 'ADMIN' } },
+  { path: '', component: InventoryBarComponent,canActivateChild: [AdminAuthGuard],data: { expectedSubRole: 'MANAGER' } },
 ];
 
 @NgModule({

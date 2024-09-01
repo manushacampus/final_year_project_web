@@ -11,7 +11,7 @@
       <ul class="navbar-nav ms-auto">
         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" [routerLink]="'quotation'">Quotation</a></li>
         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" [routerLink]="'product'">Product</a></li>
-        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" [routerLink]="'home'">About</a></li>
+        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" (click)="scrollToSection('about')">About</a></li>
         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" [routerLink]="'home'">Contact</a></li>
         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" [routerLink]="'home'">Notification</a></li>
         <li class="nav-item mx-0 mx-lg-1" [matMenuTriggerFor]="sam" style="padding-left: 15px;display:flex;justify-content: center;align-items: center">
@@ -24,6 +24,7 @@
             </div>
           </mat-menu>
         </li>
+        <li class="nav-item mx-0 mx-lg-1"> <a class="nav-link py-3 px-0 px-lg-3 rounded" [routerLink]="'cart'"><i class="fa fa-cart-plus" aria-hidden="true"></i></a> </li>
       </ul>
     </div>
   </div>
@@ -33,6 +34,9 @@
       <mat-menu #menu="matMenu">
         <div class="user-card">
           <span class="label-name">Manusha Silva</span>
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item"><a class="nav-link py-3 px-0 px-lg-3 rounded" [routerLink]="'my-profile'">My Profile</a></li>
+          </ul>
           <div class="btn-bar button-row" style="display: flex;justify-content: center">
             <button mat-stroked-button  [hidden]="true"> LogOut <mat-icon fontIcon="logout"></mat-icon></button>
             <button mat-stroked-button  [routerLink]="'/auth/customer/login'"> LogIn <mat-icon fontIcon="login"></mat-icon></button>

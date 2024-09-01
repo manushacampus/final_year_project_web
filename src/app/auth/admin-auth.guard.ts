@@ -26,6 +26,10 @@ export class AdminAuthGuard implements CanActivateChild {
       // this.router.navigate(['/not-authorized']);
       return true;
     }
+    if (this.authService.isSessionExpired() && "ALL" == expectedSubRole) {
+      // this.router.navigate(['/not-authorized']);
+      return true;
+    }
     console.log("cant log",expectedSubRole)
     this.authService.logout();
     return false;

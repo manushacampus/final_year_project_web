@@ -6,8 +6,8 @@ import {AdminAuthGuard} from "../../../auth/admin-auth.guard";
 
 const routes: Routes = [
   { path: '', component: BarSectionsComponent },
-  { path: 'all', loadChildren:()=> import('../bar-sections/inner-component/bar-section/bar-section.module').then(m=>m.BarSectionModule),canActivateChild: [AdminAuthGuard],data: { expectedSubRole: 'ADMIN' } },
-  { path: 'form', component: BarSectionsFormComponent,canActivateChild: [AdminAuthGuard],data: { expectedSubRole: 'ADMIN' } }
+  { path: 'all', loadChildren:()=> import('../bar-sections/inner-component/bar-section/bar-section.module').then(m=>m.BarSectionModule),canActivateChild: [AdminAuthGuard],data: { expectedSubRole: 'ALL' } },
+  { path: 'form', component: BarSectionsFormComponent,canActivateChild: [AdminAuthGuard],data: { expectedSubRole: 'SUPERVISOR' } }
 ];
 
 @NgModule({

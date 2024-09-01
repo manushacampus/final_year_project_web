@@ -82,7 +82,7 @@ export class JobAllComponent implements OnInit{
             this.getAllJobs()
             this.toastrService.success("Success")
           }else {
-            this.toastrService.success("UnSuccess")
+            this.toastrService.error("UnSuccess")
           }
         },error => {
           this.toastrService.error(error.error.message,"Error")

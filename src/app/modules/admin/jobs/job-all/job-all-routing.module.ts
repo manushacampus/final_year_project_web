@@ -4,7 +4,7 @@ import {JobAllComponent} from "./job-all.component";
 import {AdminAuthGuard} from "../../../../auth/admin-auth.guard";
 
 const routes: Routes = [
-  { path: '', component: JobAllComponent ,canActivateChild: [AdminAuthGuard],data: { expectedSubRole: 'ADMIN' }},
+  { path: '', component: JobAllComponent ,canActivateChild: [AdminAuthGuard],data: { expectedSubRole: 'SUPERVISOR' }},
 ];
 
 @NgModule({

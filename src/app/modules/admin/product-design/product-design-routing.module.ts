@@ -7,8 +7,8 @@ import {ProductDesignViewComponent} from "./product-design-view/product-design-v
 
 const routes: Routes = [
   { path: '', component: ProductDesignComponent,children:[
-      {path: 'all', component: ProductDesignAllComponent,canActivateChild: [AdminAuthGuard],data: { expectedSubRole: 'ADMIN' }},
-      {path: 'view/:id', component: ProductDesignViewComponent,canActivateChild: [AdminAuthGuard],data: { expectedSubRole: 'ADMIN' }}
+      {path: 'all', component: ProductDesignAllComponent,canActivateChild: [AdminAuthGuard],data: { expectedSubRole: 'SUPERVISOR' }},
+      {path: 'view/:id', component: ProductDesignViewComponent,canActivateChild: [AdminAuthGuard],data: { expectedSubRole: 'SUPERVISOR' }}
     ]},
 ];
 

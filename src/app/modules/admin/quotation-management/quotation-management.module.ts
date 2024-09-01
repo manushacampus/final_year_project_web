@@ -7,12 +7,14 @@ import { QuotationManagementAllComponent } from './quotation-management-all/quot
 import {AngularFormModule} from "../../material/angular-form/angular-form.module";
 import {MatButtonModule} from "@angular/material/button";
 import {MatIconModule} from "@angular/material/icon";
+import { QuotationManagementViewComponent } from './quotation-management-view/quotation-management-view.component';
 
 
 @NgModule({
   declarations: [
     QuotationManagementComponent,
-    QuotationManagementAllComponent
+    QuotationManagementAllComponent,
+    QuotationManagementViewComponent
   ],
   imports: [
     CommonModule,

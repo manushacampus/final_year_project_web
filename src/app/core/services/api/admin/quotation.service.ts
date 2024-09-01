@@ -25,4 +25,17 @@ export class QuotationService {
     );
 
   }
+
+  changeQuotationType(type:string){
+    const net = new Net(NetMethod.put, Endpoint.withUrl(Endpoint.QUOTATION+'/change?type='+type));
+    return this.netService.process(net).pipe(
+      map((response) => {
+        if (response) {
+          return response;
+        }
+        return null;
+      })
+    );
+
+  }
 }

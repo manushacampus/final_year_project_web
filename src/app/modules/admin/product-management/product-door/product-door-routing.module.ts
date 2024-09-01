@@ -6,8 +6,8 @@ import {ProductDoorFormComponent} from "./inner-component/product-door-form/prod
 
 const routes: Routes = [
   { path: '', component: ProductDoorComponent,children:[
-      { path: 'all', component: ProductDoorListComponent,data: { expectedSubRole: 'ADMIN' } },
-      { path: 'form', component: ProductDoorFormComponent },
+      { path: 'all', component: ProductDoorListComponent,data: { expectedSubRole: 'SUPERVISOR' } },
+      { path: 'form', component: ProductDoorFormComponent ,data: { expectedSubRole: 'SUPERVISOR' }},
     ]},
 
 ];

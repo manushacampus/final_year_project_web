@@ -5,7 +5,7 @@ import {AdminAuthGuard} from "../../../auth/admin-auth.guard";
 
 const routes: Routes = [
   { path: '', component: JobsComponent,children:[
-      { path: 'all', loadChildren:()=> import('./job-all/job-all.module').then(m=>m.JobAllModule) ,canActivateChild: [AdminAuthGuard],data: { expectedSubRole: 'ADMIN' }},
+      { path: 'all', loadChildren:()=> import('./job-all/job-all.module').then(m=>m.JobAllModule) ,canActivateChild: [AdminAuthGuard],data: { expectedSubRole: 'SUPERVISOR' }},
     ]},
 ];
 
