@@ -33,6 +33,18 @@ export class InventoryService {
     );
 
   }
+  addOther(bar:any){
+    const net = new Net(NetMethod.post, Endpoint.withUrl(Endpoint.INVENTORY+'/other'), bar);
+    return this.netService.process(net).pipe(
+      map((response) => {
+        if (response) {
+          return response;
+        }
+        return null;
+      })
+    );
+
+  }
   getInventoryByType(type:string,page:number,size:number){
     const net = new Net(NetMethod.get, Endpoint.withUrl(Endpoint.INVENTORY), {
       'type':type,

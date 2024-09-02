@@ -3,14 +3,16 @@ import {MatDialog} from "@angular/material/dialog";
 import {ToastrService} from "ngx-toastr";
 import {InventoryService} from "../../../../core/services/api/admin/inventory.service";
 import {MatTableDataSource} from "@angular/material/table";
-import {InventoryOtherFormComponent} from "./inner-component/inventory-other-form/inventory-other-form.component";
+import {
+  InventoryOtherFormComponent
+} from "../../inventory/inventory-other/inner-component/inventory-other-form/inventory-other-form.component";
 
 @Component({
-  selector: 'app-inventory-other',
-  templateUrl: './inventory-other.component.html',
-  styleUrls: ['./inventory-other.component.scss']
+  selector: 'app-supplier-management-all',
+  templateUrl: './supplier-management-all.component.html',
+  styleUrls: ['./supplier-management-all.component.scss']
 })
-export class InventoryOtherComponent implements OnInit{
+export class SupplierManagementAllComponent implements OnInit{
   inventoryList:any[]=[]
   constructor(public dialog:MatDialog,
               private toastrService:ToastrService,
@@ -25,7 +27,7 @@ export class InventoryOtherComponent implements OnInit{
   ngOnInit(): void {
     this.getAllBar()
   }
-  addNewOther() {
+  addNewSupplier() {
     this.dialog.open(InventoryOtherFormComponent,{
       data: {
         type:"JOB"}
@@ -53,3 +55,4 @@ export class InventoryOtherComponent implements OnInit{
 
   }
 }
+

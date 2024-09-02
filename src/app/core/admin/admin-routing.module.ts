@@ -16,6 +16,9 @@ const routes:Routes =[
       { path: 'employee-job', loadChildren: () => import('../../modules/admin/employee-job/employee-job.module').then(m => m.EmployeeJobModule),canActivateChild: [AdminAuthGuard],data: { expectedSubRole: 'EMPLOYEE' }  },
       { path: 'product-design', loadChildren: () => import('../../modules/admin/product-design/product-design.module').then(m => m.ProductDesignModule),canActivateChild: [AdminAuthGuard],data: { expectedSubRole: 'SUPERVISOR' }  },
       { path: 'quotation', loadChildren: () => import('../../modules/admin/quotation-management/quotation-management.module').then(m => m.QuotationManagementModule),canActivateChild: [AdminAuthGuard],data: { expectedSubRole: 'SUPERVISOR' }  },
+      { path: 'supplier', loadChildren: () => import('../../modules/admin/supplier-management/supplier-management.module').then(m => m.SupplierManagementModule),canActivateChild: [AdminAuthGuard],data: { expectedSubRole: 'MANAGER' }  },
+      { path: 'purchase', loadChildren: () => import('../../modules/admin/purchase-request/purchase-request.module').then(m => m.PurchaseRequestModule),canActivateChild: [AdminAuthGuard],data: { expectedSubRole: 'MANAGER' }  },
+      { path: 'delivery', loadChildren: () => import('../../modules/admin/delivery-management/delivery-management.module').then(m => m.DeliveryManagementModule),canActivateChild: [AdminAuthGuard],data: { expectedSubRole: 'MANAGER' }  },
     ]
 }
 ];
