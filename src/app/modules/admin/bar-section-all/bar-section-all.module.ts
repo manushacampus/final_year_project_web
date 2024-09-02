@@ -1,19 +1,18 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
 import { BarSectionAllRoutingModule } from './bar-section-all-routing.module';
 import {AngularMatModule} from "../../material/angular-mat/angular-mat.module";
 import {BarSectionAllComponent} from "./bar-section-all.component";
-import {ReactiveFormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {NgbPagination} from "@ng-bootstrap/ng-bootstrap";
-import { ExampleDialogComponent } from './inner-component/example-dialog/example-dialog.component';
 import {MatDialogModule} from "@angular/material/dialog";
+import { SectionViewComponent } from './inner-component/section-view/section-view.component';
 
 
 @NgModule({
   declarations: [
     BarSectionAllComponent,
-    ExampleDialogComponent
+    SectionViewComponent
   ],
   imports: [
     CommonModule,
@@ -21,7 +20,8 @@ import {MatDialogModule} from "@angular/material/dialog";
     AngularMatModule,
     ReactiveFormsModule,
     NgbPagination,
-    MatDialogModule
+    MatDialogModule,
+    FormsModule
   ]
 })
 export class BarSectionAllModule { }

@@ -6,6 +6,7 @@ import {ApprovalDialogComponent} from "../../../../../../commons/dialogs/approva
 import {ApprovalDialogConfig} from "../../../../../../commons/dialogs/approval-dialog/ApprovalDialogConfig";
 import {MatDialog} from "@angular/material/dialog";
 import {ToastrService} from "ngx-toastr";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-product-door-list',
@@ -17,7 +18,8 @@ export class ProductDoorListComponent implements OnInit{
               private stockService:StockItemService,
               private jobService:JobService,
               public dialog:MatDialog,
-              private toastrService:ToastrService,) {
+              private toastrService:ToastrService,
+              private router:Router) {
   }
   productDoorList:any[]=[]
   ngOnInit(): void {
@@ -49,6 +51,9 @@ export class ProductDoorListComponent implements OnInit{
     })
   }
 
+  viewProduct(item:any){
+    this.router.navigate(['admin/product-doors/view', item.id]);
+  }
 
 
 }

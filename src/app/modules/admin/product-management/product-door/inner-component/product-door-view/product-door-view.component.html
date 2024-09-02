@@ -1,17 +1,20 @@
 <div class="main">
   <div class="row">
-    <div class="col-xl-3">
+    <div class="col-xl-4">
       <!-- Profile picture card-->
       <div class="card mb-4 mb-xl-0">
-        <div class="card-header">Product Design</div>
+        <div class="card-header">Product Image</div>
         <div class="card-body text-center">
           <!-- Profile picture image-->
           <img class="img-account-profile rounded-circle mb-2" src="http://bootdey.com/img/Content/avatar/avatar1.png" alt="">
-
+          <!-- Profile picture help block-->
+          <div class="small font-italic text-muted mb-4">JPG or PNG no larger than 5 MB</div>
+          <!-- Profile picture upload button-->
+          <button class="btn btn-custom"  style="background: rgb(26, 69, 52)" type="button">Change Product Image</button>
         </div>
       </div>
     </div>
-    <div class="col-xl-9">
+    <div class="col-xl-8">
       <!-- Account details card-->
       <div class="card mb-4">
         <div class="card-header">Product Details</div>
@@ -51,16 +54,15 @@
               </div>
               <!-- Form Group (Unit Price)-->
               <div class="col-md-6">
-                <label class="small mb-1" for="inputDoorUnitPrice">Employee Note</label>
-                <textarea placeholder="Enter note" id="inputDoorUnitPrice"></textarea>
-<!--                <input class="form-control" id="inputDoorUnitPrice" type="text" name="birthday" placeholder="Enter Unit Price">-->
+                <label class="small mb-1" for="inputDoorUnitPrice">UnitPrice</label>
+                <input class="form-control" id="inputDoorUnitPrice" type="text" name="birthday" placeholder="Enter Unit Price">
               </div>
             </div>
 
             <!-- Save changes button-->
             <div class="row gx-3 mb-3">
               <div class="col-md-6" style="float: right">
-                <button class="btn btn-custom" style="background: rgb(26, 69, 52)" type="button" (click)="change()">Accept Quotation</button>
+                <button class="btn btn-custom" style="background: rgb(26, 69, 52)" type="button">Save changes</button>
               </div>
             </div>
 
