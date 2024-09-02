@@ -1,0 +1,104 @@
+<div class="modal-content" style="padding: 10px;border-radius: 100px">
+
+  <!-- Modal Header Area-->
+  <div class="modal-header ">
+    <h5 class="modal-title" id="exampleModalLabel">Section</h5>
+    <button
+      type="button"
+      class="btn-close"
+      aria-label="Close"
+      (click)="close()"
+    ></button>
+  </div>
+
+  <!--  Modal Body Area-->
+  <div class="modal-body ">
+    <div class="main">
+      <div class="row">
+        <div class="col-xl-4">
+          <!-- Profile picture card-->
+          <div class="card mb-4 mb-xl-0">
+            <div class="card-header">Section Image</div>
+            <div class="card-body text-center">
+              <!-- Profile picture image-->
+              <img class="img-account-profile rounded-circle mb-2" src="http://bootdey.com/img/Content/avatar/avatar1.png" alt="">
+              <!-- Profile picture help block-->
+              <div class="small font-italic text-muted mb-4">JPG or PNG no larger than 5 MB</div>
+              <!-- Profile picture upload button-->
+              <button class="btn btn-custom"  style="background: rgb(26, 69, 52)" type="button">Change Section Image</button>
+            </div>
+          </div>
+        </div>
+        <div class="col-xl-8">
+          <!-- Account details card-->
+          <div class="card mb-4">
+            <div class="card-header">Section Details</div>
+            <div class="card-body">
+              <form>
+                <div class="row gx-3 mb-3">
+                  <!-- Form Group (Code)-->
+                  <div class="col-md-6">
+                    <label class="small mb-1" for="inputSectionCode">Code</label>
+                    <input class="form-control" id="inputSectionCode" type="text" placeholder="Section Code" >
+                  </div>
+                  <!-- Form Group (Section No)-->
+                  <div class="col-md-6">
+                    <label class="small mb-1" for="inputDoorName"> Section No </label>
+                    <input class="form-control" id="inputDoorName" type="text" placeholder="Enter Section No">
+                  </div>
+                </div>
+                <!-- Form Row  -->
+                <div class="row gx-3 mb-3">
+                  <!-- Form Group (Section Name)-->
+                  <div class="col-md-6">
+                    <label class="small mb-1" for="inputProductType">Name</label>
+                    <input class="form-control" id="inputProductType" type="text" placeholder="Enter Section Name">
+                  </div>
+                  <!-- Form Group (Description)-->
+                  <div class="col-md-6">
+                    <label class="small mb-1" for="inputDoorStatus">Description</label>
+                    <input class="form-control" id="inputDoorStatus" type="text" placeholder="Note" >
+                  </div>
+                </div>
+                <!-- Form Row-->
+                <div class="row gx-3 mb-3">
+                  <!-- Form Group (Weight)-->
+                  <div class="col-md-4">
+                    <label class="small mb-1" for="inputDoorQty">Weight</label>
+                    <input class="form-control" id="inputDoorQty" type="tel" placeholder="Enter weight" >
+                  </div>
+                  <!-- Form Group (Thickness)-->
+                  <div class="col-md-4">
+                    <label class="small mb-1" for="inputThickness">Thickness</label>
+                    <input class="form-control" id="inputThickness" type="text" name="birthday" placeholder="Enter Thickness">
+                  </div>
+                  <!-- Form Group (Unit Price)-->
+                  <div class="col-md-4">
+                    <label class="small mb-1" for="inputSize">Size</label>
+                    <input class="form-control" id="inputSize" type="text" name="birthday" placeholder="Enter Size">
+                  </div>
+                </div>
+
+                <!-- Save changes button-->
+                <div class="row gx-3 mb-3">
+                  <div class="col-md-6" style="float: right">
+                    <button class="btn btn-custom" style="background: rgb(26, 69, 52)" type="button">Save changes</button>
+                  </div>
+                </div>
+
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!--<div style="display: flex">-->
+<!--  <div style="flex: 1">-->
+<!--    <img src="./assets/item01.png" alt="">-->
+<!--  </div>-->
+<!--  <div style="flex: 1">-->
+<!--    details-->
+<!--  </div>-->
+<!--</div>-->

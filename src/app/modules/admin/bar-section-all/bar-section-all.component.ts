@@ -1,11 +1,11 @@
 import {Component, OnInit} from '@angular/core';
 import {FormControl} from "@angular/forms";
 import {MatDialog} from "@angular/material/dialog";
-import {ExampleDialogComponent} from "./inner-component/example-dialog/example-dialog.component";
 import {ActivatedRoute, Router} from "@angular/router";
 import {EmployeeService} from "../../../core/services/api/admin/employee.service";
 import {ToastrService} from "ngx-toastr";
 import {BarSectionService} from "../../../core/services/api/admin/bar-section.service";
+import {SectionViewComponent} from "./inner-component/section-view/section-view.component";
 
 @Component({
   selector: 'app-bar-section-all',
@@ -80,7 +80,7 @@ export class BarSectionAllComponent implements OnInit{
   }
 
   openDialog(): void {
-    const dialogRef = this.dialog.open(ExampleDialogComponent, {
+    const dialogRef = this.dialog.open(SectionViewComponent, {
       data: "sss"
     });
 

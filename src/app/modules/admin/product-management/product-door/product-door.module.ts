@@ -8,6 +8,7 @@ import { ProductDoorFormComponent } from './inner-component/product-door-form/pr
 import {AngularMatModule} from "../../../material/angular-mat/angular-mat.module";
 import {AngularFormModule} from "../../../material/angular-form/angular-form.module";
 import {MatDialogModule} from "@angular/material/dialog";
+import { ProductDoorViewComponent } from './inner-component/product-door-view/product-door-view.component';
 
 
 @NgModule({
@@ -15,6 +16,7 @@ import {MatDialogModule} from "@angular/material/dialog";
     ProductDoorComponent,
     ProductDoorListComponent,
     ProductDoorFormComponent,
+    ProductDoorViewComponent,
   ],
     imports: [
         CommonModule,
