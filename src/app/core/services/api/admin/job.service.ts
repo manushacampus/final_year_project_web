@@ -110,7 +110,7 @@ export class JobService {
     );
   }
   getJobListByStatusAndEmployee(status:string,progress:string){
-    const net = new Net(NetMethod.get, Endpoint.withUrl(Endpoint.GET_JOB_LIST+"/employee"),{'status':status});
+    const net = new Net(NetMethod.get, Endpoint.withUrl(Endpoint.GET_JOB_LIST+"/employee"),{'status':status,'progress':progress});
     return this.netService.process(net).pipe(
       map((response) => {
         if (response) {
