@@ -58,7 +58,7 @@ export class InventoryBarComponent implements OnInit{
     console.log("enter",element)
     this.dialog.open(InventoryPurchaseRequestComponent,{
       data: {
-        type:"JOB"}
+        data:element}
     }).afterClosed().subscribe(result=>{
     });
   }

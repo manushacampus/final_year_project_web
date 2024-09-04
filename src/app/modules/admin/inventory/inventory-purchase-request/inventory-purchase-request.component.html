@@ -23,7 +23,7 @@
             <label >Supplier Number</label>
             <div>
               <mat-form-field class="example-full-width" appearance="outline">
-                <input type="text" matInput formControlName="sectionNo" [matAutocomplete]="auto" (click)="ss()">
+                <input type="text" matInput formControlName="supplier" [matAutocomplete]="auto" (click)="ss()">
                 <mat-autocomplete #auto="matAutocomplete">
                   <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
                     {{ option }}

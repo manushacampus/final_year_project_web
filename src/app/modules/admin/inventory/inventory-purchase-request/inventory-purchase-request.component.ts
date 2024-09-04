@@ -25,14 +25,10 @@ export class InventoryPurchaseRequestComponent implements OnInit{
   options:(string | null)[] = [];
   filteredOptions!: Observable<string[]>;
   ngOnInit(): void {
-
+    console.log("data",this.data.data.id)
     this.barInventoryForm = new FormGroup({
-      id:new FormControl(''),
-      sectionNo: new FormControl('',this.optionValidator.bind(this)),
-      color: new FormControl('#000000',),
-      length: new FormControl('',),
+      supplier: new FormControl('',this.optionValidator.bind(this)),
       qty: new FormControl('',),
-      price: new FormControl('',),
     });
 
     this.getAllBarAngels();
