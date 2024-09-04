@@ -1,0 +1,71 @@
+<div class="modal-content">
+  <div class="modal-header">
+    <h5 class="modal-title" id="exampleModalLabel">Register Supplier</h5>
+
+    <i class="fa-solid fa-xmark" (click)="modalRef.close()"></i>
+
+  </div>
+  <div class="modal-body">
+
+    <form class="form-two-column" [formGroup]="designForm">
+      <div class="c-col">
+
+        <div class="form-controls">
+          <label>First Name</label>
+          <input class="form-control" formControlName="firstName">
+        </div>
+
+        <div class="form-controls">
+          <label>Email</label>
+          <input class="form-control"  formControlName="email">
+        </div>
+
+
+        <div class="form-controls">
+          <label>Type</label>
+
+          <select class="form-control nice-select wide" formControlName="supplierType">
+            <option value="" disabled selected>
+              Select Type..
+            </option>
+            <option value="Aluminum">
+              Aluminum
+            </option>
+            <option value="Glass">
+              Glass
+            </option>
+            <option value="Hardware">
+              Hardware
+            </option>
+          </select>
+        </div>
+
+
+      </div>
+      <div class="c-col">
+
+        <div class="form-controls">
+          <label>Last Name</label>
+          <input class="form-control"  formControlName="lastName">
+        </div>
+
+        <div class="form-controls">
+          <label>Nic</label>
+          <input class="form-control"  formControlName="nic">
+        </div>
+
+        <div class="form-controls">
+          <label>Contact</label>
+          <input class="form-control"  formControlName="contact">
+        </div>
+
+
+      </div>
+    </form>
+
+  </div>
+  <div class="modal-footer">
+    <button class="btn btn-cancel" (click)="modalRef.close()">Cancel</button>
+    <button class="btn btn-save-admin" (click)="saveSupplier()">Save</button>
+  </div>
+</div>

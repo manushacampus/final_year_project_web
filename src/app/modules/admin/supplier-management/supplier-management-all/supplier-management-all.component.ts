@@ -6,6 +6,8 @@ import {MatTableDataSource} from "@angular/material/table";
 import {
   InventoryOtherFormComponent
 } from "../../inventory/inventory-other/inner-component/inventory-other-form/inventory-other-form.component";
+import {SupplierManagementFormComponent} from "../supplier-management-form/supplier-management-form.component";
+import {SupplierService} from "../../../../core/services/api/admin/supplier.service";
 
 @Component({
   selector: 'app-supplier-management-all',
@@ -16,21 +18,19 @@ export class SupplierManagementAllComponent implements OnInit{
   inventoryList:any[]=[]
   constructor(public dialog:MatDialog,
               private toastrService:ToastrService,
-              private inventoryService:InventoryService) {
+              private supplierService:SupplierService) {
   }
   dataSource = new MatTableDataSource();
-  displayedColumns = ['code','creationType', 'type', 'qty', 'action'];
+  displayedColumns = ['name','nic', 'email', 'type', 'contact','action'];
   totalPage=0
   pageSize=[10,20,50]
   selectedPageSize:number=10
   selectedPageIndex:number=0
   ngOnInit(): void {
-    this.getAllBar()
+    this.getAllSupplier()
   }
   addNewSupplier() {
-    this.dialog.open(InventoryOtherFormComponent,{
-      data: {
-        type:"JOB"}
+    this.dialog.open(SupplierManagementFormComponent,{
     }).afterClosed().subscribe(result=>{
     });
   }
@@ -38,14 +38,14 @@ export class SupplierManagementAllComponent implements OnInit{
     console.log("event",event)
     this.selectedPageIndex = event.pageIndex;
     this.selectedPageSize = event.pageSize;
-    this.getAllBar()
+    this.getAllSupplier()
   }
-  getAllBar(){
-    this.inventoryService.getInventoryByType(
-      "OTHER",
+  getAllSupplier(){
+    this.supplierService.getAllSupplierByStatus(
+      "ACTIVE",
       this.selectedPageIndex,
       this.selectedPageSize).pipe().subscribe(data=>{
-      console.log("board-all",data.data)
+      console.log("Supplier-all",data.data)
       this.dataSource.data = data.data['content']
       this.totalPage = data.data.totalElements
     })

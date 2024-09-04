@@ -21,7 +21,7 @@ export class EmployeeTaskAllComponent implements OnInit {
   }
 
   getAllJobs() {
-    this.jobService.getJobListByStatusAndEmployee("ACTIVE", "ALL").pipe().subscribe((data:any)=> {
+    this.jobService.getJobListByStatusAndEmployee("ACTIVE", "PROCESSING").pipe().subscribe((data:any)=> {
       console.log("lll",data.data)
       this.jobList = data.data
     })

@@ -9,6 +9,7 @@ import { InventoryBoardComponent } from './inventory-board/inventory-board.compo
 import { InventoryBoardFormComponent } from './inventory-board/inner-component/inventory-board-form/inventory-board-form.component';
 import { InventoryOtherComponent } from './inventory-other/inventory-other.component';
 import { InventoryOtherFormComponent } from './inventory-other/inner-component/inventory-other-form/inventory-other-form.component';
+import { InventoryPurchaseRequestComponent } from './inventory-purchase-request/inventory-purchase-request.component';
 
 
 @NgModule({
@@ -18,6 +19,7 @@ import { InventoryOtherFormComponent } from './inventory-other/inner-component/i
     InventoryBoardFormComponent,
     InventoryOtherComponent,
     InventoryOtherFormComponent,
+    InventoryPurchaseRequestComponent,
   ],
   imports: [
     CommonModule,

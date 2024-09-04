@@ -23,6 +23,7 @@ export class Endpoint {
     static INVENTORY='employee/inventory'
     static PRODUCT_DESIGN='employee/product-design'
     static QUOTATION='employee/quotation'
+    static SUPPLIER='employee/supplier'
 
 
     static C_PRODUCT_DESIGN='customer/product-design'

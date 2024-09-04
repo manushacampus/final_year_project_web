@@ -6,12 +6,14 @@ import { SupplierManagementComponent } from './supplier-management.component';
 import {AngularFormModule} from "../../material/angular-form/angular-form.module";
 import {AngularMatModule} from "../../material/angular-mat/angular-mat.module";
 import { SupplierManagementAllComponent } from './supplier-management-all/supplier-management-all.component';
+import { SupplierManagementFormComponent } from './supplier-management-form/supplier-management-form.component';
 
 
 @NgModule({
   declarations: [
     SupplierManagementComponent,
-    SupplierManagementAllComponent
+    SupplierManagementAllComponent,
+    SupplierManagementFormComponent
   ],
   imports: [
     CommonModule,

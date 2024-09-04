@@ -4,6 +4,7 @@ import {ToastrService} from "ngx-toastr";
 import {InventoryBarFormComponent} from "./inner-component/inventory-bar-form/inventory-bar-form.component";
 import {MatTableDataSource} from "@angular/material/table";
 import {InventoryService} from "../../../../core/services/api/admin/inventory.service";
+import {InventoryPurchaseRequestComponent} from "../inventory-purchase-request/inventory-purchase-request.component";
 
 @Component({
   selector: 'app-inventory-bar',
@@ -51,5 +52,14 @@ export class InventoryBarComponent implements OnInit{
 
   onRowClick(row: any) {
 
+  }
+
+  enter(element:any) {
+    console.log("enter",element)
+    this.dialog.open(InventoryPurchaseRequestComponent,{
+      data: {
+        type:"JOB"}
+    }).afterClosed().subscribe(result=>{
+    });
   }
 }

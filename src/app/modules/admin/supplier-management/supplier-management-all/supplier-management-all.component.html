@@ -21,34 +21,34 @@
         </td>
       </ng-container>
 
-      <ng-container matColumnDef="creationType">
-        <th mat-header-cell *matHeaderCellDef> Inventory Type </th>
-        <td mat-cell *matCellDef="let element" (click)="onRowClick(element)"> {{element.inventoryType}}
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef> Name </th>
+        <td mat-cell *matCellDef="let element" (click)="onRowClick(element)"> {{element.first_name}} {{element.last_name}}
         </td>
       </ng-container>
 
 
       <!-- Weight Column -->
+      <ng-container matColumnDef="nic">
+        <th mat-header-cell *matHeaderCellDef> NIC </th>
+        <td mat-cell *matCellDef="let element" (click)="onRowClick(element)"> {{element.nic}}</td>
+      </ng-container>
+
+
+      <ng-container matColumnDef="email">
+        <th mat-header-cell *matHeaderCellDef> Email </th>
+        <td mat-cell *matCellDef="let element" (click)="onRowClick(element)"> {{element.email}} </td>
+      </ng-container>
+
       <ng-container matColumnDef="type">
-        <th mat-header-cell *matHeaderCellDef> Type </th>
-        <td mat-cell *matCellDef="let element" (click)="onRowClick(element)"> {{element.inventoryType}}</td>
+        <th mat-header-cell *matHeaderCellDef> Type</th>
+        <td mat-cell *matCellDef="let element" (click)="onRowClick(element)"> {{element.supplier_type}} </td>
       </ng-container>
 
-
-      <ng-container matColumnDef="qty">
-        <th mat-header-cell *matHeaderCellDef> Qty </th>
-        <td mat-cell *matCellDef="let element" (click)="onRowClick(element)"> {{element.qty}} </td>
-      </ng-container>
-
-      <ng-container matColumnDef="createdBy">
-        <th mat-header-cell *matHeaderCellDef> Created By</th>
-        <td mat-cell *matCellDef="let element" (click)="onRowClick(element)"> Manusha Silva </td>
-      </ng-container>
-
-      <ng-container matColumnDef="code">
-        <th mat-header-cell *matHeaderCellDef>Section Code</th>
+      <ng-container matColumnDef="contact">
+        <th mat-header-cell *matHeaderCellDef>Contact</th>
         <td mat-cell *matCellDef="let element" (click)="onRowClick(element)">
-          {{element.qty}}
+          {{element.contact}}
 
         </td>
       </ng-container>
