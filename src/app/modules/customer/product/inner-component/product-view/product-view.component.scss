@@ -2,20 +2,11 @@ body{
   background-color: #edf1f5;
   margin-top:20px;
 }
-.card {
-  margin-bottom: 30px;
+
+.card:hover {
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15); /* Slight hover effect */
 }
-.card {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  min-width: 0;
-  word-wrap: break-word;
-  background-color: #fff;
-  background-clip: border-box;
-  border: 0 solid transparent;
-  border-radius: 0;
-}
+
 .card .card-subtitle {
   font-weight: 300;
   margin-bottom: 10px;
@@ -28,3 +19,4 @@ body{
   border-top: 0px solid #dee2e6 !important;
   color: #728299!important;
 }
+
