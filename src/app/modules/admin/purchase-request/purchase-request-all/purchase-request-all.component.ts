@@ -6,6 +6,7 @@ import {MatTableDataSource} from "@angular/material/table";
 import {
   InventoryOtherFormComponent
 } from "../../inventory/inventory-other/inner-component/inventory-other-form/inventory-other-form.component";
+import {PurchaseService} from "../../../../core/services/api/admin/purchase.service";
 
 @Component({
   selector: 'app-purchase-request-all',
@@ -16,7 +17,8 @@ export class PurchaseRequestAllComponent implements OnInit{
   inventoryList:any[]=[]
   constructor(public dialog:MatDialog,
               private toastrService:ToastrService,
-              private inventoryService:InventoryService) {
+              private inventoryService:InventoryService,
+              private purchaseService:PurchaseService) {
   }
   dataSource = new MatTableDataSource();
   displayedColumns = ['code','creationType', 'type', 'qty', 'action'];
@@ -25,7 +27,7 @@ export class PurchaseRequestAllComponent implements OnInit{
   selectedPageSize:number=10
   selectedPageIndex:number=0
   ngOnInit(): void {
-    this.getAllBar()
+    this.getAllPurchase()
   }
   addNewSupplier() {
     this.dialog.open(InventoryOtherFormComponent,{
@@ -38,14 +40,14 @@ export class PurchaseRequestAllComponent implements OnInit{
     console.log("event",event)
     this.selectedPageIndex = event.pageIndex;
     this.selectedPageSize = event.pageSize;
-    this.getAllBar()
+    this.getAllPurchase()
   }
-  getAllBar(){
-    this.inventoryService.getInventoryByType(
-      "OTHER",
+  getAllPurchase(){
+    this.purchaseService.getPurchaseByStatus(
+      "ACTIVE",
       this.selectedPageIndex,
       this.selectedPageSize).pipe().subscribe(data=>{
-      console.log("board-all",data.data)
+      console.log("purchase-all",data.data)
       this.dataSource.data = data.data['content']
       this.totalPage = data.data.totalElements
     })

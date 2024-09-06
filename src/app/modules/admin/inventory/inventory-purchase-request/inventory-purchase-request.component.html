@@ -23,13 +23,13 @@
             <label >Supplier Number</label>
             <div>
               <mat-form-field class="example-full-width" appearance="outline">
-                <input type="text" matInput formControlName="supplier" [matAutocomplete]="auto" (click)="ss()">
-                <mat-autocomplete #auto="matAutocomplete">
-                  <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
-                    {{ option }}
+                <input type="text" matInput formControlName="supplier" [matAutocomplete]="auto" >
+                <mat-autocomplete #auto="matAutocomplete" (optionSelected)="onOptionSelected($event.option.value)">
+                  <mat-option *ngFor="let option of filteredOptions | async" [value]="option.name" >
+                    {{ option.name }}
                   </mat-option>
                 </mat-autocomplete>
-                <mat-error *ngIf="barInventoryForm.get('sectionNo')?.invalid">{{ getErrorMessage() }}</mat-error>
+                <mat-error *ngIf="barInventoryForm.get('supplier')?.invalid">{{ getErrorMessage() }}</mat-error>
               </mat-form-field>
 
             </div>
@@ -58,7 +58,7 @@
       <button class="btn bg-warning btn-custom"  (click)="modalRef.close()" >
         Cancel
       </button>
-      <button type="button" class="btn btn-primary" style="margin-left: 5px" (click)="saveJobDoor()">
+      <button type="button" class="btn btn-primary" style="margin-left: 5px" (click)="request()">
         Save changes
       </button>
     </div>

@@ -20,7 +20,7 @@ export class LeftSideNavBarComponent implements OnInit{
       {"menuName":"Product Management","url":"dashboard","icon":"swap_calls","designation":"SUPERVISOR","list":[
           {"menuName":"Door","url":"product-doors/all","icon":"folder_open","designation":"SUPERVISOR"},
           {"menuName":"Windows","url":"product-window/all","icon":"folder_open","designation":"SUPERVISOR"},
-          {"menuName":"Pantry Cupboard","url":"#","icon":"folder_open","designation":"SUPERVISOR"}
+          // {"menuName":"Pantry Cupboard","url":"#","icon":"folder_open","designation":"SUPERVISOR"}
         ]},
       {"menuName":"Sections","url":"bar-section/all/cat","icon":"work_outline","designation":"ADMIN"},
       {"menuName":"Sections","url":"bar-section/all/cat","icon":"work_outline","designation":"MANAGER"},
