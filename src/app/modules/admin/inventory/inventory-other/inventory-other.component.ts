@@ -17,7 +17,7 @@ export class InventoryOtherComponent implements OnInit{
               private inventoryService:InventoryService) {
   }
   dataSource = new MatTableDataSource();
-  displayedColumns = ['code','creationType', 'type', 'qty', 'action'];
+  displayedColumns = ['code','name', 'type', 'qty', 'action'];
   totalPage=0
   pageSize=[10,20,50]
   selectedPageSize:number=10
