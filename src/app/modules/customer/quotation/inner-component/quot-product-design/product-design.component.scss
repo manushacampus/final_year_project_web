@@ -1,20 +1,57 @@
-.btn-cat{
-
-}
-.input-group{
-  margin: 10px;
-  width: 200px;
-}
-.full-content{
-  display: flex;
-  //justify-content: space-between;
-
-  .card{
-    flex: 0 0 auto;
-    background: #6C8E1E;
-    width: 150px;
-    height: 200px;
-    margin: 20px;
-  }
+/* Custom styles for the quotation section */
+.container {
+  background-color: #f8f9fa;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
+h1 {
+  color: #343a40;
+  font-weight: 700;
+}
+
+.bg-light {
+  background-color: #eeeeee !important;
+}
+
+.sub-nav .btn {
+  margin-right: 0.5rem;
+}
+
+.sub-nav .btn:last-child {
+  margin-right: 0;
+}
+
+.search-bar {
+  max-width: 400px;
+}
+
+.card {
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.card-img-top {
+  max-height: 200px;
+  object-fit: cover;
+}
+
+.card-body {
+  text-align: center;
+}
+
+.card-title {
+  font-size: 1.25rem;
+  color: #343a40;
+}
+
+.card-text {
+  font-size: 0.875rem;
+  color: #6c757d;
+}

@@ -1,22 +1,48 @@
-<div class="row">
-  <div class="col" style="display: flex;justify-content: center">
-    <img src="{{designObj.image}}" alt="" style="width: 30%">
-  </div>
-  <div class="col">
-    <h2>Name</h2>
-    <form [formGroup]="detailsForm">
-      <div class="row">
-        <div class="col">
-          <input type="text" class="form-control" placeholder="height"  formControlName="height">
-        </div>
-        <div class="col">
-          <input type="text" class="form-control" placeholder="width"  formControlName="width">
-        </div>
-      </div>
-      <button type="button" class="btn btn-cancel" (click)="cancel()">Cancel</button>
-      <button type="button" class="btn btn-cat" (click)="placeOrder()">Place Order</button>
+<div class="container mt-5">
+  <div class="row">
+    <!-- Product Image -->
+    <div class="col-md-6 d-flex justify-content-center mb-4 mb-md-0">
+      <img src="{{designObj.image}}" alt="Aluminum Door" class="img-fluid rounded shadow-sm" style="max-width: 100%; height: auto;">
+    </div>
 
-    </form>
-  </div>
+    <!-- Product Details -->
+    <div class="col-md-6">
+      <h2 class="mb-4">Aluminum Door</h2>
 
+      <!-- Product Description -->
+      <p class="text-muted mb-4">Our aluminum doors are designed to provide durability and aesthetic appeal. Ideal for both residential and commercial applications, these doors offer excellent thermal insulation and soundproofing.</p>
+
+      <!-- Specifications -->
+      <h4 class="mb-3">Specifications</h4>
+      <ul class="list-unstyled mb-4">
+        <li><strong>Material:</strong> High-quality aluminum</li>
+        <li><strong>Color Options:</strong> Various finishes available</li>
+        <li><strong>Dimensions:</strong> Customizable to fit your needs</li>
+        <li><strong>Warranty:</strong> 5 years</li>
+      </ul>
+
+      <!-- Form -->
+      <form [formGroup]="detailsForm">
+        <div class="row mb-4">
+          <div class="col-md-6 mb-3 mb-md-0">
+            <input type="text" class="form-control" placeholder="Height (cm)" formControlName="height">
+          </div>
+          <div class="col-md-6">
+            <input type="text" class="form-control" placeholder="Width (cm)" formControlName="width">
+          </div>
+        </div>
+
+        <!-- Additional Details -->
+        <div class="form-group mb-4">
+          <textarea class="form-control" placeholder="Additional Details or Special Requirements" rows="3" formControlName="details"></textarea>
+        </div>
+
+        <!-- Buttons -->
+        <div class="d-flex justify-content-between">
+          <button type="button" class="btn btn-outline-secondary" (click)="cancel()">Cancel</button>
+          <button type="button" class="btn btn-primary" (click)="placeOrder()">Request Quotation</button>
+        </div>
+      </form>
+    </div>
+  </div>
 </div>
