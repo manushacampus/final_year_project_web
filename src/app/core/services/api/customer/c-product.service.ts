@@ -55,4 +55,16 @@ export class CProductService {
     );
 
   }
+  orderProduct(order:any[]){
+    const net = new Net(NetMethod.post, Endpoint.withUrl(Endpoint.C_PRODUCT+"/order"),order);
+    return this.netService.process(net).pipe(
+      map((response) => {
+        if (response) {
+          return response;
+        }
+        return null;
+      })
+    );
+
+  }
 }

@@ -17,6 +17,7 @@ export class ProductViewComponent implements OnInit{
   }
   qtyControl = new FormControl(0);
   product:any;
+  orderList: any[] = [];
 
   ngOnInit(): void {
     console.log("product",this.data.data)
@@ -58,6 +59,14 @@ export class ProductViewComponent implements OnInit{
     console.log("stock ",stockId)
     console.log("qty",this.qtyControl.value)
     this.productService.addToCart(stockId,this.qtyControl.value ?? 0).pipe().subscribe(data=>{
+      console.log("response",data)
+    })
+  }
+
+  order(data:any) {
+    this.orderList = []
+    this.orderList.push(data)
+    this.productService.orderProduct(this.orderList).pipe().subscribe(data=>{
       console.log("response",data)
     })
   }
