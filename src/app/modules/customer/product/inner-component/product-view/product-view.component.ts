@@ -1,6 +1,8 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Inject, OnInit} from '@angular/core';
 import {auto} from "@popperjs/core";
-import {MatDialogRef} from "@angular/material/dialog";
+import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material/dialog";
+import {FormControl} from "@angular/forms";
+import {CProductService} from "../../../../../core/services/api/customer/c-product.service";
 
 @Component({
   selector: 'app-product-view',
@@ -9,10 +11,15 @@ import {MatDialogRef} from "@angular/material/dialog";
 })
 export class ProductViewComponent implements OnInit{
   selectedImage: any;
-  constructor(public dialogRef:MatDialogRef<ProductViewComponent>) {
+  constructor(public dialogRef:MatDialogRef<ProductViewComponent>,
+              private productService:CProductService,
+              @Inject(MAT_DIALOG_DATA) public data:any) {
   }
+  qtyControl = new FormControl(0);
+  product:any;
 
   ngOnInit(): void {
+    console.log("product",this.data.data)
      this.selectedImage = this.imageObject[0];
     }
   name = 'Angular';
@@ -46,4 +53,12 @@ export class ProductViewComponent implements OnInit{
   }
 
   protected readonly auto = auto;
+
+  addToCart(stockId:any) {
+    console.log("stock ",stockId)
+    console.log("qty",this.qtyControl.value)
+    this.productService.addToCart(stockId,this.qtyControl.value ?? 0).pipe().subscribe(data=>{
+      console.log("response",data)
+    })
+  }
 }

@@ -37,10 +37,15 @@
           <textarea class="form-control" placeholder="Additional Details or Special Requirements" rows="3" formControlName="details"></textarea>
         </div>
 
+        <div>
+          <span>total =</span>{{total}}
+        </div>
+
         <!-- Buttons -->
         <div class="d-flex justify-content-between">
           <button type="button" class="btn btn-outline-secondary" (click)="cancel()">Cancel</button>
           <button type="button" class="btn btn-primary" (click)="placeOrder()">Request Quotation</button>
+          <button type="button" class="btn btn-primary" (click)="cal()">Cal Quotation</button>
         </div>
       </form>
     </div>

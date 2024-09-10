@@ -6,11 +6,17 @@ import {map} from "rxjs";
 @Injectable({
   providedIn: 'root'
 })
-export class CQuotationService {
+export class CProductService {
 
   constructor(private netService: NetService) { }
-  placeOrder(quotation:any){
-    const net = new Net(NetMethod.post, Endpoint.withUrl(Endpoint.C_QUOTATION+'/door'), quotation);
+  getStockItemList(page:number,size:number,status:string,type:string){
+    const net = new Net(NetMethod.get, Endpoint.withUrl(Endpoint.GET_STOCK_ITEM),
+      {
+        'page':page,
+        'size':size,
+        'status':status,
+        'type':type
+      });
     return this.netService.process(net).pipe(
       map((response) => {
         if (response) {
@@ -21,8 +27,12 @@ export class CQuotationService {
     );
 
   }
-  cal(quotation:any){
-    const net = new Net(NetMethod.post, Endpoint.withUrl(Endpoint.C_QUOTATION+'/cal'), quotation);
+  addToCart(id:string,qty:number){
+    const net = new Net(NetMethod.get, Endpoint.withUrl(Endpoint.C_PRODUCT+"/add-cart"),
+      {
+        "id":id,
+        "qty":qty
+      });
     return this.netService.process(net).pipe(
       map((response) => {
         if (response) {
@@ -33,8 +43,8 @@ export class CQuotationService {
     );
 
   }
-  getQuotation(){
-    const net = new Net(NetMethod.get, Endpoint.withUrl(Endpoint.C_QUOTATION),);
+  allCart(){
+    const net = new Net(NetMethod.get, Endpoint.withUrl(Endpoint.C_PRODUCT+"/all-cart"),);
     return this.netService.process(net).pipe(
       map((response) => {
         if (response) {

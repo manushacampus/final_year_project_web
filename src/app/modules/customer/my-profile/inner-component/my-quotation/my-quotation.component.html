@@ -1,1 +1,7 @@
-<p>my-quotation works!</p>
+<ng-container class="row" *ngFor="let quot of quotationList">
+  <div class="row">
+    <span class="col">{{quot.id}}</span>
+    <span class="col">{{quot.type}}</span>
+    <span class="col">{{quot.status}}</span>
+  </div>
+</ng-container>

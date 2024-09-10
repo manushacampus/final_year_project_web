@@ -7,6 +7,7 @@ import {MatDialogModule} from "@angular/material/dialog";
 import { ProductListComponent } from './inner-component/product-list/product-list.component';
 import { ProductViewComponent } from './inner-component/product-view/product-view.component';
 import {NgImageSliderModule} from "ng-image-slider";
+import {AngularFormModule} from "../../material/angular-form/angular-form.module";
 
 
 @NgModule({
@@ -21,6 +22,7 @@ import {NgImageSliderModule} from "ng-image-slider";
     MatPaginatorModule,
     MatDialogModule,
     NgImageSliderModule,
+    AngularFormModule
 
   ]
 })

@@ -29,6 +29,7 @@ export class Endpoint {
 
     static C_PRODUCT_DESIGN='customer/product-design'
     static C_QUOTATION='customer/quotation'
+  static C_PRODUCT='customer/product'
 
 
 

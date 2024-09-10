@@ -13,6 +13,7 @@ import {CQuotationService} from "../../../../../core/services/api/customer/c-quo
 export class QuotProductComponent implements OnInit{
   designId!: string;
   detailsForm!:FormGroup;
+  total=0.0;
   constructor(private router:Router,
               private designService: CDesignService,
               private quotationService: CQuotationService,
@@ -52,6 +53,16 @@ export class QuotProductComponent implements OnInit{
       console.log("response",data)
       if (data.code==200){
         this.detailsForm.reset();
+
+      }
+    })
+  }
+  cal() {
+    console.log("design",this.detailsForm.value)
+    this.quotationService.cal(this.detailsForm.value).pipe().subscribe(data=>{
+      console.log("response",data)
+      if (data.code==200){
+        this.total = data.data.price
 
       }
     })

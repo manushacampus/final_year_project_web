@@ -106,8 +106,8 @@
     </thead>
     <tbody>
     <tr *ngFor="let data of testTbale">
-      <td>Mark</td>
-      <td>Otto</td>
+      <td>{{data.code}}</td>
+      <td>{{data.inventoryType}}</td>
       <td>{{data.inventoryType}}</td>
       <td>
           <span class="table-icon-btn icon-add">
@@ -125,13 +125,24 @@
         <div style="height: 50px;background: #1A4534"> Material List</div>
         <div class="list-group" style="height: 250px; /* Set the desired height */
   overflow-y: auto;">
-<!--          <a href="#" class="list-group-item list-group-item-action active">-->
-<!--            Material List-->
-<!--          </a>-->
-<!--          <span class="list-group-item list-group-item-action">ddd</span>-->
-          <a href="#" class="list-group-item list-group-item-action" *ngFor="let data of inventoryList">
-            {{data.inventory.inventoryType}}
-          </a>
+          <ng-container *ngFor="let data of inventoryList">
+<!--            <div *ngIf="data.inventory.inventoryType=='BAR'">bar  <button (click)="delete(data.id)">delete</button></div>-->
+<!--            <div *ngIf="data.inventory.inventoryType=='BOARD'">board  <button (click)="delete(data.id)">delete</button></div>-->
+<!--            <div *ngIf="data.inventory.inventoryType=='OTHER'">other  <button (click)="delete(data.id)">delete</button></div>-->
+            <div class="row list-group-item list-group-item-action m-1" style="display: flex">
+                <div class="col-10">
+                  <span>code : {{data.inventory.code}} </span>
+                  <span>| Inventory Type : {{data.inventory.inventoryType}} </span>
+                  <span *ngIf="data.inventory.inventoryType=='OTHER'">| Qty : {{data.qty}} </span>
+                  <span *ngIf="data.inventory.inventoryType=='BAR'">| What for Bar : {{data.type}} </span>
+                </div>
+              <div class="col-2"><i class="fa-solid fa-trash" (click)="delete(data.id)"></i></div>
+            </div>
+<!--            <a href="#" class="list-group-item list-group-item-action" >-->
+<!--              {{data.inventory.inventoryType}}-->
+<!--            </a>-->
+          </ng-container>
+
 
         </div>
 

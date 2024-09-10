@@ -1,18 +1,20 @@
-<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 
 <div class="container" style="height: 700px">
   <div class="card mb-4 position-relative">
     <button type="button" class="btn-close position-absolute top-0 end-0 mt-2 me-2" aria-label="Close"></button>
     <div class="card-body text-center">
-      <h3 class="card-title text-primary fw-bold mb-2">Rounded Chair</h3>
+      <h3 class="card-title text-primary fw-bold mb-2">
+        {{data.data.type === 'DOOR' ? data.data.door.name : data.data.type === 'WINDOW' ? data.data.window.name :''}}
+      </h3>
       <h6 class="card-subtitle text-muted mb-3">Globe type chair for rest</h6>
     </div>
   </div>
 
   <div class="row">
         <div class="col-lg-5 col-md-5 col-sm-6">
-          <div class="white-box text-center"><img
-            src="https://img.freepik.com/free-photo/beautiful-shot-stylish-grey-chair-isolated-white-background_181624-25232.jpg?t=st=1725613460~exp=1725617060~hmac=10c3d0baac33e45bfbd375f4afa9c169dbc007f2f7a121a1ba90848592f52820&w=360"
+          <div class="white-box text-center">
+            <img width="100%"
+            src="{{data.data.type === 'DOOR' ? data.data.door.image : data.data.type === 'WINDOW' ? data.data.window.image : 'default-image.jpg'}}"
             class="img-responsive"></div>
         </div>
         <div class="col-lg-7 col-md-7 col-sm-6">
@@ -38,10 +40,14 @@
           </div>
           <div class="mt-4">
             <div class="container">
+              <div class="row border rounded bg-light shadow-sm m-2">
+                <label for="qty">Qty</label>
+                <input type="number" [formControl]="qtyControl" class="form-control" id="qty" placeholder="Enter qty">
+              </div>
               <div class="row">
                 <div class="col-auto">
                   <!-- Add to Cart Button -->
-                  <button class="btn btn-dark custom-btn d-flex align-items-center">
+                  <button class="btn btn-dark custom-btn d-flex align-items-center" (click)="addToCart(data.data.id)">
                     <i class="fa fa-shopping-cart me-2"></i>
                     <span>Add to Cart</span>
 
