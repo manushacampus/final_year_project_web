@@ -1,41 +1,69 @@
-<div class="main">
+<div class="main container mt-4">
 
-  <div class="sub-menu" style="justify-content: space-between">
-    <div style="display: flex;justify-content: center">
-      <mat-icon style="color: #3182CE;margin-right: 5px">public</mat-icon>
-      <div style="font-weight: bold">
-        Sections
-      </div>
+  <!-- Sub-Menu Section -->
+  <div class="sub-menu d-flex justify-content-between align-items-center bg-gradient-primary-to-secondary p-3 rounded shadow-lg">
+    <div class="d-flex align-items-center">
+      <mat-icon style="color: white; margin-right: 10px;">public</mat-icon>
+      <div class="font-weight-bold text-bg-info" style="font-size: 1.5rem;">Sections</div>
     </div>
     <div class="btn-sec">
-      <button class="btn btn-custom" mat-raised-button>Door</button>
+      <button class="btn btn-light btn-lg font-weight-bold" mat-raised-button>
+        <i class="fas fa-door-open mr-2"></i> Door
+      </button>
     </div>
   </div>
-  <div style="display: flex;justify-content: center;width: 100%">
-    <div class="cards" style="display: flex;flex-wrap: wrap;justify-content: space-around">
-<!--      <div class="card" [ngClass]="getClassObject(item)" *ngFor="let item of jobList" (click)="getStockItemById(item)">-->
-<!--        <p class="tip">{{item.id}}</p>-->
-<!--      </div>-->
-      <div class="card" [ngClass]="getClassObject(item)" style="width: 40%;display: flex " *ngFor="let item of jobList" (click)="getStockItemById(item)">
-        <div class="card-first-row" style="display: flex;justify-content: space-between">
-          <div class="text-field">{{item.stockItem.door.code}}</div>
-          <div><span class="badge badge-primary rounded-pill d-inline" style=" background: chartreuse;"
-          >{{item.progress}}</span
-          ></div>
+
+  <!-- Cards Section -->
+  <div class="d-flex justify-content-center mt-4">
+    <div class="cards row w-100 justify-content-around">
+      <div class="card col-md-5 mb-4 p-4 bg-white rounded-lg shadow-lg transition-hover" *ngFor="let item of jobList" (click)="getStockItemById(item)">
+
+        <!-- Header with door code and progress -->
+        <div class="card-first-row d-flex justify-content-between align-items-center mb-3">
+          <div class="text-field text-primary font-weight-bold" style="font-size: 1.2rem;">{{item.stockItem.door.code}}</div>
+          <div>
+            <span class="badge badge-success badge-lg rounded-pill">
+              {{item.progress}} <i class="fas fa-tasks ml-1"></i>
+            </span>
+          </div>
         </div>
-        <div class="card-second-row" style="display: flex;padding-top: 5px">
-          <div class="col 1" style="text-align: left;padding: 5px">
-            <div class="text-field"><span class="topic">Job Type: </span>{{item.stockItem.type}}</div>
-            <div  class="text-field"><span class="topic">Created At: </span>{{getDate(item.createdAt)}}</div>
+
+        <!-- Job details -->
+        <div class="card-second-row row">
+          <div class="col-md-6">
+            <div class="text-field">
+              <i class="fas fa-tools text-muted mr-2"></i>
+              <span class="font-weight-bold text-secondary">Job Type: </span>{{item.stockItem.type}}
+            </div>
+            <div class="text-field mt-2">
+              <i class="fas fa-calendar-alt text-muted mr-2"></i>
+              <span class="font-weight-bold text-secondary">Created At: </span>{{getDate(item.createdAt)}}
+            </div>
           </div>
-          <div class="col 2" style="text-align: left;padding: 5px">
-            <div class="text-field"><span class="topic">Due Date: </span>{{item.dueDate}}</div>
-            <div  class="text-field"><span class="topic">Qty: </span>{{item.qty}}</div>
+          <div class="col-md-6">
+            <div class="text-field">
+              <i class="fas fa-calendar-check text-muted mr-2"></i>
+              <span class="font-weight-bold text-secondary">Due Date: </span>{{item.dueDate}}
+            </div>
+            <div class="text-field mt-2">
+              <i class="fas fa-sort-numeric-up text-muted mr-2"></i>
+              <span class="font-weight-bold text-secondary">Qty: </span>{{item.qty}}
+            </div>
           </div>
+        </div>
+
+        <!-- Footer with actions -->
+        <div class="mt-4 d-flex justify-content-between align-items-center">
+          <button class="btn btn-info btn-sm">
+            <i class="fas fa-info-circle mr-2"></i> View Details
+          </button>
+          <span class="badge badge-pill badge-warning text-dark">
+            <i class="fas fa-exclamation-circle mr-1"></i> Urgent
+          </span>
         </div>
 
       </div>
     </div>
-
   </div>
+
 </div>
