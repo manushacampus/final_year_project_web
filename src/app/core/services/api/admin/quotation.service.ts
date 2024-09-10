@@ -10,6 +10,20 @@ export class QuotationService {
 
   constructor(private netService: NetService) { }
 
+  getQuotationById(id:string){
+    const net = new Net(NetMethod.get, Endpoint.withUrl(Endpoint.QUOTATION+'/'+id),
+    );
+    return this.netService.process(net).pipe(
+      map((response) => {
+        if (response) {
+          return response;
+        }
+        return null;
+      })
+    );
+
+  }
+
   getAllQuotation(status:string){
     const net = new Net(NetMethod.get, Endpoint.withUrl(Endpoint.QUOTATION+'/all'),
       {
