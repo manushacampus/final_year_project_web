@@ -5,6 +5,7 @@ import { EmployeeTaskAllRoutingModule } from './employee-task-all-routing.module
 import { EmployeeTaskAllComponent } from './employee-task-all.component';
 import {MatButtonModule} from "@angular/material/button";
 import {MatIconModule} from "@angular/material/icon";
+import {MatTabsModule} from "@angular/material/tabs";
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import {MatIconModule} from "@angular/material/icon";
     CommonModule,
     EmployeeTaskAllRoutingModule,
     MatButtonModule,
-    MatIconModule
+    MatIconModule,
+    MatTabsModule
   ],
     providers: [DatePipe]
 })

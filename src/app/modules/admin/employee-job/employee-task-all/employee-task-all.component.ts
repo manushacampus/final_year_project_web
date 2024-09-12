@@ -3,6 +3,7 @@ import { MatDialog } from "@angular/material/dialog";
 import { JobService } from "../../../../core/services/api/admin/job.service";
 import { EmployeeJobViewComponent } from "../employee-job-view/employee-job-view.component";
 import { DatePipe } from "@angular/common";
+import {MatTabChangeEvent} from "@angular/material/tabs";
 
 @Component({
   selector: 'app-employee-task-all',
@@ -11,22 +12,19 @@ import { DatePipe } from "@angular/common";
 })
 export class EmployeeTaskAllComponent implements OnInit {
   jobList: any[] = [];
-  filteredJobList: any[] = [];
-  currentStatus: string = 'Processing'; // Default status
-
+  currentStatus: string = '';
   constructor(public dialog: MatDialog,
               private jobService: JobService,
               private datePipe: DatePipe) {}
 
   ngOnInit(): void {
-    this.getAllJobs();
+    this.getAllJobs("PENDING");
   }
 
-  getAllJobs() {
-    this.jobService.getJobListByStatusAndEmployee("ACTIVE", "ALL").subscribe((data: any) => {
+  getAllJobs(type:string) {
+    this.jobService.getJobListByStatusAndEmployee("ACTIVE", type).subscribe((data: any) => {
       console.log("Job List Data:", data.data);
       this.jobList = data.data;
-      this.filterJobsByStatus(this.currentStatus); // Filter jobs based on default status
     });
   }
 
@@ -44,7 +42,7 @@ export class EmployeeTaskAllComponent implements OnInit {
         job: job
       }
     }).afterClosed().subscribe(() => {
-      this.getAllJobs(); // Refresh the job list after closing the dialog
+      this.getAllJobs(this.currentStatus); // Refresh the job list after closing the dialog
     });
   }
 
@@ -55,16 +53,24 @@ export class EmployeeTaskAllComponent implements OnInit {
       'badge-success': type.progress === "DONE"
     };
   }
-
-  // Filter jobs based on the selected status
-  filterJobsByStatus(status: string) {
-    this.currentStatus = status;
-    this.filteredJobList = this.jobList.filter(job => job.progress === status);
-  }
-
-  // Switch tab handler
-  onTabChange(status: string) {
-    this.filterJobsByStatus(status);
+  onTabChange(event: MatTabChangeEvent) {
+    const selectedTabIndex = event.index;
+    switch (selectedTabIndex) {
+      case 0:
+        this.currentStatus='PENDING'
+        this.getAllJobs('PENDING');
+        break;
+      case 1:
+        this.currentStatus='PROCESSING'
+        this.getAllJobs('PROCESSING');
+        break;
+      case 2:
+        this.currentStatus='DONE'
+        this.getAllJobs('DONE');
+        break;
+      default:
+        break;
+    }
   }
 
 }

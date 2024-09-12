@@ -43,7 +43,7 @@ const angularMatModules=[
   MatCheckboxModule,
   MatSlideToggleModule,
   MatStepperModule,
-  MatAutocompleteModule
+  MatAutocompleteModule,
 ]
 @NgModule({
   exports: angularMatModules,

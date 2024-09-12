@@ -19,6 +19,7 @@ const routes:Routes =[
       { path: 'supplier', loadChildren: () => import('../../modules/admin/supplier-management/supplier-management.module').then(m => m.SupplierManagementModule),canActivateChild: [AdminAuthGuard],data: { expectedSubRole: 'MANAGER' }  },
       { path: 'purchase', loadChildren: () => import('../../modules/admin/purchase-request/purchase-request.module').then(m => m.PurchaseRequestModule),canActivateChild: [AdminAuthGuard],data: { expectedSubRole: 'MANAGER' }  },
       { path: 'delivery', loadChildren: () => import('../../modules/admin/delivery-management/delivery-management.module').then(m => m.DeliveryManagementModule),canActivateChild: [AdminAuthGuard],data: { expectedSubRole: 'MANAGER' }  },
+      { path: 'my-profile', loadChildren: () => import('../../modules/admin/my-profile/my-profile.module').then(m => m.MyProfileModule),canActivateChild: [AdminAuthGuard],data: { expectedSubRole: 'ALL' }  },
     ]
 }
 ];

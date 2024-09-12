@@ -50,4 +50,8 @@ export class TopBarComponent {
     //   }
     // })
   }
+
+  myProfile() {
+    this.router.navigateByUrl("/admin/my-profile/all")
+  }
 }
