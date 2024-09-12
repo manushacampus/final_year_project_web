@@ -1,7 +1,7 @@
 
 <div class="container" style="height: 700px">
   <div class="card mb-4 position-relative">
-    <button type="button" class="btn-close position-absolute top-0 end-0 mt-2 me-2" aria-label="Close"></button>
+    <button type="button" class="btn-close position-absolute top-0 end-0 mt-2 me-2" aria-label="Close" (click)="dialogRef.close()"></button>
     <div class="card-body text-center">
       <h3 class="card-title text-primary fw-bold mb-2">
         {{data.data.type === 'DOOR' ? data.data.door.name : data.data.type === 'WINDOW' ? data.data.window.name :''}}
@@ -29,9 +29,9 @@
             </p>
             <div class="d-flex align-items-baseline mb-2">
             <span class="display-6 text-success fw-bold me-2">
-            <i class="bi bi-currency-dollar me-1"></i>$49.99
+            <i class="bi bi-currency-dollar me-1"></i>Rs. {{data.data.price}}
             </span>
-              <span class="text-muted text-decoration-line-through fs-6">$59.99</span>
+              <span class="text-muted text-decoration-line-through fs-6">Rs.{{data.data.price}}</span>
             </div>
             <div class="alert alert-success mb-0 py-1 px-2" role="alert">
               <i class="bi bi-star-fill me-2"></i><strong>Limited Time Offer!</strong> Grab it now before the offer

@@ -3,6 +3,7 @@ import {auto} from "@popperjs/core";
 import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material/dialog";
 import {FormControl} from "@angular/forms";
 import {CProductService} from "../../../../../core/services/api/customer/c-product.service";
+import {ToastrService} from "ngx-toastr";
 
 @Component({
   selector: 'app-product-view',
@@ -13,6 +14,7 @@ export class ProductViewComponent implements OnInit{
   selectedImage: any;
   constructor(public dialogRef:MatDialogRef<ProductViewComponent>,
               private productService:CProductService,
+              private toastrService:ToastrService,
               @Inject(MAT_DIALOG_DATA) public data:any) {
   }
   qtyControl = new FormControl(0);
@@ -64,10 +66,21 @@ export class ProductViewComponent implements OnInit{
   }
 
   order(data:any) {
-    this.orderList = []
-    this.orderList.push(data)
-    this.productService.orderProduct(this.orderList).pipe().subscribe(data=>{
-      console.log("response",data)
-    })
+    console.log("stock ",data.id)
+    console.log("qty",this.qtyControl.value)
+    if (this.qtyControl.value != null && this.qtyControl.value >= 1){
+      this.orderList = []
+      this.orderList.push(data)
+      this.productService.orderProduct(data.id,this.qtyControl.value ?? 0).pipe().subscribe(data=>{
+        console.log("response",data)
+        if (data.code==200){
+          this.toastrService.success("Success")
+          this.dialogRef.close()
+        }
+      })
+    }else {
+      this.toastrService.error("UnSuccess")
+    }
+
   }
 }

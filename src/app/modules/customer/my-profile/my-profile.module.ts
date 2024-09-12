@@ -6,6 +6,9 @@ import { MyProfileComponent } from './my-profile.component';
 import { ProfileComponent } from './inner-component/profile/profile.component';
 import { MyOrdersComponent } from './inner-component/my-orders/my-orders.component';
 import { MyQuotationComponent } from './inner-component/my-quotation/my-quotation.component';
+import {FormsModule} from "@angular/forms";
+import {AngularFormModule} from "../../material/angular-form/angular-form.module";
+import {AngularMatModule} from "../../material/angular-mat/angular-mat.module";
 
 
 @NgModule({
@@ -15,9 +18,12 @@ import { MyQuotationComponent } from './inner-component/my-quotation/my-quotatio
     MyOrdersComponent,
     MyQuotationComponent
   ],
-  imports: [
-    CommonModule,
-    MyProfileRoutingModule
-  ]
+    imports: [
+        CommonModule,
+        MyProfileRoutingModule,
+        FormsModule,
+        AngularFormModule,
+        AngularMatModule,
+    ]
 })
 export class MyProfileModule { }

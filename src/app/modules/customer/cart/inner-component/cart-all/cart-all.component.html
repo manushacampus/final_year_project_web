@@ -35,7 +35,7 @@
               </div>
             </td>
             <td class="text-right font-weight-semibold align-middle p-4">$57.55</td>
-            <td class="align-middle p-4"><input type="text" class="form-control text-center" value="{{cart.qty}}"></td>
+            <td class="align-middle p-4"><input type="number" class="form-control text-center"  (change)="changeQty(cart, $event)" value="{{cart.qty}}"></td>
             <td class="text-right font-weight-semibold align-middle p-4">$115.1</td>
             <td class="text-center align-middle px-0"><a href="#" class="shop-tooltip close float-none text-danger" title="" data-original-title="Remove">×</a></td>
           </tr>
@@ -58,14 +58,14 @@
           </div>
           <div class="text-right mt-4">
             <label class="text-muted font-weight-normal m-0">Total price</label>
-            <div class="text-large"><strong>$1164.65</strong></div>
+            <div class="text-large"><strong>Rs. {{ calculateTotal()}}</strong></div>
           </div>
         </div>
       </div>
 
       <div class="float-right">
         <button type="button" class="btn btn-lg btn-default md-btn-flat mt-2 mr-3">Back to shopping</button>
-        <button type="button" class="btn btn-lg btn-primary mt-2">Checkout</button>
+        <button type="button" class="btn btn-lg btn-primary mt-2" (click)="orderCart()">Checkout</button>
       </div>
 
     </div>
