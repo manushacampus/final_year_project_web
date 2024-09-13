@@ -4,7 +4,7 @@
     <div style="display: flex;justify-content: center">
       <mat-icon style="color: #3182CE;margin-right: 5px">public</mat-icon>
       <div style="font-weight: bold">
-        Customer Quotation
+        Customer Orders
       </div>
     </div>
     <div class="btn-sec">
@@ -20,15 +20,17 @@
         <th>qty</th>
         <th>Date</th>
         <th>Total</th>
-        <th >status</th>
-        <th >Action</th>
+        <th>Order Status</th>
+        <th>status</th>
+        <th>Action</th>
       </tr>
-      <tr *ngFor="let item of quotationList">
+      <tr *ngFor="let item of orderList">
         <td>{{item.customer.user.firstName}} {{item.customer.user.lastName}}</td>
         <td>{{item.type}}</td>
         <td>{{item.qty}}</td>
         <td>{{item.date}}</td>
         <td>{{item.total}}</td>
+        <td>{{item.orderType}}</td>
         <td>{{item.status}}</td>
         <td><i class="fa fa-bars" aria-hidden="true" (click)="view(item.id)"></i></td>
       </tr>

@@ -22,6 +22,7 @@ const routes:Routes =[
       { path: 'salary', loadChildren: () => import('../../modules/admin/salary-management/salary-management.module').then(m => m.SalaryManagementModule),canActivateChild: [AdminAuthGuard],data: { expectedSubRole: 'ADMIN' }  },
       { path: 'utility', loadChildren: () => import('../../modules/admin/utility-management/utility-management.module').then(m => m.UtilityManagementModule),canActivateChild: [AdminAuthGuard],data: { expectedSubRole: 'ADMIN' }  },
       { path: 'my-profile', loadChildren: () => import('../../modules/admin/my-profile/my-profile.module').then(m => m.MyProfileModule),canActivateChild: [AdminAuthGuard],data: { expectedSubRole: 'ALL' }  },
+      { path: 'orders', loadChildren: () => import('../../modules/admin/order-management/order-management.module').then(m => m.OrderManagementModule),canActivateChild: [AdminAuthGuard],data: { expectedSubRole: 'SUPERVISOR' }  },
     ]
 }
 ];

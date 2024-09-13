@@ -7,13 +7,15 @@ import {MatBadgeModule} from "@angular/material/badge";
 import {MatIconModule} from "@angular/material/icon";
 import {MatMenuModule} from "@angular/material/menu";
 import {MatButtonModule} from "@angular/material/button";
+import { FooterComponent } from './footer/footer.component';
 
 
 
 @NgModule({
   declarations: [
     CustomerComponent,
-    TopBarComponent
+    TopBarComponent,
+    FooterComponent
   ],
     imports: [
         CommonModule,

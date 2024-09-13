@@ -25,6 +25,7 @@ export class Endpoint {
     static QUOTATION='employee/quotation'
     static SUPPLIER='employee/supplier'
     static PURCHASE='employee/purchase'
+    static ORDER='employee/order'
 
     static CUSTOMER='customer'
     static C_PRODUCT_DESIGN='customer/product-design'

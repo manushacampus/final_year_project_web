@@ -12,7 +12,7 @@
         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" [routerLink]="'quotation'">Quotation</a></li>
         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" [routerLink]="'product'">Product</a></li>
         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" (click)="scrollToSection('about')">About</a></li>
-        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" [routerLink]="'home'">Contact</a></li>
+        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded"(click)="scrollToSection('footer')">Contact</a></li>
         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" [routerLink]="'home'">Notification</a></li>
         <li class="nav-item mx-0 mx-lg-1" [matMenuTriggerFor]="sam" style="padding-left: 15px;display:flex;justify-content: center;align-items: center">
           <mat-icon matBadge="17" matBadgeColor="warn" matBadgeSize="small"  [matBadgeHidden]="hidden" (click)="toggleBadgeVisibility()" style="color: white">notifications</mat-icon>
