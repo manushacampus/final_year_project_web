@@ -52,7 +52,7 @@ export class ProductDoorListComponent implements OnInit{
   }
 
   viewProduct(item:any){
-    this.router.navigate(['admin/product-doors/view', item.id]);
+    this.router.navigate(['admin/product-doors/view', item.door.id]);
   }
 
 

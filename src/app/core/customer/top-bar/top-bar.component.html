@@ -33,13 +33,13 @@
       <i class="fa-solid fa-user"></i>
       <mat-menu #menu="matMenu">
         <div class="user-card">
-          <span class="label-name">Manusha Silva</span>
+          <span class="label-name">{{getLoginUser().firstName}} {{getLoginUser().lastName}}</span>
           <ul class="navbar-nav ms-auto">
             <li class="nav-item"><a class="nav-link py-3 px-0 px-lg-3 rounded" [routerLink]="'my-profile'">My Profile</a></li>
           </ul>
           <div class="btn-bar button-row" style="display: flex;justify-content: center">
-            <button mat-stroked-button  [hidden]="true"> LogOut <mat-icon fontIcon="logout"></mat-icon></button>
-            <button mat-stroked-button  [routerLink]="'/auth/customer/login'"> LogIn <mat-icon fontIcon="login"></mat-icon></button>
+            <button mat-stroked-button  [hidden]="getLoginUser()==''" (click)="logout()"> LogOut <mat-icon fontIcon="logout"></mat-icon></button>
+            <button mat-stroked-button  [routerLink]="'/auth/customer/login'" [hidden]="getLoginUser()!=''" > LogIn <mat-icon fontIcon="login"></mat-icon></button>
           </div>
         </div>
       </mat-menu>

@@ -110,4 +110,8 @@ export class AuthService {
     this.sessionService.clearUserData();
     this.router.navigate(['/auth/admin/login']);
   }
+  logoutCustomer(){
+    this.sessionService.clearUserData();
+    this.router.navigate(['/auth/customer/login']);
+  }
 }

@@ -27,7 +27,7 @@ export class EmployeeService {
   }
 
   getEmployeeList(page:number,size:number){
-    const net = new Net(NetMethod.get, Endpoint.withUrl(Endpoint.EMPLOYEE_GET_ALL),{'page':page,'size':size});
+    const net = new Net(NetMethod.get, Endpoint.withUrl(Endpoint.EMPLOYEE),{'page':page,'size':size});
     return this.netService.process(net).pipe(
       map((response) => {
         if (response) {
@@ -37,5 +37,31 @@ export class EmployeeService {
       })
     );
 
+  }
+  getMyProfile(){
+    const net = new Net(NetMethod.get, Endpoint.withUrl(Endpoint.EMPLOYEE+'/get'));
+    return this.netService.process(net).pipe(
+      map((response) => {
+        if (response) {
+          return response;
+        }
+        return null;
+      })
+    );
+  }
+  updateProfileImage(image:File){
+    let request = new FormData();
+    if (image){
+      request.append('file',image)
+    }
+    const net = new Net(NetMethod.put, Endpoint.withUrl(Endpoint.EMPLOYEE+'/image'),request);
+    return this.netService.process(net).pipe(
+      map((response) => {
+        if (response) {
+          return response;
+        }
+        return null;
+      })
+    );
   }
 }

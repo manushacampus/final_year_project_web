@@ -34,4 +34,43 @@ export class CustomerService {
 
   }
 
+  getMyProfile(){
+    const net = new Net(NetMethod.get, Endpoint.withUrl(Endpoint.CUSTOMER+'/get'));
+    return this.netService.process(net).pipe(
+      map((response) => {
+        if (response) {
+          return response;
+        }
+        return null;
+      })
+    );
+  }
+  updateMyProfile(user:any){
+    const net = new Net(NetMethod.put, Endpoint.withUrl(Endpoint.CUSTOMER),{user});
+    return this.netService.process(net).pipe(
+      map((response) => {
+        if (response) {
+          return response;
+        }
+        return null;
+      })
+    );
+  }
+  updateProfileImage(image:File){
+    let request = new FormData();
+    if (image){
+      request.append('file',image)
+    }
+    const net = new Net(NetMethod.put, Endpoint.withUrl(Endpoint.CUSTOMER+'/image'),request);
+    return this.netService.process(net).pipe(
+      map((response) => {
+        if (response) {
+          return response;
+        }
+        return null;
+      })
+    );
+  }
+
+
 }

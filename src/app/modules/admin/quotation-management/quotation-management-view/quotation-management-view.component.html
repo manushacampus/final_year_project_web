@@ -6,7 +6,14 @@
         <div class="card-header">Product Design</div>
         <div class="card-body text-center">
           <!-- Profile picture image-->
-          <img class="img-account-profile rounded-circle mb-2" src="http://bootdey.com/img/Content/avatar/avatar1.png" alt="">
+          <ng-container *ngIf="quotationData.type=='DOOR'">
+            <img class="img-account-profile  mb-2" src="{{quotationData.doorQuotation.design.image}}" alt="">
+          </ng-container>
+          <ng-container *ngIf="quotationData.type=='WINDOW'">
+            <img class="img-account-profile mb-2" src="{{quotationData.windowQuotation.design.image}}" alt="">
+
+          </ng-container>
+
         </div>
       </div>
 

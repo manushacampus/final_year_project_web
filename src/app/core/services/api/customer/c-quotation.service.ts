@@ -21,4 +21,28 @@ export class CQuotationService {
     );
 
   }
+  cal(quotation:any){
+    const net = new Net(NetMethod.post, Endpoint.withUrl(Endpoint.C_QUOTATION+'/cal'), quotation);
+    return this.netService.process(net).pipe(
+      map((response) => {
+        if (response) {
+          return response;
+        }
+        return null;
+      })
+    );
+
+  }
+  getQuotation(){
+    const net = new Net(NetMethod.get, Endpoint.withUrl(Endpoint.C_QUOTATION),);
+    return this.netService.process(net).pipe(
+      map((response) => {
+        if (response) {
+          return response;
+        }
+        return null;
+      })
+    );
+
+  }
 }

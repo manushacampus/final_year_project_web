@@ -6,6 +6,10 @@ import {ActivatedRoute, Router} from "@angular/router";
 import {MatTableDataSource} from "@angular/material/table";
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {InventoryService} from "../../../../core/services/api/admin/inventory.service";
+import {ProductViewComponent} from "../../../customer/product/inner-component/product-view/product-view.component";
+import {
+  ProductDesignAddInventoryComponent
+} from "./inner-component/product-design-add-inventory/product-design-add-inventory.component";
 
 @Component({
   selector: 'app-product-design-view',
@@ -88,10 +92,19 @@ export class ProductDesignViewComponent implements OnInit{
 
   addInventory(data: any) {
     console.log("inventory item",this.designId)
-    this.designService.addInventory(this.designId,data.id).pipe().subscribe(data=>{
-      console.log("Response",data)
-      this.getInventoryByDesign(this.designId);
+    this.dialog.open(ProductDesignAddInventoryComponent,{
+      data: {
+        designId:this.designId,
+        data:data
+      }
     })
+    this.dialog.afterAllClosed.pipe().subscribe(result => {
+      console.log('The dialog was closed',result);
+      this.getInventoryByDesign(this.designId);
+    });
+
+
+
   }
 
   changeStatus(status:string) {
@@ -100,6 +113,13 @@ export class ProductDesignViewComponent implements OnInit{
     this.designService.changeStatus(this.designId,status).pipe().subscribe(data=>{
       console.log("response",data)
       this.getDesignById()
+    })
+  }
+
+  delete(id:string) {
+    this.designService.delete(id).pipe().subscribe(data=>{
+      console.log("response",data)
+      this.getInventoryByDesign(this.designId);
     })
   }
 }

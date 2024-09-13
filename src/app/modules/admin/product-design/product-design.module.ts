@@ -13,6 +13,7 @@ import {AngularFormModule} from "../../material/angular-form/angular-form.module
 import {MatTabsModule} from "@angular/material/tabs";
 import {ReactiveFormsModule} from "@angular/forms";
 import { ProductDesignViewComponent } from './product-design-view/product-design-view.component';
+import { ProductDesignAddInventoryComponent } from './product-design-view/inner-component/product-design-add-inventory/product-design-add-inventory.component';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { ProductDesignViewComponent } from './product-design-view/product-design
     ProductDesignComponent,
     ProductDesignAllComponent,
     ProductDesignFormComponent,
-    ProductDesignViewComponent
+    ProductDesignViewComponent,
+    ProductDesignAddInventoryComponent
   ],
     imports: [
         CommonModule,

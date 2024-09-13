@@ -24,10 +24,16 @@ export class Endpoint {
     static PRODUCT_DESIGN='employee/product-design'
     static QUOTATION='employee/quotation'
     static SUPPLIER='employee/supplier'
+    static PURCHASE='employee/purchase'
 
-
+    static CUSTOMER='customer'
     static C_PRODUCT_DESIGN='customer/product-design'
     static C_QUOTATION='customer/quotation'
+    static C_PRODUCT='customer/product'
+    static C_CART='customer/cart'
+    static C_ORDER='customer/order'
+
+    static COMMON_PRODUCT_DESIGN='product-design'
 
 
 

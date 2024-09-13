@@ -1,31 +1,39 @@
-<div style="width: 100%;">
-  <div>Quotation</div>
-  <div style="background: #EEEEEE;display: flex;justify-content: space-between;width: 1500px ">
-    <div class="sub-nav">
-      <button type="button" class="btn btn-cat">All</button>
-      <button type="button" class="btn btn-cat">Windows</button>
-      <button type="button" class="btn btn-cat">Door</button>
-      <button type="button" class="btn btn-cat">Other</button>
+<div class="container mt-5">
+  <!-- Header Section -->
+  <div class="text-center mb-4">
+    <h1 class="display-4">Quotation</h1>
+  </div>
+
+  <!-- Navigation and Search -->
+  <div class="bg-light p-3 mb-4 d-flex flex-column flex-md-row justify-content-between align-items-center rounded shadow-sm">
+    <div class="sub-nav mb-3 mb-md-0">
+      <button type="button" class="btn btn-outline-primary mb-2 mb-md-0">All</button>
+      <button type="button" class="btn btn-outline-primary mb-2 mb-md-0">Windows</button>
+      <button type="button" class="btn btn-outline-primary mb-2 mb-md-0">Door</button>
+      <button type="button" class="btn btn-outline-primary mb-2 mb-md-0">Other</button>
     </div>
-    <div>
+    <div class="search-bar w-100 w-md-auto">
       <div class="input-group">
         <div class="input-group-prepend">
-          <span class="input-group-text" id="basic-addon1">
+          <span class="input-group-text">
             <i class="fa-solid fa-magnifying-glass"></i>
           </span>
         </div>
-        <input type="text" class="form-control" placeholder="Search..." >
+        <input type="text" class="form-control" placeholder="Search...">
       </div>
     </div>
   </div>
 
-  <div class="row full-content">
-
-    <div class="card" style="" *ngFor="let data of productDesign" (click)="navigatePage(data.id)">
-      <img src="{{data.image}}" alt="">
+  <!-- Product Cards -->
+  <div class="row">
+    <div class="col-12 col-sm-6 col-md-4 mb-4" *ngFor="let data of productDesign" (click)="navigatePage(data.id)">
+      <div class="card shadow-sm rounded">
+        <img src="{{data.image}}" alt="Product Image" class="card-img-top rounded-top" style="height: 200px; object-fit: cover;">
+        <div class="card-body">
+          <h5 class="card-title">{{data.name}}</h5>
+          <p class="card-text text-muted">Click to view details</p>
+        </div>
+      </div>
     </div>
-
-
   </div>
 </div>
-

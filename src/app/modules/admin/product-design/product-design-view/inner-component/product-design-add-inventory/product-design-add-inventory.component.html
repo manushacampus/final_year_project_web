@@ -1,0 +1,42 @@
+<div class="modal-content" style="padding: 10px;border-radius: 100px">
+  <div class="modal-header">
+    <h5 class="modal-title" id="exampleModalLabel">Create Door</h5>
+    <button
+      type="button"
+      class="btn-close"
+      aria-label="Close"
+      (click)="modalRef.close()"
+    ></button>
+
+  </div>
+  <div class="modal-body">
+    <form [formGroup]="detailsForm" >
+      <div class="c-row">
+
+        <div class="c-col">
+          <div class="form_container">
+            <div class="form-controls">
+              <label >Qty <span class="requird">*</span></label>
+              <input type="number" formControlName="qty" class="form-control" placeholder="Qty">
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <div class="form-controls" *ngIf="this.data.data.inventoryType=='BAR'">
+        <label >Width Or Height</label>
+        <select class="form-select" formControlName="type" aria-label="Default select example">
+          <option selected disabled value="">Select Type</option>
+          <option value="WIDTH">Width</option>
+          <option value="HEIGHT">Height</option>
+        </select>
+      </div>
+
+      <button class="btn btn-secondary" (click)="add()">add</button>
+    </form>
+
+  </div>
+  <div class="modal-footer">
+
+  </div>
+</div>

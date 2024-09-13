@@ -40,4 +40,16 @@ export class DoorService {
       })
     );
   }
+  getDoorById(id:string){
+    const net = new Net(NetMethod.get, Endpoint.withUrl(Endpoint.DOOR+"/"+id));
+    return this.netService.process(net).pipe(
+      map((response) => {
+        if (response) {
+          console.log("response",response)
+          return response;
+        }
+        return null;
+      })
+    );
+  }
 }

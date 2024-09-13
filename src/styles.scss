@@ -62,7 +62,10 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .toast-warning{
   background-color: #f8e612;
 }
-
+.toast-container {
+  position: fixed !important;
+  z-index: 9999 !important;
+}
 .toast-progress{
   position: absolute;
   left: 0;

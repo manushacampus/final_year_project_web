@@ -10,7 +10,7 @@ export class CDesignService {
 
   constructor(private netService: NetService) { }
   getDesignByStatusPage(type:string,status:string,page:number,size:number){
-    const net = new Net(NetMethod.get, Endpoint.withUrl(Endpoint.C_PRODUCT_DESIGN), {
+    const net = new Net(NetMethod.get, Endpoint.withUrl(Endpoint.COMMON_PRODUCT_DESIGN), {
       'status':status,
       'type':type,
       'page':page,

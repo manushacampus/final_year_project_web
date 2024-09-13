@@ -6,6 +6,9 @@ import {ToastrService} from "ngx-toastr";
 import {map, Observable, of} from "rxjs";
 import {AbstractControl, FormControl, FormGroup} from "@angular/forms";
 import {SupplierService} from "../../../../core/services/api/admin/supplier.service";
+import {PurchaseService} from "../../../../core/services/api/admin/purchase.service";
+import _default from "chart.js/dist/plugins/plugin.tooltip";
+import numbers = _default.defaults.animations.numbers;
 
 @Component({
   selector: 'app-inventory-purchase-request',
@@ -16,69 +19,88 @@ export class InventoryPurchaseRequestComponent implements OnInit{
   constructor(public modalRef: MatDialogRef<InventoryPurchaseRequestComponent>,
               private barSectionService:BarSectionService,
               private supplierService:SupplierService,
+              private purchaseService:PurchaseService,
               private inventoryService:InventoryService,
               private dialog:MatDialog,
               private toastrService:ToastrService,
               @Inject(MAT_DIALOG_DATA) public data:any
   ) {
   }
-  options:(string | null)[] = [];
-  filteredOptions!: Observable<string[]>;
+  options:(any | null)[] = [];
+  filteredOptions!: Observable<any[]>;
+  supplierId:string="";
   ngOnInit(): void {
-
+    console.log("data",this.data.data.id)
     this.barInventoryForm = new FormGroup({
-      id:new FormControl(''),
-      sectionNo: new FormControl('',this.optionValidator.bind(this)),
-      color: new FormControl('#000000',),
-      length: new FormControl('',),
-      qty: new FormControl('',),
-      price: new FormControl('',),
+      supplier: new FormControl('',this.optionValidator.bind(this)),
+      qty: new FormControl(0,),
     });
 
     this.getAllBarAngels();
 
-    this.filteredOptions = (this.barInventoryForm.get("sectionNo")?.valueChanges|| of([])).pipe(
+    this.filteredOptions = (this.barInventoryForm.get("supplier")?.valueChanges|| of([])).pipe(
       map(value => this._filter(value))
     );
 
 
   }
-  private _filter(value: string): string[] {
-    console.log("value=",value)
+  onOptionSelected(selectedSupplierName: string) {
+    const selectedSupplier = this.options.find(option => option.name === selectedSupplierName);
+    if (selectedSupplier) {
+      console.log('Selected Supplier ID:', selectedSupplier.id);
+      this.supplierId = selectedSupplier.id
+    }
+  }
+  private _filter(value: any): any[] {
     const filterValue = value.toLowerCase();
-    return this.options
-      .filter((option): option is string => option !== null)
-      .filter(option => option.toLowerCase().includes(filterValue));
+    return this.options.filter(option => option.name.toLowerCase().includes(filterValue));
   }
   getAllBarAngels(){
     this.supplierService.getAllSupplierByStatus("ACTIVE",0,100).pipe().subscribe(data=>{
       console.log(data.data['content'])
-      this.options = data.data['content'].map((item:any) => item.first_name);
-      console.log(this.options);
+      this.options = data.data['content'].map((item:any) =>
+    (  {
+            id: item.id,
+            name: item.first_name
+      })
+    );
+      console.log("supplier list",this.options);
     });
   }
   private optionValidator(control: AbstractControl): { [key: string]: boolean } | null {
-    if (control.value && !this.options.includes(control.value)) {
+    console.log("validatior",control.value)
+    // Check if the control value matches any of the names in the options array
+    const isValid = this.options.some(option => option.name === control.value);
+
+    if (control.value && !isValid) {
       return { invalidOption: true };
     }
+
     return null;
   }
   getErrorMessage() {
-    const control = this.barInventoryForm.get('sectionNo');
+    const control = this.barInventoryForm.get('supplier');
     if (control?.hasError('required')) {
       return 'You must enter a value';
     }
     if (control?.hasError('invalidOption')) {
-      return 'Invalid section number';
+      return 'Invalid supplier';
     }
     return '';
   }
 
   barInventoryForm!:FormGroup;
 
-  saveJobDoor() {
-    console.log("save object=",this.barInventoryForm.value)
-    this.inventoryService.addBar(this.barInventoryForm.value).pipe().subscribe(data=>{
+  request() {
+    console.log("qty=",this.barInventoryForm.get("qty")?.value)
+    console.log("supllier=", this.supplierId)
+    console.log("Invenotry=", this.data.data.id)
+
+    this.purchaseService.purchaseRequest(
+      this.barInventoryForm.get("qty")?.value,
+      this.supplierId,
+      this.data.data.id
+    ).pipe().subscribe(data=>{
       console.log("response",data)
       if (data.code==200){
         this.toastrService.success("saved!!")
@@ -92,8 +114,4 @@ export class InventoryPurchaseRequestComponent implements OnInit{
   }
 
 
-  ss() {
-    console.log("sssss")
-
-  }
 }

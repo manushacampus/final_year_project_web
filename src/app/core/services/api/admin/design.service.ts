@@ -61,10 +61,16 @@ export class DesignService {
 
   }
 
-  addInventory(designId:string,inventoryId:string){
+  addInventory(designId:string,inventoryId:string,qty:number,type:string){
+    console.log("design ID",designId)
+    console.log("inventory ID",inventoryId)
+    console.log("qty",qty)
+    console.log("type",type)
     const net = new Net(NetMethod.post, Endpoint.withUrl(Endpoint.PRODUCT_DESIGN+"/add-inventory"), {
       'designId':designId,
-      'inventoryId':inventoryId
+      'inventoryId':inventoryId,
+      'qty':qty,
+      'type':type
     });
     return this.netService.process(net).pipe(
       map((response) => {
@@ -94,6 +100,18 @@ export class DesignService {
       .set('status', status)
       .set('id', id);
     const net = new Net(NetMethod.post, Endpoint.withUrl(Endpoint.PRODUCT_DESIGN+"/status"), params);
+    return this.netService.process(net).pipe(
+      map((response) => {
+        if (response) {
+          return response;
+        }
+        return null;
+      })
+    );
+
+  }
+  delete(id:string){
+    const net = new Net(NetMethod.delete, Endpoint.withUrl(Endpoint.PRODUCT_DESIGN+"/delete/"+id), );
     return this.netService.process(net).pipe(
       map((response) => {
         if (response) {

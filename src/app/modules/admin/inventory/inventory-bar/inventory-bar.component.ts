@@ -18,7 +18,7 @@ export class InventoryBarComponent implements OnInit{
               private inventoryService:InventoryService) {
   }
   dataSource = new MatTableDataSource();
-  displayedColumns = ['code','creationType','color', 'type', 'qty', 'action'];
+  displayedColumns = ['code','sectionCode','creationType','color', 'type', 'qty', 'action'];
   totalPage=0
   pageSize=[10,20,50]
   selectedPageSize:number=10
@@ -58,7 +58,7 @@ export class InventoryBarComponent implements OnInit{
     console.log("enter",element)
     this.dialog.open(InventoryPurchaseRequestComponent,{
       data: {
-        type:"JOB"}
+        data:element}
     }).afterClosed().subscribe(result=>{
     });
   }

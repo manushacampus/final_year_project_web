@@ -48,6 +48,7 @@ const angularMatModules=[
   MatAutocompleteModule,
   MatTooltipModule,
   MatNativeDateModule,
+  MatAutocompleteModule,
 ]
 @NgModule({
   exports: angularMatModules,

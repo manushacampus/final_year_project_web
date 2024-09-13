@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import {Router} from "@angular/router";
+import {AuthService} from "../../../auth/auth.service";
 
 @Component({
   selector: 'app-top-bar',
@@ -8,7 +9,10 @@ import {Router} from "@angular/router";
 })
 export class TopBarComponent {
   hidden = false;
-  constructor(private router: Router) {}
+  constructor(
+    private router: Router,
+    private authService:AuthService
+  ) { }
 
   scrollToSection(section: string) {
     this.router.navigate([], { fragment: section }).then(() => {
@@ -20,6 +24,13 @@ export class TopBarComponent {
   }
   toggleBadgeVisibility() {
     this.hidden = !this.hidden;
+  }
+  getLoginUser(){
+    return this.authService.getLoginUser();
+  }
+  logout() {
+    this.authService.logoutCustomer()
+
   }
 
 }
