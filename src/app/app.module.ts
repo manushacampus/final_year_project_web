@@ -11,11 +11,13 @@ import {ToastrModule} from "ngx-toastr";
 import {ApprovalDialogComponent} from "./commons/dialogs/approval-dialog/approval-dialog.component";
 import {MatButtonModule} from "@angular/material/button";
 import {AuthInterceptor} from "./auth/auth.interceptor";
+import { UtilityManagementComponent } from './modules/admin/utility-management/utility-management.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ApprovalDialogComponent
+    ApprovalDialogComponent,
+    UtilityManagementComponent,
   ],
   imports: [
     BrowserModule,

@@ -3,11 +3,11 @@ import { RouterModule, Routes } from '@angular/router';
 import {AdminAuthGuard} from "../../../auth/admin-auth.guard";
 import {SupplierManagementComponent} from "./supplier-management.component";
 import {SupplierManagementAllComponent} from "./supplier-management-all/supplier-management-all.component";
+import {SupplierManagementFormComponent} from "./supplier-management-form/supplier-management-form.component";
 
 const routes: Routes = [
   { path: '', component: SupplierManagementComponent,children:[
       {path: 'all', component: SupplierManagementAllComponent,canActivateChild: [AdminAuthGuard],data: { expectedSubRole: 'MANAGER' }},
-
     ]},
 ];
 

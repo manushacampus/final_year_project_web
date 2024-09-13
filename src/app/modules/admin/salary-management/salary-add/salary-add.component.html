@@ -1,0 +1,69 @@
+<div class="modal-content">
+  <div class="modal-header">
+    <h5 class="modal-title" id="exampleModalLabel">Add Salary</h5>
+
+    <i class="fa-solid fa-xmark" (click)="modalRef.close()"></i>
+
+  </div>
+  <div class="modal-body">
+
+    <form class="form-two-column" [formGroup]="designForm">
+      <div class="c-col">
+
+        <div class="form-controls">
+          <label>Employee</label>
+
+          <select class="form-control nice-select wide mt-1" formControlName="supplierType">
+            <option value="" disabled selected>
+              Select Employee..
+            </option>
+            <option value="Aluminum">
+              Nimal
+            </option>
+            <option value="Glass">
+              Kasun
+            </option>
+            <option value="Hardware">
+              Hardware
+            </option>
+          </select>
+        </div>
+
+        <div class="form-controls">
+          <label>Year</label>
+          <input class="form-control mt-1" formControlName="firstName">
+        </div>
+
+        <div class="form-controls">
+          <label>Additional Payment</label>
+          <input class="form-control mt-1"  formControlName="email">
+        </div>
+
+      </div>
+      <div class="c-col">
+
+        <div class="form-controls">
+          <label>Salary</label>
+          <input class="form-control mt-1"  formControlName="lastName">
+        </div>
+
+        <div class="form-controls">
+          <label>Month</label>
+          <input class="form-control mt-1"  formControlName="nic">
+        </div>
+
+        <div class="form-controls">
+          <label>Upload pay slip</label>
+          <input type="file" class="form-control form-control-md mt-1"  (change)="onFileSelected($event)" >
+        </div>
+
+
+      </div>
+    </form>
+
+  </div>
+  <div class="modal-footer">
+    <button class="btn btn-cancel" (click)="modalRef.close()">Cancel</button>
+    <button class="btn btn-save-admin" (click)="saveSupplier()">Save</button>
+  </div>
+</div>

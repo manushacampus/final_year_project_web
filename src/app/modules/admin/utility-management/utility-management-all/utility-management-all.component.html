@@ -1,0 +1,36 @@
+<div class="main">
+
+  <div class="sub-menu" style="justify-content: space-between">
+    <div style="display: flex;justify-content: center">
+      <mat-icon style="color: #3182CE;margin-right: 5px">public</mat-icon>
+      <div style="font-weight: bold">
+        Utility Management
+      </div>
+    </div>
+    <div>
+      <button class="btn btn-custom" mat-raised-button (click)="addNewSupplier()">+ Add New Utility</button>
+    </div>
+  </div>
+
+  <div class="table-users">
+    <table cellspacing="0">
+      <tr>
+        <th>Name</th>
+        <th width="150">Price</th>
+        <th>Type</th>
+        <th >Date</th>
+        <th >Action</th>
+      </tr>
+      <tr >
+        <td>January Water Bill</td>
+        <td>10000.00</td>
+        <td>Water Bill</td>
+        <td>2024-09-11</td>
+        <td><mat-icon>delete_outline</mat-icon></td>
+      </tr>
+
+    </table>
+  </div>
+
+</div>
+
