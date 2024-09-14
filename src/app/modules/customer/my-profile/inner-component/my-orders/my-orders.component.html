@@ -6,14 +6,16 @@
         <div class="row align-items-center">
           <div class="col-auto">
             <a href="#!.html">
-              <img src="https://www.bootdey.com/image/280x280/FF00FF/000000" class="width-90 rounded-3" alt="">
+              <img src="/assets/img/order.jpg" class="width-90 rounded-3" alt="">
             </a>
           </div>
           <div class="col">
             <div class="overflow-hidden flex-nowrap">
               <h6 class="mb-1">
-                <a href="#!" class="text-reset">CRM dashboard landing page</a>
-                <a href="#!" class="text-reset">{{order.id}}</a>
+                <a href="#!" class="text-reset">CRM dashboard landing page </a>
+                <span class="badge badge-success badge-lg rounded-pill" style="background-color: #007bff">
+              {{order.orderType}} <i class="fas fa-tasks ml-1"></i>
+          </span>
               </h6>
               <span class="text-muted d-block mb-2 small">
                             Updated 2 Hours Ago
@@ -22,13 +24,13 @@
                 <div class="col-12">
                   <div class="row align-items-center g-0">
                     <div class="col-auto">
-                      <small class="me-2">45%</small>
+                      <small class="me-2">{{progressBar(order.orderType)}}%</small>
                     </div>
                     <div class="col">
 
                       <!-- Progress bar -->
                       <div class="progress bg-tint-success" style="height: 4px;">
-                        <div class="progress-bar bg-success" role="progressbar" style="width: 45%;" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100"></div>
+                        <div class="progress-bar bg-success" role="progressbar"  [style.width]="progressBar(order.orderType) + '%'" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100"></div>
                       </div>
 
                     </div>
@@ -37,9 +39,11 @@
               </div>
             </div>
           </div>
+
         </div>
       </div>
     </div>
+
     </ng-container>
 
   </div>

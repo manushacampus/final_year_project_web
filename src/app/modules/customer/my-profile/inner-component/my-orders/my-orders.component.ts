@@ -18,8 +18,30 @@ export class MyOrdersComponent implements OnInit{
               private toastrService:ToastrService,) {
   }
   orderList:any;
+  progressValue: number = 0;
   ngOnInit(): void {
     this.getAllOrderList()
+  }
+  progressBar(type:string){
+    if (type=='PENDING'){
+      return 20;
+    }
+    if (type=='APPROVED'){
+      return 40;
+    }
+    if (type=='DELIVERY'){
+      return 60;
+    }
+    if (type=='CUSTOMER_CONFIRM'){
+      return 80;
+    }
+    if (type=='MANAGER_CONFIRM'){
+      return 100;
+    }
+    else {
+      return 0;
+    }
+
   }
   getAllOrderList(){
     this.orderService.getOrderByStatusAndType('ACTIVE','',0,100).pipe().subscribe(data=>{
