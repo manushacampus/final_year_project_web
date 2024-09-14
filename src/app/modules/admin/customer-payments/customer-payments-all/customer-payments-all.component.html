@@ -1,0 +1,50 @@
+<div class="main">
+
+  <div class="sub-menu" style="justify-content: space-between">
+    <div style="display: flex;justify-content: center">
+      <mat-icon style="color: #3182CE;margin-right: 5px">public</mat-icon>
+      <div style="font-weight: bold">
+        Customer Payments
+      </div>
+    </div>
+    <div class="btn-sec">
+
+    </div>
+  </div>
+
+  <mat-card class="result" style="">
+    <mat-card-content>
+      <section class="example-section">
+        <mat-button-toggle-group [formControl]="fontStyleControl" aria-label="Font Style" >
+          <mat-button-toggle value="ORDER">ORDER</mat-button-toggle>
+          <mat-button-toggle value="QUOTATION">QUOTATION</mat-button-toggle>
+        </mat-button-toggle-group>
+
+      </section>
+    </mat-card-content>
+
+  </mat-card>
+
+  <div class="table-users">
+    <table cellspacing="0">
+      <tr>
+        <th>Customer Name</th>
+        <th>Date</th>
+        <th>Total</th>
+        <th>Payment Type</th>
+        <th>Payment Status</th>
+        <th>Action</th>
+      </tr>
+      <tr *ngFor="let item of paymentList" (click)="view(item.invoice)">
+        <td>{{item.customer.user.firstName}} {{item.customer.user.lastName}}</td>
+        <td>{{item.createdAt}}</td>
+        <td>{{item.price}}</td>
+        <td>{{item.paymentType}}</td>
+        <td>{{item.paymentStatus}}</td>
+        <td><mat-icon (click)="view(item.invoice)">assignment</mat-icon></td>
+      </tr>
+
+    </table>
+  </div>
+
+</div>
