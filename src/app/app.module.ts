@@ -12,12 +12,14 @@ import {ApprovalDialogComponent} from "./commons/dialogs/approval-dialog/approva
 import {MatButtonModule} from "@angular/material/button";
 import {AuthInterceptor} from "./auth/auth.interceptor";
 import { UtilityManagementComponent } from './modules/admin/utility-management/utility-management.component';
+import { WebsiteManagementComponent } from './modules/admin/website-management/website-management.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ApprovalDialogComponent,
     UtilityManagementComponent,
+    WebsiteManagementComponent,
   ],
   imports: [
     BrowserModule,

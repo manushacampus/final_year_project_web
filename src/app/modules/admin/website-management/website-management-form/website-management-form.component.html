@@ -1,0 +1,61 @@
+<div class="modal-content">
+  <div class="modal-header">
+    <h5 class="modal-title" id="exampleModalLabel">Add Website Content</h5>
+
+    <i class="fa-solid fa-xmark" (click)="modalRef.close()"></i>
+
+  </div>
+  <div class="modal-body">
+
+    <form class="form-two-column" [formGroup]="designForm">
+      <div class="c-col">
+
+        <div class="form-controls">
+          <label>Code</label>
+          <input class="form-control mt-1"  formControlName="lastName">
+        </div>
+
+        <div class="form-controls">
+          <label>Content Type</label>
+
+          <select class="form-control nice-select wide mt-1" formControlName="supplierType">
+            <option value="" disabled selected>
+              Select Content Type..
+            </option>
+            <option value="Aluminum">
+              About
+            </option>
+            <option value="Glass">
+              Contact Us
+            </option>
+            <option value="Hardware">
+              Services
+            </option>
+          </select>
+        </div>
+
+
+      </div>
+      <div class="c-col">
+
+        <div class="form-controls">
+          <label>Header</label>
+          <input class="form-control mt-1" formControlName="firstName">
+        </div>
+
+        <div class="form-controls">
+          <label>Content</label>
+          <textarea class="form-control mt-1"  formControlName="nic"></textarea>
+        </div>
+
+      </div>
+
+    </form>
+
+  </div>
+  <div class="modal-footer">
+    <button class="btn btn-cancel" (click)="modalRef.close()">Cancel</button>
+    <button class="btn btn-save-admin" (click)="saveSupplier()">Save</button>
+  </div>
+</div>
+
