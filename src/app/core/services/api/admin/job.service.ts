@@ -28,6 +28,24 @@ export class JobService {
       })
     );
   }
+  createWindow(job:any,window:any){
+    let request = new FormData();
+    let format = 'dd/MM/YYYY';
+    let datePipe = new DatePipe('en-US');
+    let formatDate= datePipe.transform(new Date(job.value.dueDate), format) + "";
+    window.get('dueDate')?.setValue(formatDate)
+    request.append('jobDto', JSON.stringify(job.value));
+    request.append('windowDto', JSON.stringify( window.value));
+    const net = new Net(NetMethod.post, Endpoint.withUrl(Endpoint.JOB+'/window'),request);
+    return this.netService.process(net).pipe(
+      map((response) => {
+        if (response) {
+          return response;
+        }
+        return null;
+      })
+    );
+  }
   updateJobDoor(job:any,door:any){
     let request = new FormData();
     let format = 'dd/MM/YYYY';

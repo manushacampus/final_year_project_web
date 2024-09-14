@@ -6,11 +6,7 @@ import { TopBarComponent } from './top-bar/top-bar.component';
 import { LeftSideNavBarComponent } from './left-side-nav-bar/left-side-nav-bar.component';
 import {AngularMatModule} from "../../modules/material/angular-mat/angular-mat.module";
 import { ClientComponent } from './top-bar/inner-component/client/client.component';
-import {MatIconModule} from "@angular/material/icon";
-import {MatMenuModule} from "@angular/material/menu";
-import {MatSidenavModule} from "@angular/material/sidenav";
 import { MenuContainerComponent } from './left-side-nav-bar/inner-component/menu-container/menu-container.component';
-import {MatExpansionModule} from "@angular/material/expansion";
 
 
 

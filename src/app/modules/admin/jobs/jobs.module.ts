@@ -8,12 +8,14 @@ import { JobDoorComponent } from './job-door/job-door.component';
 import {MatDialogModule} from "@angular/material/dialog";
 import {AngularFormModule} from "../../material/angular-form/angular-form.module";
 import {MatTabsModule} from "@angular/material/tabs";
+import { JobWindowComponent } from './job-window/job-window.component';
 
 
 @NgModule({
   declarations: [
     JobsComponent,
-    JobDoorComponent
+    JobDoorComponent,
+    JobWindowComponent
   ],
     imports: [
         CommonModule,

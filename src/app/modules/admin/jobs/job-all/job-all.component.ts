@@ -8,6 +8,7 @@ import {JobEditViewComponent} from "./inner-component/job-edit-view/job-edit-vie
 import {ToastrService} from "ngx-toastr";
 import {ApprovalDialogComponent} from "../../../../commons/dialogs/approval-dialog/approval-dialog.component";
 import {ApprovalDialogConfig} from "../../../../commons/dialogs/approval-dialog/ApprovalDialogConfig";
+import {JobWindowComponent} from "../job-window/job-window.component";
 
 @Component({
   selector: 'app-job-all',
@@ -35,6 +36,14 @@ export class JobAllComponent implements OnInit{
   }
   openModal(){
     this.dialog.open(JobDoorComponent,{
+    });
+    this.dialog.afterAllClosed.pipe().subscribe(result => {
+      console.log('The dialog was closed',result);
+      this.getAllJobs()
+    });
+  }
+  openWindowModal(){
+    this.dialog.open(JobWindowComponent,{
     });
     this.dialog.afterAllClosed.pipe().subscribe(result => {
       console.log('The dialog was closed',result);

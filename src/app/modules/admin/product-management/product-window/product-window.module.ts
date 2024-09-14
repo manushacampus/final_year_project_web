@@ -7,21 +7,21 @@ import {MatButtonModule} from "@angular/material/button";
 import {MatIconModule} from "@angular/material/icon";
 import {FormsModule} from "@angular/forms";
 import { ProductWindowListComponent } from './inner-component/product-window-list/product-window-list.component';
-import { ProductWindowFormComponent } from './inner-component/product-window-form/product-window-form.component';
+import {MatMenuModule} from "@angular/material/menu";
 
 
 @NgModule({
   declarations: [
     ProductWindowComponent,
     ProductWindowListComponent,
-    ProductWindowFormComponent
   ],
-  imports: [
-    CommonModule,
-    ProductWindowRoutingModule,
-    MatButtonModule,
-    MatIconModule,
-    FormsModule
-  ]
+    imports: [
+        CommonModule,
+        ProductWindowRoutingModule,
+        MatButtonModule,
+        MatIconModule,
+        FormsModule,
+        MatMenuModule
+    ]
 })
 export class ProductWindowModule { }

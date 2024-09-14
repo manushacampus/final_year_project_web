@@ -40,6 +40,7 @@ export class EmployeeJobViewComponent implements OnInit{
       height: new FormControl(0),
       width: new FormControl(0),
       doorColor:new FormControl(''),
+      windowColor:new FormControl(''),
       fillingType:new FormControl(''),
       glassThickness: new FormControl(0),
       boardThickness: new FormControl(0),
@@ -55,8 +56,10 @@ export class EmployeeJobViewComponent implements OnInit{
     console.log("open modal data Job",this.data.data)
     console.log("open modal data stockItem",this.data.data.stockItem)
     console.log("open modal data Door",this.data.data.stockItem.door)
+    console.log("open modal data Windows",this.data.data.stockItem.windows)
     this.jobForm.patchValue(this.data.data)
     this.doorForm.patchValue(this.data.data.stockItem.door)
+    this.doorForm.patchValue(this.data.data.stockItem.windows)
   }
   takeAJob(job:any){
     console.log("iiii",job)

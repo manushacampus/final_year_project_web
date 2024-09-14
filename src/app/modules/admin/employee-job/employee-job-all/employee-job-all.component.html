@@ -26,7 +26,8 @@
 
       <div class="card ash"  style="width: 40%;display: flex " *ngFor="let item of jobList" (click)="getItem(item)">
         <div class="card-first-row" style="display: flex;justify-content: space-between">
-          <div class="text-field">{{item.stockItem.door.code}}</div>
+          <div class="text-field"*ngIf="item.stockItem.type=='DOOR'">{{item.stockItem.door.code}}</div>
+          <div class="text-field" *ngIf="item.stockItem.type=='WINDOWS'">{{item.stockItem.windows.code}}</div>
           <div><span class="badge badge-primary rounded-pill d-inline" style=" background: chartreuse;"
           >NEW</span
           ></div>

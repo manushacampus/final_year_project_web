@@ -19,7 +19,8 @@
 
             <!-- Header with door code and progress -->
             <div class="card-first-row d-flex justify-content-between align-items-center mb-3">
-              <div class="text-field text-primary font-weight-bold" style="font-size: 1.2rem;">{{item.stockItem.door.code}}</div>
+              <div class="text-field text-primary font-weight-bold" style="font-size: 1.2rem;" *ngIf="item.stockItem.type=='DOOR'">{{item.stockItem.door.code}}</div>
+              <div class="text-field text-primary font-weight-bold" style="font-size: 1.2rem;" *ngIf="item.stockItem.type=='WINDOWS'">{{item.stockItem.windows.code}}</div>
               <div>
             <span class="badge badge-success badge-lg rounded-pill">
               {{item.progress}} <i class="fas fa-tasks ml-1"></i>
@@ -73,7 +74,9 @@
 
             <!-- Header with door code and progress -->
             <div class="card-first-row d-flex justify-content-between align-items-center mb-3">
-              <div class="text-field text-primary font-weight-bold" style="font-size: 1.2rem;">{{item.stockItem.door.code}}</div>
+              <div class="text-field text-primary font-weight-bold" style="font-size: 1.2rem;" *ngIf="item.stockItem.type=='DOOR'">{{item.stockItem.door.code}}</div>
+              <div class="text-field text-primary font-weight-bold" style="font-size: 1.2rem;" *ngIf="item.stockItem.type=='WINDOWS'">{{item.stockItem.windows.code}}</div>
+
               <div>
             <span class="badge badge-success badge-lg rounded-pill">
               {{item.progress}} <i class="fas fa-tasks ml-1"></i>
@@ -128,7 +131,9 @@
 
             <!-- Header with door code and progress -->
             <div class="card-first-row d-flex justify-content-between align-items-center mb-3">
-              <div class="text-field text-primary font-weight-bold" style="font-size: 1.2rem;">{{item.stockItem.door.code}}</div>
+              <div class="text-field text-primary font-weight-bold" style="font-size: 1.2rem;" *ngIf="item.stockItem.type=='DOOR'">{{item.stockItem.door.code}}</div>
+              <div class="text-field text-primary font-weight-bold" style="font-size: 1.2rem;" *ngIf="item.stockItem.type=='WINDOWS'">{{item.stockItem.windows.code}}</div>
+
               <div>
             <span class="badge badge-success badge-lg rounded-pill">
               {{item.progress}} <i class="fas fa-tasks ml-1"></i>

@@ -11,6 +11,7 @@ export class Endpoint {
     static EMPLOYEE_GET_ALL ='employee'
     static EMPLOYEE ='employee'
     static JOB_DOOR ='employee/job/door'
+    static JOB ='employee/job'
     static GET_JOB_LIST ='employee/job'
     static GET_JOB_BY_ID ='employee/job/'
     static START_JOB ='employee/job/start/'
