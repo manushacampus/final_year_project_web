@@ -15,16 +15,16 @@
   <mat-card class="result" style="">
     <mat-card-content>
       <section class="example-section">
-        <mat-slide-toggle
-          class="example-margin"
-          [color]="color"
-          [checked]="!checked"
-          (change)="onSlideToggleChange($event)"
-        >
-          <span>{{status}}</span>
-        </mat-slide-toggle>
+        <mat-button-toggle-group [formControl]="fontStyleControl" aria-label="Font Style" >
+          <mat-button-toggle value="APPROVED">APPROVED</mat-button-toggle>
+          <mat-button-toggle value="DELIVER">DELIVER</mat-button-toggle>
+          <mat-button-toggle value="DELIVERED">DELIVERED</mat-button-toggle>
+          <mat-button-toggle value="COMPLETED">COMPLETED</mat-button-toggle>
+        </mat-button-toggle-group>
+
       </section>
     </mat-card-content>
+
   </mat-card>
 
   <div class="table-users">

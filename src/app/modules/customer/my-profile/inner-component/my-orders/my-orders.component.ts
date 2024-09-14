@@ -26,13 +26,19 @@ export class MyOrdersComponent implements OnInit{
     if (type=='APPROVED'){
       return 40;
     }
-    if (type=='DELIVERY'){
+    if (type=='DELIVER'){
       return 60;
     }
+    if (type=='DELIVERED'){
+      return 70;
+    }
     if (type=='CUSTOMER_CONFIRM'){
-      return 80;
+      return 100;
     }
     if (type=='MANAGER_CONFIRM'){
+      return 100;
+    }
+    if (type=='COMPLETED'){
       return 100;
     }
     else {

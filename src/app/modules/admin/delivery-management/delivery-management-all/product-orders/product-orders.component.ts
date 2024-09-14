@@ -9,6 +9,7 @@ import {
 import {OrdersService} from "../../../../../core/services/api/admin/orders.service";
 import {Router} from "@angular/router";
 import {ThemePalette} from "@angular/material/core";
+import {FormControl} from "@angular/forms";
 
 @Component({
   selector: 'app-product-orders',
@@ -32,8 +33,33 @@ export class ProductOrdersComponent implements OnInit {
   disabled = false;
   color: ThemePalette = 'accent';
 
+  fontStyleControl = new FormControl('APPROVED');
+  fontStyle?: string;
+
+
   ngOnInit(): void {
     this.getAll()
+    this.fontStyleControl.valueChanges.pipe().subscribe(data=>{
+      console.log("value change",data)
+      if (data=='APPROVED'){
+        this.status = "APPROVED"
+        this.disabled=false
+      }
+      if(data=='DELIVER') {
+        this.status = "DELIVER"
+        this.disabled=true
+      }
+      if(data=='DELIVERED') {
+        this.status = "DELIVERED"
+        this.disabled=true
+      }
+      if(data=='COMPLETED') {
+        this.status = "COMPLETED"
+        this.disabled=true
+      }
+      this.getAll()
+
+    })
   }
 
   getAll() {
@@ -46,20 +72,6 @@ export class ProductOrdersComponent implements OnInit {
         this.orderList = data.data['content']
       }
     })
-  }
-
-  onSlideToggleChange(event: any) {
-    console.log("ssssssff",event.checked)
-    if (event.checked){
-      this.status = "APPROVED"
-      this.disabled=false
-    }
-    else {
-      this.status = "DELIVER"
-      this.disabled=true
-    }
-    this.getAll()
-
   }
 
   view(id: any) {

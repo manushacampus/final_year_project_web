@@ -16,6 +16,8 @@ import {MatCardModule} from "@angular/material/card";
 import {MatSlideToggleModule} from "@angular/material/slide-toggle";
 import { ProductOrdersViewComponent } from './product-orders-view/product-orders-view.component';
 import { QuotationOrdersViewComponent } from './quotation-orders-view/quotation-orders-view.component';
+import {AngularMatModule} from "../../material/angular-mat/angular-mat.module";
+import { DeliveryManagementPaymentComponent } from './delivery-management-payment/delivery-management-payment.component';
 
 
 @NgModule({
@@ -25,7 +27,8 @@ import { QuotationOrdersViewComponent } from './quotation-orders-view/quotation-
     ProductOrdersComponent,
     QuotationOrdersComponent,
     ProductOrdersViewComponent,
-    QuotationOrdersViewComponent
+    QuotationOrdersViewComponent,
+    DeliveryManagementPaymentComponent
   ],
     imports: [
         CommonModule,
@@ -38,7 +41,8 @@ import { QuotationOrdersViewComponent } from './quotation-orders-view/quotation-
         MatPaginatorModule,
         MatTableModule,
         MatCardModule,
-        MatSlideToggleModule
+        MatSlideToggleModule,
+        AngularMatModule
     ]
 })
 export class DeliveryManagementModule { }
