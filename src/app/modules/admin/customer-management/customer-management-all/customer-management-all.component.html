@@ -4,11 +4,8 @@
     <div style="display: flex;justify-content: center">
       <mat-icon style="color: #3182CE;margin-right: 5px">public</mat-icon>
       <div style="font-weight: bold">
-        Employees
+        Customers
       </div>
-    </div>
-    <div class="btn-sec">
-      <button class="btn btn-custom" mat-raised-button routerLink="../form">Register Employee</button>
     </div>
   </div>
 
@@ -18,20 +15,24 @@
         <th>Picture</th>
         <th>Name</th>
         <th width="150">Email</th>
-        <th>Designation</th>
+        <th>Address</th>
         <th >status</th>
         <th >Action</th>
       </tr>
+
       <tr *ngFor="let item of employeeList">
         <td><img src="{{item.user.image}}" alt="" /></td>
-        <td>{{item.user.firstName}} {{item.user.lastName}}</td>
-        <td>{{item.user.email}}</td>
-        <td>{{item.designation}}</td>
-        <td>{{item.status}}</td>
-        <td><mat-icon>delete_outline</mat-icon></td>
+        <td>customer name</td>
+        <td>customer email</td>
+        <td>customer address</td>
+        <td>customer statues</td>
+        <td>
+          <mat-icon style="color: dodgerblue"  class="me-2" matTooltip="View Customer" (click)="viewCustomer()">visibility</mat-icon>
+          <mat-icon style="color: red" matTooltip="Block Customer">block</mat-icon>
       </tr>
 
     </table>
   </div>
 
 </div>
+
