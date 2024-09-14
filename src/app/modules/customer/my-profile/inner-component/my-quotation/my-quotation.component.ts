@@ -18,6 +18,27 @@ export class MyQuotationComponent implements OnInit{
   ngOnInit(): void {
     this.getQuotation()
   }
+  progressBar(type:string){
+    if (type=='PENDING'){
+      return 20;
+    }
+    if (type=='APPROVED'){
+      return 40;
+    }
+    if (type=='DELIVERY'){
+      return 60;
+    }
+    if (type=='CUSTOMER_CONFIRM'){
+      return 80;
+    }
+    if (type=='MANAGER_CONFIRM'){
+      return 100;
+    }
+    else {
+      return 0;
+    }
+
+  }
   getQuotation(){
     this.quotationService.getQuotation().pipe().subscribe(data=>{
       this.quotationList = data.data

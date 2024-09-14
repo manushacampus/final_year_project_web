@@ -25,7 +25,8 @@ export class QuotProductComponent implements OnInit{
       id:new FormControl(''),
       height:new FormControl('',Validators.required),
       width:new FormControl('',Validators.required),
-      color:new FormControl('',Validators.required),
+      qty:new FormControl(0,Validators.required),
+      color:new FormControl('',),
       design:new FormControl(DesignDto),
 
     });
