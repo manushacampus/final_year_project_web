@@ -27,4 +27,26 @@ export class OrdersService {
       })
     );
   }
+  getOrdersStockById(id:string){
+    const net = new Net(NetMethod.get, Endpoint.withUrl(Endpoint.ORDER+'/'+id));
+    return this.netService.process(net).pipe(
+      map((response) => {
+        if (response) {
+          return response;
+        }
+        return null;
+      })
+    );
+  }
+  acceptOrder(id:string){
+    const net = new Net(NetMethod.put, Endpoint.withUrl(Endpoint.ORDER+'/accept/'+id));
+    return this.netService.process(net).pipe(
+      map((response) => {
+        if (response) {
+          return response;
+        }
+        return null;
+      })
+    );
+  }
 }

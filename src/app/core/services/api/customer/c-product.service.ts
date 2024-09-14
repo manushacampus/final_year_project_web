@@ -11,7 +11,7 @@ export class CProductService {
 
   constructor(private netService: NetService) { }
   getStockItemList(page:number,size:number,status:string,type:string){
-    const net = new Net(NetMethod.get, Endpoint.withUrl(Endpoint.GET_STOCK_ITEM),
+    const net = new Net(NetMethod.get, Endpoint.withUrl(Endpoint.COMMON_PRODUCT),
       {
         'page':page,
         'size':size,

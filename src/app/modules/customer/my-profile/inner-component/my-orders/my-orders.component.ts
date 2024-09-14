@@ -1,8 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {DoorService} from "../../../../../core/services/api/door.service";
 import {CProductService} from "../../../../../core/services/api/customer/c-product.service";
-import {JobService} from "../../../../../core/services/api/admin/job.service";
-import {MatDialog} from "@angular/material/dialog";
 import {ToastrService} from "ngx-toastr";
 import {COrderService} from "../../../../../core/services/api/customer/c-order.service";
 

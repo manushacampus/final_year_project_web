@@ -36,6 +36,9 @@ export class CustomerOrderAllComponent implements OnInit{
   }
   view(id:any) {
     console.log("test work!!")
-    this.router.navigate(['admin/quotation/view', id]);
+    this.router.navigate(['admin/orders/view', id]);
+  }
+  accept(){
+
   }
 }

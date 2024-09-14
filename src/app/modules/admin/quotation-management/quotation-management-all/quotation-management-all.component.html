@@ -16,19 +16,19 @@
     <table cellspacing="0">
       <tr>
         <th>Customer Name</th>
-        <th>Type</th>
-        <th>qty</th>
+        <th>Address</th>
         <th>Date</th>
         <th>Total</th>
-        <th >status</th>
-        <th >Action</th>
+        <th>Order Status</th>
+        <th>status</th>
+        <th>Action</th>
       </tr>
-      <tr *ngFor="let item of quotationList">
+      <tr *ngFor="let item of quotationList" (click)="view(item.id)">
         <td>{{item.customer.user.firstName}} {{item.customer.user.lastName}}</td>
-        <td>{{item.type}}</td>
-        <td>{{item.qty}}</td>
-        <td>{{item.date}}</td>
+        <td>{{item.customer.user.address}}</td>
+        <td>{{item.createdAt}}</td>
         <td>{{item.total}}</td>
+        <td>{{item.orderType}}</td>
         <td>{{item.status}}</td>
         <td><i class="fa fa-bars" aria-hidden="true" (click)="view(item.id)"></i></td>
       </tr>

@@ -1,1 +1,101 @@
-<p>customer-order-view works!</p>
+<div class="main">
+
+  <div class="sub-menu" style="justify-content: space-between">
+    <div style="display: flex;justify-content: center">
+      <mat-icon style="color: #3182CE;margin-right: 5px">public</mat-icon>
+      <div style="font-weight: bold">
+        Customer Orders
+      </div>
+    </div>
+    <div class="btn-sec">
+      <button class="btn btn-custom" mat-raised-button (click)="accept()">Accept</button>
+      <button class="btn btn-cancel" mat-raised-button (click)="accept()">Cancel</button>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-xl-6">
+      <!-- Profile picture card-->
+      <div class="card mb-4 mb-xl-0">
+        <div class="card-body text-center">
+          <img class="img-account-profile  mb-2" src="assets/img/adminOrder.jpg" alt="">
+        </div>
+      </div>
+
+    </div>
+    <div class="col-xl-6">
+      <!-- Account details card-->
+      <div class="card mb-4">
+        <div class="card-header">General Info</div>
+        <div class="card-body">
+          <form>
+
+            <div class="card-body design-details">
+              <div class="row" style="">
+
+                <div class="row">
+                  <div class="col-6"><label class="small mb-1" >Order Date :</label></div>
+                  <div class="col-6"><label class="small mb-1">{{this.order.createdAt}}</label></div>
+                </div>
+
+                <div class="row">
+                  <div class="col-6"><label class="small mb-1" >Order Type :</label></div>
+                  <div class="col-6"><label class="small mb-1">{{this.order.orderType}}</label></div>
+                </div>
+
+                <div class="row">
+                  <div class="col-6"><label class="small mb-1" >Customer Name :</label></div>
+                  <div class="col-6"><label class="small mb-1">{{this.customer.firstName}} {{this.customer.lastName}}</label></div>
+                </div>
+
+                <div class="row">
+                  <div class="col-6"><label class="small mb-1" >Customer Address :</label></div>
+                  <div class="col-6"><label class="small mb-1" >{{this.customer.address}}</label></div>
+                </div>
+
+                <div class="row">
+                  <div class="col-6 "><label class="small mb-1" >Customer Contact  :</label></div>
+                  <div class="col-6"><label class="small mb-1" >{{this.customer.contact}}</label></div>
+                </div>
+
+              </div>
+
+            </div>
+
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="table-users mt-2">
+    <table cellspacing="0">
+      <tr>
+        <th>Image</th>
+        <th>Product Code</th>
+        <th>Product Type</th>
+        <th>Unit Price</th>
+        <th>Qty</th>
+      </tr>
+      <tr *ngFor="let item of stockList">
+        <td>
+          <ng-container *ngIf="item.type === 'DOOR'">
+            <img class="table-image" [src]="item.door.image" alt="Door Image"/>
+          </ng-container>
+          <ng-template *ngIf="item.type === 'WINDOWS'">
+            <img [src]="item.windows.image" alt="Windows Image"/>
+          </ng-template>
+        </td>
+        <td>
+          <ng-container *ngIf="item.type === 'DOOR'">{{item.door.code}}</ng-container>
+          <ng-container *ngIf="item.type === 'WINDOWS'">{{item.windows.type}}</ng-container>
+        </td>
+        <td>{{item.type}}</td>
+        <td>{{item.price}}</td>
+        <td>{{item.qty}}</td>
+      </tr>
+
+    </table>
+  </div>
+
+</div>

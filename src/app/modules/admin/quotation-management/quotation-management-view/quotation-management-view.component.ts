@@ -12,6 +12,9 @@ import {toJSDate} from "@ng-bootstrap/ng-bootstrap/datepicker/ngb-calendar";
 export class QuotationManagementViewComponent implements OnInit{
   quotationId!: string;
   quotationData!:any;
+  customer!: any;
+  doorQuotation!:any;
+  windowQuotation!:any;
   constructor(private toastrService: ToastrService,
               private quotationService: QuotationService,
               private router:Router,
@@ -35,7 +38,20 @@ export class QuotationManagementViewComponent implements OnInit{
     this.quotationService.getQuotationById(this.quotationId).pipe().subscribe(data=>{
       console.log("quotation id",data.data)
       this.quotationData = data.data
+      this.customer = data.data.customer.user
+      if (data.data.type=='DOOR'){
+        this.doorQuotation = data.data.doorQuotation
+      }
+      if (data.data.type=='WINDOWS'){
+        this.windowQuotation = data.data.windowQuotation
+      }
+      console.log("Quotation List",this.quotationData)
+      console.log("Quotation Door  ",this.doorQuotation )
+      console.log("Quotation Window  ",this.windowQuotation )
     })
   }
 
+  accept() {
+
+  }
 }

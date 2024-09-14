@@ -36,6 +36,7 @@ export class Endpoint {
     static C_ORDER='customer/order'
 
     static COMMON_PRODUCT_DESIGN='product-design'
+    static COMMON_PRODUCT='product'
 
 
 
