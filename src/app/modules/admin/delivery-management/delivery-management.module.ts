@@ -6,19 +6,31 @@ import { DeliveryManagementComponent } from './delivery-management.component';
 import { DeliveryManagementAllComponent } from './delivery-management-all/delivery-management-all.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {MatTabsModule} from "@angular/material/tabs";
+import { ProductOrdersComponent } from './delivery-management-all/product-orders/product-orders.component';
+import { QuotationOrdersComponent } from './delivery-management-all/quotation-orders/quotation-orders.component';
+import {MatButtonModule} from "@angular/material/button";
+import {MatIconModule} from "@angular/material/icon";
+import {MatPaginatorModule} from "@angular/material/paginator";
+import {MatTableModule} from "@angular/material/table";
 
 
 @NgModule({
   declarations: [
     DeliveryManagementComponent,
-    DeliveryManagementAllComponent
+    DeliveryManagementAllComponent,
+    ProductOrdersComponent,
+    QuotationOrdersComponent
   ],
   imports: [
     CommonModule,
     DeliveryManagementRoutingModule,
     FormsModule,
     MatTabsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatButtonModule,
+    MatIconModule,
+    MatPaginatorModule,
+    MatTableModule
   ]
 })
 export class DeliveryManagementModule { }
