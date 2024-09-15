@@ -25,6 +25,9 @@ export class MyQuotationComponent implements OnInit{
     if (type=='PENDING'){
       return 20;
     }
+    if (type=='PROCESSING'){
+      return 35;
+    }
     if (type=='APPROVED'){
       return 40;
     }

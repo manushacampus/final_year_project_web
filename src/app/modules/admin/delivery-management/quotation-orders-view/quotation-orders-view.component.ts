@@ -2,6 +2,8 @@ import {Component, OnInit} from '@angular/core';
 import {ToastrService} from "ngx-toastr";
 import {QuotationService} from "../../../../core/services/api/admin/quotation.service";
 import {ActivatedRoute, Router} from "@angular/router";
+import {DeliveryManagementPaymentComponent} from "../delivery-management-payment/delivery-management-payment.component";
+import {MatDialog} from "@angular/material/dialog";
 
 @Component({
   selector: 'app-quotation-orders-view',
@@ -17,7 +19,8 @@ export class QuotationOrdersViewComponent implements OnInit{
   constructor(private toastrService: ToastrService,
               private quotationService: QuotationService,
               private router:Router,
-              private route: ActivatedRoute) {
+              private route: ActivatedRoute,
+              public dialog:MatDialog) {
   }
   ngOnInit(): void {
     const id = this.route.snapshot.paramMap.get('id');
@@ -56,14 +59,39 @@ export class QuotationOrdersViewComponent implements OnInit{
   }
 
   deliver() {
+    console.log("quotation ID",this.quotationId)
+    this.quotationService.deliverOrder(this.quotationId).pipe().subscribe(data=>{
+      if (data.code==200){
+        this.toastrService.success("Delivered..")
+      }
 
+    },error => {
+      this.toastrService.error(error.error.message,"Error")
+    })
   }
 
   delivered() {
+    console.log("Oder ID",this.quotationId)
+    this.quotationService.deliveredOrder(this.quotationId).pipe().subscribe(data=>{
+      if (data.code==200){
+        this.toastrService.success("Delivered..")
+      }
 
+    },error => {
+      this.toastrService.error(error.error.message,"Error")
+    })
   }
 
   complete() {
-
+    this.dialog.open(DeliveryManagementPaymentComponent,{
+      data: {
+        data:this.quotationId,
+        type:"QUOTATION"
+      }
+    });
+    this.dialog.afterAllClosed.pipe().subscribe(result => {
+      console.log('The dialog was closed',result);
+    });
   }
+
 }

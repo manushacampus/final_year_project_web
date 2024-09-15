@@ -76,7 +76,8 @@ export class ProductOrdersViewComponent implements OnInit{
   complete() {
     this.dialog.open(DeliveryManagementPaymentComponent,{
       data: {
-        data:this.orderId
+        data:this.orderId,
+        type:"ORDER"
       }
     });
     this.dialog.afterAllClosed.pipe().subscribe(result => {
