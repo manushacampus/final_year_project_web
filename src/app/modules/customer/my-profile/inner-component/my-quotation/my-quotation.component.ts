@@ -2,6 +2,8 @@ import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from "@angular/router";
 import {CDesignService} from "../../../../../core/services/api/customer/c-design.service";
 import {CQuotationService} from "../../../../../core/services/api/customer/c-quotation.service";
+import {FeedabackComponent} from "../feedaback/feedaback.component";
+import {MatDialog} from "@angular/material/dialog";
 
 @Component({
   selector: 'app-my-quotation',
@@ -9,7 +11,8 @@ import {CQuotationService} from "../../../../../core/services/api/customer/c-quo
   styleUrls: ['./my-quotation.component.scss']
 })
 export class MyQuotationComponent implements OnInit{
-  constructor(private router:Router,
+  constructor(public dialog:MatDialog,
+              private router:Router,
               private designService: CDesignService,
               private quotationService: CQuotationService,
               private route: ActivatedRoute) {
@@ -43,6 +46,12 @@ export class MyQuotationComponent implements OnInit{
     this.quotationService.getQuotation().pipe().subscribe(data=>{
       this.quotationList = data.data
     })
+  }
+
+  addNewSupplier() {
+    this.dialog.open(FeedabackComponent,{
+    }).afterClosed().subscribe(result=>{
+    });
   }
 
 }

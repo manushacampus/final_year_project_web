@@ -9,6 +9,7 @@ import { MyQuotationComponent } from './inner-component/my-quotation/my-quotatio
 import {FormsModule} from "@angular/forms";
 import {AngularFormModule} from "../../material/angular-form/angular-form.module";
 import {AngularMatModule} from "../../material/angular-mat/angular-mat.module";
+import { FeedabackComponent } from './inner-component/feedaback/feedaback.component';
 
 
 @NgModule({
@@ -16,7 +17,8 @@ import {AngularMatModule} from "../../material/angular-mat/angular-mat.module";
     MyProfileComponent,
     ProfileComponent,
     MyOrdersComponent,
-    MyQuotationComponent
+    MyQuotationComponent,
+    FeedabackComponent
   ],
     imports: [
         CommonModule,
