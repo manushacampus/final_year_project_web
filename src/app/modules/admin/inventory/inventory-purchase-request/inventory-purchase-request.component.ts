@@ -36,7 +36,7 @@ export class InventoryPurchaseRequestComponent implements OnInit{
       qty: new FormControl(0,),
     });
 
-    this.getAllBarAngels();
+    this.getAllSupplier();
 
     this.filteredOptions = (this.barInventoryForm.get("supplier")?.valueChanges|| of([])).pipe(
       map(value => this._filter(value))
@@ -55,7 +55,7 @@ export class InventoryPurchaseRequestComponent implements OnInit{
     const filterValue = value.toLowerCase();
     return this.options.filter(option => option.name.toLowerCase().includes(filterValue));
   }
-  getAllBarAngels(){
+  getAllSupplier(){
     this.supplierService.getAllSupplierByStatus("ACTIVE",0,100).pipe().subscribe(data=>{
       console.log(data.data['content'])
       this.options = data.data['content'].map((item:any) =>

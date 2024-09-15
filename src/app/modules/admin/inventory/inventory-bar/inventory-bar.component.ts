@@ -54,7 +54,7 @@ export class InventoryBarComponent implements OnInit{
 
   }
 
-  enter(element:any) {
+  purchaseRequest(element:any) {
     console.log("enter",element)
     this.dialog.open(InventoryPurchaseRequestComponent,{
       data: {

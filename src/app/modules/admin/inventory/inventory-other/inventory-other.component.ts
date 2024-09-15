@@ -4,6 +4,7 @@ import {ToastrService} from "ngx-toastr";
 import {InventoryService} from "../../../../core/services/api/admin/inventory.service";
 import {MatTableDataSource} from "@angular/material/table";
 import {InventoryOtherFormComponent} from "./inner-component/inventory-other-form/inventory-other-form.component";
+import {InventoryPurchaseRequestComponent} from "../inventory-purchase-request/inventory-purchase-request.component";
 
 @Component({
   selector: 'app-inventory-other',
@@ -47,6 +48,14 @@ export class InventoryOtherComponent implements OnInit{
       this.dataSource.data = data.data['content']
       this.totalPage = data.data.totalElements
     })
+  }
+  purchaseRequest(element:any) {
+    console.log("enter",element)
+    this.dialog.open(InventoryPurchaseRequestComponent,{
+      data: {
+        data:element}
+    }).afterClosed().subscribe(result=>{
+    });
   }
 
   onRowClick(row: any) {
