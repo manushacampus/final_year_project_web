@@ -1,0 +1,100 @@
+<div class="modal-content" style="padding: 10px;border-radius: 100px">
+  <div class="modal-header">
+    <h5 class="modal-title" id="exampleModalLabel">Job View</h5>
+    <button
+      type="button"
+      class="btn-close"
+      aria-label="Close"
+      (click)="modalRef.close()"
+    ></button>
+
+  </div>
+  <div class="modal-body">
+
+
+    <form [formGroup]="jobForm">
+      <div class="c-row">
+        <div class="c-col">
+          <div class="form_container">
+            <div class="form-controls">
+              <label >Due Date <span class="requird">*</span></label>
+              <input type="date" formControlName="dueDate" class="form-control" placeholder="Due Date" >
+            </div>
+
+          </div>
+
+        </div>
+
+        <div class="c-col">
+          <div class="form_container">
+            <div class="form-controls">
+              <label >Qty <span class="requird">*</span></label>
+              <input type="number" formControlName="qty" class="form-control" placeholder="Qty">
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <div class="form-controls">
+        <label >Description</label>
+        <textarea rows="3" type="text"  formControlName="description" class="form-control" placeholder="type here.." ></textarea>
+      </div>
+    </form>
+
+      <div>
+        <div class="c-row">
+
+          <div class="c-col">
+            <div class="form_container">
+              <div class="form-controls">
+                <label >Type </label>
+                <input type="text" class="form-control" [value]="quotation.type" placeholder="Type" disabled>
+              </div>
+            </div>
+          </div>
+          <div class="c-col">
+            <div class="form_container">
+              <div class="form-controls">
+                <label >Design Code</label>
+                <input type="text" [value]="design.code" class="form-control" placeholder="Code" disabled>
+              </div>
+            </div>
+          </div>
+
+
+        </div>
+        <div class="c-row">
+          <div class="c-col">
+            <div class="form_container">
+              <div class="form-controls">
+                <label >Height </label>
+                <input type="text" class="form-control" [value]="quotationData.height" placeholder="Height" disabled>
+              </div>
+            </div>
+          </div>
+          <div class="c-col">
+            <div class="form_container">
+              <div class="form-controls">
+                <label >Width</label>
+                <input type="text" [value]="quotationData.width" class="form-control" placeholder="Width" disabled>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+  </div>
+
+
+  </div>
+
+  <div class="modal-footer">
+<!--    <div class="form_container" style="display: flex;justify-content: end;margin-top: 34px">-->
+<!--      <button class="btn btn-custom"  (click)="modalRef.close()">-->
+<!--        Cancel-->
+<!--      </button>-->
+<!--      <button type="button" class="btn btn-primary" style="margin-left: 5px" (click)="updateJobDoor()" [hidden]="this.data.data.status=='INACTIVE'">-->
+<!--        Save changes-->
+<!--      </button>-->
+<!--    </div>-->
+  </div>

@@ -8,8 +8,8 @@
       </div>
     </div>
     <div class="btn-sec">
-      <button class="btn btn-custom" mat-raised-button (click)="accept()">Accept</button>
-      <button class="btn btn-cancel" mat-raised-button (click)="accept()">Cancel</button>
+      <button class="btn btn-custom" mat-raised-button *ngIf="this.quotationData.progress=='PENDING'" (click)="approve()">Accept</button>
+      <button class="btn btn-cancel" mat-raised-button *ngIf="this.quotationData.progress=='PENDING'"  (click)="change('CANCELED')">Cancel</button>
     </div>
   </div>
 

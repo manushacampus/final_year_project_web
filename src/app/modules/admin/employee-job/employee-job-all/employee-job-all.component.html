@@ -26,15 +26,17 @@
 
       <div class="card ash"  style="width: 40%;display: flex " *ngFor="let item of jobList" (click)="getItem(item)">
         <div class="card-first-row" style="display: flex;justify-content: space-between">
-          <div class="text-field"*ngIf="item.stockItem.type=='DOOR'">{{item.stockItem.door.code}}</div>
-          <div class="text-field" *ngIf="item.stockItem.type=='WINDOWS'">{{item.stockItem.windows.code}}</div>
+          <div class="text-field"*ngIf="item.stockItem && item.stockItem.type=='DOOR'">{{item.stockItem.door.code}}</div>
+          <div class="text-field" *ngIf="item.stockItem && item.stockItem.type=='WINDOWS'">{{item.stockItem.windows.code}}</div>
+          <div class="text-field" *ngIf="item.creationType=='QUOTATION'">{{item.jobCode}}</div>
           <div><span class="badge badge-primary rounded-pill d-inline" style=" background: chartreuse;"
           >NEW</span
           ></div>
         </div>
         <div class="card-second-row" style="display: flex;padding-top: 5px">
           <div class="col 1" style="text-align: left;padding: 5px">
-            <div class="text-field"><span class="topic">Job Type: </span>{{item.stockItem.type}}</div>
+            <div class="text-field" *ngIf="item.stockItem"><span class="topic">Job Type: </span>{{item.stockItem.type}}</div>
+            <div class="text-field"  *ngIf="item.quotation"><span class="topic">Job Type: </span>{{item.creationType}}</div>
             <div  class="text-field"><span class="topic">Created At: </span></div>
           </div>
           <div class="col 2" style="text-align: left;padding: 5px">

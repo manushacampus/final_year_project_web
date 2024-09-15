@@ -27,8 +27,8 @@ export class QuotationManagementViewComponent implements OnInit{
       this.getQuotationById();
     }
   }
-  change(){
-    this.quotationService.changeQuotationType("Test").pipe().subscribe(
+  change(type:string){
+    this.quotationService.changeQuotationType(this.quotationId,type).pipe().subscribe(
       data=>{
         console.log("response=",data)
       }
@@ -51,7 +51,10 @@ export class QuotationManagementViewComponent implements OnInit{
     })
   }
 
-  accept() {
+  approve() {
 
+    this.quotationService.approveQuotation(this.quotationId).pipe().subscribe(data=>{
+      console.log("Response",data)
+    })
   }
 }

@@ -8,8 +8,8 @@
       </div>
     </div>
     <div class="btn-sec">
-      <button class="btn btn-custom" mat-raised-button (click)="accept()">Accept</button>
-      <button class="btn btn-cancel" mat-raised-button (click)="accept()">Cancel</button>
+      <button class="btn btn-custom" mat-raised-button *ngIf="this.order.orderType=='PENDING'" (click)="accept()">Accept</button>
+      <button class="btn btn-cancel" mat-raised-button *ngIf="this.order.orderType=='PENDING'" (click)="cancel()">Cancel</button>
     </div>
   </div>
 

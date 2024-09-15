@@ -3,6 +3,7 @@ import {ToastrService} from "ngx-toastr";
 import {QuotationService} from "../../../../core/services/api/admin/quotation.service";
 import {Router} from "@angular/router";
 import {OrdersService} from "../../../../core/services/api/admin/orders.service";
+import {FormControl} from "@angular/forms";
 
 @Component({
   selector: 'app-customer-order-all',
@@ -19,13 +20,29 @@ export class CustomerOrderAllComponent implements OnInit{
   pageSize=[10,20,50]
   selectedPageSize:number=10
   selectedPageIndex:number=0
+
+  type:string="PENDING"
+
+  fontStyleControl = new FormControl('PENDING');
+
   ngOnInit(): void {
+    this.fontStyleControl.valueChanges.pipe().subscribe(data=>{
+      console.log("value change",data)
+      if (data=='PENDING'){this.type = "PENDING"}
+      if (data=='APPROVED'){this.type = "APPROVED"}
+      if(data=='DELIVER') {this.type = "DELIVER"}
+      if(data=='DELIVERED') {this.type = "DELIVERED"}
+      if(data=='COMPLETED') {this.type = "COMPLETED"}
+      if(data=='CANCELED') {this.type = "CANCELED"}
+      this.getAll()
+
+    })
     this.getAll()
   }
 
   getAll(){
     this.ordersService.getOrdersByStatusAndType( 'ACTIVE',
-      "PENDING",
+      this.type,
       this.selectedPageIndex,
       this.selectedPageSize).pipe().subscribe(data=>{
       console.log("response=",data)

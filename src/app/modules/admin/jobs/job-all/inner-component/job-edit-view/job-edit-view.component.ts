@@ -18,6 +18,7 @@ export class JobEditViewComponent implements OnInit{
   doorForm!:FormGroup;
   windowForm!:FormGroup;
   jobForm!:FormGroup;
+  quotationForm!:FormGroup;
   ngOnInit(): void {
     this.jobForm = new FormGroup({
       id:new FormControl(''),
@@ -57,10 +58,30 @@ export class JobEditViewComponent implements OnInit{
       boardColor:new FormControl(''),
       typeOfBoard:new FormControl(''),
     });
-    this.get();
+    this.quotationForm = new FormGroup({
+      id:new FormControl(''),
+      name: new FormControl('',Validators.required),
+      code: new FormControl('',Validators.required),
+      type: new FormControl('',Validators.required),
+      height: new FormControl(0,Validators.required),
+      width: new FormControl(0,Validators.required),
+      windowColor:new FormControl(''),
+      fillingType:new FormControl('',Validators.required),
+      glassThickness: new FormControl(0),
+      boardThickness: new FormControl(0),
+      glassColor:new FormControl(''),
+      boardColor:new FormControl(''),
+      typeOfBoard:new FormControl(''),
+    });
+
     this.jobForm.patchValue(this.data.data)
-    this.doorForm.patchValue(this.data.data.stockItem.door)
-    this.windowForm.patchValue(this.data.data.stockItem.windows)
+    if (this.data.data.stockItem){
+      this.doorForm.patchValue(this.data.data.stockItem.door)
+      this.windowForm.patchValue(this.data.data.stockItem.windows)
+    }
+    if (this.data.data.quotation){
+      this.doorForm.patchValue(this.data.data.quotation)
+    }
     if (this.data.data.status=="INACTIVE"){
       this.jobForm.disable()
       this.doorForm.disable()
