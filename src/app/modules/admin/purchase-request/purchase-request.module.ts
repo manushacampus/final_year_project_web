@@ -8,12 +8,18 @@ import {MatButtonModule} from "@angular/material/button";
 import {MatIconModule} from "@angular/material/icon";
 import {MatPaginatorModule} from "@angular/material/paginator";
 import {MatTableModule} from "@angular/material/table";
+import {MatMenuModule} from "@angular/material/menu";
+import { GrnCreateComponent } from './grn-create/grn-create.component';
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import { GrnListComponent } from './grn-list/grn-list.component';
 
 
 @NgModule({
   declarations: [
     PurchaseRequestComponent,
-    PurchaseRequestAllComponent
+    PurchaseRequestAllComponent,
+    GrnCreateComponent,
+    GrnListComponent
   ],
   imports: [
     CommonModule,
@@ -21,7 +27,10 @@ import {MatTableModule} from "@angular/material/table";
     MatButtonModule,
     MatIconModule,
     MatPaginatorModule,
-    MatTableModule
+    MatTableModule,
+    MatMenuModule,
+    FormsModule,
+    ReactiveFormsModule
   ]
 })
 export class PurchaseRequestModule { }
