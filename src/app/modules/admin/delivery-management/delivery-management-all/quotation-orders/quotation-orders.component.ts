@@ -26,9 +26,9 @@ export class QuotationOrdersComponent implements OnInit{
   selectedPageSize:number=10
   selectedPageIndex:number=0
 
-  type:string="PENDING"
+  type:string="APPROVED"
 
-  fontStyleControl = new FormControl('PENDING');
+  fontStyleControl = new FormControl('APPROVED');
   ngOnInit(): void {
     this.fontStyleControl.valueChanges.pipe().subscribe(data=>{
       console.log("value change",data)
@@ -56,6 +56,6 @@ export class QuotationOrdersComponent implements OnInit{
   }
   view(id:any) {
     console.log("test work!!")
-    this.router.navigate(['admin/quotation/view', id]);
+    this.router.navigate(['admin/delivery/quotation/view', id]);
   }
 }
