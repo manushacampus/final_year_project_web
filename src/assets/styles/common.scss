@@ -43,19 +43,20 @@
   min-width: 150px !important;
   margin: 10px !important;
 }
-.btn-cancel{
-  background-color: #723636 !important;
-  color: white !important;
-  min-width: 150px !important;
-  margin: 10px !important;
-}
-
-.btn-cancel{
-  background-color: #d65151 !important;
+.btn-customer{
+  background-color: #1A4534 !important;
   color: white !important;
   min-width: 100px !important;
   margin: 10px !important;
 }
+
+.btn-cancel{
+  background-color: #723636 !important;
+  color: white !important;
+  min-width: 100px !important;
+  margin: 10px !important;
+}
+
 .btn-save-admin{
   background-color: #3182CE !important;
   color: white !important;
@@ -194,6 +195,9 @@ a {
   .c-col{
     width: 50%;
   }
+  .h-col{
+    width: 100%;
+  }
   .form-controls{
     display: flex;
     flex-direction: column;
@@ -210,4 +214,8 @@ a {
     background: #bbccdc;
     padding: 10px;
   }
+}
+
+.full-width {
+  width: 100%;
 }

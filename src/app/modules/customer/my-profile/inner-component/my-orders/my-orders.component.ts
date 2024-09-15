@@ -2,6 +2,8 @@ import {Component, OnInit} from '@angular/core';
 import {CProductService} from "../../../../../core/services/api/customer/c-product.service";
 import {ToastrService} from "ngx-toastr";
 import {COrderService} from "../../../../../core/services/api/customer/c-order.service";
+import {MatDialog} from "@angular/material/dialog";
+import {FeedabackComponent} from "../feedaback/feedaback.component";
 
 @Component({
   selector: 'app-my-orders',
@@ -9,7 +11,7 @@ import {COrderService} from "../../../../../core/services/api/customer/c-order.s
   styleUrls: ['./my-orders.component.scss']
 })
 export class MyOrdersComponent implements OnInit{
-  constructor(
+  constructor(public dialog:MatDialog,
               private cProductService:CProductService,
               private orderService:COrderService,
               private toastrService:ToastrService,) {
@@ -53,6 +55,12 @@ export class MyOrdersComponent implements OnInit{
         console.log("door lits pageble",data.data['content'] )
       }
     })
+  }
+
+  addNewSupplier() {
+    this.dialog.open(FeedabackComponent,{
+    }).afterClosed().subscribe(result=>{
+    });
   }
 
 }

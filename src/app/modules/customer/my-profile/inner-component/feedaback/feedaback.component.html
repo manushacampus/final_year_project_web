@@ -1,0 +1,30 @@
+<div class="modal-content" style="width: 400px">
+  <div class="modal-header" style="background-color: green">
+    <h5 class="modal-title" id="exampleModalLabel">Customer Feedback</h5>
+
+    <i class="fa-solid fa-xmark" (click)="modalRef.close()"></i>
+
+  </div>
+  <div class="modal-body-lg">
+
+    <form class="form-two-column" [formGroup]="designForm">
+
+      <div class="h-col">
+
+        <div class="form-controls">
+          <label> Feedback </label>
+          <textarea class="form-control mt-1"  formControlName="nic"></textarea>
+        </div>
+
+      </div>
+
+    </form>
+
+  </div>
+  <div class="modal-footer">
+    <button class="btn btn-cancel" (click)="modalRef.close()">Cancel</button>
+    <button class="btn btn-customer" (click)="saveSupplier()">Submit</button>
+  </div>
+</div>
+
+
