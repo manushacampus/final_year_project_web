@@ -1,1 +1,59 @@
-<p>report-management-all works!</p>
+<div class="main">
+
+  <div class="sub-menu" style="justify-content: space-between">
+    <div style="display: flex;justify-content: center">
+      <mat-icon style="color: #3182CE;margin-right: 5px">public</mat-icon>
+      <div style="font-weight: bold">
+        Reports
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-5 mt-4" style="margin-left: 4px">
+    <div class="col-3">
+      <div class="form-controls">
+        <label> Start From</label> <span style="color: red; margin-left: 5px">*</span>
+        <input type="date" class="form-control mt-1"  formControlName="nic">
+      </div>
+    </div>
+
+    <div class="col-3">
+      <div class="form-controls">
+        <label> Start To</label> <span style="color: red; margin-left: 5px">*</span>
+        <input type="date" class="form-control mt-1"  formControlName="nic">
+      </div>
+    </div>
+
+    <div class="col-6 mt-3">
+      <div class="btn-sec" style="float: right">
+        <button class="btn btn-custom" mat-raised-button (click)="addNewSupplier()">Generate Report</button>
+      </div>
+    </div>
+  </div>
+
+
+
+
+  <div class="table-users">
+
+    <table cellspacing="0">
+      <tr>
+        <th>Name</th>
+        <th width="150">Year</th>
+        <th>Month</th>
+        <th >Salary</th>
+        <th >Action</th>
+      </tr>
+      <tr >
+        <td>Kamal</td>
+        <td>2024</td>
+        <td>09</td>
+        <td>90000</td>
+        <td> <i class="fa-regular fa-file" matTooltip="View Salary Slip" ></i> </td>
+      </tr>
+
+    </table>
+  </div>
+
+</div>
+
