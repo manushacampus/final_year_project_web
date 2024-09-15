@@ -12,6 +12,23 @@
     </div>
   </div>
 
+  <mat-card class="result" style="">
+    <mat-card-content>
+      <section class="example-section">
+        <mat-button-toggle-group [formControl]="fontStyleControl" aria-label="Font Style" >
+          <mat-button-toggle value="PENDING">PENDING</mat-button-toggle>
+          <mat-button-toggle value="APPROVED">APPROVED</mat-button-toggle>
+          <mat-button-toggle value="DELIVER">DELIVER</mat-button-toggle>
+          <mat-button-toggle value="DELIVERED">DELIVERED</mat-button-toggle>
+          <mat-button-toggle value="COMPLETED">COMPLETED</mat-button-toggle>
+          <mat-button-toggle value="CANCELED">CANCELED</mat-button-toggle>
+        </mat-button-toggle-group>
+
+      </section>
+    </mat-card-content>
+
+  </mat-card>
+
   <div class="table-users">
     <table cellspacing="0">
       <tr>

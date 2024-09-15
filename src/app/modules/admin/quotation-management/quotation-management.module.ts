@@ -8,6 +8,8 @@ import {AngularFormModule} from "../../material/angular-form/angular-form.module
 import {MatButtonModule} from "@angular/material/button";
 import {MatIconModule} from "@angular/material/icon";
 import { QuotationManagementViewComponent } from './quotation-management-view/quotation-management-view.component';
+import {MatButtonToggleModule} from "@angular/material/button-toggle";
+import {MatCardModule} from "@angular/material/card";
 
 
 @NgModule({
@@ -16,12 +18,14 @@ import { QuotationManagementViewComponent } from './quotation-management-view/qu
     QuotationManagementAllComponent,
     QuotationManagementViewComponent
   ],
-  imports: [
-    CommonModule,
-    QuotationManagementRoutingModule,
-    AngularFormModule,
-    MatButtonModule,
-    MatIconModule,
-  ]
+    imports: [
+        CommonModule,
+        QuotationManagementRoutingModule,
+        AngularFormModule,
+        MatButtonModule,
+        MatIconModule,
+        MatButtonToggleModule,
+        MatCardModule,
+    ]
 })
 export class QuotationManagementModule { }

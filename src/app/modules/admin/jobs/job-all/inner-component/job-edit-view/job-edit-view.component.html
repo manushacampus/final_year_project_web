@@ -43,7 +43,7 @@
 
 <!--    Door section details-->
     <div class="door">
-    <form  [formGroup]="doorForm" *ngIf="data.data.stockItem.type=='DOOR'">
+    <form  [formGroup]="doorForm" *ngIf="data.data.stockItem && data.data.stockItem.type=='DOOR'">
       <div class="c-row">
         <div class="c-col">
           <div class="form_container">
@@ -146,7 +146,7 @@
 
   </div>
   <!--    Window section details-->
-  <div class="door" *ngIf="data.data.stockItem.type=='WINDOWS'">
+  <div class="door" *ngIf="data.data.stockItem && data.data.stockItem.type=='WINDOWS'">
     <form  [formGroup]="windowForm">
       <div class="c-row">
         <div class="c-col">

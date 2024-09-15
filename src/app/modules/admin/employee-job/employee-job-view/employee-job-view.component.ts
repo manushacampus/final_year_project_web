@@ -23,6 +23,9 @@ export class EmployeeJobViewComponent implements OnInit{
   }
   doorForm!:FormGroup;
   jobForm!:FormGroup;
+  quotationData!:any;
+  quotation!:any;
+  design!:any;
   ngOnInit(): void {
     this.jobForm = new FormGroup({
       id:new FormControl(''),
@@ -51,15 +54,26 @@ export class EmployeeJobViewComponent implements OnInit{
     this.get();
     this.doorForm.disable()
     this.jobForm.disable()
+    if (this.data.data.quotation){
+      this.quotation = this.data.data.quotation
+    }
+
+    if (this.data.data.type=='DOOR'){
+      this.quotationData =this.data.data.quotation.doorQuotation
+      this.design  = this.data.data.quotation.doorQuotation.design
+    }
+    if (this.data.data.type=='WINDOW'){
+      this.quotationData=this.data.data.quotation.windowQuotation
+      this.design  = this.data.data.quotation.windowQuotation.design
+    }
   }
   get(){
-    console.log("open modal data Job",this.data.data)
-    console.log("open modal data stockItem",this.data.data.stockItem)
-    console.log("open modal data Door",this.data.data.stockItem.door)
-    console.log("open modal data Windows",this.data.data.stockItem.windows)
+    if (this.data.data.stockItem){
+      this.doorForm.patchValue(this.data.data.stockItem.door)
+      this.doorForm.patchValue(this.data.data.stockItem.windows)
+    }
     this.jobForm.patchValue(this.data.data)
-    this.doorForm.patchValue(this.data.data.stockItem.door)
-    this.doorForm.patchValue(this.data.data.stockItem.windows)
+
   }
   takeAJob(job:any){
     console.log("iiii",job)
@@ -114,7 +128,7 @@ export class EmployeeJobViewComponent implements OnInit{
         }
       })
     }
-    if (job.creationType=="PRODUCT"){
+    if (job.creationType=="PRODUCT" || job.creationType=="QUOTATION"){
       this.jobService.doneJobNew(job.id).pipe().subscribe(data=>{
         console.log("response",data)
         this.toastrService.success("success")

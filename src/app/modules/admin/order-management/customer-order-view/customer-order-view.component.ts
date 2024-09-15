@@ -52,4 +52,16 @@ export class CustomerOrderViewComponent implements OnInit{
       this.toastrService.error(error.error.message,"Error")
     })
   }
+
+  cancel() {
+    console.log("Oder ID",this.orderId)
+    this.ordersService.cancelOrder(this.orderId).pipe().subscribe(data=>{
+      if (data.code==200){
+        this.toastrService.success("Cancel..")
+      }
+
+    },error => {
+      this.toastrService.error(error.error.message,"Error")
+    })
+  }
 }

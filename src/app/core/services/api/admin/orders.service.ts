@@ -71,6 +71,17 @@ export class OrdersService {
       })
     );
   }
+  cancelOrder(id:string){
+    const net = new Net(NetMethod.put, Endpoint.withUrl(Endpoint.ORDER+'/cancel/'+id));
+    return this.netService.process(net).pipe(
+      map((response) => {
+        if (response) {
+          return response;
+        }
+        return null;
+      })
+    );
+  }
   completeOrder(id:string,image:File,price:number){
     console.log("Image",image)
     const formData: FormData = new FormData();

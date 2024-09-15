@@ -79,12 +79,20 @@
       <ng-container matColumnDef="code">
         <th mat-header-cell *matHeaderCellDef>Product Code</th>
         <td mat-cell *matCellDef="let element" (click)="onRowClick(element)">
+
+          <ng-container  *ngIf="element.stockItem">
           <span *ngIf="element.stockItem.type=='DOOR'">
              {{element.stockItem.door.code}}
           </span>
           <span *ngIf="element.stockItem.type=='WINDOWS'">
              {{element.stockItem.windows.code}}
           </span>
+          </ng-container>
+          <ng-container  *ngIf="element.quotation">
+          <span>
+             {{element.jobCode}}
+          </span>
+          </ng-container>
 
         </td>
       </ng-container>

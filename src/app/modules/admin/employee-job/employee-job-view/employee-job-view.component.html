@@ -41,7 +41,7 @@
       </form>
 
       <!--    Door section details-->
-      <div class="door" *ngIf="data.data.stockItem.type=='DOOR'">
+      <div class="door" *ngIf="data.data.stockItem && data.data.stockItem.type=='DOOR'">
         <form  [formGroup]="doorForm">
           <div class="c-row">
             <div class="c-col">
@@ -147,7 +147,7 @@
     </div>
   </ng-container>
 
-  <ng-container *ngIf="data.data.stockItem.type=='WINDOWS'">
+  <ng-container *ngIf="data.data.stockItem && data.data.stockItem.type=='WINDOWS'">
     <div class="modal-body">
       <form  [formGroup]="doorForm">
         <div class="c-row">
@@ -249,10 +249,47 @@
       </form>
     </div>
   </ng-container>
-  <ng-container *ngIf="data.data.stockItem.type=='Other'">
-    <div class="modal-body">
-      Other
+  <ng-container *ngIf="data.data.quotation">
+    <div class="c-row">
+
+      <div class="c-col">
+        <div class="form_container">
+          <div class="form-controls">
+            <label >Type </label>
+            <input type="text" class="form-control" [value]="quotation.type" placeholder="Type" disabled>
+          </div>
+        </div>
+      </div>
+      <div class="c-col">
+        <div class="form_container">
+          <div class="form-controls">
+            <label >Design Code</label>
+            <input type="text" [value]="design.code" class="form-control" placeholder="Code" disabled>
+          </div>
+        </div>
+      </div>
+
+
     </div>
+    <div class="c-row">
+      <div class="c-col">
+        <div class="form_container">
+          <div class="form-controls">
+            <label >Height </label>
+            <input type="text" class="form-control" [value]="quotationData.height" placeholder="Height" disabled>
+          </div>
+        </div>
+      </div>
+      <div class="c-col">
+        <div class="form_container">
+          <div class="form-controls">
+            <label >Width</label>
+            <input type="text" [value]="quotationData.width" class="form-control" placeholder="Width" disabled>
+          </div>
+        </div>
+      </div>
+    </div>
+
   </ng-container>
 
   <div class="modal-footer">

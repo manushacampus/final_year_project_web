@@ -9,6 +9,7 @@ import {ToastrService} from "ngx-toastr";
 import {ApprovalDialogComponent} from "../../../../commons/dialogs/approval-dialog/approval-dialog.component";
 import {ApprovalDialogConfig} from "../../../../commons/dialogs/approval-dialog/ApprovalDialogConfig";
 import {JobWindowComponent} from "../job-window/job-window.component";
+import {JobQuotationViewComponent} from "./inner-component/job-quotation-view/job-quotation-view.component";
 
 @Component({
   selector: 'app-job-all',
@@ -62,17 +63,33 @@ export class JobAllComponent implements OnInit{
     })
   }
   onRowClick(row: any){
-    console.log("test click",row)
-    this.dialog.open(JobEditViewComponent,{
-      data: {
-        data:row
-      }
-    });
-    this.dialog.afterAllClosed.pipe().subscribe(result => {
-      console.log('The dialog was closed',result);
-      this.getAllJobs()
-    });
-  }
+    console.log("test click",row.creationType)
+    if (row.creationType!='QUOTATION') {
+      this.dialog.open(JobEditViewComponent, {
+        data: {
+          data: row
+        }
+      });
+      this.dialog.afterAllClosed.pipe().subscribe(result => {
+        console.log('The dialog was closed', result);
+        this.getAllJobs()
+      });
+    }
+    if (row.creationType=='QUOTATION'){
+      this.dialog.open(JobQuotationViewComponent, {
+        data: {
+          data: row
+        }
+      });
+      this.dialog.afterAllClosed.pipe().subscribe(result => {
+        console.log('The dialog was closed', result);
+        this.getAllJobs()
+      });
+    }
+
+    }
+
+
 
   test() {
     console.log("test")
