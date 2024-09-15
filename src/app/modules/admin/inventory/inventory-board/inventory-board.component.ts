@@ -7,6 +7,7 @@ import {
   InventoryBarFormComponent
 } from "../inventory-bar/inner-component/inventory-bar-form/inventory-bar-form.component";
 import {InventoryBoardFormComponent} from "./inner-component/inventory-board-form/inventory-board-form.component";
+import {InventoryPurchaseRequestComponent} from "../inventory-purchase-request/inventory-purchase-request.component";
 
 @Component({
   selector: 'app-inventory-board',
@@ -50,6 +51,14 @@ export class InventoryBoardComponent implements OnInit{
       this.dataSource.data = data.data['content']
       this.totalPage = data.data.totalElements
     })
+  }
+  purchaseRequest(element:any) {
+    console.log("enter",element)
+    this.dialog.open(InventoryPurchaseRequestComponent,{
+      data: {
+        data:element}
+    }).afterClosed().subscribe(result=>{
+    });
   }
 
   onRowClick(row: any) {
