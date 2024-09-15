@@ -49,4 +49,44 @@ export class OrdersService {
       })
     );
   }
+  deliverOrder(id:string){
+    const net = new Net(NetMethod.put, Endpoint.withUrl(Endpoint.ORDER+'/deliver/'+id));
+    return this.netService.process(net).pipe(
+      map((response) => {
+        if (response) {
+          return response;
+        }
+        return null;
+      })
+    );
+  }
+  deliveredOrder(id:string){
+    const net = new Net(NetMethod.put, Endpoint.withUrl(Endpoint.ORDER+'/delivered/'+id));
+    return this.netService.process(net).pipe(
+      map((response) => {
+        if (response) {
+          return response;
+        }
+        return null;
+      })
+    );
+  }
+  completeOrder(id:string,image:File,price:number){
+    console.log("Image",image)
+    const formData: FormData = new FormData();
+    formData.append('orderId', id);
+    formData.append('price', price.toString());
+    formData.append('invoice', image);
+
+    const net = new Net(NetMethod.put, Endpoint.withUrl(Endpoint.ORDER+'/complete/'+id),formData);
+    return this.netService.process(net).pipe(
+      map((response) => {
+        if (response) {
+          return response;
+        }
+        return null;
+      })
+    );
+  }
+
 }

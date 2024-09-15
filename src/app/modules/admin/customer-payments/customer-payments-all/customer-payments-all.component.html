@@ -4,7 +4,7 @@
     <div style="display: flex;justify-content: center">
       <mat-icon style="color: #3182CE;margin-right: 5px">public</mat-icon>
       <div style="font-weight: bold">
-        Customer Orders
+        Customer Payments
       </div>
     </div>
     <div class="btn-sec">
@@ -16,10 +16,8 @@
     <mat-card-content>
       <section class="example-section">
         <mat-button-toggle-group [formControl]="fontStyleControl" aria-label="Font Style" >
-          <mat-button-toggle value="APPROVED">APPROVED</mat-button-toggle>
-          <mat-button-toggle value="DELIVER">DELIVER</mat-button-toggle>
-          <mat-button-toggle value="DELIVERED">DELIVERED</mat-button-toggle>
-          <mat-button-toggle value="COMPLETED">COMPLETED</mat-button-toggle>
+          <mat-button-toggle value="ORDER">ORDER</mat-button-toggle>
+          <mat-button-toggle value="QUOTATION">QUOTATION</mat-button-toggle>
         </mat-button-toggle-group>
 
       </section>
@@ -31,21 +29,19 @@
     <table cellspacing="0">
       <tr>
         <th>Customer Name</th>
-        <th>Address</th>
         <th>Date</th>
         <th>Total</th>
-        <th>Order Status</th>
-        <th>status</th>
+        <th>Payment Type</th>
+        <th>Payment Status</th>
         <th>Action</th>
       </tr>
-      <tr *ngFor="let item of orderList" (click)="view(item.id)">
+      <tr *ngFor="let item of paymentList" (click)="view(item.invoice)">
         <td>{{item.customer.user.firstName}} {{item.customer.user.lastName}}</td>
-        <td>{{item.customer.user.address}}</td>
         <td>{{item.createdAt}}</td>
-        <td>{{item.total}}</td>
-        <td>{{item.orderType}}</td>
-        <td>{{item.status}}</td>
-        <td><i class="fa fa-bars" aria-hidden="true" (click)="view(item.id)"></i></td>
+        <td>{{item.price}}</td>
+        <td>{{item.paymentType}}</td>
+        <td>{{item.paymentStatus}}</td>
+        <td><mat-icon (click)="view(item.invoice)">assignment</mat-icon></td>
       </tr>
 
     </table>

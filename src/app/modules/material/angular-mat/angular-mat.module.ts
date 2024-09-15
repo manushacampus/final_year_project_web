@@ -22,6 +22,7 @@ import {MatStepperModule} from "@angular/material/stepper";
 import {MatAutocompleteModule} from "@angular/material/autocomplete";
 import {MatTooltipModule} from "@angular/material/tooltip";
 import {MatNativeDateModule} from "@angular/material/core";
+import {MatButtonToggleModule} from "@angular/material/button-toggle";
 
 
 const angularMatModules=[
@@ -49,6 +50,7 @@ const angularMatModules=[
   MatTooltipModule,
   MatNativeDateModule,
   MatAutocompleteModule,
+  MatButtonToggleModule
 ]
 @NgModule({
   exports: angularMatModules,

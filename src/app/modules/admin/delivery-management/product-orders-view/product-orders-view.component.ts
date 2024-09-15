@@ -2,6 +2,9 @@ import {Component, OnInit} from '@angular/core';
 import {ToastrService} from "ngx-toastr";
 import {OrdersService} from "../../../../core/services/api/admin/orders.service";
 import {ActivatedRoute, Router} from "@angular/router";
+import {MatDialog} from "@angular/material/dialog";
+import {JobEditViewComponent} from "../../jobs/job-all/inner-component/job-edit-view/job-edit-view.component";
+import {DeliveryManagementPaymentComponent} from "../delivery-management-payment/delivery-management-payment.component";
 
 @Component({
   selector: 'app-product-orders-view',
@@ -16,7 +19,8 @@ export class ProductOrdersViewComponent implements OnInit{
   constructor(private toastrService: ToastrService,
               private ordersService: OrdersService,
               private router:Router,
-              private route: ActivatedRoute) {
+              private route: ActivatedRoute,
+              public dialog:MatDialog,) {
   }
 
   ngOnInit(): void {
@@ -40,15 +44,43 @@ export class ProductOrdersViewComponent implements OnInit{
 
     })
   }
-  accept() {
+  deliver() {
     console.log("Oder ID",this.orderId)
-    this.ordersService.acceptOrder(this.orderId).pipe().subscribe(data=>{
+    this.ordersService.deliverOrder(this.orderId).pipe().subscribe(data=>{
       if (data.code==200){
-        this.toastrService.success("Accepted..")
+        this.toastrService.success("Delivered..")
       }
 
     },error => {
       this.toastrService.error(error.error.message,"Error")
     })
+  }
+  delivered() {
+    console.log("Oder ID",this.orderId)
+    this.ordersService.deliveredOrder(this.orderId).pipe().subscribe(data=>{
+      if (data.code==200){
+        this.toastrService.success("Delivered..")
+      }
+
+    },error => {
+      this.toastrService.error(error.error.message,"Error")
+    })
+  }
+
+  cancel() {
+
+      window.history.back();
+
+  }
+
+  complete() {
+    this.dialog.open(DeliveryManagementPaymentComponent,{
+      data: {
+        data:this.orderId
+      }
+    });
+    this.dialog.afterAllClosed.pipe().subscribe(result => {
+      console.log('The dialog was closed',result);
+    });
   }
 }

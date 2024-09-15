@@ -13,23 +13,23 @@ export class LeftSideNavBarComponent implements OnInit{
 
   ngOnInit(): void {
     this.currentMenus=[
-      {"menuName":"Dashboard","url":"dashboard","icon":"dashboard","designation":"ADMIN"},
-      {"menuName":"Dashboard","url":"dashboard","icon":"dashboard","designation":"MANAGER"},
-      {"menuName":"Dashboard","url":"dashboard","icon":"dashboard","designation":"SUPERVISOR"},
-      {"menuName":"Dashboard","url":"dashboard","icon":"dashboard","designation":"EMPLOYEE"},
-      {"menuName":"Product Management","url":"","icon":"swap_calls","designation":"SUPERVISOR","list":[
-          {"menuName":"Door","url":"product-doors/all","icon":"meeting_room","designation":"SUPERVISOR"},
-          {"menuName":"Windows","url":"product-window/all","icon":"window","designation":"SUPERVISOR"},
+      {"menuName":"Dashboard","url":"dashboard","icon":"work_outline","designation":"ADMIN"},
+      {"menuName":"Dashboard","url":"dashboard","icon":"work_outline","designation":"MANAGER"},
+      {"menuName":"Dashboard","url":"dashboard","icon":"work_outline","designation":"SUPERVISOR"},
+      {"menuName":"Dashboard","url":"dashboard","icon":"work_outline","designation":"EMPLOYEE"},
+      {"menuName":"Product Management","url":"dashboard","icon":"swap_calls","designation":"SUPERVISOR","list":[
+          {"menuName":"Door","url":"product-doors/all","icon":"folder_open","designation":"SUPERVISOR"},
+          {"menuName":"Windows","url":"product-window/all","icon":"folder_open","designation":"SUPERVISOR"},
         ]},
-      {"menuName":"Sections","url":"bar-section/all/cat","icon":"perm_data_setting","designation":"ADMIN"},
-      {"menuName":"Sections","url":"bar-section/all/cat","icon":"perm_data_setting","designation":"MANAGER"},
-      {"menuName":"Sections","url":"bar-section/all/cat","icon":"perm_data_setting","designation":"EMPLOYEE"},
-      {"menuName":"Sections","url":"bar-section/all/cat","icon":"perm_data_setting","designation":"SUPERVISOR"},
-      {"menuName":"Inventory","url":"inventory","icon":"store","designation":"MANAGER","list":[
-          {"menuName":"All","url":"inventory/all","icon":"inventory","designation":"MANAGER"},
-          {"menuName":"Bar","url":"inventory/bar","icon":"drag_handle","designation":"MANAGER"},
-          {"menuName":"Board","url":"inventory/board","icon":"table_chart","designation":"MANAGER"},
-          {"menuName":"Other","url":"inventory/other","icon":"kitchen","designation":"MANAGER"}
+      {"menuName":"Sections","url":"bar-section/all/cat","icon":"work_outline","designation":"ADMIN"},
+      {"menuName":"Sections","url":"bar-section/all/cat","icon":"work_outline","designation":"MANAGER"},
+      {"menuName":"Sections","url":"bar-section/all/cat","icon":"work_outline","designation":"EMPLOYEE"},
+      {"menuName":"Sections","url":"bar-section/all/cat","icon":"work_outline","designation":"SUPERVISOR"},
+      {"menuName":"Inventory","url":"inventory","icon":"folder_open","designation":"MANAGER","list":[
+          {"menuName":"All","url":"inventory/all","icon":"work_outline","designation":"MANAGER"},
+          {"menuName":"Bar","url":"inventory/bar","icon":"work_outline","designation":"MANAGER"},
+          {"menuName":"Board","url":"inventory/board","icon":"work_outline","designation":"MANAGER"},
+          {"menuName":"Other","url":"inventory/other","icon":"work_outline","designation":"MANAGER"}
         ]},
       {"menuName":"Product Design Management","url":"product-design/all","icon":"business_center","designation":"SUPERVISOR"},
       {"menuName":"Purchase Request","url":"purchase/all","icon":"redeem","designation":"MANAGER"},
@@ -43,9 +43,11 @@ export class LeftSideNavBarComponent implements OnInit{
       {"menuName":"Customer Management","url":"customer/all","icon":"people","designation":"ADMIN"},
       {"menuName":"Salary Management","url":"salary/all","icon":"payment","designation":"ADMIN"},
       {"menuName":"Supplier Management","url":"supplier/all","icon":"business","designation":"MANAGER"},
+      {"menuName":"Payment Management","url":"payment/all","icon":"work_outline","designation":"MANAGER"},
       {"menuName":"Web Site Management","url":"website/all","icon":"description","designation":"ADMIN"},
       {"menuName":"Utility Management","url":"utility/all","icon":"network_wifi","designation":"ADMIN"},
       {"menuName":"Reports","url":"reports/all","icon":" insert_drive_file","designation":"ADMIN"},
+
 
     ]
   }
