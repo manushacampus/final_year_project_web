@@ -1,10 +1,10 @@
 import {Component, OnInit} from '@angular/core';
 import {MatDialogRef} from "@angular/material/dialog";
-import {SupplierService} from "../../../../core/services/api/admin/supplier.service";
 import {ToastrService} from "ngx-toastr";
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {SalaryManagementComponent} from "../salary-management.component";
-
+import {EmployeeService} from "../../../../core/services/api/admin/employee.service";
+import {SalaryService} from "../../../../core/services/api/admin/salary.service";
 @Component({
   selector: 'app-salary-add',
   templateUrl: './salary-add.component.html',
@@ -13,29 +13,47 @@ import {SalaryManagementComponent} from "../salary-management.component";
 export class SalaryAddComponent implements OnInit {
 
   constructor(public modalRef: MatDialogRef<SalaryManagementComponent>,
-              private supplierService:SupplierService,
-              private toastrService:ToastrService) {
+              private salaryService:SalaryService,
+              private toastrService:ToastrService,
+              private employeeService:EmployeeService
+              ) {
   }
-  designForm!:FormGroup;
-  proImage!:File;
-
+  detailsForm!:FormGroup;
+  image!:File;
+  employeeList!:any;
+  selectedEmployee!:any;
   ngOnInit(): void {
-    this.designForm = new FormGroup({
+    this.detailsForm = new FormGroup({
       id:new FormControl(''),
-      firstName:new FormControl('',Validators.required),
-      lastName:new FormControl('',Validators.required),
-      email:new FormControl('',Validators.required),
-      supplierType:new FormControl('',Validators.required),
-      nic:new FormControl('',Validators.required),
-      contact:new FormControl('',Validators.required),
-
+      employee:new FormControl('',Validators.required),
+      salary:new FormControl('',Validators.required),
+      date:new FormControl('',Validators.required),
+      additional:new FormControl('',),
+      status:new FormControl('',),
+      invoice:new FormControl('',),
     });
+    this.getAllEmployee()
+    this.detailsForm.get('employee')?.valueChanges.subscribe(data=>{
+      this.employeeService.getEmployeeById(data).pipe().subscribe(data=>{
+        console.log("sdasdas",data.data)
+        this.detailsForm.get('salary')?.setValue(data.data.salary)
+        this.detailsForm.get('salary')?.disable()
+      })
+
+    })
+  }
+  getAllEmployee(){
+    this.employeeService.getEmployeeList(0,100).pipe().subscribe((data:any)=>{
+      console.log("data",data.data['content'])
+      this.employeeList = data.data['content']
+    })
   }
 
-  saveSupplier(){
-    if (this.designForm.valid){
-      console.log("supplier",this.designForm.value)
-      this.supplierService.registerSupplier(this.designForm.value).pipe().subscribe(data=>{
+  saveSalary(){
+    if (this.detailsForm.valid){
+      this.detailsForm.get('salary')?.enable()
+      console.log("Salary",this.detailsForm.value)
+      this.salaryService.saveSalary(this.detailsForm.value,this.image,this.detailsForm.get('employee')?.value).pipe().subscribe(data=>{
         if (data.code==200){
           this.toastrService.success("success")
           this.modalRef.close()
@@ -54,7 +72,10 @@ export class SalaryAddComponent implements OnInit {
 
   onFileSelected(event: any) {
     console.log("ss image",event.target.files[0])
-    this.proImage = event.target.files[0];
+    this.image = event.target.files[0];
   }
 
+  getEmp(employee:any) {
+
+  }
 }
