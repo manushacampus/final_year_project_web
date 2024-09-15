@@ -4,6 +4,7 @@ import {JobService} from "../../../../core/services/api/admin/job.service";
 import {ToastrService} from "ngx-toastr";
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {OrdersService} from "../../../../core/services/api/admin/orders.service";
+import {QuotationService} from "../../../../core/services/api/admin/quotation.service";
 
 @Component({
   selector: 'app-delivery-management-payment',
@@ -15,6 +16,7 @@ export class DeliveryManagementPaymentComponent implements OnInit{
   orderId!:string;
   constructor(public modalRef: MatDialogRef<DeliveryManagementPaymentComponent>,
               private ordersService: OrdersService,
+              private quotationService: QuotationService,
               private to:ToastrService,
               @Inject(MAT_DIALOG_DATA) public data:any) {
   }
@@ -25,7 +27,7 @@ export class DeliveryManagementPaymentComponent implements OnInit{
       price:new FormControl(0.0,Validators.required),
 
     });
-    console.log("hshs",this.data.data)
+    console.log("hshs",this.data.type)
   }
   onFileSelected(event: any) {
     console.log("ss image",event.target.files[0])
@@ -34,9 +36,17 @@ export class DeliveryManagementPaymentComponent implements OnInit{
   completeOrder(){
     console.log("file",this.invoice)
     if (this.invoice!=null){
-      this.ordersService.completeOrder(this.data.data,this.invoice,this.detailsForm.get('price')?.value).pipe().subscribe(data=>{
+      if (this.data.type=='ORDER'){
+        this.ordersService.completeOrder(this.data.data,this.invoice,this.detailsForm.get('price')?.value).pipe().subscribe(data=>{
 
-      })
+        })
+      }
+      if (this.data.type=='QUOTATION'){
+        this.quotationService.completeOrder(this.data.data,this.invoice,this.detailsForm.get('price')?.value).pipe().subscribe(data=>{
+
+        })
+      }
+
     }
 
   }
