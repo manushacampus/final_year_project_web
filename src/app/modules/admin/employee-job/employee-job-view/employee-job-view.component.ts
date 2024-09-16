@@ -27,6 +27,7 @@ export class EmployeeJobViewComponent implements OnInit{
   quotation!:any;
   design!:any;
   ngOnInit(): void {
+    console.log("view data/",this.data)
     this.jobForm = new FormGroup({
       id:new FormControl(''),
       dueDate:new FormControl(''),
@@ -59,12 +60,18 @@ export class EmployeeJobViewComponent implements OnInit{
     }
 
     if (this.data.data.type=='DOOR'){
-      this.quotationData =this.data.data.quotation.doorQuotation
-      this.design  = this.data.data.quotation.doorQuotation.design
+      if (this.data.data.quotation){
+        this.quotationData =this.data.data.quotation.doorQuotation
+        this.design  = this.data.data.quotation.doorQuotation.design
+      }
+
     }
     if (this.data.data.type=='WINDOW'){
-      this.quotationData=this.data.data.quotation.windowQuotation
-      this.design  = this.data.data.quotation.windowQuotation.design
+      if (this.data.data.quotation){
+        this.quotationData=this.data.data.quotation.windowQuotation
+        this.design  = this.data.data.quotation.windowQuotation.design
+      }
+
     }
   }
   get(){
