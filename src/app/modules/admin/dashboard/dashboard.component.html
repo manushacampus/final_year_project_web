@@ -15,12 +15,14 @@
 <div class="container-fluid">
   <div class="content">
     <h2>Dashboard Overview</h2>
-    <div class="row mb-4">
+
+    <div class="row mb-4" *ngIf="designation=='ADMIN'">
+
       <div class="col-md-3">
         <div class="card">
           <div class="card-body">
-            <h5 class="card-title"><i class="fas fa-box"></i> Total Orders</h5>
-            <p class="card-text">123</p>
+            <h5 class="card-title"><i class="fas fa-user-tie"></i> Total Employees</h5>
+            <p class="card-text">{{dashboard.employee || 0}}</p>
           </div>
         </div>
       </div>
@@ -28,34 +30,46 @@
         <div class="card">
           <div class="card-body">
             <h5 class="card-title"><i class="fas fa-users"></i> Total Customers</h5>
-            <p class="card-text">456</p>
+            <p class="card-text">{{dashboard.customer || 0}}</p>
           </div>
         </div>
       </div>
       <div class="col-md-3">
         <div class="card">
           <div class="card-body">
-            <h5 class="card-title"><i class="fas fa-user-tie"></i> Total Employees</h5>
-            <p class="card-text">789</p>
+            <h5 class="card-title"><i class="fas fa-dollar-sign"></i> Total Revenue Current Month</h5>
+            <p class="card-text">Rs. {{dashboard.profit || 0.0}}</p>
           </div>
         </div>
       </div>
+
       <div class="col-md-3">
         <div class="card">
           <div class="card-body">
-            <h5 class="card-title"><i class="fas fa-dollar-sign"></i> Total Revenue</h5>
-            <p class="card-text">$12,345</p>
+            <h5 class="card-title"><i class="fas fa-tools"></i> Completed Utilities</h5>
+            <p class="card-text">{{dashboard.utility || 0}}</p>
           </div>
         </div>
       </div>
+
     </div>
 
-    <div class="row mb-4">
+    <div class="row mb-4" *ngIf="designation=='MANAGER'">
+
       <div class="col-md-3">
         <div class="card">
           <div class="card-body">
-            <h5 class="card-title"><i class="fas fa-cube"></i> Total Products</h5>
-            <p class="card-text">50</p>
+            <h5 class="card-title"><i class="fas fa-truck"></i> Total Suppliers</h5>
+            <p class="card-text">{{dashboard.suppliers || 0}}</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-3">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title"><i class="fas fa-box"></i> Total Orders</h5>
+            <p class="card-text">{{dashboard.orders || 0}}</p>
           </div>
         </div>
       </div>
@@ -63,34 +77,65 @@
         <div class="card">
           <div class="card-body">
             <h5 class="card-title"><i class="fas fa-quote-left"></i> Total Quotations</h5>
-            <p class="card-text">85</p>
+            <p class="card-text">{{dashboard.quotation || 0}}</p>
           </div>
         </div>
       </div>
+
+      <div class="col-md-3">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title"><i class="fas fa-credit-card"></i> Total Payments</h5>
+            <p class="card-text">{{dashboard.payments || 0}}</p>
+          </div>
+        </div>
+      </div>
+
+
+
+    </div>
+
+
+    <div class="row mb-4" *ngIf="designation=='SUPERVISOR'">
+
+      <div class="col-md-3">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title"><i class="fas fa-users-cog"></i> Active Employees</h5>
+            <p class="card-text">{{dashboard.activeEmployee || 0}}</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-3">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title"><i class="fas fa-cube"></i> Total Products</h5>
+            <p class="card-text">{{dashboard.product || 0}}</p>
+          </div>
+        </div>
+      </div>
+
       <div class="col-md-3">
         <div class="card">
           <div class="card-body">
             <h5 class="card-title"><i class="fas fa-briefcase"></i> Total Jobs</h5>
-            <p class="card-text">230</p>
+            <p class="card-text">{{dashboard.jobs || 0}}</p>
           </div>
         </div>
       </div>
-      <div class="col-md-3">
-        <div class="card">
-          <div class="card-body">
-            <h5 class="card-title"><i class="fas fa-comment-dots"></i> Pending Reviews</h5>
-            <p class="card-text">13</p>
-          </div>
-        </div>
-      </div>
+
     </div>
 
-    <div class="row mb-4">
+
+    <div class="row mb-4" *ngIf="designation=='EMPLOYEE'">
+
+
       <div class="col-md-3">
         <div class="card">
           <div class="card-body">
-            <h5 class="card-title"><i class="fas fa-truck"></i> Total Suppliers</h5>
-            <p class="card-text">18</p>
+            <h5 class="card-title"><i class="fas fa-truck-loading"></i> Total Deliveries</h5>
+            <p class="card-text">{{dashboard.delivers || 0}}</p>
           </div>
         </div>
       </div>
@@ -98,62 +143,31 @@
         <div class="card">
           <div class="card-body">
             <h5 class="card-title"><i class="fas fa-archive"></i> Materials in Stock</h5>
-            <p class="card-text">124</p>
+            <p class="card-text">{{dashboard.inventory || 0}}</p>
           </div>
         </div>
       </div>
-      <div class="col-md-3">
-        <div class="card">
-          <div class="card-body">
-            <h5 class="card-title"><i class="fas fa-truck-loading"></i> Total Deliveries</h5>
-            <p class="card-text">98</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-3">
-        <div class="card">
-          <div class="card-body">
-            <h5 class="card-title"><i class="fas fa-users-cog"></i> Active Employees</h5>
-            <p class="card-text">65</p>
-          </div>
-        </div>
-      </div>
-    </div>
 
-    <div class="row mb-4">
       <div class="col-md-3">
         <div class="card">
           <div class="card-body">
             <h5 class="card-title"><i class="fas fa-paint-brush"></i> Total Designs</h5>
-            <p class="card-text">40</p>
+            <p class="card-text">{{dashboard.design || 0}}</p>
           </div>
         </div>
       </div>
-      <div class="col-md-3">
-        <div class="card">
-          <div class="card-body">
-            <h5 class="card-title"><i class="fas fa-credit-card"></i> Total Payments</h5>
-            <p class="card-text">147</p>
-          </div>
-        </div>
-      </div>
+
       <div class="col-md-3">
         <div class="card">
           <div class="card-body">
             <h5 class="card-title"><i class="fas fa-money-bill-wave"></i> Outstanding Payments</h5>
-            <p class="card-text">8</p>
+            <p class="card-text">{{dashboard.payments || 0}}</p>
           </div>
         </div>
       </div>
-      <div class="col-md-3">
-        <div class="card">
-          <div class="card-body">
-            <h5 class="card-title"><i class="fas fa-tools"></i> Completed Utilities</h5>
-            <p class="card-text">32</p>
-          </div>
-        </div>
-      </div>
+
     </div>
+
 
     <h3>Recent Orders</h3>
     <table class="table table-hover">

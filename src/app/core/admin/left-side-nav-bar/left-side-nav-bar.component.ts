@@ -26,7 +26,7 @@ export class LeftSideNavBarComponent implements OnInit{
       {"menuName":"Sections","url":"bar-section/all/cat","icon":"perm_data_setting","designation":"EMPLOYEE"},
       {"menuName":"Sections","url":"bar-section/all/cat","icon":"perm_data_setting","designation":"SUPERVISOR"},
       {"menuName":"Inventory","url":"inventory","icon":"store","designation":"MANAGER","list":[
-          {"menuName":"All","url":"inventory/all","icon":"inventory","designation":"MANAGER"},
+          // {"menuName":"All","url":"inventory/all","icon":"inventory","designation":"MANAGER"},
           {"menuName":"Bar","url":"inventory/bar","icon":"drag_handle","designation":"MANAGER"},
           {"menuName":"Board","url":"inventory/board","icon":"table_chart","designation":"MANAGER"},
           {"menuName":"Other","url":"inventory/other","icon":"kitchen","designation":"MANAGER"}
