@@ -39,7 +39,7 @@ export class AdminLoginComponent implements OnInit{
         console.log("login user",data)
         if (data){
           this.sessionService.setUserJson(JSON.stringify(data));
-          this.router.navigate(['/admin']);
+          this.router.navigate(['/admin/dashboard']);
         }
         else {
           this.toastrService.error("Invalid Email or Password")
@@ -54,7 +54,7 @@ export class AdminLoginComponent implements OnInit{
       console.log("invalid Form")
     }
     if (this.loginForm.value['userType']=="EMPLOYEE"){
-      this.router.navigateByUrl("/admin")
+      this.router.navigateByUrl("/admin/dashboard")
     }
     if (this.loginForm.value['userType']=="CUSTOMER"){
       this.router.navigateByUrl("/customer/home")
