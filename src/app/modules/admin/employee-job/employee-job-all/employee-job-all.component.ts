@@ -45,11 +45,11 @@ export class EmployeeJobAllComponent implements OnInit{
       });
     })
   }
-  public getDate(dateR:any){
-    const date = new Date(dateR);
-    const dateString = this.datePipe.transform(date, 'yyyy-MM-dd');
-    return dateString;
-  }
+  // public getDate(dateR:any){
+  //   const date = new Date(dateR);
+  //   const dateString = this.datePipe.transform(date, 'yyyy-MM-dd');
+  //   return dateString;
+  // }
   getItem(item:any){
     console.log("hshshshssh",item)
       this.dialog.open(EmployeeJobViewComponent,{

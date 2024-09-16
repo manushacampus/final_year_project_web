@@ -8,50 +8,71 @@
       </div>
     </div>
     <div class="btn-sec">
-<!--      <button class="btn btn-custom" mat-raised-button>Door</button>-->
     </div>
   </div>
-
-<!--  <div style="border-radius: 30px">-->
-<!--    <a href="" *ngFor="let item of jobList">-->
-<!--      <div style="background: #3182CE;margin: 10px;border-radius: 5px">-->
-<!--        {{item.id}}-->
-<!--    </div>-->
-<!--    </a>-->
-<!--  </div>-->
   <div style="display: flex;justify-content: center;width: 100%">
+    <div class="d-flex justify-content-center mt-4">
+      <div class="cards row w-100 justify-content-around">
+        <div class="card col-md-5 mb-4 p-4 bg-white rounded-lg shadow-lg transition-hover" *ngFor="let item of jobList" (click)="getItem(item)">
 
-
-  <div class="cards" style="display: flex;flex-wrap: wrap;justify-content: space-around">
-
-      <div class="card ash"  style="width: 40%;display: flex " *ngFor="let item of jobList" (click)="getItem(item)">
-        <div class="card-first-row" style="display: flex;justify-content: space-between">
-          <div class="text-field"*ngIf="item.stockItem && item.stockItem.type=='DOOR'">{{item.stockItem.door.code}}</div>
-          <div class="text-field" *ngIf="item.stockItem && item.stockItem.type=='WINDOWS'">{{item.stockItem.windows.code}}</div>
-          <div class="text-field" *ngIf="item.creationType=='QUOTATION'">{{item.jobCode}}</div>
-          <div><span class="badge badge-primary rounded-pill d-inline" style=" background: chartreuse;"
-          >NEW</span
-          ></div>
-        </div>
-        <div class="card-second-row" style="display: flex;padding-top: 5px">
-          <div class="col 1" style="text-align: left;padding: 5px">
-            <div class="text-field" *ngIf="item.stockItem"><span class="topic">Job Type: </span>{{item.stockItem.type}}</div>
-            <div class="text-field"  *ngIf="item.quotation"><span class="topic">Job Type: </span>{{item.creationType}}</div>
-            <div  class="text-field"><span class="topic">Created At: </span></div>
+          <!-- Header with door code and progress -->
+          <div class="card-first-row d-flex justify-content-between align-items-center mb-3">
+            <div class="text-field text-primary font-weight-bold" style="font-size: 1.2rem;" *ngIf="item.stockItem && item.stockItem.type=='DOOR'">{{item.stockItem.door.code}}</div>
+            <div class="text-field text-primary font-weight-bold" style="font-size: 1.2rem;" *ngIf="item.stockItem && item.stockItem.type=='WINDOWS'">{{item.stockItem.windows.code}}</div>
+            <div>
+            <span class="badge badge-success badge-lg rounded-pill">
+              {{item.progress}} <i class="fas fa-tasks ml-1"></i>
+            </span>
+            </div>
           </div>
-          <div class="col 2" style="text-align: left;padding: 5px">
-            <div class="text-field"><span class="topic">Due Date: </span>{{item.dueDate}}</div>
-            <div  class="text-field"><span class="topic">Qty: </span>{{item.qty}}</div>
+
+          <!-- Job details -->
+          <div class="card-second-row row">
+            <div class="col-md-6">
+              <div class="text-field" *ngIf="item.stockItem">
+                <i class="fas fa-tools text-muted mr-2"></i>
+                <span class="font-weight-bold text-secondary" >Job Type: </span>{{item.stockItem.type}}
+
+              </div>
+              <div class="text-field" *ngIf="item.quotation">
+                <i class="fas fa-tools text-muted mr-2"></i>
+                <span class="font-weight-bold text-secondary" *ngIf="item.quotation">Job Type: </span>{{item.creationType}}
+              </div>
+              <div class="text-field mt-2">
+                <i class="fas fa-calendar-alt text-muted mr-2"></i>
+                <span class="font-weight-bold text-secondary">Created At: </span>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="text-field">
+                <i class="fas fa-calendar-check text-muted mr-2"></i>
+                <span class="font-weight-bold text-secondary">Due Date: </span>{{item.dueDate}}
+              </div>
+              <div class="text-field mt-2">
+                <i class="fas fa-sort-numeric-up text-muted mr-2"></i>
+                <span class="font-weight-bold text-secondary">Qty: </span>{{item.qty}}
+              </div>
+            </div>
           </div>
-<!--          <div class="col 3">-->
 
-<!--          </div>-->
+          <!-- Footer with actions -->
+          <div class="mt-4 d-flex justify-content-between align-items-center">
+            <button class="btn btn-info btn-sm">
+              <i class="fas fa-info-circle mr-2"></i> View Details
+            </button>
+            <span class="badge badge-pill badge-warning text-dark">
+            <i class="fas fa-exclamation-circle mr-1"></i> Urgent
+          </span>
+          </div>
+
         </div>
-
       </div>
+    </div>
 
-  </div>
+
 
   </div>
 
 </div>
+
+
