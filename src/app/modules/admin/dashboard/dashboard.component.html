@@ -1,40 +1,209 @@
-<div class="example-container mat-elevation-z8">
-  <table class="table-users" mat-table #table [dataSource]="dataSource">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
 
-    <!--- Note that these columns can be defined in any order.
-          The actual rendered columns are set as a property on the row definition" -->
 
-    <!-- Position Column -->
-    <ng-container matColumnDef="position">
-      <th mat-header-cell *matHeaderCellDef> No. </th>
-      <td mat-cell *matCellDef="let element"> {{element.position}}
-      </td>
-    </ng-container>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="#">Admin Dashboard</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+</nav>
 
-    <!-- Name Column -->
-    <ng-container matColumnDef="name">
-      <th mat-header-cell *matHeaderCellDef> Name </th>
-      <td mat-cell *matCellDef="let element" (click)="cellClicked(element)"> {{element.name}} </td>
-    </ng-container>
+<div class="container-fluid">
+  <div class="content">
+    <h2>Dashboard Overview</h2>
+    <div class="row mb-4">
+      <div class="col-md-3">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title"><i class="fas fa-box"></i> Total Orders</h5>
+            <p class="card-text">123</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title"><i class="fas fa-users"></i> Total Customers</h5>
+            <p class="card-text">456</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title"><i class="fas fa-user-tie"></i> Total Employees</h5>
+            <p class="card-text">789</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title"><i class="fas fa-dollar-sign"></i> Total Revenue</h5>
+            <p class="card-text">$12,345</p>
+          </div>
+        </div>
+      </div>
+    </div>
 
-    <!-- Weight Column -->
-    <ng-container matColumnDef="weight">
-      <th mat-header-cell *matHeaderCellDef> Weight </th>
-      <td mat-cell *matCellDef="let element"> {{element.weight}} 333</td>
-    </ng-container>
+    <div class="row mb-4">
+      <div class="col-md-3">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title"><i class="fas fa-cube"></i> Total Products</h5>
+            <p class="card-text">50</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title"><i class="fas fa-quote-left"></i> Total Quotations</h5>
+            <p class="card-text">85</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title"><i class="fas fa-briefcase"></i> Total Jobs</h5>
+            <p class="card-text">230</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title"><i class="fas fa-comment-dots"></i> Pending Reviews</h5>
+            <p class="card-text">13</p>
+          </div>
+        </div>
+      </div>
+    </div>
 
-    <!-- Symbol Column -->
-    <ng-container matColumnDef="symbol">
-      <th mat-header-cell *matHeaderCellDef> Symbol </th>
-      <td mat-cell *matCellDef="let element"> {{element.symbol}} </td>
-    </ng-container>
+    <div class="row mb-4">
+      <div class="col-md-3">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title"><i class="fas fa-truck"></i> Total Suppliers</h5>
+            <p class="card-text">18</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title"><i class="fas fa-archive"></i> Materials in Stock</h5>
+            <p class="card-text">124</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title"><i class="fas fa-truck-loading"></i> Total Deliveries</h5>
+            <p class="card-text">98</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title"><i class="fas fa-users-cog"></i> Active Employees</h5>
+            <p class="card-text">65</p>
+          </div>
+        </div>
+      </div>
+    </div>
 
-    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-    <!-- <mat-row (click)="test()" *matRowDef="let row; columns: displayedColumns;"></mat-row> -->
-    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-    <tr class="mat-row empty-table" *matNoDataRow>
-      <td class="mat-cell" colspan="12">No data matching the filter</td>
-    </tr>
+    <div class="row mb-4">
+      <div class="col-md-3">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title"><i class="fas fa-paint-brush"></i> Total Designs</h5>
+            <p class="card-text">40</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title"><i class="fas fa-credit-card"></i> Total Payments</h5>
+            <p class="card-text">147</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title"><i class="fas fa-money-bill-wave"></i> Outstanding Payments</h5>
+            <p class="card-text">8</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title"><i class="fas fa-tools"></i> Completed Utilities</h5>
+            <p class="card-text">32</p>
+          </div>
+        </div>
+      </div>
+    </div>
 
-  </table>
+    <h3>Recent Orders</h3>
+    <table class="table table-hover">
+      <thead class="thead-dark">
+      <tr>
+        <th scope="col">Order ID</th>
+        <th scope="col">Customer</th>
+        <th scope="col">Product</th>
+        <th scope="col">Date</th>
+        <th scope="col">Status</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td>001</td>
+        <td>John Doe</td>
+        <td>Window</td>
+        <td>2024-09-12</td>
+        <td><i class="fas fa-check-circle text-success"></i> Delivered</td>
+      </tr>
+      <tr>
+        <td>002</td>
+        <td>Jane Smith</td>
+        <td>Door</td>
+        <td>2024-09-11</td>
+        <td><i class="fas fa-hourglass-half text-warning"></i> Pending</td>
+      </tr>
+      <tr>
+        <td>003</td>
+        <td>Bob Johnson</td>
+        <td>Material</td>
+        <td>2024-09-10</td>
+        <td><i class="fas fa-shipping-fast text-info"></i> Shipped</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
 </div>
+
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.7/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
