@@ -7,6 +7,9 @@
         GRN List
       </div>
     </div>
+    <div>
+      <button class="btn btn-secondary" (click)="back()">Back</button>
+    </div>
   </div>
 
   <div class="table-users">
@@ -14,20 +17,20 @@
       <tr>
         <th>Invoice NO</th>
         <th>Quantity</th>
-        <th width="150">Price</th>
+
         <th>Payment</th>
         <th >Date</th>
-        <th >Status</th>
         <th >Action</th>
       </tr>
-      <tr *ngFor="let item of employeeList">
-        <td>Invoice001</td>
-        <td>10</td>
-        <td>RS.2500.00</td>
-        <td>RS.25000.00</td>
-        <td>2024-09-16</td>
-        <td>Active</td>
-        <td><mat-icon>delete_outline</mat-icon></td>
+      <tr *ngFor="let item of grnList">
+        <td>{{item.invoiceNo}}</td>
+        <td>{{item.qty}}</td>
+        <td>RS.{{item.price}}</td>
+        <td>{{item.date}}</td>
+
+        <td>
+          <mat-icon (click)="view(item.invoice)" matTooltip="View PaySlip">assignment</mat-icon>
+        </td>
       </tr>
 
     </table>

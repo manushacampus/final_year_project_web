@@ -7,49 +7,24 @@
   </div>
   <div class="modal-body">
 
-    <form class="form-two-column" [formGroup]="designForm">
+    <form class="form-two-column" [formGroup]="detailsForm">
       <div class="c-col">
 
         <div class="form-controls">
-          <label>Employee</label>
-
-          <select class="form-control nice-select wide mt-1" formControlName="supplierType">
-            <option value="" disabled selected>
-              Select Employee..
-            </option>
-            <option value="Aluminum">
-              Nimal
-            </option>
-            <option value="Glass">
-              Kasun
-            </option>
-            <option value="Hardware">
-              Hardware
-            </option>
+          <label >Employee</label>
+          <select class="form-select" formControlName="employee" (change)="getEmp($event)">
+            <option selected disabled value="">Select Type</option>
+            <ng-container *ngFor="let employee of employeeList">
+              <option value="{{employee.user.id}}">{{employee.user.firstName}} {{employee.user.lastName}}</option>
+            </ng-container>
           </select>
         </div>
 
-        <div class="form-controls">
-          <label>Year</label>
-          <input class="form-control mt-1" formControlName="firstName">
-        </div>
-
-        <div class="form-controls">
-          <label>Additional Payment</label>
-          <input class="form-control mt-1"  formControlName="email">
-        </div>
-
-      </div>
-      <div class="c-col">
-
-        <div class="form-controls">
-          <label>Salary</label>
-          <input class="form-control mt-1"  formControlName="lastName">
-        </div>
-
-        <div class="form-controls">
-          <label>Month</label>
-          <input class="form-control mt-1"  formControlName="nic">
+        <div class="form_container">
+          <div class="form-controls">
+            <label >Date <span class="requird">*</span></label>
+            <input type="date" formControlName="date" class="form-control" placeholder="Due Date">
+          </div>
         </div>
 
         <div class="form-controls">
@@ -59,11 +34,24 @@
 
 
       </div>
+      <div class="c-col">
+
+        <div class="form-controls">
+          <label>Salary</label>
+          <input class="form-control mt-1"  formControlName="salary">
+        </div>
+
+        <div class="form-controls">
+          <label>Additional Payment</label>
+          <input class="form-control mt-1"  formControlName="additional">
+        </div>
+
+      </div>
     </form>
 
   </div>
   <div class="modal-footer">
     <button class="btn btn-cancel" (click)="modalRef.close()">Cancel</button>
-    <button class="btn btn-save-admin" (click)="saveSupplier()">Save</button>
+    <button class="btn btn-save-admin" (click)="saveSalary()">Save</button>
   </div>
 </div>

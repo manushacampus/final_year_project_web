@@ -5,6 +5,7 @@ import {SupplierService} from "../../../../core/services/api/admin/supplier.serv
 import {ToastrService} from "ngx-toastr";
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {UtilityManagementComponent} from "../utility-management.component";
+import {UtilityService} from "../../../../core/services/api/admin/utility.service";
 
 @Component({
   selector: 'app-utility-management-form',
@@ -13,31 +14,33 @@ import {UtilityManagementComponent} from "../utility-management.component";
 })
 export class UtilityManagementFormComponent implements OnInit{
 
-  constructor(public modalRef: MatDialogRef<SalaryManagementComponent>,
-              private supplierService:SupplierService,
+  constructor(public modalRef: MatDialogRef<UtilityManagementFormComponent>,
+              private utilityService:UtilityService,
               private toastrService:ToastrService) {
   }
 
-  designForm!:FormGroup;
-  proImage!:File;
+  detailsForm!:FormGroup;
+  image!:File;
+
 
   ngOnInit(): void {
-    this.designForm = new FormGroup({
+    this.detailsForm = new FormGroup({
       id:new FormControl(''),
-      firstName:new FormControl('',Validators.required),
-      lastName:new FormControl('',Validators.required),
-      email:new FormControl('',Validators.required),
-      supplierType:new FormControl('',Validators.required),
-      nic:new FormControl('',Validators.required),
-      contact:new FormControl('',Validators.required),
+      name:new FormControl('',Validators.required),
+      type:new FormControl('',Validators.required),
+      billNo:new FormControl('',Validators.required),
+      date:new FormControl('',Validators.required),
+      payment:new FormControl('',Validators.required),
+      bill:new FormControl('',),
+      status:new FormControl(''),
 
     });
   }
 
-  saveSupplier(){
-    if (this.designForm.valid){
-      console.log("supplier",this.designForm.value)
-      this.supplierService.registerSupplier(this.designForm.value).pipe().subscribe(data=>{
+  saveUtility(){
+    if (this.detailsForm.valid){
+      console.log("Utilty",this.detailsForm.value)
+      this.utilityService.saveUtility(this.detailsForm.value,this.image).pipe().subscribe(data=>{
         if (data.code==200){
           this.toastrService.success("success")
           this.modalRef.close()
@@ -56,6 +59,6 @@ export class UtilityManagementFormComponent implements OnInit{
 
   onFileSelected(event: any) {
     console.log("ss image",event.target.files[0])
-    this.proImage = event.target.files[0];
+    this.image = event.target.files[0];
   }
 }

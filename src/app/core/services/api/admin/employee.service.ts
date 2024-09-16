@@ -38,6 +38,18 @@ export class EmployeeService {
     );
 
   }
+  getEmployeeById(id:string){
+    const net = new Net(NetMethod.get, Endpoint.withUrl(Endpoint.EMPLOYEE+'/get/'+id),);
+    return this.netService.process(net).pipe(
+      map((response) => {
+        if (response) {
+          return response;
+        }
+        return null;
+      })
+    );
+
+  }
   getMyProfile(){
     const net = new Net(NetMethod.get, Endpoint.withUrl(Endpoint.EMPLOYEE+'/get'));
     return this.netService.process(net).pipe(

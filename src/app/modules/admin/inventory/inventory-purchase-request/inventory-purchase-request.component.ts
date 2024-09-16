@@ -103,7 +103,8 @@ export class InventoryPurchaseRequestComponent implements OnInit{
     ).pipe().subscribe(data=>{
       console.log("response",data)
       if (data.code==200){
-        this.toastrService.success("saved!!")
+        this.modalRef.close()
+        this.toastrService.success("Send Email to Supplier","Success")
       }
       else {
         this.toastrService.error("Error")

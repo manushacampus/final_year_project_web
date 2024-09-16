@@ -7,23 +7,23 @@
   </div>
   <div class="modal-body">
 
-    <form class="form-two-column" [formGroup]="designForm">
+    <form class="form-two-column" [formGroup]="detailsForm">
       <div class="c-col">
 
         <div class="form-controls">
           <label>Bill</label>
 
-          <select class="form-control nice-select wide mt-1" formControlName="supplierType">
+          <select class="form-control nice-select wide mt-1" formControlName="type">
             <option value="" disabled selected>
               Select Bill Type..
             </option>
-            <option value="Aluminum">
+            <option value=" Water">
               Water Bill
             </option>
-            <option value="Glass">
+            <option value="Electricity">
               Electricity Bill
             </option>
-            <option value="Hardware">
+            <option value="Other">
               Other Bill
             </option>
           </select>
@@ -31,12 +31,12 @@
 
         <div class="form-controls">
           <label>Bill No</label>
-          <input class="form-control mt-1" formControlName="firstName">
+          <input class="form-control mt-1" formControlName="billNo">
         </div>
 
         <div class="form-controls">
           <label>Payment</label>
-          <input class="form-control mt-1"  formControlName="email">
+          <input class="form-control mt-1"  formControlName="payment">
         </div>
 
       </div>
@@ -44,12 +44,12 @@
 
         <div class="form-controls">
           <label>Bill Name</label>
-          <input class="form-control mt-1"  formControlName="lastName">
+          <input class="form-control mt-1"  formControlName="name">
         </div>
 
         <div class="form-controls">
           <label>Date</label>
-          <input type="date" class="form-control mt-1"  formControlName="nic">
+          <input type="date" class="form-control mt-1"  formControlName="date">
         </div>
 
         <div class="form-controls">
@@ -64,6 +64,6 @@
   </div>
   <div class="modal-footer">
     <button class="btn btn-cancel" (click)="modalRef.close()">Cancel</button>
-    <button class="btn btn-save-admin" (click)="saveSupplier()">Save</button>
+    <button class="btn btn-save-admin" (click)="saveUtility()">Save</button>
   </div>
 </div>

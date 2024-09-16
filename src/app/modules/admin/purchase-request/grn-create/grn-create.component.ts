@@ -1,9 +1,9 @@
-import {Component, OnInit} from '@angular/core';
-import {MatDialogRef} from "@angular/material/dialog";
-import {SalaryManagementComponent} from "../../salary-management/salary-management.component";
+import {Component, Inject, OnInit} from '@angular/core';
+import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material/dialog";
 import {SupplierService} from "../../../../core/services/api/admin/supplier.service";
 import {ToastrService} from "ngx-toastr";
 import {FormControl, FormGroup, Validators} from "@angular/forms";
+import {GrnService} from "../../../../core/services/api/admin/grn.service";
 
 @Component({
   selector: 'app-grn-create',
@@ -12,31 +12,31 @@ import {FormControl, FormGroup, Validators} from "@angular/forms";
 })
 export class GrnCreateComponent implements OnInit{
 
-  constructor(public modalRef: MatDialogRef<SalaryManagementComponent>,
-              private supplierService:SupplierService,
-              private toastrService:ToastrService) {
+  constructor(public modalRef: MatDialogRef<GrnCreateComponent>,
+              private grnService:GrnService,
+              private toastrService:ToastrService,
+              @Inject(MAT_DIALOG_DATA) public data:any) {
   }
 
-  designForm!:FormGroup;
-  proImage!:File;
-
+  detailsForm!:FormGroup;
+  image!:File;
   ngOnInit(): void {
-    this.designForm = new FormGroup({
+    this.detailsForm = new FormGroup({
       id:new FormControl(''),
-      firstName:new FormControl('',Validators.required),
-      lastName:new FormControl('',Validators.required),
-      email:new FormControl('',Validators.required),
-      supplierType:new FormControl('',Validators.required),
-      nic:new FormControl('',Validators.required),
-      contact:new FormControl('',Validators.required),
+      qty:new FormControl('',Validators.required),
+      payment:new FormControl('',Validators.required),
+      invoiceNo:new FormControl('',Validators.required),
+      date:new FormControl('',Validators.required),
+      invoice:new FormControl('',),
 
     });
+    console.log("creeeee iddd",this.data.data)
   }
 
-  saveSupplier(){
-    if (this.designForm.valid){
-      console.log("supplier",this.designForm.value)
-      this.supplierService.registerSupplier(this.designForm.value).pipe().subscribe(data=>{
+  saveGrn(){
+    if (this.detailsForm.valid){
+      console.log("Purchase",this.detailsForm.value)
+      this.grnService.saveGrn(this.detailsForm.value,this.image,this.data.data).pipe().subscribe(data=>{
         if (data.code==200){
           this.toastrService.success("success")
           this.modalRef.close()
@@ -55,7 +55,7 @@ export class GrnCreateComponent implements OnInit{
 
   onFileSelected(event: any) {
     console.log("ss image",event.target.files[0])
-    this.proImage = event.target.files[0];
+    this.image = event.target.files[0];
   }
 
 }

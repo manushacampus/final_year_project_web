@@ -12,6 +12,7 @@ import {MatMenuModule} from "@angular/material/menu";
 import { GrnCreateComponent } from './grn-create/grn-create.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { GrnListComponent } from './grn-list/grn-list.component';
+import {MatTooltipModule} from "@angular/material/tooltip";
 
 
 @NgModule({
@@ -21,16 +22,17 @@ import { GrnListComponent } from './grn-list/grn-list.component';
     GrnCreateComponent,
     GrnListComponent
   ],
-  imports: [
-    CommonModule,
-    PurchaseRequestRoutingModule,
-    MatButtonModule,
-    MatIconModule,
-    MatPaginatorModule,
-    MatTableModule,
-    MatMenuModule,
-    FormsModule,
-    ReactiveFormsModule
-  ]
+    imports: [
+        CommonModule,
+        PurchaseRequestRoutingModule,
+        MatButtonModule,
+        MatIconModule,
+        MatPaginatorModule,
+        MatTableModule,
+        MatMenuModule,
+        FormsModule,
+        ReactiveFormsModule,
+        MatTooltipModule
+    ]
 })
 export class PurchaseRequestModule { }

@@ -101,3 +101,56 @@ table {
   margin: 10px;
   height: 20px;
 }
+
+
+
+/* styles.css */
+.a4-page {
+  width: 210mm; /* Standard A4 page width */
+  min-height: 297mm; /* Standard A4 page height */
+  padding: 20mm; /* Optional padding for content */
+  margin: auto;
+  background: white;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Optional shadow for visual effect */
+  overflow: hidden; /* Ensure no overflow causes scrollbars */
+  box-sizing: border-box; /* Ensure padding is included in width/height */
+}
+
+@media print {
+  .a4-page {
+    /* Ensure proper page break behavior during printing */
+    page-break-after: always;
+  }
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+td {
+  padding: 8px;
+  border: 1px solid #ddd;
+}
+
+.table-product td:first-child {
+  font-weight: bold;
+  width: 50%;
+}
+.table-responsive {
+  overflow-x: auto; /* Still allow scrolling if necessary */
+  width: 100%;      /* Ensure table doesn't exceed container width */
+}
+
+.table-product {
+  width: 100%; /* Set the table width to 100% of the container */
+  table-layout: fixed; /* Ensure cells maintain equal width and prevent overflow */
+}
+
+.table-product td {
+  white-space: nowrap; /* Prevent wrapping text */
+}
+
+.table-product tr:hover {
+  background-color: #f5f5f5; /* Row hover effect */
+}

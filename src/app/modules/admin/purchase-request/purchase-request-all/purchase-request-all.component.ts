@@ -31,7 +31,7 @@ export class PurchaseRequestAllComponent implements OnInit{
               private router:Router) {
   }
   dataSource = new MatTableDataSource();
-  displayedColumns = ['code', 'qty', 'creationType', 'supplier', 'date', 'type', 'action'];
+  displayedColumns = ['code', 'qty', 'creationType', 'supplier', 'dispatchQty', 'action'];
   totalPage=0
   pageSize=[10,20,50]
   selectedPageSize:number=10
@@ -39,13 +39,6 @@ export class PurchaseRequestAllComponent implements OnInit{
   ngOnInit(): void {
     this.getAllPurchase()
   }
-  // addNewSupplier() {
-  //   this.dialog.open(InventoryOtherFormComponent,{
-  //     data: {
-  //       type:"JOB"}
-  //   }).afterClosed().subscribe(result=>{
-  //   });
-  // }
   onPageChange(event: any) {
     console.log("event",event)
     this.selectedPageIndex = event.pageIndex;
@@ -76,6 +69,7 @@ export class PurchaseRequestAllComponent implements OnInit{
         this.jobService.createJobByStock(item.id).pipe().subscribe(data=>{
           if (data.code==200){
             console.log("create job by product",data )
+            this.getAllPurchase()
             this.toastrService.success("Created Job..","Success")
           }
         },error => {
@@ -86,12 +80,17 @@ export class PurchaseRequestAllComponent implements OnInit{
   }
 
   viewProduct(item:any){
-    this.router.navigate(['admin/purchase/view', "id"]);
+    this.router.navigate(['admin/purchase/view', item]);
   }
 
-  addNewSupplier() {
+  addNewGrn(id:any) {
+    console.log("idddddddddd",id)
     this.dialog.open(GrnCreateComponent,{
+      data: {
+        data:id
+      }
     }).afterClosed().subscribe(result=>{
+      this.getAllPurchase()
     });
   }
 

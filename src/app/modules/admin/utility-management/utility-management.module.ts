@@ -12,12 +12,14 @@ import {MatIconModule} from "@angular/material/icon";
 import {MatInputModule} from "@angular/material/input";
 import {MatTooltipModule} from "@angular/material/tooltip";
 import {AngularMatModule} from "../../material/angular-mat/angular-mat.module";
+import { UtilityBillViewComponent } from './utility-bill-view/utility-bill-view.component';
 
 
 @NgModule({
   declarations: [
     UtilityManagementAllComponent,
-    UtilityManagementFormComponent
+    UtilityManagementFormComponent,
+    UtilityBillViewComponent
   ],
   imports: [
     CommonModule,

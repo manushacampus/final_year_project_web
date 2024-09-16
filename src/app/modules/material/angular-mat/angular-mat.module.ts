@@ -23,6 +23,7 @@ import {MatAutocompleteModule} from "@angular/material/autocomplete";
 import {MatTooltipModule} from "@angular/material/tooltip";
 import {MatNativeDateModule} from "@angular/material/core";
 import {MatButtonToggleModule} from "@angular/material/button-toggle";
+import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
 
 
 const angularMatModules=[
@@ -50,7 +51,8 @@ const angularMatModules=[
   MatTooltipModule,
   MatNativeDateModule,
   MatAutocompleteModule,
-  MatButtonToggleModule
+  MatButtonToggleModule,
+  MatProgressSpinnerModule
 ]
 @NgModule({
   exports: angularMatModules,
