@@ -8,6 +8,7 @@ import { ProductListComponent } from './inner-component/product-list/product-lis
 import { ProductViewComponent } from './inner-component/product-view/product-view.component';
 import {NgImageSliderModule} from "ng-image-slider";
 import {AngularFormModule} from "../../material/angular-form/angular-form.module";
+import {MatTableModule} from "@angular/material/table";
 
 
 @NgModule({
@@ -16,14 +17,15 @@ import {AngularFormModule} from "../../material/angular-form/angular-form.module
     ProductListComponent,
     ProductViewComponent
   ],
-  imports: [
-    CommonModule,
-    ProductRoutingModule,
-    MatPaginatorModule,
-    MatDialogModule,
-    NgImageSliderModule,
-    AngularFormModule
+    imports: [
+        CommonModule,
+        ProductRoutingModule,
+        MatPaginatorModule,
+        MatDialogModule,
+        NgImageSliderModule,
+        AngularFormModule,
+        MatTableModule
 
-  ]
+    ]
 })
 export class ProductModule { }

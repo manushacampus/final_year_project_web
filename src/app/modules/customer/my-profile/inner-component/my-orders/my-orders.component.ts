@@ -56,6 +56,20 @@ export class MyOrdersComponent implements OnInit{
       }
     })
   }
+  cancelOrder(id:any){
+    console.log("id",id)
+    this.orderService.cancelOrder(id).pipe().subscribe(data=>{
+      if (data.code==200){
+        this.getAllOrderList()
+        this.toastrService.success("Cancel the Order")
+      }
+      else {
+        this.toastrService.error("UnSuccess")
+      }
+    },error => {
+      this.toastrService.error("UnSuccess")
+    })
+  }
 
   addNewSupplier() {
     this.dialog.open(FeedabackComponent,{

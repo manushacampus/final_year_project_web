@@ -7,7 +7,7 @@
 
     <!-- Product Details -->
     <div class="col-md-6">
-      <h2 class="mb-4">Aluminum Door</h2>
+      <h2 class="mb-4">{{designObj.name}}</h2>
 
       <!-- Product Description -->
       <p class="text-muted mb-4">Our aluminum doors are designed to provide durability and aesthetic appeal. Ideal for both residential and commercial applications, these doors offer excellent thermal insulation and soundproofing.</p>
@@ -37,21 +37,21 @@
 
         <!-- Additional Details -->
         <div class="form-group mb-4">
-          <textarea class="form-control" placeholder="Additional Details or Special Requirements" rows="3" formControlName="details"></textarea>
+          <textarea class="form-control" placeholder="Additional Details or Special Requirements" rows="3" formControlName="additional"></textarea>
         </div>
 
-        <div class="row mb-4">
-          <div class="col-md-4">
-            <label class="col">Total</label>
-            <input type="number" class="form-control" value="{{total}}" disabled>
-          </div>
-        </div>
+<!--        <div class="row mb-4">-->
+<!--          <div class="col-md-4">-->
+<!--            <label class="col">Total</label>-->
+<!--            <input type="number" class="form-control" value="{{total}}" disabled>-->
+<!--          </div>-->
+<!--        </div>-->
 
         <!-- Buttons -->
         <div class="d-flex justify-content-between">
-          <button type="button" class="btn btn-outline-secondary" (click)="cancel()">Cancel</button>
+          <button type="button" class="btn btn-danger" (click)="cancel()">Cancel</button>
           <button type="button" class="btn btn-primary" (click)="placeOrder()">Request Quotation</button>
-          <button type="button" class="btn btn-primary" (click)="cal()">Cal Quotation</button>
+<!--          <button type="button" class="btn btn-primary" (click)="cal()">Cal Quotation</button>-->
         </div>
       </form>
     </div>

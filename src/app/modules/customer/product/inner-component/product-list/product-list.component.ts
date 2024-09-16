@@ -24,6 +24,7 @@ export class ProductListComponent implements OnInit{
               private toastrService:ToastrService,) {
   }
   productDoorList:any[]=[]
+  filterValue:string="DOOR";
   ngOnInit(): void {
     this.getAllDoorList()
   }
@@ -31,7 +32,7 @@ export class ProductListComponent implements OnInit{
 
   }
   getAllDoorList(){
-    this.cProductService.getStockItemList(0,10,'ACTIVE','DOOR').pipe().subscribe(data=>{
+    this.cProductService.getStockItemList(0,10,'ACTIVE',this.filterValue).pipe().subscribe(data=>{
       if (data.code==200){
         this.productDoorList =data.data['content']
         console.log("door lits pageble",data.data['content'] )
@@ -47,4 +48,13 @@ export class ProductListComponent implements OnInit{
   }
 
 
+  windowsFilter() {
+    this.filterValue = "WINDOWS"
+    this.getAllDoorList()
+  }
+
+  doorFilter() {
+    this.filterValue = "DOOR"
+    this.getAllDoorList()
+  }
 }

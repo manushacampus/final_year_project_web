@@ -50,7 +50,7 @@ export class CartAllComponent implements OnInit{
           this.toastrService.error("UnSuccess")
         }
       },error => {
-        this.toastrService.error("UnSuccesst")
+        this.toastrService.error("UnSuccess")
       })
     }
 
@@ -60,8 +60,28 @@ export class CartAllComponent implements OnInit{
     this.cProductService.orderProductCart(this.cartItem).pipe().subscribe(data=>{
       if (data.code==200){
         console.log("ssjsjsj",data.data)
-
+        this.getAllCart()
+        this.toastrService.error("Order Success..")
       }
+      else {
+        this.toastrService.error("UnSuccess")
+      }
+    },error => {
+      this.toastrService.error("UnSuccess")
+    })
+  }
+
+  delete(cart: any) {
+    this.cartService.removeCart(cart.id).pipe().subscribe(data=>{
+      if (data.code==200){
+        this.toastrService.success("Success")
+        this.getAllCart()
+      }
+      else {
+        this.toastrService.error("UnSuccess")
+      }
+    },error => {
+      this.toastrService.error("UnSuccess")
     })
   }
 }

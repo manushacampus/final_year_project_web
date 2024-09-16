@@ -4,6 +4,7 @@ import {CDesignService} from "../../../../../core/services/api/customer/c-design
 import {CQuotationService} from "../../../../../core/services/api/customer/c-quotation.service";
 import {FeedabackComponent} from "../feedaback/feedaback.component";
 import {MatDialog} from "@angular/material/dialog";
+import {ToastrService} from "ngx-toastr";
 
 @Component({
   selector: 'app-my-quotation',
@@ -13,7 +14,7 @@ import {MatDialog} from "@angular/material/dialog";
 export class MyQuotationComponent implements OnInit{
   constructor(public dialog:MatDialog,
               private router:Router,
-              private designService: CDesignService,
+              private toastrService:ToastrService,
               private quotationService: CQuotationService,
               private route: ActivatedRoute) {
   }
@@ -57,4 +58,17 @@ export class MyQuotationComponent implements OnInit{
     });
   }
 
+  cancelOrder(id:any) {
+    this.quotationService.cancelOrder(id).pipe().subscribe(data=>{
+      if (data.code==200){
+        this.getQuotation()
+        this.toastrService.success("Cancel the Order")
+      }
+      else {
+        this.toastrService.error("UnSuccess")
+      }
+    },error => {
+      this.toastrService.error("UnSuccess")
+    })
+  }
 }

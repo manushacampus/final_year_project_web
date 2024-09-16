@@ -1,7 +1,7 @@
 import {Component, Inject, OnInit} from '@angular/core';
 import {auto} from "@popperjs/core";
 import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material/dialog";
-import {FormControl} from "@angular/forms";
+import {FormControl, Validators} from "@angular/forms";
 import {CProductService} from "../../../../../core/services/api/customer/c-product.service";
 import {ToastrService} from "ngx-toastr";
 
@@ -17,69 +17,54 @@ export class ProductViewComponent implements OnInit{
               private toastrService:ToastrService,
               @Inject(MAT_DIALOG_DATA) public data:any) {
   }
-  qtyControl = new FormControl(0);
+  qtyControl = new FormControl(0,Validators.required);
   product:any;
   orderList: any[] = [];
 
   ngOnInit(): void {
     console.log("product",this.data.data)
-     this.selectedImage = this.imageObject[0];
     }
   name = 'Angular';
-  imageObject = [{
-    image: 'https://sanjayv.github.io/ng-image-slider/contents/assets/img/slider/5.jpg',
-    thumbImage: 'https://sanjayv.github.io/ng-image-slider/contents/assets/img/slider/5.jpg',
-    title: 'Hummingbirds are amazing creatures'
-  }, {
-    image: 'https://sanjayv.github.io/ng-image-slider/contents/assets/img/slider/9.jpg',
-    thumbImage: 'https://sanjayv.github.io/ng-image-slider/contents/assets/img/slider/9.jpg'
-  }, {
-    image: 'https://sanjayv.github.io/ng-image-slider/contents/assets/img/slider/4.jpg',
-    thumbImage: 'https://sanjayv.github.io/ng-image-slider/contents/assets/img/slider/4.jpg',
-    title: 'Example with title.'
-  },{
-    image: 'https://sanjayv.github.io/ng-image-slider/contents/assets/img/slider/7.jpg',
-    thumbImage: 'https://sanjayv.github.io/ng-image-slider/contents/assets/img/slider/7.jpg',
-    title: 'Hummingbirds are amazing creatures'
-  }, {
-    image: 'https://sanjayv.github.io/ng-image-slider/contents/assets/img/slider/1.jpg',
-    thumbImage: 'https://sanjayv.github.io/ng-image-slider/contents/assets/img/slider/1.jpg'
-  }, {
-    image: 'https://sanjayv.github.io/ng-image-slider/contents/assets/img/slider/2.jpg',
-    thumbImage: 'https://sanjayv.github.io/ng-image-slider/contents/assets/img/slider/2.jpg',
-    title: 'Example two with title.'
-  }];
 
-  previewImage($event:any) {
-    console.log("sssss", this.imageObject[$event].title)
-    this.selectedImage = this.imageObject[$event];
-  }
 
   protected readonly auto = auto;
 
   addToCart(stockId:any) {
     console.log("stock ",stockId)
     console.log("qty",this.qtyControl.value)
+    if (this.qtyControl.value != null && this.qtyControl.value >= 1 && this.qtyControl.valid){
     this.productService.addToCart(stockId,this.qtyControl.value ?? 0).pipe().subscribe(data=>{
       console.log("response",data)
+      if (data.code==200){
+        this.toastrService.success("Add to Cart Success...")
+        this.dialogRef.close()
+      }else {
+        this.toastrService.error("UnSuccess")
+      }
+
     })
+    }else {
+      this.toastrService.error("Invalid Input...")
+    }
   }
 
   order(data:any) {
     console.log("stock ",data.id)
     console.log("qty",this.qtyControl.value)
-    if (this.qtyControl.value != null && this.qtyControl.value >= 1){
+    if (this.qtyControl.value != null && this.qtyControl.value >= 1 && this.qtyControl.valid){
       this.orderList = []
       this.orderList.push(data)
       this.productService.orderProduct(data.id,this.qtyControl.value ?? 0).pipe().subscribe(data=>{
         console.log("response",data)
         if (data.code==200){
-          this.toastrService.success("Success")
+          this.toastrService.success("Place the Order Success")
           this.dialogRef.close()
+        }else {
+          this.toastrService.error("UnSuccess")
         }
       })
     }else {
-      this.toastrService.error("UnSuccess")
+      this.toastrService.error("Invalid Input...")
     }
 
   }

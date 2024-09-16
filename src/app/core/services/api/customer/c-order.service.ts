@@ -26,4 +26,16 @@ export class COrderService {
       })
     );
   }
+
+  cancelOrder(id:string){
+    const net = new Net(NetMethod.put, Endpoint.withUrl(Endpoint.C_ORDER+'/cancel/'+id),);
+    return this.netService.process(net).pipe(
+      map((response) => {
+        if (response) {
+          return response;
+        }
+        return null;
+      })
+    );
+  }
 }
