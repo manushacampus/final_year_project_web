@@ -79,9 +79,9 @@ export class BarSectionAllComponent implements OnInit{
     this.getSections()
   }
 
-  openDialog(): void {
+  openDialog(item:any): void {
     const dialogRef = this.dialog.open(SectionViewComponent, {
-      data: "sss"
+      data: item
     });
 
     dialogRef.afterClosed().subscribe(result => {

@@ -45,4 +45,15 @@ export class CQuotationService {
     );
 
   }
+  cancelOrder(id:string){
+    const net = new Net(NetMethod.put, Endpoint.withUrl(Endpoint.C_QUOTATION+'/cancel/'+id),);
+    return this.netService.process(net).pipe(
+      map((response) => {
+        if (response) {
+          return response;
+        }
+        return null;
+      })
+    );
+  }
 }

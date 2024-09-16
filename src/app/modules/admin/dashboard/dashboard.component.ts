@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {MatTableDataSource} from "@angular/material/table";
 import {AuthService} from "../../../auth/auth.service";
+import {DashboardService} from "../../../core/services/api/admin/dashboard.service";
 
 @Component({
   selector: 'app-dashboard',
@@ -8,21 +9,24 @@ import {AuthService} from "../../../auth/auth.service";
   styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent implements OnInit{
-  constructor(private auth:AuthService) {
+  constructor(private auth:AuthService,
+              private dashboardService:DashboardService) {
   }
   designation!:any;
+  dashboard:any={};
   ngOnInit(): void {
     this.designation = this.auth.getLoginUser().designation;
+    this.getDashboard()
+      this.dashboard = {}
   }
-  displayedColumns = ['position', 'name', 'weight', 'symbol'];
-  dataSource = new MatTableDataSource();
-  isExpansionDetailRow = (i: number, row: Object) => row.hasOwnProperty('detailRow');
-  expandedElement: any;
-  test() {
-    console.log('test');
-  }
-  cellClicked(element:any) {
-    console.log(element.name + ' cell clicked');
+
+  getDashboard(){
+    this.dashboardService.getDashboard().pipe().subscribe(data=>{
+        console.log("dashboard",data.data)
+        if (data.code==200){
+            this.dashboard=data.data
+        }
+    })
   }
 
 }
