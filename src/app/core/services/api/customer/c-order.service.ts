@@ -38,4 +38,15 @@ export class COrderService {
       })
     );
   }
+  getProductByOrder(id:string){
+    const net = new Net(NetMethod.get, Endpoint.withUrl(Endpoint.C_ORDER+"/"+id),);
+    return this.netService.process(net).pipe(
+      map((response) => {
+        if (response) {
+          return response;
+        }
+        return null;
+      })
+    );
+  }
 }

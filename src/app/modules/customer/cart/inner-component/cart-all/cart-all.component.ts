@@ -61,7 +61,7 @@ export class CartAllComponent implements OnInit{
       if (data.code==200){
         console.log("ssjsjsj",data.data)
         this.getAllCart()
-        this.toastrService.error("Order Success..")
+        this.toastrService.success("Order Success..")
       }
       else {
         this.toastrService.error("UnSuccess")

@@ -1,0 +1,53 @@
+
+$baseColor: #344C64;
+$borderRadius: 5px;
+$imageBig: 100px;
+$imageSmall: 60px;
+$padding: 10px;
+
+table {
+  .table-image {
+    border-radius: 50%;
+    height: 60px;
+    width: 60px;
+  }
+  width: 100%;
+
+  td, th {
+    color: darken($baseColor, 10%);
+    padding: $padding;
+  }
+
+  td {
+
+    text-align: left;
+    font-size: 0.8em;
+    line-height: 0.03;
+  }
+
+  th {
+    background-color: lighten($baseColor, 50%);
+    font-weight: 500;
+  }
+
+  tr {
+    &:nth-child(2n) { background-color: white; }
+    &:nth-child(2n+1) { background-color: lighten($baseColor, 55%) }
+  }
+
+  .mat-column-action{
+    width: 120px;
+    text-align: center;
+
+  }
+
+  tr:hover{
+    background-color: lighten($baseColor, 60%);
+    cursor: pointer;
+    transform: scale(1.01, 1.01);
+  }
+  button:hover mat-icon {
+    cursor: pointer;
+    transform: scale(1.2, 1.2);
+  }
+}

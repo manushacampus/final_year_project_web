@@ -19,6 +19,7 @@
           </span>
               </h6>
               <span class="text-muted d-block mb-2 small">Shipping Address: {{order.customer.user.address}}</span>
+              <span class="text-muted d-block mb-2 small">Total: Rs.{{order.total}}</span>
               <div class="row align-items-center">
                 <div class="col-12">
                   <div class="row align-items-center g-0">
@@ -40,7 +41,7 @@
           </div>
           <div class="col-2 d-flex justify-content-center align-items-center mt-4">
 <!--            <button class="btn btn-primary" (click)="addNewSupplier()" >Completed</button>-->
-            <mat-icon matTooltip="View Order Product">inbox</mat-icon>
+            <mat-icon matTooltip="View Order Product" (click)="viewOrder(order)">inbox</mat-icon>
             <mat-icon color="warn" matTooltip="Cancel Order" (click)="cancelOrder(order.id)" *ngIf="order.orderType=='PENDING'">close</mat-icon>
           </div>
         </div>

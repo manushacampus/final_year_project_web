@@ -1,29 +1,48 @@
-<div class="modal-content" style="width: 400px">
-  <div class="modal-header" style="background-color: green">
-    <h5 class="modal-title" id="exampleModalLabel">Customer Feedback</h5>
+<div class="modal-content" style="width: 600px">
+  <div class="modal-header" style="background-color: rgb(26, 69, 52)">
+    <h5 class="modal-title" id="exampleModalLabel" style="color: white">Customer Feedback</h5>
 
     <i class="fa-solid fa-xmark" (click)="modalRef.close()"></i>
 
   </div>
-  <div class="modal-body-lg">
+  <div class="modal-body-lg p-2">
 
-    <form class="form-two-column" [formGroup]="designForm">
 
-      <div class="h-col">
+      <div class="table-users mt-2">
+        <table cellspacing="0">
+          <tr>
+            <th width="100">Image</th>
+            <th  width="300">Product Code</th>
+            <th width="200">Product Type</th>
+            <th width="200">Unit Price</th>
+            <th>Qty</th>
+          </tr>
+          <tr *ngFor="let item of productList">
+            <td>
+              <ng-container *ngIf="item.type === 'DOOR'">
+                <img class="table-image" [src]="item.door.image" alt="Door Image"/>
+              </ng-container>
+              <ng-container *ngIf="item.type === 'WINDOWS'">
+                <img class="table-image" [src]="item.windows.image" alt="Windows Image"/>
+              </ng-container>
+            </td>
+            <td>
+              <ng-container *ngIf="item.type === 'DOOR'">{{item.door.code}}</ng-container>
+              <ng-container *ngIf="item.type === 'WINDOWS'">{{item.windows.type}}</ng-container>
+            </td>
+            <td>{{item.type}}</td>
+            <td>{{item.price}}</td>
+            <td>{{item.qty}}</td>
+          </tr>
 
-        <div class="form-controls">
-          <label> Feedback </label>
-          <textarea class="form-control mt-1"  formControlName="nic"></textarea>
-        </div>
-
+        </table>
       </div>
 
-    </form>
+
 
   </div>
   <div class="modal-footer">
     <button class="btn btn-cancel" (click)="modalRef.close()">Cancel</button>
-    <button class="btn btn-customer" (click)="saveSupplier()">Submit</button>
   </div>
 </div>
 

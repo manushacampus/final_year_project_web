@@ -71,8 +71,10 @@ export class MyOrdersComponent implements OnInit{
     })
   }
 
-  addNewSupplier() {
+  viewOrder(data:any) {
+    console.log("data view",data)
     this.dialog.open(FeedabackComponent,{
+      data:data
     }).afterClosed().subscribe(result=>{
     });
   }

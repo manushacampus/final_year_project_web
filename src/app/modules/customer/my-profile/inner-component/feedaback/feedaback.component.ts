@@ -1,9 +1,10 @@
-import {Component, OnInit} from '@angular/core';
-import {MatDialogRef} from "@angular/material/dialog";
+import {Component, Inject, OnInit} from '@angular/core';
+import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material/dialog";
 import {SalaryManagementComponent} from "../../../../admin/salary-management/salary-management.component";
 import {SupplierService} from "../../../../../core/services/api/admin/supplier.service";
 import {ToastrService} from "ngx-toastr";
 import {FormControl, FormGroup, Validators} from "@angular/forms";
+import {COrderService} from "../../../../../core/services/api/customer/c-order.service";
 
 @Component({
   selector: 'app-feedaback',
@@ -12,15 +13,18 @@ import {FormControl, FormGroup, Validators} from "@angular/forms";
 })
 export class FeedabackComponent implements OnInit{
 
-  constructor(public modalRef: MatDialogRef<SalaryManagementComponent>,
-              private supplierService:SupplierService,
-              private toastrService:ToastrService) {
+  constructor(public modalRef: MatDialogRef<FeedabackComponent>,
+              private cOrderService:COrderService,
+              private toastrService:ToastrService,
+              @Inject(MAT_DIALOG_DATA) public data:any) {
   }
 
   designForm!:FormGroup;
   proImage!:File;
+  productList!:any;
 
   ngOnInit(): void {
+    this.getProduct()
     this.designForm = new FormGroup({
       id:new FormControl(''),
       firstName:new FormControl('',Validators.required),
@@ -33,24 +37,13 @@ export class FeedabackComponent implements OnInit{
     });
   }
 
-  saveSupplier(){
-    if (this.designForm.valid){
-      console.log("supplier",this.designForm.value)
-      this.supplierService.registerSupplier(this.designForm.value).pipe().subscribe(data=>{
-        if (data.code==200){
-          this.toastrService.success("success")
-          this.modalRef.close()
-        }
-        else {
-          this.toastrService.error("unSuccess")
-        }
-      },error => {
-        this.toastrService.error(error.error.message,"Error")
-      })
-    }
-    else {
-      this.toastrService.error("Please Fill The Required Field ","Error")
-    }
+  getProduct(){
+    this.cOrderService.getProductByOrder(this.data.id).pipe().subscribe(data=>{
+      if (data.code==200){
+        console.log("response",data)
+        this.productList = data.data
+      }
+    })
   }
 
   onFileSelected(event: any) {
