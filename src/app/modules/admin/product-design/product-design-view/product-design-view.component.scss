@@ -2,7 +2,7 @@
   width: 100%;
   display: flex;
   .image{
-    background-color: #1A4534;
+    //background-color: #1A4534;
     width: 50%;
     display: flex;
     justify-content: center;
@@ -20,10 +20,16 @@
   display: flex;
   .add-table{
     width: 50%;
-    background-color: #6C8E1E;
+    //background-color: #6C8E1E;
   }
   .fill-table{
     width: 50%;
-    background-color: #101828;
+    border-radius: 10px;
+  }
+  .add-table{
+    border-radius: 10px;
+    background: lavender;
+    box-shadow: 0 1px 9px 0 rgba(0, 0, 0, 0.1), 0px 6px 5px 0px rgba(0, 0, 0, 0.03);
+    padding: 10px;
   }
 }
