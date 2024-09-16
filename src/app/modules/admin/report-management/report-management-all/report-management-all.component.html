@@ -8,52 +8,113 @@
       </div>
     </div>
   </div>
-
+  <form [formGroup]="details" >
   <div class="row mb-5 mt-4" style="margin-left: 4px">
     <div class="col-3">
       <div class="form-controls">
-        <label> Start From</label> <span style="color: red; margin-left: 5px">*</span>
-        <input type="date" class="form-control mt-1"  formControlName="nic">
+        <label> Pick Date</label> <span style="color: red; margin-left: 5px">*</span>
+        <input type="date" class="form-control mt-1"  formControlName="startDate">
+      </div>
+    </div>
+    <div class="col-6"></div>
+
+<!--    <div class="col-3">-->
+<!--      <div class="form-controls">-->
+<!--        <label> Start To</label> <span style="color: red; margin-left: 5px">*</span>-->
+<!--        <input type="date" class="form-control mt-1"  formControlName="endDate">-->
+<!--      </div>-->
+<!--    </div>-->
+
+    <div class="col-3 mt-3">
+
+      <div class="btn-sec" style="float: right;display: flex;flex-direction: row">
+        <button class="btn btn-custom" mat-raised-button (click)="generateReport()" >Generate Report</button>
+        <div style="text-align: center;align-items: center;padding: 10px;margin: 10px" *ngIf="report">
+          <mat-icon color="accent" (click)="downloadPDF()" matTooltip="Download Report as PDF">get_app</mat-icon>
+        </div>
+      </div>
+    </div>
+  </div>
+  </form>
+
+
+
+  <div class="a4-page" id="pdf-content" style="" *ngIf="report">
+    <!-- Add the title at the top -->
+    <div class="row">
+      <div class="col-lg-12 col-md-12 col-sm-12">
+        <h2 class="text-center" style="text-align: center; font-weight: bold;">Monthly Report</h2>
       </div>
     </div>
 
-    <div class="col-3">
-      <div class="form-controls">
-        <label> Start To</label> <span style="color: red; margin-left: 5px">*</span>
-        <input type="date" class="form-control mt-1"  formControlName="nic">
+    <!-- Income Section -->
+    <div class="row">
+      <div class="col-lg-12 col-md-12 col-sm-12">
+        <h4 class="box-title mt-5">Income</h4>
+        <div class="table-responsive">
+          <table class="table table-striped">
+            <tbody>
+            <tr>
+              <td width="500">Product Order Payments Total</td>
+              <td>Rs. {{report.productOrder}}</td>
+            </tr>
+            <tr>
+              <td width="500">Quotation Order Payments Total</td>
+              <td>Rs. {{report.quotationOrder}}</td>
+            </tr>
+            <tr>
+              <td width="500" style="font-weight: bold">Total Income</td>
+              <td style="font-weight: bold">Rs. {{report.incomeTotal}}</td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
       </div>
-    </div>
 
-    <div class="col-6 mt-3">
-      <div class="btn-sec" style="float: right">
-        <button class="btn btn-custom" mat-raised-button (click)="addNewSupplier()">Generate Report</button>
+      <!-- Expenses Section -->
+      <div class="col-lg-12 col-md-12 col-sm-12">
+        <h4 class="box-title mt-5">Expenses</h4>
+        <div class="table-responsive">
+          <table class="table table-striped">
+            <tbody>
+            <tr>
+              <td width="500">Employees Salary Total</td>
+              <td>Rs. {{report.employeeSalary}}</td>
+            </tr>
+            <tr>
+              <td width="500">Inventory Purchase Payment Total</td>
+              <td>Rs. {{report.inventoryPurchase}}</td>
+            </tr>
+            <tr>
+              <td width="500">Utility Payment Total</td>
+              <td>Rs. {{report.utility}}</td>
+            </tr>
+            <tr>
+              <td width="500" style="font-weight: bold">Total Expenses</td>
+              <td style="font-weight: bold">Rs. {{report.outcomeTotal}}</td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Monthly Profit Section -->
+      <div class="col-lg-12 col-md-12 col-sm-12">
+        <div class="table-responsive">
+          <table class="table table-striped">
+            <tbody>
+            <tr>
+              <td width="500" style="font-weight: bold">Monthly Profit</td>
+              <td style="font-weight: bold">Rs. {{report.profit}}</td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
   </div>
 
 
-
-
-  <div class="table-users">
-
-    <table cellspacing="0">
-      <tr>
-        <th>Name</th>
-        <th width="150">Year</th>
-        <th>Month</th>
-        <th >Salary</th>
-        <th >Action</th>
-      </tr>
-      <tr >
-        <td>Kamal</td>
-        <td>2024</td>
-        <td>09</td>
-        <td>90000</td>
-        <td> <i class="fa-regular fa-file" matTooltip="View Salary Slip" ></i> </td>
-      </tr>
-
-    </table>
-  </div>
 
 </div>
 

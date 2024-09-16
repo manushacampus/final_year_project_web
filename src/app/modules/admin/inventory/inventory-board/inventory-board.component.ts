@@ -3,11 +3,9 @@ import {MatDialog} from "@angular/material/dialog";
 import {ToastrService} from "ngx-toastr";
 import {InventoryService} from "../../../../core/services/api/admin/inventory.service";
 import {MatTableDataSource} from "@angular/material/table";
-import {
-  InventoryBarFormComponent
-} from "../inventory-bar/inner-component/inventory-bar-form/inventory-bar-form.component";
 import {InventoryBoardFormComponent} from "./inner-component/inventory-board-form/inventory-board-form.component";
 import {InventoryPurchaseRequestComponent} from "../inventory-purchase-request/inventory-purchase-request.component";
+
 
 @Component({
   selector: 'app-inventory-board',
@@ -18,10 +16,10 @@ export class InventoryBoardComponent implements OnInit{
   inventoryList:any[]=[]
   constructor(public dialog:MatDialog,
               private toastrService:ToastrService,
-              private inventoryService:InventoryService) {
+              private inventoryService:InventoryService,) {
   }
   dataSource = new MatTableDataSource();
-  displayedColumns = ['code','creationType', 'type', 'qty', 'action'];
+  displayedColumns = ['code','boardName','creationType', 'qty','price', 'action'];
   totalPage=0
   pageSize=[10,20,50]
   selectedPageSize:number=10
@@ -43,6 +41,7 @@ export class InventoryBoardComponent implements OnInit{
     this.getAllBar()
   }
   getAllBar(){
+
     this.inventoryService.getInventoryByType(
       "BOARD",
       this.selectedPageIndex,

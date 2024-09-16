@@ -18,7 +18,7 @@ export class InventoryBarComponent implements OnInit{
               private inventoryService:InventoryService) {
   }
   dataSource = new MatTableDataSource();
-  displayedColumns = ['code','sectionCode','creationType','color', 'type', 'qty', 'action'];
+  displayedColumns = ['code','sectionCode','color', 'type', 'qty','price', 'action'];
   totalPage=0
   pageSize=[10,20,50]
   selectedPageSize:number=10
