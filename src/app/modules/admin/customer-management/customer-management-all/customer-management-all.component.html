@@ -16,16 +16,16 @@
         <th>Name</th>
         <th width="150">Email</th>
         <th>Address</th>
-        <th >status</th>
+        <th >Contact</th>
         <th >Action</th>
       </tr>
 
       <tr *ngFor="let item of employeeList">
         <td><img src="{{item.user.image}}" alt="" /></td>
-        <td>customer name</td>
-        <td>customer email</td>
-        <td>customer address</td>
-        <td>customer statues</td>
+        <td>{{item.user.firstName}} {{item.user.lastName}}</td>
+        <td>{{item.user.email}}</td>
+        <td>{{item.user.address}}</td>
+        <td>{{item.user.contact}}</td>
         <td>
           <mat-icon style="color: dodgerblue"  class="me-2" matTooltip="View Customer" (click)="viewCustomer()">visibility</mat-icon>
           <mat-icon style="color: red" matTooltip="Block Customer">block</mat-icon>
