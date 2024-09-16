@@ -122,5 +122,17 @@ export class DesignService {
     );
 
   }
+  updateDesign(data:any){
+    const net = new Net(NetMethod.put, Endpoint.withUrl(Endpoint.PRODUCT_DESIGN+"/update"), data);
+    return this.netService.process(net).pipe(
+      map((response) => {
+        if (response) {
+          return response;
+        }
+        return null;
+      })
+    );
+
+  }
 
 }

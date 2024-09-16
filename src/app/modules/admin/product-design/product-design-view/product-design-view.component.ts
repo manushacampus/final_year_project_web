@@ -59,6 +59,7 @@ export class ProductDesignViewComponent implements OnInit{
   getDesignById(){
     this.designService.getDesignById(this.designId).pipe().subscribe(data=>{
       this.designForm.patchValue(data.data)
+      console.log("sssdsff", this.designForm.value)
     })
   }
 
@@ -103,8 +104,6 @@ export class ProductDesignViewComponent implements OnInit{
       this.getInventoryByDesign(this.designId);
     });
 
-
-
   }
 
   changeStatus(status:string) {
@@ -112,14 +111,45 @@ export class ProductDesignViewComponent implements OnInit{
     console.log("design Status",status)
     this.designService.changeStatus(this.designId,status).pipe().subscribe(data=>{
       console.log("response",data)
-      this.getDesignById()
+      if (data.code==200){
+        this.getDesignById()
+        this.toastrService.success("Change Status")
+      }else {
+        this.toastrService.error("UnSuccess..!")
+      }
+
+    },error => {
+      this.toastrService.error("UnSuccess..!")
     })
   }
 
   delete(id:string) {
     this.designService.delete(id).pipe().subscribe(data=>{
       console.log("response",data)
-      this.getInventoryByDesign(this.designId);
+      if (data.code==200){
+        this.getInventoryByDesign(this.designId);
+        this.toastrService.success("Close")
+      }else {
+        this.toastrService.error("UnSuccess..!")
+      }
+
+    })
+  }
+
+  save() {
+    console.log("ssss",this.designForm.value)
+    this.designService.updateDesign(this.designForm.value).pipe().subscribe(data=>{
+      console.log("response",data)
+      if (data.code==200){
+        this.getInventoryByDesign(this.designId);
+        this.toastrService.success("Saved..!")
+      }
+      else {
+        this.toastrService.error("UnSuccess..!")
+      }
+
+    },error => {
+      this.toastrService.error("UnSuccess..!")
     })
   }
 }

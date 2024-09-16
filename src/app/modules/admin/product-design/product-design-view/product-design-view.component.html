@@ -15,7 +15,7 @@
 
     <div class="design">
       <div class="image">
-        <img src="http://localhost:8080/api/file/product-design/a2014189f4e54a5fb64fd2fd6179837b.jpg" alt="">
+        <img src="{{this.designForm.get('image')?.value}}" alt="">
       </div>
       <div class="form">
         <form class="form-two-column" [formGroup]="designForm">
@@ -54,11 +54,6 @@
               <input class="form-control"  formControlName="name">
             </div>
 
-            <div class="form-controls">
-              <label>Image</label>
-              <input type="file" class="form-control" >
-            </div>
-
           </div>
         </form>
 
@@ -68,7 +63,7 @@
           <button class="btn btn-cancel" (click)="cancel()">Cancel</button>
           <button class="btn btn-save-admin" *ngIf="designForm.get('status')?.value === 'INACTIVE'" (click)="changeStatus('ACTIVE')">Active</button>
           <button class="btn btn-save-admin" *ngIf="designForm.get('status')?.value === 'ACTIVE'" (click)="changeStatus('INACTIVE')">Inactive</button>
-          <button class="btn btn-save-admin">Save</button>
+          <button class="btn btn-save-admin" (click)="save()">Save</button>
         </div>
 
 
@@ -78,7 +73,7 @@
     <div class="inventory" style="">
       <div class="add-table">
 
-        <div class="row mb-3" style="height: 50px;background: #D31313;align-items: center">
+        <div class="row mb-3" style="height: 50px;align-items: center">
           <div class="col-md-4">
             <select class="form-control" placeholder="Search by Last Name" (change)="selectType($event)">
               <option value="" selected disabled> Select Type</option>
@@ -88,7 +83,7 @@
             </select>
           </div>
           <div class="col-md-4">
-            <input type="text" class="form-control" placeholder="Search by Code" >
+<!--            <input type="text" class="form-control" placeholder="Search by Code" >-->
           </div>
         </div>
 
@@ -122,14 +117,11 @@
 
       </div>
       <div class="fill-table">
-        <div style="height: 50px;background: #1A4534"> Material List</div>
+        <div style="height: 50px;background: #bdd8f5; border-radius: 5px"> Material List</div>
         <div class="list-group" style="height: 250px; /* Set the desired height */
   overflow-y: auto;">
           <ng-container *ngFor="let data of inventoryList">
-<!--            <div *ngIf="data.inventory.inventoryType=='BAR'">bar  <button (click)="delete(data.id)">delete</button></div>-->
-<!--            <div *ngIf="data.inventory.inventoryType=='BOARD'">board  <button (click)="delete(data.id)">delete</button></div>-->
-<!--            <div *ngIf="data.inventory.inventoryType=='OTHER'">other  <button (click)="delete(data.id)">delete</button></div>-->
-            <div class="row list-group-item list-group-item-action m-1" style="display: flex">
+            <div class="row list-group-item list-group-item-action m-1" style="display: flex;width: 98%;background: lavender;">
                 <div class="col-10">
                   <span>code : {{data.inventory.code}} </span>
                   <span>| Inventory Type : {{data.inventory.inventoryType}} </span>
@@ -138,9 +130,6 @@
                 </div>
               <div class="col-2"><i class="fa-solid fa-trash" (click)="delete(data.id)"></i></div>
             </div>
-<!--            <a href="#" class="list-group-item list-group-item-action" >-->
-<!--              {{data.inventory.inventoryType}}-->
-<!--            </a>-->
           </ng-container>
 
 
