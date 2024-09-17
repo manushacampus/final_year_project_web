@@ -20,15 +20,15 @@ constructor(private router:Router,
   productDesign:any[]=[]
 
   ngOnInit(): void {
-    this.getAllDesignPage()
+    this.getAllDesignPage("")
   }
   navigatePage(id:any) {
     console.log("ss")
     this.router.navigate([`customer/quotation/design/${id}`])
   }
-  getAllDesignPage(){
+  getAllDesignPage(type:string){
     this.designService.getDesignByStatusPage(
-      "",
+      type,
       "ACTIVE",
       this.selectedPageIndex,
       this.selectedPageSize).pipe().subscribe(data=>{
@@ -36,5 +36,10 @@ constructor(private router:Router,
       this.productDesign = data.data['content']
       this.totalPage = data.data.totalElements
     })
+  }
+
+  filter(value:string) {
+    this.getAllDesignPage(value)
+
   }
 }

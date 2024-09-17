@@ -30,9 +30,16 @@ export class QuotationManagementViewComponent implements OnInit{
   change(type:string){
     this.quotationService.changeQuotationType(this.quotationId,type).pipe().subscribe(
       data=>{
-        console.log("response=",data)
-      }
-    )
+        if (data.code==200){
+          this.toastrService.success("Canceled..")
+          window.history.back()
+        }
+        else {
+          this.toastrService.error("UnSuccess..")
+        }
+      },error => {
+        this.toastrService.error("UnSuccess..")
+      })
   }
   getQuotationById(){
     this.quotationService.getQuotationById(this.quotationId).pipe().subscribe(data=>{
@@ -52,9 +59,17 @@ export class QuotationManagementViewComponent implements OnInit{
   }
 
   approve() {
-
     this.quotationService.approveQuotation(this.quotationId).pipe().subscribe(data=>{
       console.log("Response",data)
+      if (data.code==200){
+        this.toastrService.success("Approved..")
+        window.history.back()
+      }
+      else {
+        this.toastrService.error("UnSuccess..")
+      }
+    },error => {
+      this.toastrService.error("UnSuccess..")
     })
   }
 }

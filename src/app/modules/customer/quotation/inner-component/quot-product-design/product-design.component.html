@@ -3,20 +3,19 @@
   <!-- Navigation and Search -->
   <div class="bg-light p-3 mb-4 d-flex flex-column flex-md-row justify-content-between align-items-center rounded shadow-sm">
     <div class="sub-nav mb-3 mb-md-0">
-      <button type="button" class="btn btn-outline-primary mb-2 mb-md-0">All</button>
-      <button type="button" class="btn btn-outline-primary mb-2 mb-md-0">Windows</button>
-      <button type="button" class="btn btn-outline-primary mb-2 mb-md-0">Door</button>
-      <button type="button" class="btn btn-outline-primary mb-2 mb-md-0">Other</button>
+      <button type="button" class="btn btn-outline-primary mb-2 mb-md-0" (click)="filter('')">All</button>
+      <button type="button" class="btn btn-outline-primary mb-2 mb-md-0" (click)="filter('DOOR')">Door</button>
+      <button type="button" class="btn btn-outline-primary mb-2 mb-md-0" (click)="filter('WINDOWS')">Windows</button>
     </div>
     <div class="search-bar w-100 w-md-auto">
-      <div class="input-group">
-        <div class="input-group-prepend">
-          <span class="input-group-text">
-            <i class="fa-solid fa-magnifying-glass"></i>
-          </span>
-        </div>
-        <input type="text" class="form-control" placeholder="Search...">
-      </div>
+<!--      <div class="input-group">-->
+<!--        <div class="input-group-prepend">-->
+<!--          <span class="input-group-text">-->
+<!--            <i class="fa-solid fa-magnifying-glass"></i>-->
+<!--          </span>-->
+<!--        </div>-->
+<!--        <input type="text" class="form-control" placeholder="Search...">-->
+<!--      </div>-->
     </div>
   </div>
 

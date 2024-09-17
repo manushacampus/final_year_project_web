@@ -19,6 +19,7 @@
           <div class="card-first-row d-flex justify-content-between align-items-center mb-3">
             <div class="text-field text-primary font-weight-bold" style="font-size: 1.2rem;" *ngIf="item.stockItem && item.stockItem.type=='DOOR'">{{item.stockItem.door.code}}</div>
             <div class="text-field text-primary font-weight-bold" style="font-size: 1.2rem;" *ngIf="item.stockItem && item.stockItem.type=='WINDOWS'">{{item.stockItem.windows.code}}</div>
+            <div class="text-field text-primary font-weight-bold" style="font-size: 1.2rem;" *ngIf="item.creationType=='QUOTATION'">{{item.jobCode}}</div>
             <div>
             <span class="badge badge-success badge-lg rounded-pill">
               {{item.progress}} <i class="fas fa-tasks ml-1"></i>
@@ -38,10 +39,10 @@
                 <i class="fas fa-tools text-muted mr-2"></i>
                 <span class="font-weight-bold text-secondary" *ngIf="item.quotation">Job Type: </span>{{item.creationType}}
               </div>
-              <div class="text-field mt-2">
-                <i class="fas fa-calendar-alt text-muted mr-2"></i>
-                <span class="font-weight-bold text-secondary">Created At: </span>
-              </div>
+<!--              <div class="text-field mt-2">-->
+<!--                <i class="fas fa-calendar-alt text-muted mr-2"></i>-->
+<!--                <span class="font-weight-bold text-secondary">Created At: </span>-->
+<!--              </div>-->
             </div>
             <div class="col-md-6">
               <div class="text-field">

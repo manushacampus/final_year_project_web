@@ -33,6 +33,8 @@ export class QuotationOrdersViewComponent implements OnInit{
     this.quotationService.changeQuotationType(this.quotationId,type).pipe().subscribe(
       data=>{
         console.log("response=",data)
+        this.toastrService.success("Canceled..")
+        window.history.back()
       }
     )
   }
@@ -63,6 +65,7 @@ export class QuotationOrdersViewComponent implements OnInit{
     this.quotationService.deliverOrder(this.quotationId).pipe().subscribe(data=>{
       if (data.code==200){
         this.toastrService.success("Delivered..")
+        window.history.back()
       }
 
     },error => {
@@ -75,6 +78,7 @@ export class QuotationOrdersViewComponent implements OnInit{
     this.quotationService.deliveredOrder(this.quotationId).pipe().subscribe(data=>{
       if (data.code==200){
         this.toastrService.success("Delivered..")
+        window.history.back()
       }
 
     },error => {
@@ -86,11 +90,13 @@ export class QuotationOrdersViewComponent implements OnInit{
     this.dialog.open(DeliveryManagementPaymentComponent,{
       data: {
         data:this.quotationId,
-        type:"QUOTATION"
+        type:"QUOTATION",
+        total:this.quotationData.total
       }
     });
     this.dialog.afterAllClosed.pipe().subscribe(result => {
       console.log('The dialog was closed',result);
+      window.history.back()
     });
   }
 

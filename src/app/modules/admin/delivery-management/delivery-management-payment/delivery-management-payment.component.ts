@@ -17,7 +17,7 @@ export class DeliveryManagementPaymentComponent implements OnInit{
   constructor(public modalRef: MatDialogRef<DeliveryManagementPaymentComponent>,
               private ordersService: OrdersService,
               private quotationService: QuotationService,
-              private to:ToastrService,
+              private toastrService:ToastrService,
               @Inject(MAT_DIALOG_DATA) public data:any) {
   }
   detailsForm!:FormGroup;
@@ -27,6 +27,11 @@ export class DeliveryManagementPaymentComponent implements OnInit{
       price:new FormControl(0.0,Validators.required),
 
     });
+
+      this.detailsForm.get('price')?.setValue(this.data.total)
+
+
+
     console.log("hshs",this.data.type)
   }
   onFileSelected(event: any) {
@@ -38,12 +43,24 @@ export class DeliveryManagementPaymentComponent implements OnInit{
     if (this.invoice!=null){
       if (this.data.type=='ORDER'){
         this.ordersService.completeOrder(this.data.data,this.invoice,this.detailsForm.get('price')?.value).pipe().subscribe(data=>{
-
+            if (data.code=200){
+              this.toastrService.success("Complete order")
+              this.modalRef.close()
+            }
+            else {
+              this.toastrService.error("UnSuccess")
+            }
         })
       }
       if (this.data.type=='QUOTATION'){
         this.quotationService.completeOrder(this.data.data,this.invoice,this.detailsForm.get('price')?.value).pipe().subscribe(data=>{
-
+          if (data.code=200){
+            this.toastrService.success("Complete order")
+            this.modalRef.close()
+          }
+          else {
+            this.toastrService.error("UnSuccess")
+          }
         })
       }
 

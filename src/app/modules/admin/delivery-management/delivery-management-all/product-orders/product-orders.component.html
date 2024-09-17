@@ -41,7 +41,7 @@
       <tr *ngFor="let item of orderList" (click)="view(item.id)">
         <td>{{item.customer.user.firstName}} {{item.customer.user.lastName}}</td>
         <td>{{item.customer.user.address}}</td>
-        <td>{{item.createdAt}}</td>
+        <td>{{item.updatedAt}}</td>
         <td>{{item.total}}</td>
         <td>{{item.orderType}}</td>
         <td>{{item.status}}</td>

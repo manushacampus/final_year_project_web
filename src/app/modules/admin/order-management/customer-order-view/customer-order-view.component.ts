@@ -46,6 +46,9 @@ export class CustomerOrderViewComponent implements OnInit{
     this.ordersService.acceptOrder(this.orderId).pipe().subscribe(data=>{
       if (data.code==200){
         this.toastrService.success("Accepted..")
+        window.history.back()
+      }else {
+        this.toastrService.error("UnSuccess")
       }
 
     },error => {
@@ -58,6 +61,7 @@ export class CustomerOrderViewComponent implements OnInit{
     this.ordersService.cancelOrder(this.orderId).pipe().subscribe(data=>{
       if (data.code==200){
         this.toastrService.success("Cancel..")
+        window.history.back()
       }
 
     },error => {

@@ -11,7 +11,7 @@
       <button class="btn btn-custom" mat-raised-button *ngIf="this.quotationData.progress=='APPROVED'" (click)="deliver()">Deliver</button>
       <button class="btn btn-custom" mat-raised-button *ngIf="this.quotationData.progress=='DELIVER'" (click)="delivered()">Delivered</button>
       <button class="btn btn-custom" mat-raised-button *ngIf="this.quotationData.progress=='DELIVERED'" (click)="complete()">Complete</button>
-      <button class="btn btn-cancel" mat-raised-button (click)="change('CANCELED')">Cancel</button>
+      <button class="btn btn-cancel" mat-raised-button *ngIf="this.quotationData.progress!='COMPLETED'" (click)="change('CANCELED')">Cancel</button>
     </div>
   </div>
 
@@ -46,12 +46,12 @@
 
                 <div class="row">
                   <div class="col-6"><label class="small mb-1" >Order Date :</label></div>
-                  <!--                  <div class="col-6"><label class="small mb-1">{{this.order.createdAt}}</label></div>-->
+                                    <div class="col-6"><label class="small mb-1">{{this.quotationData.updatedAt}}</label></div>
                 </div>
 
                 <div class="row">
                   <div class="col-6"><label class="small mb-1" >Order Type :</label></div>
-                  <!--                  <div class="col-6"><label class="small mb-1">{{this.order.orderType}}</label></div>-->
+                                    <div class="col-6"><label class="small mb-1">{{this.quotationData.progress}}</label></div>
                 </div>
 
                 <div class="row">
@@ -89,36 +89,36 @@
             <ng-container *ngIf="quotationData.type === 'DOOR'">
               <td>{{doorQuotation.design.code}}</td>
             </ng-container>
-            <ng-template *ngIf="quotationData.type === 'WINDOWS'">
+            <ng-container *ngIf="quotationData.type === 'WINDOWS'">
               <td>{{windowQuotation.design.code}}</td>
-            </ng-template>
+            </ng-container>
           </tr>
           <tr>
             <td>Design Name</td>
             <ng-container *ngIf="quotationData.type === 'DOOR'">
               <td>{{doorQuotation.design.name}}</td>
             </ng-container>
-            <ng-template *ngIf="quotationData.type === 'WINDOWS'">
+            <ng-container *ngIf="quotationData.type === 'WINDOWS'">
               <td>{{windowQuotation.design.name}}</td>
-            </ng-template>
+            </ng-container>
           </tr>
           <tr>
             <td>Width</td>
             <ng-container *ngIf="quotationData.type === 'DOOR'">
               <td>{{doorQuotation.width}} mm</td>
             </ng-container>
-            <ng-template *ngIf="quotationData.type === 'WINDOWS'">
+            <ng-container *ngIf="quotationData.type === 'WINDOWS'">
               <td>{{windowQuotation.width}} mm</td>
-            </ng-template>
+            </ng-container>
           </tr>
           <tr>
             <td>Height</td>
             <ng-container *ngIf="quotationData.type === 'DOOR'">
               <td>{{doorQuotation.height}} mm</td>
             </ng-container>
-            <ng-template *ngIf="quotationData.type === 'WINDOWS'">
+            <ng-container *ngIf="quotationData.type === 'WINDOWS'">
               <td>{{doorQuotation.height}} mm</td>
-            </ng-template>
+            </ng-container>
           </tr>
           </tbody>
         </table>

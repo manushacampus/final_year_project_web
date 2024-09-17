@@ -11,7 +11,7 @@
       <button class="btn btn-custom" mat-raised-button *ngIf="this.order.orderType=='APPROVED'" (click)="deliver()">Deliver</button>
       <button class="btn btn-custom" mat-raised-button *ngIf="this.order.orderType=='DELIVER'" (click)="delivered()">Delivered</button>
       <button class="btn btn-custom" mat-raised-button *ngIf="this.order.orderType=='DELIVERED'" (click)="complete()">Complete</button>
-      <button class="btn btn-cancel" mat-raised-button (click)="cancel()">Cancel</button>
+      <button class="btn btn-cancel" mat-raised-button (click)="cancel()">Back</button>
     </div>
   </div>
 
@@ -37,7 +37,7 @@
 
                 <div class="row">
                   <div class="col-6"><label class="small mb-1" >Order Date :</label></div>
-                  <div class="col-6"><label class="small mb-1">{{this.order.createdAt}}</label></div>
+                  <div class="col-6"><label class="small mb-1">{{this.order.updatedAt}}</label></div>
                 </div>
 
                 <div class="row">
@@ -84,9 +84,9 @@
           <ng-container *ngIf="item.type === 'DOOR'">
             <img class="table-image" [src]="item.door.image" alt="Door Image"/>
           </ng-container>
-          <ng-template *ngIf="item.type === 'WINDOWS'">
-            <img [src]="item.windows.image" alt="Windows Image"/>
-          </ng-template>
+          <ng-container *ngIf="item.type === 'WINDOWS'">
+            <img class="table-image" [src]="item.windows.image" alt="Windows Image"/>
+          </ng-container>
         </td>
         <td>
           <ng-container *ngIf="item.type === 'DOOR'">{{item.door.code}}</ng-container>

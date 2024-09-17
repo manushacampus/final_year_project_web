@@ -6,19 +6,23 @@
         <div class="card mb-3 card-body">
           <div class="row align-items-center">
             <div class="col-auto">
-              <a href="#!.html">
+              <a href="">
                 <img src="/assets/img/order.jpg" class="width-90 rounded-3" alt="">
               </a>
             </div>
             <div class="col">
               <div class="overflow-hidden flex-nowrap">
                 <h6 class="mb-1" style="justify-content: space-between;display: flex;">
-                  <a href="#!" class="text-reset">Order Code: {{order.id}} </a>
+                  <a href="" class="text-reset">Order Code: {{order.id}} </a>
                   <span class="badge badge-success badge-lg rounded-pill" style="background-color: #007bff">
                    {{order.progress}} <i class="fas fa-tasks ml-1"></i>
           </span>
                 </h6>
                 <span class="text-muted d-block mb-2 small">Shipping Address: {{order.customer.user.address}}</span>
+                <span class="text-muted d-block mb-2 small" *ngIf="order.type=='DOOR'">Design Code: {{order.doorQuotation.design.code}}</span>
+                <span class="text-muted d-block mb-2 small" *ngIf="order.type=='WINDOWS'">Design Code: {{order.windowQuotation.design.code}}</span>
+                <span class="text-muted d-block mb-2 small">Total: {{order.total}}</span>
+                <span class="text-muted d-block mb-2 small">Qty: {{order.qty}}</span>
 <!--                <span class="text-muted d-block mb-2 small">Order Total: </span>-->
                 <div class="row align-items-center">
                   <div class="col-12">

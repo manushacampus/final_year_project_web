@@ -49,8 +49,11 @@ export class ProductOrdersViewComponent implements OnInit{
     this.ordersService.deliverOrder(this.orderId).pipe().subscribe(data=>{
       if (data.code==200){
         this.toastrService.success("Delivered..")
+        window.history.back()
       }
-
+      else {
+        this.toastrService.error("UnSuccess")
+      }
     },error => {
       this.toastrService.error(error.error.message,"Error")
     })
@@ -60,6 +63,10 @@ export class ProductOrdersViewComponent implements OnInit{
     this.ordersService.deliveredOrder(this.orderId).pipe().subscribe(data=>{
       if (data.code==200){
         this.toastrService.success("Delivered..")
+        window.history.back()
+      }
+      else {
+        this.toastrService.error("UnSuccess")
       }
 
     },error => {
@@ -68,7 +75,6 @@ export class ProductOrdersViewComponent implements OnInit{
   }
 
   cancel() {
-
       window.history.back();
 
   }
@@ -77,11 +83,13 @@ export class ProductOrdersViewComponent implements OnInit{
     this.dialog.open(DeliveryManagementPaymentComponent,{
       data: {
         data:this.orderId,
-        type:"ORDER"
+        type:"ORDER",
+        total: this.order.total
       }
     });
     this.dialog.afterAllClosed.pipe().subscribe(result => {
       console.log('The dialog was closed',result);
+      window.history.back()
     });
   }
 }
